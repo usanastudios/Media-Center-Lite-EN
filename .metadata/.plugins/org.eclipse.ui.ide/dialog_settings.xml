@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<section name="Workbench">
+	<list key="installedFeatures">
+		<item value="com.adobe.flexbuilder.feature.standalone.nl1:4.0.0.235740"/>
+		<item value="com.adobe.flexbuilder.feature.standalone:4.0.0.235740"/>
+		<item value="org.eclipse.cvs:1.1.0.v20080603-7C79E8M9EI99m9c9S"/>
+		<item value="org.eclipse.help:1.0.0.v20080603-7r7xEHJEJkZu5nE6Q4Qrtvu6JZ9L"/>
+		<item value="org.eclipse.platform:3.4.0.v20080610-9I96EhtEm-T_5LxIsybz-3MdGZmOA3uwv7Ka_M"/>
+		<item value="org.eclipse.rcp:3.4.0.v20080324a-989JERhEk-jWnd5IY8K5tjxB"/>
+	</list>
+	<section name="ResourceNavigator">
+		<item key="ResourceWorkingSetFilter.STORE_WORKING_SET" value=""/>
+		<item key="ResourceViewer.STORE_SORT_TYPE" value="1"/>
+	</section>
+</section>
