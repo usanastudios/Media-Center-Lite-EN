@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<model xmlns="http://ns.adobe.com/Fiber/0.3">
+  <service name="Search_svc">
+    <annotation name="ActionScriptGeneration">
+      <item name="ServiceType">HTTPMultiService</item>
+      <item name="Package">services.search_svc</item>
+    </annotation>
+    <annotation name="ServiceTypeGroup">
+      <item name="ServiceBackendType">HTTPService</item>
+    </annotation>
+    <function name="searchV" return-type="Search_results_xml">
+      <annotation name="ActionScriptGeneration">
+        <item name="url">http://www.usana.com/Main/mediaCenter/</item>
+        <item name="method">GET</item>
+        <item name="SerializationFilter">com.adobe.serializers.xml.XMLSerializationFilter</item>
+      </annotation>
+      <annotation name="original signature">
+        <item name="returnType">opaque</item>
+      </annotation>
+      <annotation name="url group">
+        <item name="completeURL">http://www.usana.com/Main/mediaCenter/</item>
+      </annotation>
+      <annotation name="Properties">
+        <item name="xPath">/</item>
+      </annotation>
+      <annotation name="ValidProperties">
+        <item name="propertySpecifier">video</item>
+      </annotation>
+      <annotation name="analyze group">
+        <item name="analyzed">true</item>
+      </annotation>
+    </function>
+  </service>
+  <entity name="Video">
+    <annotation name="EntityProperties">
+      <item name="EntityOriginalName">Video</item>
+    </annotation>
+    <annotation name="service Group">
+      <item name="service">Search_svc</item>
+    </annotation>
+    <annotation name="ServerProperties">
+      <item name="IncludeRemoteClass">nonempty</item>
+    </annotation>
+    <annotation name="ActionScriptGeneration">
+      <item name="Package">services.search_svc</item>
+    </annotation>
+    <property name="id" type="string" required="true"/>
+    <property name="title" type="string" required="true"/>
+    <property name="shortdescription" type="string" required="true"/>
+    <property name="longdescription" type="string" required="true"/>
+  </entity>
+  <entity name="Search_results_xml">
+    <annotation name="EntityProperties">
+      <item name="EntityOriginalName">Mediacenter</item>
+    </annotation>
+    <annotation name="service Group">
+      <item name="service">Search_svc</item>
+    </annotation>
+    <annotation name="ServerProperties">
+      <item name="IncludeRemoteClass">nonempty</item>
+    </annotation>
+    <annotation name="searchV">
+      <item name="propertySpecifier">video</item>
+    </annotation>
+    <annotation name="ActionScriptGeneration">
+      <item name="Package">services.search_svc</item>
+    </annotation>
+    <property name="video" type="Video[]" required="true"/>
+  </entity>
+</model>

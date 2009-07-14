@@ -7,7 +7,7 @@
 			{
 				{play_button_overlay.visible = true}
 				removeEventListener(MouseEvent.MOUSE_OVER,image1_mouseOverHandler);
-			}
+			} 
 
 			protected function image1_mouseOutHandler(event:MouseEvent):void
 			{

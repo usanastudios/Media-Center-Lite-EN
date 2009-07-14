@@ -17,8 +17,8 @@ package components.views
 	
 	public class VideoPlayerBasicBaseClass extends Canvas
 	{
-		[Bindable]
-		private var selectedItems:ArrayCollection;
+		
+		[Bindable] private var selectedItems:ArrayCollection;
 		public var shareMenuData:XML;
 		public var share_menu_btn:Button;
 		public var video_title_txt:Text;
@@ -26,9 +26,8 @@ package components.views
 		public var video_long_description_txt:Text;
 		public var video_player:ModuleLoader;
 		public var video_tile_list:TileList;
-		public var video_list:XML;
-		[Bindable]
-       	public var currentModuleName:String;
+		[Bindable] public var current_video:XML;
+		[Bindable] public var currentModuleName:String;
 
 		/* =================================== */
 		/* = VARS FOR PAGINATION OF TILELIST = */
@@ -62,19 +61,19 @@ package components.views
 			
 			
 			//SET UP VARS IF RELOADING VIDEO PAGE WITHOUT SEARCH
-			if(FlexGlobals.topLevelApplication.current_video == null)
+			if(current_video == null)
 			{
-				FlexGlobals.topLevelApplication.current_video = video_tile_list.dataProvider.getItemAt(0);
+				current_video = video_tile_list.dataProvider.getItemAt(0);
 				FlexGlobals.topLevelApplication.current_search_term = "No Search Term";
 				
 			}
 			
 				//SET UP FIRST VIDEO THAT WILL PLAY
 				video_title_txt.text = FlexGlobals.topLevelApplication.current_video.title;
-				video_short_description_txt.text = FlexGlobals.topLevelApplication.current_video.shortdescription;
-				video_long_description_txt.htmlText = FlexGlobals.topLevelApplication.current_video.longdescription;
+				video_short_description_txt.text = current_video.shortdescription;
+				video_long_description_txt.htmlText = current_video.longdescription;
 				results_for_txt.text = "Results For \"" + FlexGlobals.topLevelApplication.current_search_term +"\"";
-				video_player.url="modules/video_player/VideoPlayer.swf?video_id={FlexGlobals.topLevelApplication.current_video.@id}";
+				video_player.url="modules/video_player/VideoPlayer.swf?video_id={current_video.@id}";
 			    
 		}
 		 
