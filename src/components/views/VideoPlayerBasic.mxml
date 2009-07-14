@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="utf-8"?>
+<views:VideoPlayerBasicBaseClass xmlns:mx="http://www.adobe.com/2006/mxml" xmlns:views="components.views.*" creationComplete="basic_video_init()" xmlns:s="library://ns.adobe.com/flex/spark">
+
+ <mx:Script>
+        <![CDATA[
+ 		import mx.core.FlexGlobals;
+        ]]> 
+    </mx:Script>
+	
+	 <!-- Define the menu data. -->
+    <mx:XML format="e4x" id="shareMenuData">
+        <root>
+           <menuitem label="Email"/>
+           <menuitem label="Embed"/>
+           <menuitem label="Download"/>
+        </root>
+    </mx:XML>
+
+
+<s:VGroup>
+	<s:HGroup>
+		<mx:ModuleLoader id="video_player" url="modules/video_player/VideoPlayer.swf?video_id={FlexGlobals.topLevelApplication.current_video.@id}" />
+		<s:VGroup>
+			<mx:Text id="video_title_txt" width="100%" text="Video Title Sample" styleName="videoTitle"/>
+			<mx:Text id="video_short_description_txt" width="100%" text="Video Sub Title Sample" styleName="videoSubTitle"/>
+			<s:Button id="share_menu_btn" skinClass="components.skins.ShareMenuSkin" buttonMode="true" />
+			<mx:Text id="video_long_description_txt" width="100%" text="Video Description Sample" styleName="videoSubTitle"/>
+		</s:VGroup>
+	</s:HGroup> 
+	
+	<!-- ==================== -->
+	<!-- = VIDEO THUMBNAILS = -->
+	<!-- ==================== -->
+	<s:HGroup>
+		<mx:Text id="results_for_txt" text="Results For "  styleName="resultsFor"/>
+		<s:Button id="sort_btn" fontFamily="Arial" skinClass="components.skins.SortMenuSkin"/>
+		<s:Button id="previous_btn" click="getPreviousPage()" skinClass="components.skins.PreviousButtonSkin" buttonMode="true"/>
+		<s:Button id="next_btn" click="getNextPage()" skinClass="components.skins.NextButtonSkin" buttonMode="true"/>
+	</s:HGroup>
+<!-- 	<mx:TileList id="video_tile_list" dataProvider="{pagedDataProvider}" width="1000" 
+ 								itemRenderer="components.renderers.Thumbnail" buttonMode="true" 
+ 								rowCount="2" columnCount="5"
+ 								rowHeight="140" columnWidth="180"
+ 								paddingBottom="0"
+ 								click="showVideo(event);"
+								borderColor="#897665"
+								rollOverColor="#101010"
+								selectionColor="#101010"
+								backgroundColor="#101010"
+								verticalScrollPolicy="off"
+								horizontalScrollPolicy="off">
+			
+     </mx:TileList>-->
+     
+     <s:List id="list" dataProvider="{pagedDataProvider}" 
+            itemRenderer="components.renderers.Thumbnail"
+            horizontalCenter="0"
+            verticalCenter="0"
+            width="1000"
+           height="300"
+            click="showVideo(event);"
+            contentBackgroundColor="#101010"
+          >
+        <s:layout>
+            <s:TileLayout 
+            	    rowHeight="140"
+            	    columnWidth="180"
+                    horizontalGap="0"
+                    verticalGap="0" />
+        </s:layout>
+        
+    </s:List>
+
+</s:VGroup>	
+</views:VideoPlayerBasicBaseClass>

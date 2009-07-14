@@ -1,0 +1,62 @@
+/* CSS file */
+@namespace s "library://ns.adobe.com/flex/spark";
+@namespace mx "library://ns.adobe.com/flex/halo";
+
+@font-face
+{
+	fontFamily: Helvetica;
+	fontWeight: normal;
+	fontStyle: normal;
+	src: local("Helvetica");
+}
+
+global
+{
+	baseColor: #010100;
+	contentBackgroundColor: #FEF9F9;
+}
+s|TextInput.searchTextField
+{
+	fontFamily: Helvetica;
+	paddingLeft: 15;
+	paddingTop: 8;
+	focusAlpha: .25;
+	fontSize: 12;
+	color: #FBFCFC;
+}
+mx|Menu.prospectMenu1
+{
+	
+	content-background-color: #4A4A4A;
+	rollOverColor: #4D6D84;
+	textRollOverColor: #FFFFFF;
+	selectionColor: #4D6D84;
+	color: #FAFBFB;
+	fontFamily: Helvetica;
+	fontSize: 12;
+	borderStyle: none;
+	openDuration: 0;
+	verticalScrollBarStyleName: menuVerticalScrollBar;
+}
+
+
+mx|Text.videoTitle
+{
+	fontFamily: Helvetica;
+	fontSize: 24;
+	fontWeight: bold;
+	color: #F9FBFC;
+}
+
+mx|Text.videoSubTitle
+{
+	color: #7FB1D1;
+}
+
+
+mx|Text.resultsFor{
+	fontFamily: Helvetica;
+	font-size:20;
+	color:#FFFFFF;
+}
+

@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<views:MainBaseClass xmlns:fx="http://ns.adobe.com/mxml/2009" xmlns:s="library://ns.adobe.com/flex/spark" xmlns:mx="library://ns.adobe.com/flex/halo" xmlns:views="components.views.*" minWidth="1000" minHeight="1185" width="1000" height="1185" backgroundColor="0x101010" creationComplete="initMainApp()">
+	<fx:Style source="main.css"/>
+	
+	 <!-- SEARCH RESULTS TEST DATA -->
+    <fx:Declarations>
+    		<fx:XML id="video_list" format="e4x" source="../bin-debug/search_results.xml"></fx:XML>
+ 	</fx:Declarations>
+	
+	<!-- ================== -->
+	<!-- = HEADER SECTION = -->
+	<!-- ================== -->
+	<mx:Image x="-2" y="-2" source="assets/images/header.png"/>
+	<s:Button x="329" y="0" skinClass="components.skins.ProspectMenu1Skin" buttonMode="true" id="prospectMenu1_btn"/>
+	<s:Button x="561" y="0" label="Button" id="mostViewed_btn" skinClass="components.skins.MostViewedSkin" buttonMode="true"/>
+	<s:Button x="670" y="-1" label="Button" id="mostRecent_btn" skinClass="components.skins.MostRecentSkin" buttonMode="true"/>
+	<s:TextInput x="788" y="17" id="search_txt" styleName="searchTextField" skinClass="components.skins.SearchFieldSkin"/>
+	<s:Button x="938" y="19" label="Button" id="search_btn" skinClass="components.skins.SearchButtonSkin" buttonMode="true"/>
+	
+	
+	
+	<mx:ViewStack width="1000" id="main_view_stack" right="0" left="0" bottom="184.25" top="66.75" historyManagementEnabled="true" resizeToContent="true">
+		
+		<!-- ================ -->
+		<!-- = LANDING PAGE = -->
+		<!-- ================ -->
+		<views:LandingPage  width="1000" height="100%" left="0" right="0" />
+			
+		
+		
+		<!-- ===================== -->
+		<!-- = VIDEO PLAYER PAGE = -->
+		<!-- ===================== -->
+		 <views:VideoPlayerBasic id="video_player_basic_view" width="100%" height="100%"	left="0" right="0" /> 
+	
+
+	</mx:ViewStack>
+	
+	 
+</views:MainBaseClass>

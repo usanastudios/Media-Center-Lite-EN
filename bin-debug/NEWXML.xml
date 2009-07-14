@@ -1,0 +1,134 @@
+<?xml version="1.0" encoding="utf-8"?>    
+<gallery xmlns:media="http://search.yahoo.com/mrss/"> 
+	<settings> 
+
+	<!-- <mediaFolder type="large" media="video">video/</mediaFolder> 
+
+	<mediaFolder type="thumbnail" media="video">video/thumbs/</mediaFolder> 
+
+	<mediaFolder type="large" media="swf">swf/</mediaFolder> 
+
+	<mediaFolder type="thumbnail" media="swf">swf/thumbs/</mediaFolder>  -->
+
+	<mediaFolder type="large" media="image">media/File/mediaCenter/</mediaFolder> 
+
+	<mediaFolder type="thumbnail" media="image">http://www.usana.com/media/File/mediaCenter/thumbnails/</mediaFolder> 
+	</settings> 
+	
+	
+	<!-- ================================================================ -->
+	<!-- = BELOW ARE THE ITEMS WE WILL NEED TO GENERATE FROM THE SERVER = -->
+	<!-- ================================================================ -->
+	<item>                                           
+	<media:content url="ven001.jpg" type="image/jpeg" /> 
+	</item>                                          
+                                                     
+	<item>                                           
+	<media:content url="ven002.jpg" type="image/jpeg" /> 
+	</item>                                          
+                                                     
+	<item>                                           
+	<media:content url="ven003.jpg" type="image/jpeg" /> 
+	</item>                                          
+                                                     
+	<item>                                           
+	<media:content url="ven004.jpg" type="image/jpeg" /> 
+	</item>                                          
+                                                     
+	<item>                                           
+	<media:content url="ven005.jpg" type="image/jpeg" /> 
+	</item>                                          
+                                                     
+	<item>                                           
+	<media:content url="ven006.jpg" type="image/jpeg" /> 
+	</item>                                          
+                                                     
+	<item>                                           
+	<media:content url="ven007.jpg" type="image/jpeg" /> 
+	</item>                                          
+                                                     
+	<item>                                           
+	<media:content url="ven008.jpg" type="image/jpeg" /> 
+	</item>                                          
+                                                     
+	<item>                                           
+	<media:content url="ven009.jpg" type="image/jpeg" /> 
+	</item>                                          
+                                                     
+	<item>                                           
+	<media:content url="ven010.jpg" type="image/jpeg" /> 
+	</item>                                          
+                                                     
+	<item>                                           
+	<media:content url="ven011.jpg" type="image/jpeg" /> 
+	</item>                                          
+                                                     
+	<item>                                           
+	<media:content url="ven012.jpg" type="image/jpeg" /> 
+	</item>                                          
+                                                     
+	<item>                                           
+	<media:content url="ven013.jpg" type="image/jpeg" /> 
+	</item>                                          
+                                                     
+	<item>                                           
+	<media:content url="ven014.jpg" type="image/jpeg" /> 
+	</item>                                          
+                                                     
+	<item>                                           
+	<media:content url="ven015.jpg" type="image/jpeg" /> 
+	</item> 	                                     
+                                                     
+	<item>                                           
+	<media:content url="ven015.jpg" type="image/jpeg" /> 
+	</item> 	                                     
+                                                     
+	<item>                                           
+	<media:content url="ven015.jpg" type="image/jpeg" /> 
+	</item> 	                                     
+                                                     
+	<item>                                           
+	<media:content url="ven015.jpg" type="image/jpeg" /> 
+	</item> 	                                     
+                                                     
+	<item>                                           
+	<media:content url="ven015.jpg" type="image/jpeg" /> 
+	</item> 	                                     
+                                                     
+	<item>                                           
+	<media:content url="ven015.jpg" type="image/jpeg" /> 
+	</item> 	                                     
+                                                     
+	<item>                                           
+	<media:content url="ven015.jpg" type="image/jpeg" /> 
+	</item> 	                                     
+                                                     
+	<item>                                           
+	<media:content url="ven015.jpg" type="image/jpeg" /> 
+	</item> 	                                     
+                                                     
+	<item>                                           
+	<media:content url="ven015.jpg" type="image/jpeg" /> 
+	</item> 	                                     
+                                                     
+	<item>                                           
+	<media:content url="ven015.jpg" type="image/jpeg" /> 
+	</item> 	                                     
+                                                     
+	<item>                                           
+	<media:content url="ven015.jpg" type="image/jpeg" /> 
+	</item> 	                                     
+                                                     
+	<item>                                           
+	<media:content url="ven015.jpg" type="image/jpeg" /> 
+	</item> 	                                     
+                                                     
+	<item>                                           
+	<media:content url="ven015.jpg" type="image/jpeg" /> 
+	</item> 	                                     
+	                                                 
+	
+	
+	
+	
+</gallery> 

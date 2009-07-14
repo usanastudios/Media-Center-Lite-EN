@@ -1,0 +1,100 @@
+/* videoPlayer CSS file */
+.controlBarBackground {
+	backgroundImage: Embed(source="modules/video_player/skins/VideoPlayer/vControlBack.png");
+	cornerRadius: 0px;
+	horizontalGap: 0px;
+	borderStyle:none;
+
+}
+
+.timer {
+fontSize: 8px;
+color: #ffffff;	
+}
+
+.vpPlayBtn {
+	
+	  upSkin: Embed(
+      source="modules/video_player/skins/VideoPlayer/playBtn.png");
+      
+      disabledSkin: Embed(
+      source="modules/video_player//skins/VideoPlayer/playBtn_disabled.png");
+      
+      downSkin: Embed(
+      source="modules/video_player/skins/VideoPlayer/playBtn.png");
+      
+      overSkin: Embed(
+      source="modules/video_player/skins/VideoPlayer/playBtn_over.png");
+	
+}
+
+.vpPauseBtn {
+	
+	  upSkin: Embed(
+      source="modules/video_player/skins/VideoPlayer/pauseBtn.png");
+      
+      disabledSkin: Embed(
+      source="modules/video_player/skins/VideoPlayer/pauseBtn_disabled.png");
+      
+      downSkin: Embed(
+      source="modules/video_player/skins/VideoPlayer/pauseBtn.png");
+      
+      overSkin: Embed(
+      source="modules/video_player/skins/VideoPlayer/pauseBtn_over.png");
+	
+}
+
+.fsBtn {
+	
+	  upSkin: Embed(
+      source="modules/video_player/skins/VideoPlayer/fsBtn.png");
+      
+      disabledSkin: Embed(
+      source="modules/video_player/skins/VideoPlayer/fsBtn_disabled.png");
+      
+      downSkin: Embed(
+      source="modules/video_player/skins/VideoPlayer/fsBtn.png");
+      
+      overSkin: Embed(
+      source="modules/video_player/skins/VideoPlayer/fsBtn_over.png");
+	
+}
+
+.ccBtn {
+	
+	  upSkin: Embed(
+      source="modules/video_player/skins/VideoPlayer/ccBtn.png");
+      
+      disabledSkin: Embed(
+      source="modules/video_player/skins/VideoPlayer/ccBtn_disabled.png");
+      
+      downSkin: Embed(
+      source="modules/video_player/skins/VideoPlayer/ccBtn.png");
+      
+      overSkin: Embed(
+      source="modules/video_player/skins/VideoPlayer/ccBtn_over.png");
+	
+}
+
+.ccBtnOn {
+	
+	  upSkin: Embed(
+      source="modules/video_player/skins/VideoPlayer/ccBtn_on.png");
+      
+      disabledSkin: Embed(
+      source="modules/video_player/skins/VideoPlayer/ccBtn_on.png");
+      
+      downSkin: Embed(
+      source="modules/video_player/skins/VideoPlayer/ccBtn_on.png");
+      
+      overSkin: Embed(
+      source="modules/video_player/skins/VideoPlayer/ccBtn_on.png");
+	
+}
+
+.vpSlider {
+	
+	 thumbSkin: Embed(source="modules/video_player/skins/VideoPlayer/sliderThumb.png");
+
+	
+}
