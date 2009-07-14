@@ -5,7 +5,7 @@
 	 <!-- SEARCH RESULTS TEST DATA -->
     <fx:Declarations>
     		<!-- <fx:XML id="video_list" format="e4x" source="../bin-debug/search_results.xml"></fx:XML> -->
-    
+     
     <!-- Define the HTTP service -->
     <mx:HTTPService 
         id="search_svc"
@@ -18,7 +18,10 @@
 			<l>en</l>
 		</mx:request>
     </mx:HTTPService>
+    
+		
  	</fx:Declarations>
+	
 	
 	
 

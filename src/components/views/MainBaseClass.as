@@ -7,13 +7,15 @@
 package components.views
 {
 	import flash.events.MouseEvent;
+	
+	import mx.containers.ViewStack;
 	import mx.controls.Menu;
+	import mx.rpc.http.mxml.HTTPService;
+	import mx.validators.Validator;
+	
 	import spark.components.Application;
 	import spark.components.Button;
 	import spark.components.TextInput;
-	import mx.core.FlexGlobals;
-	import mx.containers.ViewStack;
-	import mx.rpc.http.mxml.HTTPService;
 	
 
 	public class MainBaseClass extends Application
@@ -34,6 +36,7 @@ package components.views
 		public var current_search_term:String;
 		public var search_svc:HTTPService;
 		public var video_player_basic_view:VideoPlayerBasic;
+		public var search_text_validator:Validator;
 		
 		
 		/* ====================== */
@@ -89,14 +92,19 @@ package components.views
 		public function search(event:MouseEvent):void
 		{	
 
-			
 			//SET CURRENT SEARCH TERM
 			current_search_term = search_txt.text;
 			
-			/*CALL THE WEB SERVICE*/
-			search_svc.send();
-			
-			
+			if(current_search_term.length == 0)
+			{
+				mx.controls.Alert.show("Please enter a search term.");
+			}
+			else
+			{
+				/*CALL THE WEB SERVICE*/
+				search_svc.send();
+			}
+					
 		}
 		
 		
@@ -126,7 +134,7 @@ package components.views
 		}
           
           
- 
+  
           
 	}
 }
