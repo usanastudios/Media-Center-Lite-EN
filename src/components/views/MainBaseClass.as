@@ -93,7 +93,9 @@ package components.views
 		{	
 
 			//SET CURRENT SEARCH TERM
+			current_search_term = '';
 			current_search_term = search_txt.text;
+			
 			
 			if(current_search_term.length == 0)
 			{
@@ -101,6 +103,11 @@ package components.views
 			}
 			else
 			{
+				
+				/*POP UP SEARCHING VIEW*/
+				main_view_stack.selectedIndex = 2;
+				
+				
 				/*CALL THE WEB SERVICE*/
 				search_svc.send();
 			}
@@ -113,9 +120,8 @@ package components.views
 		/* ================================================== */
 		public function searchResultHandler():void
 		{
-			//video_list = search_svc.lastResult as XML;
-			//mx.controls.Alert.show(video_list.video.length());
 			
+			/*SET THE VIDEO_LIST RESULTS*/
 			video_list = search_svc.lastResult as XML;
 			
 			if(video_list.video.length() > 0)
@@ -126,6 +132,7 @@ package components.views
 			else
 			{
 				mx.controls.Alert.show("No results found. Please try a different search term");
+				main_view_stack.selectedIndex = 0;
 			}
 		}
 
@@ -136,10 +143,7 @@ package components.views
 		public function get_recent_videos():void
 		{
 			video_list = search_svc.lastResult as XML;
-			//SET UP FIRST VIDEO THAT WILL PLAY
 			video_player_basic_view.current_video = video_list.video[0];
-		    //main_view_stack.selectedIndex = 1;
-			//mx.controls.Alert.show(video_player_basic_view.current_video.@id);
 			
 		}
           

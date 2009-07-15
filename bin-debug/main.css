@@ -62,4 +62,8 @@ mx|Text.resultsFor{
 	color:#FFFFFF;
 }
 
-
+mx|Text.searchingFor{
+	fontFamily: Helvetica;
+	font-size:24;
+	color:#FFFFFF;
+}
