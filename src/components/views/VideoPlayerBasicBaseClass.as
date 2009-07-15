@@ -1,11 +1,13 @@
 package components.views
 {
+	
 	import flash.events.MouseEvent;
 	
 	import modules.video_player.VideoPlayerInterface;
 	
 	import mx.collections.ArrayCollection;
 	import mx.containers.Canvas;
+	import mx.controls.Alert;
 	import mx.controls.Menu;
 	import mx.controls.Text;
 	import mx.controls.TileList;
@@ -13,14 +15,22 @@ package components.views
 	import mx.modules.ModuleLoader;
 	
 	import spark.components.Button;
-
 	
 	public class VideoPlayerBasicBaseClass extends Canvas
 	{
 		
+		/* ===================== */
+		/* = PRIVATE VARIABLES = */
+		/* ===================== */
 		[Bindable] private var selectedItems:ArrayCollection;
+		
+		/* ==================== */
+		/* = PUBLIC VARIABLES = */
+		/* ==================== */
 		public var shareMenuData:XML;
+		public var sortMenuData:XML;
 		public var share_menu_btn:Button;
+		public var sort_menu_btn:Button;
 		public var video_title_txt:Text;
 		public var video_short_description_txt:Text;
 		public var video_long_description_txt:Text;
@@ -50,7 +60,7 @@ package components.views
 			
 			/*EVENT LISTENERS*/
 			share_menu_btn.addEventListener(MouseEvent.CLICK,createAndShowShareMenu);
-			
+			sort_menu_btn.addEventListener(MouseEvent.CLICK,createAndShowSortMenu);
 			
 			/*SET UP PAGINATION*/
 			pagination_setup()
@@ -73,6 +83,8 @@ package components.views
 			    
 		}
 		 
+		
+	
 		
 		/* ===================== */
 		/* = SET UP PAGINATION = */
@@ -174,9 +186,9 @@ package components.views
 			   
 		
 		
-        /* ======================================== */
-        /* = Create and display the Menu control. = */
-        /* ======================================== */
+        /* ============================================== */
+        /* = Create and display the Share Menu control. = */
+        /* ============================================== */
         public function createAndShowShareMenu(event:MouseEvent):void {
 	        var shareMenu:Menu = Menu.createMenu(null, shareMenuData, false);
 	        shareMenu.labelField="@label";
@@ -185,5 +197,20 @@ package components.views
 	        shareMenu.rowHeight = 27;
 	        shareMenu.show(565, share_menu_btn.y + 97);
           }
+
+		/* ============================================= */
+        /* = Create and display the Sort Menu control. = */
+        /* ============================================= */
+        public function createAndShowSortMenu(event:MouseEvent):void {
+	        var sortMenu:Menu = Menu.createMenu(null, sortMenuData, false);
+	        sortMenu.labelField="@label";
+	        sortMenu.styleName="prospectMenu1";
+	        sortMenu.width = 160;
+	        sortMenu.rowHeight = 27;
+	        sortMenu.show(sort_menu_btn.x + 5, 460);
+          }
+       
+ 
+
 	}
 }

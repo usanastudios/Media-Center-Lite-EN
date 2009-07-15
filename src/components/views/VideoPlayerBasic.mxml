@@ -7,7 +7,7 @@
         ]]> 
     </mx:Script>
 	
-	 <!-- Define the menu data. -->
+	 <!-- Define the share menu data. -->
     <mx:XML format="e4x" id="shareMenuData">
         <root>
            <menuitem label="Email"/>
@@ -15,6 +15,15 @@
            <menuitem label="Download"/>
         </root> 
     </mx:XML>
+
+	 <!-- Define the sort menu data. -->
+    <mx:XML format="e4x" id="sortMenuData">
+        <root>
+           <menuitem label="Most Viewed"/>
+           <menuitem label="Most Recent"/>
+        </root> 
+    </mx:XML>
+	
 
 
 <s:VGroup>
@@ -33,7 +42,7 @@
 	<!-- ==================== -->
 	<s:HGroup>
 		<mx:Text id="results_for_txt" text="Results For "  styleName="resultsFor"/>
-		<s:Button id="sort_btn" fontFamily="Arial" skinClass="components.skins.SortMenuSkin"/>
+		<s:Button id="sort_menu_btn" fontFamily="Arial" skinClass="components.skins.SortMenuSkin" buttonMode="true"/>
 		<s:Button id="previous_btn" click="getPreviousPage()" skinClass="components.skins.PreviousButtonSkin" buttonMode="true"/>
 		<s:Button id="next_btn" click="getNextPage()" skinClass="components.skins.NextButtonSkin" buttonMode="true"/>
 	</s:HGroup>
