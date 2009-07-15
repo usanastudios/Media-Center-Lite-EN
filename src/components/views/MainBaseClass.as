@@ -59,7 +59,6 @@ package components.views
 			
 			/*DEFINE DATA FOR THE PROSPECT MENU*/
 			prospectMenuData = <root>
-	           <menuitem label=""/>
 	           <menuitem label="True Wealth"/> 
 	           <menuitem label="True Health" >
 	                <menuitem label="Skin Care"/>
@@ -82,6 +81,7 @@ package components.views
             prospectMenu1.labelField="@label";
             prospectMenu1.styleName="prospectMenu1";
             prospectMenu1.width = 220;
+            prospectMenu1.rowHeight = 27;
             prospectMenu1.show(340, 58);
           }
           

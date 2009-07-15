@@ -182,6 +182,7 @@ package components.views
 	        shareMenu.labelField="@label";
 	        shareMenu.styleName="prospectMenu1";
 	        shareMenu.width = 180;
+	        shareMenu.rowHeight = 27;
 	        shareMenu.show(565, share_menu_btn.y + 97);
           }
 	}
