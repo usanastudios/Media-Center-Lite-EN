@@ -4,7 +4,6 @@ package modules.preloader
 	import flash.events.Event;
 	import flash.events.ProgressEvent;
 	import flash.filters.DropShadowFilter;
-	
 	import mx.events.FlexEvent;
 	import mx.preloaders.DownloadProgressBar;
 

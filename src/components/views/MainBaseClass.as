@@ -9,6 +9,7 @@ package components.views
 	import flash.events.MouseEvent;
 	
 	import mx.containers.ViewStack;
+	import mx.controls.Alert;
 	import mx.controls.Menu;
 	import mx.rpc.http.mxml.HTTPService;
 	import mx.validators.Validator;
@@ -16,7 +17,6 @@ package components.views
 	import spark.components.Application;
 	import spark.components.Button;
 	import spark.components.TextInput;
-	
 
 	public class MainBaseClass extends Application
 	{
@@ -113,10 +113,20 @@ package components.views
 		/* ================================================== */
 		public function searchResultHandler():void
 		{
+			//video_list = search_svc.lastResult as XML;
+			//mx.controls.Alert.show(video_list.video.length());
+			
 			video_list = search_svc.lastResult as XML;
-			main_view_stack.selectedIndex = 1;
-			//mx.controls.Alert.show(video_list.video[0].toString());
-			video_player_basic_view.current_video = video_list.video[0];
+			
+			if(video_list.video.length() > 0)
+			{			
+				video_player_basic_view.current_video = video_list.video[0];
+				main_view_stack.selectedIndex = 1;
+			}
+			else
+			{
+				mx.controls.Alert.show("No results found. Please try a different search term");
+			}
 		}
 
 		

@@ -12,20 +12,20 @@
         url="http://www.usana.com/Main/mediaCenter/searchV"
         resultFormat="e4x"
         result="searchResultHandler()"
-        fault="mx.controls.Alert.show(event.fault.message)">
+        fault="mx.controls.Alert.show(event.fault.message)" useProxy="false" >
     	<mx:request>
 			<q>{search_txt.text}</q>
 			<l>en</l>
 		</mx:request>
     </mx:HTTPService>
     
-		
+		 
  	</fx:Declarations>
 	
 	
 	
 
-    
+     
 	
 	<!-- ================== -->
 	<!-- = HEADER SECTION = -->

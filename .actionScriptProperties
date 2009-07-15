@@ -5,6 +5,8 @@
     <libraryPath defaultLinkType="0">
       <libraryPathEntry kind="4" path=""/>
       <libraryPathEntry kind="1" linkType="1" path="libs"/>
+      <libraryPathEntry kind="1" linkType="1" path="${DCD_LIB_LOCATION}"/>
+      <libraryPathEntry kind="1" linkType="1" path="${DCD_LOCALE_LOCATION}"/>
     </libraryPath>
     <sourceAttachmentPath/>
   </compiler>
@@ -13,6 +15,7 @@
   </applications>
   <modules>
     <module application="src/main.mxml" destPath="modules/video_player/VideoPlayer.swf" optimize="true" sourcePath="src/modules/video_player/VideoPlayer.mxml"/>
+    <module application="src/main.mxml" destPath="modules/preloader/Pre.swf" optimize="true" sourcePath="src/modules/preloader/Pre.as"/>
   </modules>
   <buildCSSFiles/>
 </actionScriptProperties>

@@ -32,14 +32,10 @@ package components.views
 		/* =================================== */
 		/* = VARS FOR PAGINATION OF TILELIST = */
 		/* =================================== */
-		[Bindable]
-		public var search_results_dp:ArrayCollection = new ArrayCollection();
-		[Bindable]
-		public var pagedDataProvider:ArrayCollection;
-		[Bindable]
-		private var currentPage:int=1;
-		[Bindable]
-		private var pageCount:int=0;
+		[Bindable] public var search_results_dp:ArrayCollection = new ArrayCollection();
+		[Bindable] public var pagedDataProvider:ArrayCollection;
+		[Bindable] private var currentPage:int=1;
+		[Bindable] private var pageCount:int=0;
 		private var PERPAGE:int=10;
 		public var next_btn:Button;
 		public var previous_btn:Button;
@@ -69,7 +65,7 @@ package components.views
 			}
 			
 				//SET UP FIRST VIDEO THAT WILL PLAY
-				video_title_txt.text = FlexGlobals.topLevelApplication.current_video.title;
+				video_title_txt.text = current_video.title;
 				video_short_description_txt.text = current_video.shortdescription;
 				video_long_description_txt.htmlText = current_video.longdescription;
 				results_for_txt.text = "Results For \"" + FlexGlobals.topLevelApplication.current_search_term +"\"";
@@ -157,7 +153,7 @@ package components.views
 		public function showVideo(evt:MouseEvent):void {
 			
 			//SET CURRENT VIDEO BASED ON CLICKED THUMBNAIL
-			FlexGlobals.topLevelApplication.current_video = evt.currentTarget.selectedItem;
+			current_video = evt.currentTarget.selectedItem;
 	 		// Cast the ModuleLoader's child to the interface.
             // This child is an instance of the module.
             // We can now call methods on that instance.
@@ -165,10 +161,10 @@ package components.views
             if (video_player.child != null) {                    
                 // Call setters in the module to adjust its
                 // appearance when it loads.
-               vpchild.setVideo(FlexGlobals.topLevelApplication.current_video.@id);
-			   video_title_txt.text = FlexGlobals.topLevelApplication.current_video.title;
-			   video_short_description_txt.text = FlexGlobals.topLevelApplication.current_video.shortdescription;
-			   video_long_description_txt.htmlText = FlexGlobals.topLevelApplication.current_video.longdescription;
+               vpchild.setVideo(current_video.@id);
+			   video_title_txt.text = current_video.title;
+			   video_short_description_txt.text = current_video.shortdescription;
+			   video_long_description_txt.htmlText = current_video.longdescription;
             } else {                
                 trace("Uh oh. The video_player.child property is null");                 
             }
