@@ -1,3 +1,4 @@
-bin-debug/main.swf
-bin-debug/modules/video_player/VideoPlayer.swf
-Media-Center-Lite-Gumbo.tmproj
+/bin-debug/main.swf
+/bin-debug/modules/*
+/bin-debug/circlePreloader.swf
+
