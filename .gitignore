@@ -1,6 +1,6 @@
-bin-debug/main.swf
-bin-debug/modules/video_player/VideoPlayer.swf
-bin-debug/modules/preloader/Pre.swf
+/bin-debug/main.swf
+/bin-debug/modules/*
 Media-Center-Lite-Gumbo.tmproj
-src/main-config.xml
+/src/main-config.xml
+bin-debug/circlePreloader.swf
 

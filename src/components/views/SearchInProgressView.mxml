@@ -5,8 +5,10 @@
 			import mx.core.FlexGlobals;
 		]]>
 	</fx:Script>
-	
-	<mx:Text id="searching_for_txt" text="Searching For '{FlexGlobals.topLevelApplication.current_search_term}'" styleName="searchingFor"  horizontalCenter="0" verticalCenter="0"/>
-	
+	<s:VGroup horizontalCenter="5" verticalCenter="-150" horizontalAlign="center">
+		<mx:Text id="searching_for_txt" text="Searching For '{FlexGlobals.topLevelApplication.current_search_term}'" styleName="searchingFor"  horizontalCenter="0" verticalCenter="0"/>
+	</s:VGroup>
+	<mx:SWFLoader source="circlePreloader.swf"  x="27" y="31"/>
+
 
 </views:LandingPageBaseClass>
