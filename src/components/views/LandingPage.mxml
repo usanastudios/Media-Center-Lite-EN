@@ -5,7 +5,13 @@
 		<!-- = PROSPECT MENU = -->
 		<!-- ================= -->
 		<mx:Image x="123" y="33" source="assets/images/middle.png"/>
+<<<<<<< HEAD:src/components/views/LandingPage.mxml
 		<s:Button x="430" y="94" label="Button" id="prospectMenu2_btn" skinClass="components.skins.ProspectMenu2Skin" buttonMode="true" click="createAndShowProspectMenu2()"/>
+=======
+	
+		
+		<s:Button x="430" y="94" label="Button" id="prospectMenu2_btn" skinClass="components.skins.ProspectMenu2Skin" buttonMode="true"/>
+>>>>>>> bd3bc10b269fb22d5ef98352a34348bcb0bc3d57:src/components/views/LandingPage.mxml
 		
 		<!-- =========== -->
 		<!-- = 3D WALL = -->
