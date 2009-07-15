@@ -61,9 +61,12 @@
 	 		public function setVideo(id:String):void {
 	           VIDEO_URL = "http://usana.edgeboss.net/flash/usana/"+id+".flv?xmlvers=1";
 	           startPlayback();
-	           
-	            
 	        }
+	        
+		   //Pauses playback
+			public function pauseVideo():void{
+				_ns.pause();
+			} 
 			
 			
 			// Define functions
@@ -356,6 +359,11 @@
 					_isPaused = false;
 				
 			}
+			
+			
+			
+			
+			
    			// Handles play and pause
    			private function doPlayPause():void {
    				switch (_isPaused){

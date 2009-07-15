@@ -6,6 +6,7 @@ package modules.video_player
 	public interface VideoPlayerInterface extends IEventDispatcher {
 	
 		function setVideo(id:String):void;
+		function pauseVideo():void;
 //        function getModuleName():String;
  //       function setBackgroundColor(n:Number):void;
 	}

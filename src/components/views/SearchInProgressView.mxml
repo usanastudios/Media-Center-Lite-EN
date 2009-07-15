@@ -7,6 +7,6 @@
 	</fx:Script>
 	
 	<mx:Text id="searching_for_txt" text="Searching For '{FlexGlobals.topLevelApplication.current_search_term}'" styleName="searchingFor"  horizontalCenter="0" verticalCenter="0"/>
-
+	
 
 </views:LandingPageBaseClass>
