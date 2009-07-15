@@ -7,7 +7,8 @@
 package components.views
 {
 	import flash.events.MouseEvent;
-	
+	import modules.video_player.VideoPlayerInterface;
+	import components.views.VideoPlayerBasic;
 	import mx.containers.ViewStack;
 	import mx.controls.Alert;
 	import mx.controls.Menu;
@@ -31,13 +32,12 @@ package components.views
 		public var prospectMenu1_btn:Button;
 		public var prospectMenuData:XML;
 		public var search_btn:Button;
-		public var video_list:XML;
+		public var video_list:XML = new XML;
 		public var main_view_stack:ViewStack;
 		public var current_search_term:String;
 		public var search_svc:HTTPService;
 		public var video_player_basic_view:VideoPlayerBasic;
 		public var search_text_validator:Validator;
-		
 		
 		/* ====================== */
 		/* = BINDABLE VARIABLES = */
@@ -93,7 +93,9 @@ package components.views
 		{	
 
 			//SET CURRENT SEARCH TERM
+			current_search_term = '';
 			current_search_term = search_txt.text;
+			
 			
 			if(current_search_term.length == 0)
 			{
@@ -101,9 +103,29 @@ package components.views
 			}
 			else
 			{
+				
+				/*POP UP SEARCHING VIEW*/
+				main_view_stack.selectedIndex = 2;
+				
+				
+				
+				/*STOP VIDEO IF PLAYING*/
+				if (main_view_stack.selectedIndex == 1)
+				{
+					var vpchild:* = video_player_basic_view.video_player.child as VideoPlayerInterface;                
+		            if (video_player_basic_view.video_player.child != null) {                    
+		                // Call setters in the module to adjust its
+		                // appearance when it loads.
+		               vpchild.pausePlayback();
+		            } else {                
+		                trace("Uh oh. The video_player.child property is null");                 
+		            }
+				}
+				
+				
 				/*CALL THE WEB SERVICE*/
 				search_svc.send();
-			}
+			} 
 					
 		}
 		
@@ -113,12 +135,12 @@ package components.views
 		/* ================================================== */
 		public function searchResultHandler():void
 		{
-			//video_list = search_svc.lastResult as XML;
-			//mx.controls.Alert.show(video_list.video.length());
 			
+			
+			/*SET THE VIDEO_LIST RESULTS*/
 			video_list = search_svc.lastResult as XML;
-			
-			if(video_list.video.length() > 0)
+				
+			if ((video_list) && (video_list.video.length() > 0))
 			{			
 				video_player_basic_view.current_video = video_list.video[0];
 				main_view_stack.selectedIndex = 1;
@@ -126,6 +148,7 @@ package components.views
 			else
 			{
 				mx.controls.Alert.show("No results found. Please try a different search term");
+				main_view_stack.selectedIndex = 0;
 			}
 		}
 
@@ -136,10 +159,7 @@ package components.views
 		public function get_recent_videos():void
 		{
 			video_list = search_svc.lastResult as XML;
-			//SET UP FIRST VIDEO THAT WILL PLAY
 			video_player_basic_view.current_video = video_list.video[0];
-		    //main_view_stack.selectedIndex = 1;
-			//mx.controls.Alert.show(video_player_basic_view.current_video.@id);
 			
 		}
           

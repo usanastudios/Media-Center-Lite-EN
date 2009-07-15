@@ -29,7 +29,7 @@
 	</s:HGroup> 
 	
 	<!-- ==================== -->
-	<!-- = VIDEO THUMBNAILS = -->
+	<!-- = RESULTS AND PAGING = -->
 	<!-- ==================== -->
 	<s:HGroup>
 		<mx:Text id="results_for_txt" text="Results For "  styleName="resultsFor"/>
@@ -37,21 +37,11 @@
 		<s:Button id="previous_btn" click="getPreviousPage()" skinClass="components.skins.PreviousButtonSkin" buttonMode="true"/>
 		<s:Button id="next_btn" click="getNextPage()" skinClass="components.skins.NextButtonSkin" buttonMode="true"/>
 	</s:HGroup>
-<!-- 	<mx:TileList id="video_tile_list" dataProvider="{pagedDataProvider}" width="1000" 
- 								itemRenderer="components.renderers.Thumbnail" buttonMode="true" 
- 								rowCount="2" columnCount="5"
- 								rowHeight="140" columnWidth="180"
- 								paddingBottom="0"
- 								click="showVideo(event);"
-								borderColor="#897665"
-								rollOverColor="#101010"
-								selectionColor="#101010"
-								backgroundColor="#101010"
-								verticalScrollPolicy="off"
-								horizontalScrollPolicy="off">
-			
-     </mx:TileList>-->
-     
+
+
+	<!-- ======================================= -->
+	<!-- = TILE LIST CONTAINING THE THUMBNAILS = -->
+	<!-- ======================================= -->
      <s:List id="list" dataProvider="{pagedDataProvider}" 
             itemRenderer="components.renderers.Thumbnail"
             horizontalCenter="0"

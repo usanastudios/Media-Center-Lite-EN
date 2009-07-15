@@ -1,21 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <mx:Canvas xmlns:mx="http://www.adobe.com/2006/mxml" backgroundColor="#060606">
 
-	<mx:Script>
-		<![CDATA[
-			protected function image1_mouseOverHandler(event:MouseEvent):void
-			{
-				{play_button_overlay.visible = true}
-				removeEventListener(MouseEvent.MOUSE_OVER,image1_mouseOverHandler);
-			} 
-
-			protected function image1_mouseOutHandler(event:MouseEvent):void
-			{
-				{play_button_overlay.visible = false}
-			}
-
-		]]>
-	</mx:Script>
 
 		<mx:Image autoLoad="true" source="http://www.usana.com/media/File/mediaCenter/thumbnails/{data.@id}.jpg" buttonMode="true"/>
 		<mx:Image source="assets/images/thumb_overlay.png"  id="play_button_overlay" visible="false"/>

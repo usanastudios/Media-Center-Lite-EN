@@ -18,15 +18,15 @@ public class LandingPageBaseClass extends Canvas
 	
 	public function initLandingPage():void
 	{
-		/*EVENT LISTENERS*/
-		prospectMenu2_btn.addEventListener(MouseEvent.CLICK,createAndShowProspectMenu2);
+		
 	}
+	
 	
 	
 	/* =========================================== */
      /* =  CREATE AND DISPLAY THE MENU 2 CONTROL. = */
      /* =========================================== */
-     public function createAndShowProspectMenu2(event:MouseEvent):void {
+     public function createAndShowProspectMenu2():void {
          var prospectMenu2:Menu = Menu.createMenu(null, FlexGlobals.topLevelApplication.prospectMenuData, false);
          prospectMenu2.labelField="@label";
          prospectMenu2.styleName="prospectMenu1";
