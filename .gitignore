@@ -1,5 +1,6 @@
 bin-debug/main.swf
 bin-debug/modules/video_player/VideoPlayer.swf
+bin-debug/modules/preloader/Pre.swf
 Media-Center-Lite-Gumbo.tmproj
 src/main-config.xml
 
