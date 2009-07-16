@@ -85,9 +85,9 @@ package components.views
             var prospectMenu1:Menu = Menu.createMenu(null, prospectMenuData, false);
             prospectMenu1.labelField="@label";
             prospectMenu1.styleName="prospectMenu1";
-            prospectMenu1.width = 220;
+            prospectMenu1.width = 224;
             prospectMenu1.rowHeight = 27;
-            prospectMenu1.show(340, 58);
+            prospectMenu1.show(240, 60);
 			prospectMenu1.addEventListener(MenuEvent.ITEM_CLICK, prospectMenu1ClickHandler);
           }
           

@@ -23,20 +23,6 @@ global {
 	color: #aaaaaa;
 }
 
-Button {
-	themeColor: "haloSilver";
-}
-
-HSlider {
-	themeColor: "haloSilver";
-    dataTipOffset: 6;
-}
-
-
-ToolTip {
-	color: #ffffff;
-	backgroundColor: #333333;
-}
 
 .dataTip {
     backgroundColor: black;
