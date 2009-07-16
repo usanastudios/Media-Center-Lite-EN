@@ -164,22 +164,21 @@ package components.views
 		public function showVideo(evt:MouseEvent):void {
 			
 			//SET CURRENT VIDEO BASED ON CLICKED THUMBNAIL
-			FlexGlobals.topLevelApplication.current_video = evt.currentTarget.selectedItem;
 	 		// Cast the ModuleLoader's child to the interface.
             // This child is an instance of the module.
             // We can now call methods on that instance.
             var vpchild:* = video_player.child as VideoPlayerInterface;                
-            if (video_player.child != null) {                    
-                // Call setters in the module to adjust its
-                // appearance when it loads.
-               vpchild.setVideo(FlexGlobals.topLevelApplication.current_video.@id);
-			   video_title_txt.text = FlexGlobals.topLevelApplication.current_video.title;
-			   video_short_description_txt.text = FlexGlobals.topLevelApplication.current_video.shortdescription;
-			   video_long_description_txt.htmlText = FlexGlobals.topLevelApplication. current_video.longdescription;
-            } else {                
-                trace("Uh oh. The video_player.child property is null");                 
-            }
-           
+              if (video_player.child != null) {                    
+                  // Call setters in the module to adjust its
+                  // appearance when it loads.
+                vpchild.setVideo(evt.currentTarget.selectedItem.@id);
+  			   video_title_txt.text = evt.currentTarget.selectedItem.title;
+  			   video_short_description_txt.text = evt.currentTarget.selectedItem.shortdescription;
+  			   video_long_description_txt.htmlText = evt.currentTarget.selectedItem.longdescription;
+              } else {                
+                  trace("Uh oh. The video_player.child property is null");                 
+              }
+                                                        
 	
 		}
 			   

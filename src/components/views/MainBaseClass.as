@@ -41,7 +41,7 @@ package components.views
 		public var video_player_recommended_view:VideoPlayerRecommended;
 		public var search_text_validator:Validator;
 		public var current_search_message:String
-		[Bindable] public var current_video:XML;
+		public var current_video:XML;
 		
 		
 		/* ====================== */
