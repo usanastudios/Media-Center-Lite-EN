@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<views:VideoPlayerBasicBaseClass xmlns:mx="http://www.adobe.com/2006/mxml" xmlns:views="components.views.*" creationComplete="basic_video_init()" xmlns:s="library://ns.adobe.com/flex/spark">
+<views:VideoPlayerRecommendedBaseClass xmlns:mx="http://www.adobe.com/2006/mxml" xmlns:views="components.views.*" creationComplete="basic_video_init()" xmlns:s="library://ns.adobe.com/flex/spark">
  <mx:Script>
         <![CDATA[
  		import mx.core.FlexGlobals;
@@ -27,7 +27,7 @@
 
 <s:VGroup>
 	<s:HGroup>
-		<mx:ModuleLoader id="video_player" url="modules/video_player/VideoPlayer.swf?video_id={FlexGlobals.topLevelApplication.current_video.@id}" />
+		<mx:ModuleLoader id="video_player" url="modules/video_player/VideoPlayer.swf?video_id={current_video.@id}" />
 		<s:VGroup>
 			<mx:Text id="video_title_txt" width="100%" text="Video Title Sample" styleName="videoTitle"/>
 			<mx:Text id="video_short_description_txt" width="100%" text="Video Sub Title Sample" styleName="videoSubTitle"/>
@@ -46,28 +46,39 @@
 		<s:Button id="next_btn" click="getNextPage()" skinClass="components.skins.NextButtonSkin" buttonMode="true"/>
 	</s:HGroup>
 
+	
+ <mx:Tile direction="horizontal" borderStyle="inset" backgroundImage="assets/images/recommended.png" horizontalAlign="center"
+                horizontalGap="10" verticalGap="15"
+                paddingLeft="45" paddingTop="39" paddingBottom="39" paddingRight="10" width="1000">
+                <mx:Repeater id="rp" dataProvider="{pagedDataProvider}" count="5">
+               <mx:Image autoLoad="true" source="http://www.usana.com/media/File/mediaCenter/thumbnails/{rp.currentItem.@id}.jpg" buttonMode="true"/>
 
+                </mx:Repeater>
+            </mx:Tile>
+	
+    	
+		
 	<!-- ======================================= -->
 	<!-- = TILE LIST CONTAINING THE THUMBNAILS = -->
 	<!-- ======================================= -->
-     <s:List id="list" dataProvider="{pagedDataProvider}" 
-            itemRenderer="components.renderers.Thumbnail"
-            horizontalCenter="0"
-            verticalCenter="0"
-            width="1000"
-           height="300"
-            click="showVideo(event);"
-            contentBackgroundColor="0x101010"
-          >
-        <s:layout>
-            <s:TileLayout 
-            	    rowHeight="140"
-            	    columnWidth="180"
-                    horizontalGap="0"
-                    verticalGap="0" />
-        </s:layout>
-        
-    </s:List>
+     <!-- <s:List id="list" dataProvider="{pagedDataProvider}" 
+                itemRenderer="components.renderers.Thumbnail"
+                horizontalCenter="0"
+                verticalCenter="0"
+                width="1000"
+               height="300"
+                click="showVideo(event);"
+                contentBackgroundColor="#101010"
+              >
+            <s:layout>
+                <s:TileLayout 
+                	    rowHeight="140"
+                	    columnWidth="180"
+                        horizontalGap="0"
+                        verticalGap="0" />
+            </s:layout>
+            
+        </s:List> -->
 
 </s:VGroup>	
-</views:VideoPlayerBasicBaseClass>
+</views:VideoPlayerRecommendedBaseClass>

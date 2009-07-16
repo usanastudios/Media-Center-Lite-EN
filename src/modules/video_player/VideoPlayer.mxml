@@ -46,21 +46,18 @@
             [Bindable]
             private var video_id:String;
 			[BINDABLE]
-			public var VIDEO_URL:String = "http://usana.edgeboss.net/flash/usana/"+FlexGlobals.topLevelApplication.video_player_basic_view.current_video.@id+".flv?xmlvers=1";
+			public var VIDEO_URL:String = "http://usana.edgeboss.net/flash/usana/"+FlexGlobals.topLevelApplication.current_video.@id+".flv?xmlvers=1";
 			private const _CAPTION_URL_:String = "modules/video_player/xml/caption/sample_caption.xml";
 	
 			/* ================================================== */
 			/* = FUNCTION TO CHANGE VIDEO URL AND START PLAYBACK = */
 			/* ================================================== */
 	 		public function setVideo(id:String):void {
+				_ns.pause();
 	           VIDEO_URL = "http://usana.edgeboss.net/flash/usana/"+id+".flv?xmlvers=1";
 	           startPlayback();
 	        }
-	        
-		   //Pauses playback
-			public function pauseVideo():void{
-				_ns.pause();
-			} 
+	    
 			
 			
 			// Define functions
