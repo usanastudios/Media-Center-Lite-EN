@@ -16,7 +16,7 @@ package components.views
 	
 	import spark.components.Button;
 	
-	public class VideoPlayerBasicBaseClass extends Canvas
+	public class VideoPlayerRecommendedBaseClass extends Canvas
 	{
 		
 		/* ===================== */
