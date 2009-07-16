@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <s:Skin xmlns:s="library://ns.adobe.com/flex/spark" xmlns:fx="http://ns.adobe.com/mxml/2009" xmlns:d="http://ns.adobe.com/fxg/2008/dt" rollOverColor.over="#C71F1F">
 	<s:transitions>
-		<s:Transition fromState="up" toState="over" autoReverse="true">
-			<s:Parallel/>
+		<s:Transition fromState="*" toState="*" autoReverse="true">
+			<s:CrossFade target="{MostRecentBtnSkin}" duration="250" />
 		</s:Transition>
 	</s:transitions>
 	<s:states>
@@ -12,5 +12,12 @@
 		<s:State name="disabled"/>
 	</s:states>
 	<fx:Metadata>[HostComponent("spark.components.Button")]</fx:Metadata>
-	<s:BitmapImage source="@Embed('/assets/skins/most_recent_btn.png')" resizeMode="scale" d:userLabel="Shape 96"/>
+	<s:BitmapImage id="MostRecentBtnSkin"
+				   source.up="@Embed('/assets/skins/most_recent_btn.png')" 
+				   source.over="@Embed('/assets/skins/most_recent_btn_over.png')"
+				   source.down="@Embed('/assets/skins/most_recent_btn.png')"
+				   source.disabled="@Embed('/assets/skins/most_recent_btn_disabled.png')" 
+		 		   resizeMode="scale" 
+		 		   d:userLabel="Shape 96" 
+		 		   />
 </s:Skin>

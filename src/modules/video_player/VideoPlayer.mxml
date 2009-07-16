@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<mx:Module xmlns:mx="http://www.adobe.com/2006/mxml" layout="absolute" width="550" height="359" creationComplete="init()" clipContent="false" implements="modules.video_player.VideoPlayerInterface">
+<mx:Module xmlns:mx="http://www.adobe.com/2006/mxml" layout="absolute" width="544" height="356" creationComplete="init()" clipContent="false" implements="modules.video_player.VideoPlayerInterface">
 	<mx:Style source="modules/video_player/css/videoPlayer.css" />
 	<mx:Style source="modules/video_player/css/SampleCaptioning.css" />
 	<mx:Script>
@@ -45,15 +45,9 @@
 			private var _ccPositioned:Boolean;
             [Bindable]
             private var video_id:String;
-			
-
-			
-			//  4:3
-				[BINDABLE]
-			   	public var VIDEO_URL:String = "http://usana.edgeboss.net/flash/usana/"+FlexGlobals.topLevelApplication.video_player_basic_view.current_video.@id+".flv?xmlvers=1";
-			//  16:9 
-			//	private const VIDEO_URL:String = "http://usana.edgeboss.net/flash/usana/H.264/test.mp4?xmlvers=1";
-				private const _CAPTION_URL_:String = "modules/video_player/xml/caption/sample_caption.xml";
+			[BINDABLE]
+			public var VIDEO_URL:String = "http://usana.edgeboss.net/flash/usana/"+FlexGlobals.topLevelApplication.video_player_basic_view.current_video.@id+".flv?xmlvers=1";
+			private const _CAPTION_URL_:String = "modules/video_player/xml/caption/sample_caption.xml";
 	
 			/* ================================================== */
 			/* = FUNCTION TO CHANGE VIDEO URL AND START PLAYBACK = */
@@ -257,21 +251,21 @@
 				
 				//Alert.show(_video.width.toString() + "  :  " + _video.height.toString());
 				
-				// !!!!  For some reason the videos are showing as 320 x 240 in the metadata but they are really 550 x 309
+				// !!!!  For some reason the videos are showing as 320 x 240 in the metadata but they are really 544 x 306
 				
 				// Adjust the video dimensions on the stage if they do not match the metadata
 				if ((Number(e.data["width"]) != _video.width)  || (Number(e.data["height"]) != _video.height)) {
 					scaleVideo(Number(e.data["width"]),Number(e.data["height"]));
 				}
 			}
-			// Scales the video to fit into the 550x309 window while preserving aspect ratio.
+			// Scales the video to fit into the 544x306 window while preserving aspect ratio.
 			private function scaleVideo(w:Number,h:Number):void {
 				  if (w/h <= 4/3) {
-					_video.width = 309*w/h;
-					_video.height = 309;
+					_video.width = 306*w/h;
+					_video.height = 306;
 				} else {
-					_video.width = 550;
-					_video.height = 550*h/w;
+					_video.width = 544;
+					_video.height = 544*h/w;
 				}
 				_video.x = (_videoHolder.width-_video.width)/2;
 				_video.y = (_videoHolder.height-_video.height)/2;
@@ -301,7 +295,7 @@
 			// Attaches the video to the stage
 			private function addVideoToStage():void {
 				_videoHolder= new UIComponent();
-				_video = new Video(550,309);
+				_video = new Video(544,306);
 				_video.smoothing = true;
 				_video.visible = false;
 				_video.x = (_videoHolder.width-_video.width)/2;
@@ -558,12 +552,12 @@
 	    
 	    <!-- BEGIN VIDEO PLAYER-->
 	    
-		<mx:Canvas id="videoContainer" width="550" height="359" backgroundAlpha="0.09" backgroundColor="#000000" horizontalScrollPolicy="off" verticalScrollPolicy="off">
-			<mx:VBox x="0" y="0" height="359" verticalGap="0" width="550" horizontalScrollPolicy="off" verticalScrollPolicy="off" borderStyle="none" horizontalAlign="center" verticalAlign="middle">
-			  <mx:HBox width="550" height="309" id="videoWindow" borderStyle="none" verticalAlign="middle" horizontalAlign="center" backgroundColor="#000000"/>   	
+		<mx:Canvas id="videoContainer" width="544" height="359" backgroundAlpha="0.09" backgroundColor="#000000" horizontalScrollPolicy="off" verticalScrollPolicy="off">
+			<mx:VBox x="0" y="0" height="359" verticalGap="0" width="544" horizontalScrollPolicy="off" verticalScrollPolicy="off" borderStyle="none" horizontalAlign="center" verticalAlign="middle">
+			  <mx:HBox width="544" height="306" id="videoWindow" borderStyle="none" verticalAlign="middle" horizontalAlign="center" backgroundColor="#000000"/>   	
 			  	<mx:HBox width="{videoWindow.width}" height="50" verticalAlign="middle" styleName="controlBarBackground">
 			  	     <mx:Button id="bPlayPause" click="doPlayPause()" styleName="vpPlayBtn" buttonMode="true" useHandCursor="true"/>
-			  	     <mx:Spacer width="7" />
+			  	     <mx:Spacer width="5" />
 			  	     <mx:HSlider 
 			  	     	allowTrackClick="true"
 			  	     	buttonMode="true" 
@@ -577,9 +571,9 @@
 			  	     	dataTipFormatFunction="showScrubTime" 
 			  	     	thumbPress="toggleDragging(true)" 
 			  	     	thumbRelease="toggleDragging(false)" />
-			  	     <mx:Spacer width="5" />
+			  	     <mx:Spacer width="1" />
 			  	     <mx:Text id="timeDisplay" styleName="timer"  text="00:00/00:00"/>
-			  	     <mx:Spacer width="9" />
+			  	     <mx:Spacer width="25" />
 			  	     <mx:Button id="bFullscreen" click="switchToFullScreen()" enabled="false" styleName="fsBtn" buttonMode="true" useHandCursor="true"/>
 			  	     <mx:Button id="bClosedcaption" styleName="ccBtn" click="onClickCC(event)" buttonMode="true" useHandCursor="true"/>
 			  	     <mx:Spacer width="5" />
@@ -608,6 +602,6 @@
 		<!-- SHOW CC -->
 				
 		<mx:TextArea wordWrap="true" id="captionLabel" styleName="captionStyle" color="0xFFFFFF"
-		width="550" borderStyle="none" horizontalScrollPolicy="off" verticalScrollPolicy="off" visible="false"/>
+		width="544" borderStyle="none" horizontalScrollPolicy="off" verticalScrollPolicy="off" visible="false"/>
 
 </mx:Module>
