@@ -50,7 +50,7 @@
 			
 			//  4:3
 				[BINDABLE]
-			   	public var VIDEO_URL:String = "http://usana.edgeboss.net/flash/usana/"+FlexGlobals.topLevelApplication.video_player_basic_view.current_video.@id+".flv?xmlvers=1";
+			   	public var VIDEO_URL:String = "http://usana.edgeboss.net/flash/usana/"+FlexGlobals.topLevelApplication.current_video.@id+".flv?xmlvers=1";
 			//  16:9 
 			//	private const VIDEO_URL:String = "http://usana.edgeboss.net/flash/usana/H.264/test.mp4?xmlvers=1";
 				private const _CAPTION_URL_:String = "modules/video_player/xml/caption/sample_caption.xml";

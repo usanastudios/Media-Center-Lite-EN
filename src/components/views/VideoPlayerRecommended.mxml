@@ -46,28 +46,39 @@
 		<s:Button id="next_btn" click="getNextPage()" skinClass="components.skins.NextButtonSkin" buttonMode="true"/>
 	</s:HGroup>
 
+	
+ <mx:Tile direction="horizontal" borderStyle="inset" backgroundImage="assets/images/recommended.png" horizontalAlign="center"
+                horizontalGap="10" verticalGap="15"
+                paddingLeft="45" paddingTop="39" paddingBottom="39" paddingRight="10" width="1000">
+                <mx:Repeater id="rp" dataProvider="{pagedDataProvider}" count="5">
+               <mx:Image autoLoad="true" source="http://www.usana.com/media/File/mediaCenter/thumbnails/{rp.currentItem.@id}.jpg" buttonMode="true"/>
 
+                </mx:Repeater>
+            </mx:Tile>
+	
+    	
+		
 	<!-- ======================================= -->
 	<!-- = TILE LIST CONTAINING THE THUMBNAILS = -->
 	<!-- ======================================= -->
-     <s:List id="list" dataProvider="{pagedDataProvider}" 
-            itemRenderer="components.renderers.Thumbnail"
-            horizontalCenter="0"
-            verticalCenter="0"
-            width="1000"
-           height="300"
-            click="showVideo(event);"
-            contentBackgroundColor="#101010"
-          >
-        <s:layout>
-            <s:TileLayout 
-            	    rowHeight="140"
-            	    columnWidth="180"
-                    horizontalGap="0"
-                    verticalGap="0" />
-        </s:layout>
-        
-    </s:List>
+     <!-- <s:List id="list" dataProvider="{pagedDataProvider}" 
+                itemRenderer="components.renderers.Thumbnail"
+                horizontalCenter="0"
+                verticalCenter="0"
+                width="1000"
+               height="300"
+                click="showVideo(event);"
+                contentBackgroundColor="#101010"
+              >
+            <s:layout>
+                <s:TileLayout 
+                	    rowHeight="140"
+                	    columnWidth="180"
+                        horizontalGap="0"
+                        verticalGap="0" />
+            </s:layout>
+            
+        </s:List> -->
 
 </s:VGroup>	
 </views:VideoPlayerRecommendedBaseClass>
