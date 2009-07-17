@@ -1,5 +1,4 @@
 /bin-debug/main.swf
 /bin-debug/modules/*
-/bin-debug/modules/preloader/Pre.swf
 /bin-debug/circlePreloader.swf
-/bin-debug/modules/preloader/Pre.swf
+/bin-debug/modules/preloader/*
