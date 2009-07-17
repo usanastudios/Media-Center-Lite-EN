@@ -9,10 +9,9 @@
 			}
 		]]>
 	</fx:Script>
-	<s:VGroup horizontalCenter="5" verticalCenter="-150" horizontalAlign="center">
+	<s:VGroup horizontalCenter="5" verticalCenter="-550" horizontalAlign="center">
 		<mx:Text id="searching_for_txt" text="" styleName="searchingFor"  horizontalCenter="0" verticalCenter="0"/>
 	</s:VGroup>
-	<mx:SWFLoader source="circlePreloader.swf"  x="27" y="31"/>
-
+	<mx:SWFLoader source="circlePreloader.swf" x="0" y="-500"/>
 
 </views:LandingPageBaseClass>
