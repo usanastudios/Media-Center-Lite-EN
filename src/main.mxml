@@ -16,7 +16,18 @@
     
     <!-- Define the Recommended Search HTTP service -->
     <mx:HTTPService id="recommended_search_svc" url="http://www.usana.com/Main/mediaCenter/searchV" resultFormat="e4x" result="recommendedSearchResultHandler()" fault="mx.controls.Alert.show(event.fault.message)" >
-    </mx:HTTPService>
+    </mx:HTTPService>    
+
+	<!-- Define the Akamai HTTP service -->
+    <mx:HTTPService id="akamai_svc" url="https://secure.streamos.com/qos/qos-xml.php" resultFormat="e4x" result="akamaiResultHandler()" fault="mx.controls.Alert.show(event.fault.message)" >
+    	<mx:request>
+			<USERNAME>usana</USERNAME>
+			<PASSWORD>vision99</PASSWORD>
+			<OUTPUT>xml</OUTPUT>
+			<STARTDATE>2009-01-01</STARTDATE>
+			<ENDDATE>2009-07-17</ENDDATE>
+		</mx:request>
+	</mx:HTTPService>
  </fx:Declarations>
 	
 	

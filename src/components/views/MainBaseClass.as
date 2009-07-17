@@ -6,41 +6,44 @@
 
 package components.views
 {
+	import components.views.VideoPlayerBasic;
 	import flash.events.MouseEvent;
 	import modules.video_player.VideoPlayerInterface;
-	import components.views.VideoPlayerBasic;
+	import mx.collections.ArrayCollection;
 	import mx.containers.ViewStack;
 	import mx.controls.Alert;
 	import mx.controls.Menu;
+	import mx.events.MenuEvent;
 	import mx.rpc.http.mxml.HTTPService;
 	import mx.validators.Validator;
-	import mx.events.MenuEvent;
 	import spark.components.Application;
 	import spark.components.Button;
 	import spark.components.TextInput;
 
+
 	public class MainBaseClass extends Application
 	{
-		
-		/* ===================== */
-		/* = PRIVATE VARIABLES = */
-		/* ===================== */
 		
 		/* ==================== */
 		/* = PUBLIC VARIABLES = */
 		/* ==================== */
+		public var akamai_svc:HTTPService;
+		public var current_search_message:String
+		public var current_search_term:String;
+		public var current_video:XML;
+		public var main_view_stack:ViewStack;
+		public var mostRecent_btn:Button;
+		public var mostViewed_btn:Button;
 		public var prospectMenu1_btn:Button;
 		public var prospectMenuData:XML;
-		public var video_list:XML = new XML;
-		public var main_view_stack:ViewStack;
-		public var current_search_term:String;
-		public var search_svc:HTTPService;
 		public var recommended_search_svc:HTTPService;
+		public var search_svc:HTTPService;
+		public var search_text_validator:Validator;
+		public var video_list:XML = new XML;
 		public var video_player_basic_view:VideoPlayerBasic;
 		public var video_player_recommended_view:VideoPlayerRecommended;
-		public var search_text_validator:Validator;
-		public var current_search_message:String
-		public var current_video:XML;
+
+
 		
 		
 		/* ====================== */
@@ -60,6 +63,7 @@ package components.views
 			/*EVENT LISTENERS*/
 			prospectMenu1_btn.addEventListener(MouseEvent.CLICK,createAndShowProspectMenu1);
 			search_btn.addEventListener(MouseEvent.CLICK,search);
+			mostViewed_btn.addEventListener(MouseEvent.CLICK,get_most_viewed);
 			
 			
 			/*DEFINE DATA FOR THE PROSPECT MENU*/
@@ -276,8 +280,25 @@ package components.views
 			
 		}
         
-	
-          
+	/* =============================== */
+	/* = FUNCTION TO GET MOST VIEWED = */
+	/* =============================== */
+	private function get_most_viewed(event:MouseEvent):void
+	{
+		akamai_svc.send()
+	}
+	/* ====================================== */
+	/* = AKAMAI (MOST RECENT)RESULT HANDLER = */
+	/* ====================================== */
+	public function akamaiResultHandler():void
+	{
+			var clipentArray:ArrayCollection = new ArrayCollection();
+			// Convert XML to ArrayCollection
+          for each(var clip:XML in akamai_svc.lastResult.clips.clipent){
+              clipentArray.addItem(clip);
+          }
+		//mx.controls.Alert.show(clipentArray.toString());
+	}	
   
           
 	}
