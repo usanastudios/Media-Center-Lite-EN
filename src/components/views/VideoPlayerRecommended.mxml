@@ -54,7 +54,7 @@
        horizontalGap="10" verticalGap="15"
        paddingLeft="45" paddingTop="39" paddingBottom="39" paddingRight="10" width="1000">
        <mx:Repeater id="rp" dataProvider="{parentDocument.video_list.video}" count="5">
-      <mx:Image autoLoad="true" source="http://www.usana.com/media/File/mediaCenter/thumbnails/{rp.currentItem.@id}.jpg" buttonMode="true"/>
+      <mx:Image  autoLoad="true" automationName="{rp.currentIndex}" source="http://www.usana.com/media/File/mediaCenter/thumbnails/{rp.currentItem.@id}.jpg" buttonMode="true" click="showRecommendedVideo(event);"/>
 
        </mx:Repeater>
    </mx:Tile>

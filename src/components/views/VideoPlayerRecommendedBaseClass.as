@@ -34,7 +34,7 @@ package components.views
 		public var video_long_description_txt:Text;
 		public var video_player:ModuleLoader;
 		public var video_tile_list:TileList;
-		[Bindable] public var current_video:XML;
+		public var current_video:XML;
 		[Bindable] public var currentModuleName:String;
 
 		/* =================================== */
@@ -87,14 +87,14 @@ package components.views
 		 /* =========================== */
 			public function pauseVideo():void
 			{
-					var vpchild:* = video_player.child as VideoPlayerInterface;                
-		            if (video_player.child != null) {                    
-		                // Call setters in the module to adjust its
-		                // appearance when it loads.
-		               vpchild.setIsPausedVar(false); //should be opposite of desired state
-		            } else {                
-		                trace("Uh oh. The video_player.child property is null");                 
-		            }
+				var vpchild:* = video_player.child as VideoPlayerInterface;                
+	            if (video_player.child != null) {                    
+	                // Call setters in the module to adjust its
+	                // appearance when it loads.
+	               vpchild.setIsPausedVar(false); //should be opposite of desired state
+	            } else {                
+	                trace("Uh oh. The video_player.child property is null");                 
+	            }
 			}
 		
 		
@@ -182,6 +182,7 @@ package components.views
 		/* =================================== */
 		public function showVideo(evt:MouseEvent):void {
 			
+			
 			//SET CURRENT VIDEO BASED ON CLICKED THUMBNAIL
 			current_video = evt.currentTarget.selectedItem;
 	 		// Cast the ModuleLoader's child to the interface.
@@ -201,7 +202,40 @@ package components.views
            
 	
 		}
-			   
+			  
+			
+			
+	 	/* ========================================================== */
+		/* = FUNCTION TO SHOW SELECTED VIDEO FROM THE 5 RECOMMENDED = */
+		/* ========================================================== */
+		public function showRecommendedVideo(event:MouseEvent):void {
+			
+			pauseVideo();
+			
+			//WE ARE USING THE 'automationName' PROPERTY ON THE RECOMMENDED THUMBNAIL TO GET THE INDEX NUMBER BACK - KIND OF A HACK :)
+			//mx.controls.Alert.show(event.currentTarget.automationName.toString());
+			var thumbNailIndex:int = event.currentTarget.automationName;
+			
+			//SET CURRENT VIDEO BASED ON CLICKED THUMBNAIL
+			current_video = parentDocument.video_list.video[thumbNailIndex];
+	 		// Cast the ModuleLoader's child to the interface.
+            // This child is an instance of the module.
+            // We can now call methods on that instance.
+            var vpchild:* = video_player.child as VideoPlayerInterface;                
+             if (video_player.child != null) {                    
+                 // Call setters in the module to adjust its
+                 // appearance when it loads.
+                vpchild.setVideo(current_video.@id);
+ 			   video_title_txt.text = current_video.title;
+ 			   video_short_description_txt.text = current_video.shortdescription;
+ 			   video_long_description_txt.htmlText = current_video.longdescription;
+             } else {                
+                 trace("Uh oh. The video_player.child property is null");                 
+             }
+           
+	
+		}
+	 
 		
 		
         /* ============================================== */
