@@ -77,12 +77,23 @@ package components.views
 				video_short_description_txt.text = parentDocument.current_video.shortdescription;
 				video_long_description_txt.htmlText = parentDocument.current_video.longdescription;
 				results_for_txt.text = "Results For \"" + parentDocument.current_search_term +"\"";
-			//	video_player.url="modules/video_player/VideoPlayer.swf?video_id={current_video.@id}";
 			    
 		}
 		 
-		
-	
+		/* ========================== */
+		/* = FUNCTION TO STOP VIDEO = */
+		/* ========================== */
+		public function pauseVideo():void
+		{
+				var vpchild:* = video_player.child as VideoPlayerInterface;                
+	            if (video_player.child != null) {                    
+	                // Call setters in the module to adjust its
+	                // appearance when it loads.
+	               vpchild.setIsPausedVar(false); //should be opposite of desired state
+	            } else {                
+	                trace("Uh oh. The video_player.child property is null");                 
+	            }
+		}
 		
 		/* ===================== */
 		/* = SET UP PAGINATION = */
