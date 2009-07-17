@@ -58,7 +58,7 @@
             <s:TileLayout 
             	    rowHeight="140"
             	    columnWidth="180"
-                    horizontalGap="0"
+                    horizontalGap="20"
                     verticalGap="0" />
         </s:layout>
         
