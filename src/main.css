@@ -4,7 +4,7 @@
 
 @font-face
 {
-	fontFamily: Helvetica;
+	fontFamily: HelveticaEmbed;
 	fontWeight: normal;
 	fontStyle: normal;
 	src: local("Helvetica");
@@ -19,7 +19,7 @@ global
 }
 s|TextInput.searchTextField
 {
-	fontFamily: Helvetica;
+	fontFamily: HelveticaEmbed;
 	paddingLeft: 15;
 	paddingTop: 8;
 	focusAlpha: .25;
@@ -34,7 +34,7 @@ mx|Menu.prospectMenu1
 	textRollOverColor: #FFFFFF;
 	selectionColor: #4D6D84;
 	color: #FAFBFB;
-	fontFamily: Helvetica;
+	fontFamily: HelveticaEmbed;
 	fontSize: 12;
 	borderStyle: none;
 	openDuration: 0;
@@ -44,7 +44,7 @@ mx|Menu.prospectMenu1
 
 mx|Text.videoTitle
 {
-	fontFamily: Helvetica;
+	fontFamily: HelveticaEmbed;
 	fontSize: 24;
 	fontWeight: bold;
 	color: #F9FBFC;
@@ -57,13 +57,13 @@ mx|Text.videoSubTitle
 
 
 mx|Text.resultsFor{
-	fontFamily: Helvetica;
+	fontFamily: HelveticaEmbed;
 	font-size:20;
 	color:#FFFFFF;
 }
 
 mx|Text.searchingFor{
-	fontFamily: Helvetica;
+	fontFamily: HelveticaEmbed;
 	font-size:24;
 	color:#FFFFFF;
 }
