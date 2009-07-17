@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<views:VideoPlayerRecommendedBaseClass xmlns:mx="http://www.adobe.com/2006/mxml" xmlns:views="components.views.*" creationComplete="recommended_video_init()" xmlns:s="library://ns.adobe.com/flex/spark">
+<views:VideoPlayerRecommendedBaseClass  xmlns:mx="http://www.adobe.com/2006/mxml" xmlns:views="components.views.*" creationComplete="recommended_video_init()" xmlns:s="library://ns.adobe.com/flex/spark">
  <mx:Script>
         <![CDATA[
  		import mx.core.FlexGlobals;

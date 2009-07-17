@@ -33,7 +33,7 @@
 			private var _waitForSeek:Boolean;
 			private var _video:Video;
 			private var _videoHolder:UIComponent;
-			private var _bandwidthMeasured:Boolean;
+			private var _bandwidthMeasured:Boolean;  
 			private var _hasEnded:Boolean;
 			private var _videoSettings:Object;
 			private var _streamLength:Number;
