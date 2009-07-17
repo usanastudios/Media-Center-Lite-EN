@@ -31,7 +31,6 @@ package components.views
 		/* ==================== */
 		public var prospectMenu1_btn:Button;
 		public var prospectMenuData:XML;
-		public var search_btn:Button;
 		public var video_list:XML = new XML;
 		public var main_view_stack:ViewStack;
 		public var current_search_term:String;
@@ -48,6 +47,7 @@ package components.views
 		/* = BINDABLE VARIABLES = */
 		/* ====================== */
 		[Bindable]public var search_txt:TextInput;
+		[Bindable] public var search_btn:Button;
 		
 		
 		
