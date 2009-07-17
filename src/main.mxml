@@ -7,7 +7,7 @@
     		<!-- <fx:XML id="video_list" format="e4x" source="../bin-debug/search_results.xml"></fx:XML> -->
      
     <!-- Define the Basic Search HTTP service -->
-    <mx:HTTPService id="search_svc" url="http://www.usana.com/Main/mediaCenter/searchV" resultFormat="e4x" result="searchResultHandler()" fault="searchResultHandler()" >
+    <mx:HTTPService id="search_svc" url="http://www.usana.com/Main/mediaCenter/searchV" resultFormat="e4x" result="searchResultHandler()" fault="mx.controls.Alert.show(event.fault.message)" >
     	<mx:request>
 			<q>{search_txt.text}</q>
 			<l>en</l>
@@ -15,7 +15,7 @@
     </mx:HTTPService>
     
     <!-- Define the Recommended Search HTTP service -->
-    <mx:HTTPService id="recommended_search_svc" url="http://www.usana.com/Main/mediaCenter/searchV" resultFormat="e4x" result="recommendedSearchResultHandler()" fault="recommendedSearchResultHandler()" >
+    <mx:HTTPService id="recommended_search_svc" url="http://www.usana.com/Main/mediaCenter/searchV" resultFormat="e4x" result="recommendedSearchResultHandler()" fault="mx.controls.Alert.show(event.fault.message)" >
     </mx:HTTPService>
  </fx:Declarations>
 	

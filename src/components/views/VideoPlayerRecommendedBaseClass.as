@@ -56,6 +56,7 @@ package components.views
 		public function recommended_video_init():void
 		{
 			
+			
 			/*EVENT LISTENERS*/
 			share_menu_btn.addEventListener(MouseEvent.CLICK,createAndShowShareMenu);
 			sort_menu_btn.addEventListener(MouseEvent.CLICK,createAndShowSortMenu);
