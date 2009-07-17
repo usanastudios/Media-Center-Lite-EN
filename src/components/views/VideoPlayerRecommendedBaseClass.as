@@ -82,8 +82,22 @@ package components.views
 			    
 		}
 		 
+		 /* =========================== */
+		 /* = FUNCTION TO STOP VIDEO  = */
+		 /* =========================== */
+			public function pauseVideo():void
+			{
+					var vpchild:* = video_player.child as VideoPlayerInterface;                
+		            if (video_player.child != null) {                    
+		                // Call setters in the module to adjust its
+		                // appearance when it loads.
+		               vpchild.setIsPausedVar(false); //should be opposite of desired state
+		            } else {                
+		                trace("Uh oh. The video_player.child property is null");                 
+		            }
+			}
 		
-	
+		
 		
 		/* ===================== */
 		/* = SET UP PAGINATION = */

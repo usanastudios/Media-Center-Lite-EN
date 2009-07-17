@@ -58,6 +58,11 @@
 	        }
 	    
 			
+			public function setIsPausedVar(isPaused:Boolean):void{
+				_isPaused = isPaused;
+				doPlayPause();
+			}
+			
 			
 			// Define functions
 			private function init():void {

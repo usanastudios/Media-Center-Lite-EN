@@ -5,7 +5,9 @@ package modules.video_player
 	
 	public interface VideoPlayerInterface extends IEventDispatcher {
 	
+		function setIsPausedVar(isPaused:Boolean):void;
 		function setVideo(id:String):void;
+		
 	}
 		
 }

@@ -207,19 +207,18 @@ package components.views
 				/*POP UP SEARCHING VIEW*/
 				main_view_stack.selectedIndex = 2;
 				
-				/*STOP VIDEO IF PLAYING*/
-				if (main_view_stack.selectedIndex == 1)
-				{
+				/*SET NEW VIDEO */
+				if(video_player_basic_view.video_player){
 					var vpchild:* = video_player_basic_view.video_player.child as VideoPlayerInterface;                
 		            if (video_player_basic_view.video_player.child != null) {                    
 		                // Call setters in the module to adjust its
 		                // appearance when it loads.
-		               vpchild.pausePlayback();
+		              vpchild.setVideo(current_video.@id);
 		            } else {                
 		                trace("Uh oh. The video_player.child property is null");                 
 		            }
-				} 
-				
+				}
+			
 				
 				/*CALL THE WEB SERVICE*/
 				var params:Object = new Object;
@@ -244,6 +243,18 @@ package components.views
 			{			
 				current_video = video_list.video[0];
 				main_view_stack.selectedIndex = 3;
+			
+				/*SET NEW VIDEO */
+				if(video_player_recommended_view.video_player){
+					var vpchild:* = video_player_recommended_view.video_player.child as VideoPlayerInterface;                
+		            if (video_player_recommended_view.video_player.child != null) {                    
+		                // Call setters in the module to adjust its
+		                // appearance when it loads.
+		              vpchild.setVideo(current_video.@id);
+		            } else {                
+		                trace("Uh oh. The video_player.child property is null");                 
+		            }
+				}
 			}
 			else
 			{
@@ -264,7 +275,8 @@ package components.views
 			current_video = video_list.video[0];
 			
 		}
-          
+        
+	
           
   
           
