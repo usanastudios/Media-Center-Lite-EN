@@ -1,10 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
 <views:VideoPlayerBasicBaseClass xmlns:mx="http://www.adobe.com/2006/mxml" xmlns:views="components.views.*" creationComplete="basic_video_init()" xmlns:s="library://ns.adobe.com/flex/spark">
- <mx:Script>
-        <![CDATA[
- 		import mx.core.FlexGlobals;
-        ]]> 
-    </mx:Script>
 	
 	 <!-- Define the share menu data. -->
     <mx:XML format="e4x" id="shareMenuData">
@@ -27,7 +22,7 @@
 
 <s:VGroup>
 	<s:HGroup>
-		<mx:ModuleLoader id="video_player" url="modules/video_player/VideoPlayer.swf?video_id={FlexGlobals.topLevelApplication.current_video.@id}" />
+		<mx:ModuleLoader id="video_player" url="modules/video_player/VideoPlayer.swf?video_id={parentDocument.current_video.@id}" />
 		<s:VGroup>
 			<mx:Text id="video_title_txt" width="100%" text="Video Title Sample" styleName="videoTitle"/>
 			<mx:Text id="video_short_description_txt" width="100%" text="Video Sub Title Sample" styleName="videoSubTitle"/>

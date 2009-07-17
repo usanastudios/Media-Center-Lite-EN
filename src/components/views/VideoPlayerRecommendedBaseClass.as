@@ -11,9 +11,7 @@ package components.views
 	import mx.controls.Menu;
 	import mx.controls.Text;
 	import mx.controls.TileList;
-	import mx.core.FlexGlobals;
 	import mx.modules.ModuleLoader;
-	
 	import spark.components.Button;
 	
 	public class VideoPlayerRecommendedBaseClass extends Canvas
@@ -55,7 +53,7 @@ package components.views
 		/* ======================================== */
 		/* = INITIALIZE BASIC VIDEO PLAYER SCREEN = */
 		/* ======================================== */
-		public function basic_video_init():void
+		public function recommended_video_init():void
 		{
 			
 			/*EVENT LISTENERS*/
@@ -67,19 +65,19 @@ package components.views
 			
 			
 			//SET UP VARS IF RELOADING VIDEO PAGE WITHOUT SEARCH
-			if(FlexGlobals.topLevelApplication.current_video == null)
+			if(parentDocument.current_video == null)
 			{
-				FlexGlobals.topLevelApplication.current_video = video_tile_list.dataProvider.getItemAt(0);
-				FlexGlobals.topLevelApplication.current_search_term = "No Search Term";
+				parentDocument.current_video = video_tile_list.dataProvider.getItemAt(0);
+				parentDocument.current_search_term = "No Search Term";
 				
 			}
 			
 				//SET UP FIRST VIDEO THAT WILL PLAY
-				video_title_txt.text = FlexGlobals.topLevelApplication.current_video.title;
-				video_short_description_txt.text = FlexGlobals.topLevelApplication.current_video.shortdescription;
-				video_long_description_txt.htmlText = FlexGlobals.topLevelApplication.current_video.longdescription;
-				results_for_txt.text = "Results For \"" + FlexGlobals.topLevelApplication.current_search_term +"\"";
-				video_player.url="modules/video_player/VideoPlayer.swf?video_id={FlexGlobals.topLevelApplication.current_video.@id}";
+				video_title_txt.text = parentDocument.current_video.title;
+				video_short_description_txt.text = parentDocument.current_video.shortdescription;
+				video_long_description_txt.htmlText = parentDocument.current_video.longdescription;
+				results_for_txt.text = "Results For \"" + parentDocument.current_search_term +"\"";
+				video_player.url="modules/video_player/VideoPlayer.swf?video_id={parentDocument.current_video.@id}";
 			    
 		}
 		 
@@ -93,8 +91,13 @@ package components.views
 		{
 			 
 			// Convert XML to ArrayCollection
-              for each(var s:XML in FlexGlobals.topLevelApplication.video_list.video){
-                  search_results_dp.addItem(s);
+			  var ii:int = 0;
+              for each(var s:XML in parentDocument.video_list.video){
+				  if (ii > 5)
+				  {
+                  	search_results_dp.addItem(s);
+				  }	
+				  ii++
               }
 			
 	

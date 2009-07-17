@@ -4,7 +4,6 @@
 	<mx:Style source="modules/video_player/css/SampleCaptioning.css" />
 	<mx:Script>
 		<![CDATA[	
-			import mx.core.FlexGlobals;
 		
 			import mx.core.UIComponent;
 			import mx.events.SliderEvent;
@@ -46,7 +45,7 @@
             [Bindable]
             private var video_id:String;
 			[BINDABLE]
-			public var VIDEO_URL:String = "http://usana.edgeboss.net/flash/usana/"+FlexGlobals.topLevelApplication.current_video.@id+".flv?xmlvers=1";
+			public var VIDEO_URL:String = "http://usana.edgeboss.net/flash/usana/"+parentDocument.current_video.@id+".flv?xmlvers=1";
 			private const _CAPTION_URL_:String = "modules/video_player/xml/caption/sample_caption.xml";
 	
 			/* ================================================== */

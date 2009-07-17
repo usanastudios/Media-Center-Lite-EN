@@ -33,7 +33,7 @@
 	
 	
 	
-	<mx:ViewStack width="1000" id="main_view_stack" right="0" left="0" bottom="184.25" top="66.75" historyManagementEnabled="true" resizeToContent="true">
+	<mx:ViewStack width="1000" verticalScrollPolicy="on" id="main_view_stack" right="0" left="0" bottom="184.25" top="66.75" historyManagementEnabled="true" resizeToContent="true">
 		
 		<!-- ================ -->
 		<!-- = LANDING PAGE = -->
@@ -56,7 +56,7 @@
 		<!-- ================================= -->
 		<!-- = VIDEO PLAYER RECOMMENDED PAGE = -->
 		<!-- ================================= -->
-		 <views:VideoPlayerRecommended id="video_player_recommended_view" width="100%" height="100%"	left="0" right="0" /> 
+		 <views:VideoPlayerRecommended id="video_player_recommended_view" width="100%" 	left="0" right="0" /> 
 		
 
 	</mx:ViewStack>

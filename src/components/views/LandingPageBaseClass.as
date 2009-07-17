@@ -4,7 +4,6 @@ package components.views
 	import flash.events.MouseEvent;
 	import mx.containers.Canvas;
 	import mx.controls.Menu;
-	import mx.core.FlexGlobals;
 	import spark.components.Button;
 
 
@@ -27,7 +26,7 @@ public class LandingPageBaseClass extends Canvas
      /* =  CREATE AND DISPLAY THE MENU 2 CONTROL. = */
      /* =========================================== */
      public function createAndShowProspectMenu2():void {
-         var prospectMenu2:Menu = Menu.createMenu(null, FlexGlobals.topLevelApplication.prospectMenuData, false);
+         var prospectMenu2:Menu = Menu.createMenu(null, parentDocument.prospectMenuData, false);
          prospectMenu2.labelField="@label";
          prospectMenu2.styleName="prospectMenu1";
          prospectMenu2.width = 250;
