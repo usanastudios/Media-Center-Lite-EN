@@ -4,7 +4,9 @@ package components.views
 	import flash.events.MouseEvent;
 	import mx.containers.Canvas;
 	import mx.controls.Menu;
+	import mx.events.MenuEvent;
 	import spark.components.Button;
+
 
 
 public class LandingPageBaseClass extends Canvas
@@ -32,6 +34,8 @@ public class LandingPageBaseClass extends Canvas
          prospectMenu2.width = 250;
          prospectMenu2.rowHeight = 27;
          prospectMenu2.show(443, 195);
+		 prospectMenu2.addEventListener(MenuEvent.ITEM_CLICK, parentDocument.prospectMenu1ClickHandler);
+		
      }
     
 	
