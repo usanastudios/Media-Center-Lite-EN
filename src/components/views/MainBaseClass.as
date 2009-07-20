@@ -10,6 +10,8 @@ package components.views
 	import flash.events.MouseEvent;
 	import modules.video_player.VideoPlayerInterface;
 	import mx.collections.ArrayCollection;
+	import mx.collections.Sort;
+	import mx.collections.SortField;
 	import mx.containers.ViewStack;
 	import mx.controls.Alert;
 	import mx.controls.Menu;
@@ -19,6 +21,9 @@ package components.views
 	import spark.components.Application;
 	import spark.components.Button;
 	import spark.components.TextInput;
+    import mx.utils.ObjectUtil;
+
+
 
 
 	public class MainBaseClass extends Application
@@ -28,6 +33,8 @@ package components.views
 		/* = PUBLIC VARIABLES = */
 		/* ==================== */
 		public var akamai_svc:HTTPService;
+		public var all_videos_svc:HTTPService;
+		public var clipentArray:ArrayCollection = new ArrayCollection();
 		public var current_search_message:String
 		public var current_search_term:String;
 		public var current_video:XML;
@@ -42,6 +49,7 @@ package components.views
 		public var video_list:XML = new XML;
 		public var video_player_basic_view:VideoPlayerBasic;
 		public var video_player_recommended_view:VideoPlayerRecommended;
+
 
 
 		
@@ -285,21 +293,112 @@ package components.views
 	/* =============================== */
 	private function get_most_viewed(event:MouseEvent):void
 	{
+		/*POP UP SEARCHING VIEW*/
+		main_view_stack.selectedIndex = 2;
+		
+		/*SET CURRENT SEARCH TERM (FOR DISPLAY ON VIDEO PLAYER PAGE)*/
+		current_search_term = "Most Viewed";
+		
+		/*SEARCHING MESSAGE*/
+		current_search_message = "Getting The Most Viewed Videos";
+		
+		/*CALL SERVICE TO GET AKAMAI RESULTS*/
 		akamai_svc.send()
 	}
+	
+	
+	
 	/* ====================================== */
 	/* = AKAMAI (MOST RECENT)RESULT HANDLER = */
 	/* ====================================== */
 	public function akamaiResultHandler():void
 	{
-			var clipentArray:ArrayCollection = new ArrayCollection();
-			// Convert XML to ArrayCollection
-          for each(var clip:XML in akamai_svc.lastResult.clips.clipent){
+		  // Convert XML to ArrayCollection
+          for each(var clip:XML in akamai_svc.lastResult.clips.clipent)
+		  {
               clipentArray.addItem(clip);
           }
-		//mx.controls.Alert.show(clipentArray.toString());
+		
+		/*CALL TO GET ALL VIDEOS FROM USANA - WE COMPARE THEM IN THE RESULT HANDLER*/
+		all_videos_svc.send();
+		
 	}	
+	
+	
+	/* ================================= */
+	/* = ALL_VIDEOS_SVC RESULT HANDLER = */
+	/* ================================= */
+	public function allVideosResultHandler():void
+	{
+		// Convert XML to ArrayCollection
+		  var videoArray:ArrayCollection = new ArrayCollection();
+		  var finalArray:ArrayCollection = new ArrayCollection();
+          for each(var video:XML in all_videos_svc.lastResult.video)
+		  {
+              videoArray.addItem(video);
+          }
+		
+		
+		/*LOOP OVER THE AKAMAI DATA AND GET THE VIDEO INFO FOR EACH*/
+		for each (var clip:Object in clipentArray)
+		{
+			var indexOfVideo:int  = getItemIndexByProperty(videoArray,"@id",clip.url.substring(1,7));
+			if (indexOfVideo != -1)
+			{
+				finalArray.addItem({"streamhits":clip.streamhits,"id":videoArray[indexOfVideo].@id,"title":videoArray[indexOfVideo].title,"shortdescription":videoArray[indexOfVideo].shortdescription,"longdescription":videoArray[indexOfVideo].longdescription});
+			}
+			
+		/*BELOW WE SORT THE RESULTS DESCENDING BASED ON STREAMHITS*/
+		var dataSortField:SortField = new SortField();
+		dataSortField.name = "streamhits";
+		dataSortField.numeric = true;
+		dataSortField.descending = true;
+		var numericDataSort:Sort = new Sort();
+		numericDataSort.fields = [dataSortField];
+		finalArray.sort = numericDataSort;
+		finalArray.refresh();
+			
+		}
+		
+        
+		/*REBUILD THE XML*/
+		var xmlstr:String = "<mediacenter>";
+		for each (var finalVideo:Object in finalArray)
+		{
+			xmlstr += "<video id=\""+finalVideo.id+"\">\n";
+			xmlstr += "<title>"+finalVideo.title+"</title>\n"; 
+			xmlstr += "<shortdescription>"+finalVideo.shortdescription+"</shortdescription>\n"; 
+			//xmlstr += "<longdescription>"+finalVideo.longdescription+"</longdescription>\n"; 
+			xmlstr += "<streamhits>"+finalVideo.streamhits+"</streamhits>\n"; 
+			xmlstr += "</video>";
+		}
+		xmlstr += "</mediacenter>";
+		/*var finalXML:XML = new XML(xmlstr);*/
+		video_list = new XML(xmlstr);
+		current_video = video_list.children()[0];
+	    main_view_stack.selectedIndex = 1;
+		
+	}
   
+
+		/* ==================================================================== */
+		/* = SEARCH AN ARRAY COLLECTION FOR A PROPERTY ON AN OBJECT = */
+		/* ==================================================================== */
+		static public function getItemIndexByProperty(array:ArrayCollection, property:String, value:String):Number
+		{
+		   for (var i:Number = 0; i < array.length; i++)
+		   {
+		      var obj:Object = Object(array[i])
+		      if (obj[property] == value)
+		      return i;
+		   }
+		   return -1;
+		}
+		
+		
+		
+	
+	
           
 	}
 }
