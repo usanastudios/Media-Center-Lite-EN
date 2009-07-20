@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <workbench version="2.0">
 <workbenchAdvisor/>
-<window height="768" width="1024" x="0" y="22">
+<window height="1002" width="1280" x="0" y="22">
 <fastViewData fastViewLocation="1024"/>
 <perspectiveBar>
 <itemSize x="160"/>
@@ -58,7 +58,7 @@
 </view>
 <view id="org.eclipse.ui.views.ProblemView" partName="Problems">
 <viewState PRIMARY_SORT_FIELD="org.eclipse.ui.ide.severityAndDescriptionField" categoryGroup="org.eclipse.ui.ide.severity" markerContentGenerator="org.eclipse.ui.ide.problemsGenerator" partName="Problems">
-<columnWidths org.eclipse.ui.ide.locationField="108" org.eclipse.ui.ide.markerType="138" org.eclipse.ui.ide.pathField="168" org.eclipse.ui.ide.resourceField="138" org.eclipse.ui.ide.severityAndDescriptionField="348"/>
+<columnWidths org.eclipse.ui.ide.locationField="132" org.eclipse.ui.ide.markerType="162" org.eclipse.ui.ide.pathField="192" org.eclipse.ui.ide.resourceField="162" org.eclipse.ui.ide.severityAndDescriptionField="372"/>
 <visible IMemento.internal.id="org.eclipse.ui.ide.severityAndDescriptionField"/>
 <visible IMemento.internal.id="org.eclipse.ui.ide.resourceField"/>
 <visible IMemento.internal.id="org.eclipse.ui.ide.pathField"/>
