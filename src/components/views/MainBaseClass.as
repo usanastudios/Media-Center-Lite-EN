@@ -194,7 +194,12 @@ package components.views
 			video_list = search_svc.lastResult as XML;
 				
 			if ((video_list) && (video_list.video.length() > 0))
-			{			
+			{	
+				if(video_player_basic_view.next_btn)
+				{	
+					video_player_basic_view.pagination_setup();
+					video_player_basic_view.list.dataProvider = video_player_basic_view.pagedDataProvider;
+				}
 				current_video = video_list.video[0];
 				main_view_stack.selectedIndex = 1;
 			}

@@ -67,7 +67,7 @@ package components.views
 			sort_menu_btn.addEventListener(MouseEvent.CLICK,createAndShowSortMenu);
 			
 			/*SET UP PAGINATION*/
-			//pagination_setup()
+			pagination_setup()
 			
 			
 			//SET UP VARS IF RELOADING VIDEO PAGE WITHOUT SEARCH
@@ -107,18 +107,19 @@ package components.views
 		public function pagination_setup():void
 		{
 			 
+			//CLEAR EXISTING DP
+			search_results_dp.removeAll();
 			// Convert XML to ArrayCollection
               for each(var s:XML in parentDocument.video_list.video){
                   search_results_dp.addItem(s);
               }
 			
-	
 			pagedDataProvider=new ArrayCollection();
 			  	pageCount=(search_results_dp.length/PERPAGE)+1;
 			    currentPage=1;
-			    if(pageCount > 1){
-			        next_btn.enabled=true;
-			    }
+			    /*if(pageCount > 1){
+			    			        next_btn.enabled=true;
+			    			    }*/
 			    if(search_results_dp.length >= PERPAGE){
 			        for(var i:int=0;i<PERPAGE;i++){
 			            pagedDataProvider.addItem(search_results_dp.getItemAt(i));
@@ -126,6 +127,7 @@ package components.views
 			    }else{
 			        pagedDataProvider=search_results_dp;
 			    }
+			
 		}
 		
 	     
