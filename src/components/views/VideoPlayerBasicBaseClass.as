@@ -78,12 +78,7 @@ package components.views
 				
 			}
 			
-				//SET UP FIRST VIDEO THAT WILL PLAY
-				video_title_txt.text = parentDocument.current_video.title;
-				video_short_description_txt.text = parentDocument.current_video.shortdescription;
-				video_long_description_txt.htmlText = parentDocument.current_video.longdescription;
-				results_for_txt.text = "Results For \"" + parentDocument.current_search_term +"\"";
-			    
+				    
 		}
 		 
 		/* ========================== */
@@ -106,6 +101,14 @@ package components.views
 		/* ===================== */ 
 		public function pagination_setup():void
 		{
+			
+			//SET UP FIRST VIDEO THAT WILL PLAY
+			video_title_txt.text = parentDocument.current_video.title;
+			video_short_description_txt.text = parentDocument.current_video.shortdescription;
+			video_long_description_txt.htmlText = parentDocument.current_video.longdescription;
+			results_for_txt.text = "Results For \"" + parentDocument.current_search_term +"\"";
+			
+			
 			 
 			//CLEAR EXISTING DP
 			search_results_dp.removeAll();

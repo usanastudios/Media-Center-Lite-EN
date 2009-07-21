@@ -145,10 +145,11 @@ package components.views
 		public function search(event:MouseEvent):void
 		{	
 
-			//SET CURRENT SEARCH TERM
-			current_search_term = '';
+			/*SET CURRENT SEARCH TERM (FOR DISPLAY ON VIDEO PLAYER PAGE)*/
 			current_search_term = search_txt.text;
-			current_search_message = "Searching for '" + current_search_term + "'";
+
+			/*SEARCHING MESSAGE*/
+			current_search_message = "Searching videos for '" +search_txt.text+ "'";
 			
 			if(current_search_term.length == 0)
 			{
@@ -195,11 +196,6 @@ package components.views
 				
 			if ((video_list) && (video_list.video.length() > 0))
 			{	
-				if(video_player_basic_view.next_btn)
-				{	
-					video_player_basic_view.pagination_setup();
-					video_player_basic_view.list.dataProvider = video_player_basic_view.pagedDataProvider;
-				}
 				current_video = video_list.video[0];
 				main_view_stack.selectedIndex = 1;
 			}
@@ -260,6 +256,7 @@ package components.views
 				
 			if ((video_list) && (video_list.video.length() > 0))
 			{			
+				
 				current_video = video_list.video[0];
 				main_view_stack.selectedIndex = 3;
 			
