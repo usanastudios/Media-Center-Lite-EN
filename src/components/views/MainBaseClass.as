@@ -338,6 +338,7 @@ package components.views
 			xmlstr += "</mediacenter>";
 			video_list = new XML(xmlstr);
 		current_video = video_list.children()[0];
+		
 	    main_view_stack.selectedIndex = 1;
 	
 	

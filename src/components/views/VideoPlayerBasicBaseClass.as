@@ -1,19 +1,23 @@
 package components.views
 {
 	
+	
+	
 	import flash.events.MouseEvent;
-	
 	import modules.video_player.VideoPlayerInterface;
-	
 	import mx.collections.ArrayCollection;
 	import mx.containers.Canvas;
 	import mx.controls.Alert;
 	import mx.controls.Menu;
 	import mx.controls.Text;
 	import mx.controls.TileList;
+	import mx.events.MenuEvent;
 	import mx.modules.ModuleLoader;
-	
 	import spark.components.Button;
+	import mx.collections.Sort;
+	import mx.collections.SortField;
+	import spark.components.List;
+
 	
 	public class VideoPlayerBasicBaseClass extends Canvas
 	{
@@ -35,7 +39,9 @@ package components.views
 		public var video_long_description_txt:Text;
 		public var video_player:ModuleLoader;
 		public var video_tile_list:TileList;
+		public var list:List;
 		[Bindable] public var currentModuleName:String;
+		
 
 		/* =================================== */
 		/* = VARS FOR PAGINATION OF TILELIST = */
@@ -61,7 +67,7 @@ package components.views
 			sort_menu_btn.addEventListener(MouseEvent.CLICK,createAndShowSortMenu);
 			
 			/*SET UP PAGINATION*/
-			pagination_setup()
+			//pagination_setup()
 			
 			
 			//SET UP VARS IF RELOADING VIDEO PAGE WITHOUT SEARCH
@@ -197,7 +203,7 @@ package components.views
         /* ============================================== */
         /* = Create and display the Share Menu control. = */
         /* ============================================== */
-        public function createAndShowShareMenu(event:MouseEvent):void {
+       private function createAndShowShareMenu(event:MouseEvent):void {
 	        var shareMenu:Menu = Menu.createMenu(null, shareMenuData, false);
 	        shareMenu.labelField="@label";
 	        shareMenu.styleName="prospectMenu1";
@@ -209,16 +215,60 @@ package components.views
 		/* ============================================= */
         /* = Create and display the Sort Menu control. = */
         /* ============================================= */
-        public function createAndShowSortMenu(event:MouseEvent):void {
+        private function createAndShowSortMenu(event:MouseEvent):void {
 	        var sortMenu:Menu = Menu.createMenu(null, sortMenuData, false);
 	        sortMenu.labelField="@label";
 	        sortMenu.styleName="prospectMenu1";
 	        sortMenu.width = 160;
 	        sortMenu.rowHeight = 27;
 	        sortMenu.show(sort_menu_btn.x + 5, 460);  
+			sortMenu.addEventListener(MenuEvent.ITEM_CLICK,sortSearchResults);
           }
        
- 
+
+		/* =================================== */
+		/* = FUNCTION TO SORT SEARCH RESULTS = */
+		/* =================================== */
+ 		private function sortSearchResults(event:MenuEvent):void
+ 		{
+		   if(event.label == "Most Recent")
+			{
+				/*CREATE TEMPORARY ARRAY COLLECTION WITH STRIPPED ID TO SORT*/
+				var tempArrayColl:ArrayCollection = new ArrayCollection();
+				for each (var video:XML in pagedDataProvider)
+				{
+					tempArrayColl.addItem({"id":video.@id.substring(3),"title":video.title,"shortdescription":video.shortdescription,"longdescription":video.longdescription});
+				}
+				
+				/*BELOW WE SORT THE RESULTS DESCENDING BASED ON ID*/
+				var dataSortField:SortField = new SortField();
+				dataSortField.name = "id";
+				dataSortField.numeric = true;
+				dataSortField.descending = true;
+				var numericDataSort:Sort = new Sort();
+				numericDataSort.fields = [dataSortField];
+				tempArrayColl.sort = numericDataSort;
+				tempArrayColl.refresh();
+				
+				/*REBUILD THE XML*/
+				var xmlstr:String = "<mediacenter>";
+				for each (var finalVideo:Object in tempArrayColl)
+				{
+					xmlstr += "<video id=\"ven"+finalVideo.id+"\">\n";
+					xmlstr += "<title>"+finalVideo.title+"</title>\n"; 
+					xmlstr += "<shortdescription>"+finalVideo.shortdescription+"</shortdescription>\n"; 
+					//xmlstr += "<longdescription>"+finalVideo.longdescription+"</longdescription>\n"; 
+					xmlstr += "</video>";
+				}
+				xmlstr += "</mediacenter>";
+				parentDocument.video_list = new XML(xmlstr);
+				parentDocument.current_video = parentDocument.video_list.children()[0];
+					pagination_setup()
+				//list.dataProvider = tempArrayColl;
+				//mx.controls.Alert.show(xmlstr);
+				}
+			
+ 		}
 
 	}
 }
