@@ -24,6 +24,13 @@
 			<l>en</l>
 		</mx:request>
 	</mx:HTTPService>    
+	
+	<!-- Define the All Videos HTTP service -->
+    <mx:HTTPService id="recent_videos_svc" url="http://www.usana.com/Main/mediaCenter/searchV" resultFormat="e4x" result="recentVideosResultHandler()" fault="mx.controls.Alert.show(event.fault.message)" >
+   		<mx:request>
+			<l>en</l>
+		</mx:request>
+	</mx:HTTPService>    
 
 	<!-- Define the Akamai HTTP service -->
     <mx:HTTPService id="akamai_svc" url="https://secure.streamos.com/qos/qos-xml.php" resultFormat="e4x" result="akamaiResultHandler()" fault="mx.controls.Alert.show(event.fault.message)" >

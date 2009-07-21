@@ -44,6 +44,7 @@ package components.views
 		public var prospectMenu1_btn:Button;
 		public var prospectMenuData:XML;
 		public var recommended_search_svc:HTTPService;
+		public var recent_videos_svc:HTTPService;
 		public var search_svc:HTTPService;
 		public var search_text_validator:Validator;
 		public var video_list:XML = new XML;
@@ -72,6 +73,7 @@ package components.views
 			prospectMenu1_btn.addEventListener(MouseEvent.CLICK,createAndShowProspectMenu1);
 			search_btn.addEventListener(MouseEvent.CLICK,search);
 			mostViewed_btn.addEventListener(MouseEvent.CLICK,get_most_viewed);
+			mostRecent_btn.addEventListener(MouseEvent.CLICK,get_most_recent);
 			
 			
 			/*DEFINE DATA FOR THE PROSPECT MENU*/
@@ -278,15 +280,68 @@ package components.views
 		
 
 		
-		/* =================================================================== */
-		/* = FUNCTION TO GET MOST RECENT VIDEOS AND GO TO RECENT VIDEOS PAGE = */
-		/* =================================================================== */
-		public function get_recent_videos():void
+	/* =================================================================== */
+	/* = FUNCTION TO GET MOST RECENT VIDEOS AND GO TO RECENT VIDEOS PAGE = */
+	/* =================================================================== */
+	public function get_most_recent(event:MouseEvent):void
+	{
+		
+		/*POP UP SEARCHING VIEW*/
+		main_view_stack.selectedIndex = 2;
+
+		/*SET CURRENT SEARCH TERM (FOR DISPLAY ON VIDEO PLAYER PAGE)*/
+		current_search_term = "Most Recent";
+
+		/*SEARCHING MESSAGE*/
+		current_search_message = "Getting The Most Recent Videos";
+		
+		/*CALL THE SERVICES TO GET ALL VIDEOS SO WE CAN SORT THEM*/
+		recent_videos_svc.send();
+		
+	}
+	
+	
+	
+	/* =============================================== */
+	/* = FUNCTION CALLED WHEN RECENT VIDEOS RETURNED = */
+	/* =============================================== */
+	public function recentVideosResultHandler():void
+	{
+		var videoArray:ArrayCollection = new ArrayCollection();
+		for each (var video:XML in recent_videos_svc.lastResult.video)
 		{
-			video_list = search_svc.lastResult as XML;
-			current_video = video_list.video[0];
-			
+			videoArray.addItem({"id":video.@id.substring(3),"title":video.title,"shortdescription":video.shortdescription,"longdescription":video.longdescription});
 		}
+		
+		/*BELOW WE SORT THE RESULTS DESCENDING BASED ON STREAMHITS*/
+		var dataSortField:SortField = new SortField();
+		dataSortField.name = "id";
+		dataSortField.numeric = true;
+		dataSortField.descending = true;
+		var numericDataSort:Sort = new Sort();
+		numericDataSort.fields = [dataSortField];
+		videoArray.sort = numericDataSort;
+		videoArray.refresh();
+		
+		
+		
+		/*REBUILD THE XML*/
+		var xmlstr:String = "<mediacenter>";
+			for each (var finalVideo:Object in videoArray)
+			{
+				xmlstr += "<video id=\"ven"+finalVideo.id+"\">\n";
+				xmlstr += "<title>"+finalVideo.title+"</title>\n"; 
+				xmlstr += "<shortdescription>"+finalVideo.shortdescription+"</shortdescription>\n"; 
+				//xmlstr += "<longdescription>"+finalVideo.longdescription+"</longdescription>\n"; 
+				xmlstr += "</video>";
+			}
+			xmlstr += "</mediacenter>";
+			video_list = new XML(xmlstr);
+		current_video = video_list.children()[0];
+	    main_view_stack.selectedIndex = 1;
+	
+	
+	}
         
 	/* =============================== */
 	/* = FUNCTION TO GET MOST VIEWED = */
@@ -373,10 +428,10 @@ package components.views
 			xmlstr += "</video>";
 		}
 		xmlstr += "</mediacenter>";
-		/*var finalXML:XML = new XML(xmlstr);*/
 		video_list = new XML(xmlstr);
 		current_video = video_list.children()[0];
 	    main_view_stack.selectedIndex = 1;
+	
 		
 	}
   
@@ -396,7 +451,7 @@ package components.views
 		}
 		
 		
-		
+	
 	
 	
           
