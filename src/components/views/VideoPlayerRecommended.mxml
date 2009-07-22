@@ -1,6 +1,18 @@
 <?xml version="1.0" encoding="utf-8"?>
 <views:VideoPlayerRecommendedBaseClass  xmlns:mx="http://www.adobe.com/2006/mxml" xmlns:views="components.views.*" creationComplete="recommended_video_init()" xmlns:s="library://ns.adobe.com/flex/spark" hide="pauseVideo()">
- <mx:Script>
+
+	<!-- Define the Akamai HTTP service -->
+    <mx:HTTPService id="akamai_svc" url="https://secure.streamos.com/qos/qos-xml.php" resultFormat="e4x" result="akamaiResultHandler()" fault="mx.controls.Alert.show(event.fault.message)" >
+    	<mx:request>
+			<USERNAME>usana</USERNAME>
+			<PASSWORD>vision99</PASSWORD>
+			<OUTPUT>xml</OUTPUT>
+			<STARTDATE>{parentDocument.akamai_start_date}</STARTDATE>
+			<ENDDATE>{parentDocument.akamai_stop_date}</ENDDATE>
+		</mx:request>
+	</mx:HTTPService> 
+
+<mx:Script>
         <![CDATA[
  		import mx.core.FlexGlobals;
         ]]> 

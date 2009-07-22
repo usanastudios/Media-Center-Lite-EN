@@ -21,14 +21,13 @@ package components.views
 	import spark.components.Application;
 	import spark.components.Button;
 	import spark.components.TextInput;
-    import mx.utils.ObjectUtil;
-
+	import mx.formatters.DateFormatter;
 
 
 
 	public class MainBaseClass extends Application
 	{
-		
+
 		/* ==================== */
 		/* = PUBLIC VARIABLES = */
 		/* ==================== */
@@ -43,16 +42,20 @@ package components.views
 		public var mostViewed_btn:Button;
 		public var prospectMenu1_btn:Button;
 		public var prospectMenuData:XML;
-		public var recommended_search_svc:HTTPService;
 		public var recent_videos_svc:HTTPService;
+		public var recommended_search_svc:HTTPService;
 		public var search_svc:HTTPService;
 		public var search_text_validator:Validator;
 		public var video_list:XML = new XML;
 		public var video_player_basic_view:VideoPlayerBasic;
 		public var video_player_recommended_view:VideoPlayerRecommended;
 
-
-
+		/* ====================== */
+		/* = BINDABLE VARIABLES = */
+		/* ====================== */
+		[Bindable] public var dateFormatter:DateFormatter;
+		[Bindable] public var akamai_start_date:String;
+		[Bindable] public var akamai_stop_date:String;
 		
 		
 		/* ====================== */
@@ -75,6 +78,10 @@ package components.views
 			mostViewed_btn.addEventListener(MouseEvent.CLICK,get_most_viewed);
 			mostRecent_btn.addEventListener(MouseEvent.CLICK,get_most_recent);
 			
+			
+			/*DEFINE AKAMAI START AND STOP DATES*/
+			akamai_start_date = "2009-01-01";
+			akamai_stop_date = dateFormatter.format(new Date());
 			
 			/*DEFINE DATA FOR THE PROSPECT MENU*/
 			prospectMenuData = <root>
@@ -334,7 +341,7 @@ package components.views
 				xmlstr += "<video id=\"ven"+finalVideo.id+"\">\n";
 				xmlstr += "<title>"+finalVideo.title+"</title>\n"; 
 				xmlstr += "<shortdescription>"+finalVideo.shortdescription+"</shortdescription>\n"; 
-				//xmlstr += "<longdescription>"+finalVideo.longdescription+"</longdescription>\n"; 
+				xmlstr += "<longdescription>"+finalVideo.longdescription+"</longdescription>\n"; 
 				xmlstr += "</video>";
 			}
 			xmlstr += "</mediacenter>";
@@ -371,6 +378,7 @@ package components.views
 	/* ====================================== */
 	public function akamaiResultHandler():void
 	{
+		
 		  // Convert XML to ArrayCollection
           for each(var clip:XML in akamai_svc.lastResult.clips.clipent)
 		  {
@@ -398,13 +406,10 @@ package components.views
 		
 		
 		/*LOOP OVER THE AKAMAI DATA AND GET THE VIDEO INFO FOR EACH*/
-		for each (var clip:Object in clipentArray)
+		for each (var newVideo:Object in videoArray)
 		{
-			var indexOfVideo:int  = getItemIndexByProperty(videoArray,"@id",clip.url.substring(1,7));
-			if (indexOfVideo != -1)
-			{
-				finalArray.addItem({"streamhits":clip.streamhits,"id":videoArray[indexOfVideo].@id,"title":videoArray[indexOfVideo].title,"shortdescription":videoArray[indexOfVideo].shortdescription,"longdescription":videoArray[indexOfVideo].longdescription});
-			}
+			var indexOfVideo:int  = parentDocument.getItemIndexByProperty(clipentArray,"url",newVideo.@id);
+			finalArray.addItem({"streamhits":clipentArray[indexOfVideo].streamhits,"id":newVideo.@id,"title":newVideo.title,"shortdescription":newVideo.shortdescription,"longdescription":newVideo.longdescription});
 			
 		/*BELOW WE SORT THE RESULTS DESCENDING BASED ON STREAMHITS*/
 		var dataSortField:SortField = new SortField();
@@ -426,7 +431,7 @@ package components.views
 			xmlstr += "<video id=\""+finalVideo.id+"\">\n";
 			xmlstr += "<title>"+finalVideo.title+"</title>\n"; 
 			xmlstr += "<shortdescription>"+finalVideo.shortdescription+"</shortdescription>\n"; 
-			//xmlstr += "<longdescription>"+finalVideo.longdescription+"</longdescription>\n"; 
+			xmlstr += "<longdescription>"+finalVideo.longdescription+"</longdescription>\n"; 
 			xmlstr += "<streamhits>"+finalVideo.streamhits+"</streamhits>\n"; 
 			xmlstr += "</video>";
 		}
@@ -442,17 +447,16 @@ package components.views
 		/* ==================================================================== */
 		/* = SEARCH AN ARRAY COLLECTION FOR A PROPERTY ON AN OBJECT = */
 		/* ==================================================================== */
-		static public function getItemIndexByProperty(array:ArrayCollection, property:String, value:String):Number
+	 public function getItemIndexByProperty(array:ArrayCollection, property:String, value:String):Number
 		{
 		   for (var i:Number = 0; i < array.length; i++)
 		   {
 		      var obj:Object = Object(array[i])
-		      if (obj[property] == value)
+		      if (obj[property].search(value) > -1)
 		      return i;
 		   }
 		   return -1;
 		}
-		
 		
 	
 	

@@ -38,10 +38,13 @@
 			<USERNAME>usana</USERNAME>
 			<PASSWORD>vision99</PASSWORD>
 			<OUTPUT>xml</OUTPUT>
-			<STARTDATE>2009-01-01</STARTDATE>
-			<ENDDATE>2009-07-17</ENDDATE>
+			<STARTDATE>{akamai_start_date}</STARTDATE>
+			<ENDDATE>{akamai_stop_date}</ENDDATE>
 		</mx:request>
 	</mx:HTTPService>
+	
+	<mx:DateFormatter id="dateFormatter" formatString="YYYY-MM-DD"/>
+    
  </fx:Declarations>
 	
 	
@@ -68,7 +71,7 @@
 		
 		
 		<!-- =========================== -->
-		<!-- = VIDEO PLAYER BAISC PAGE = -->
+		<!-- = VIDEO PLAYER BASIC PAGE = -->
 		<!-- =========================== -->
 		 <views:VideoPlayerBasic id="video_player_basic_view" width="100%" height="100%"	left="0" right="0" /> 
 	

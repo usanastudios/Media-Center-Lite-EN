@@ -1,17 +1,19 @@
 package components.views
 {
 	
+	
 	import flash.events.MouseEvent;
-	
 	import modules.video_player.VideoPlayerInterface;
-	
 	import mx.collections.ArrayCollection;
+	import mx.collections.Sort;
+	import mx.collections.SortField;
 	import mx.containers.Canvas;
-	import mx.controls.Alert;
 	import mx.controls.Menu;
 	import mx.controls.Text;
 	import mx.controls.TileList;
+	import mx.events.MenuEvent;
 	import mx.modules.ModuleLoader;
+	import mx.rpc.http.mxml.HTTPService;
 	import spark.components.Button;
 	
 	public class VideoPlayerRecommendedBaseClass extends Canvas
@@ -25,17 +27,23 @@ package components.views
 		/* ==================== */
 		/* = PUBLIC VARIABLES = */
 		/* ==================== */
-		public var shareMenuData:XML;
-		public var sortMenuData:XML;
+		public var akamai_svc:HTTPService;
+		public var current_video:XML;
 		public var share_menu_btn:Button;
+		public var sortMenuData:XML;
 		public var sort_menu_btn:Button;
-		public var video_title_txt:Text;
-		public var video_short_description_txt:Text;
 		public var video_long_description_txt:Text;
 		public var video_player:ModuleLoader;
+		public var video_short_description_txt:Text;
 		public var video_tile_list:TileList;
-		public var current_video:XML;
+		public var video_title_txt:Text;
+		public var shareMenuData:XML;
+
+		/* ====================== */
+		/* = BINDABLE VARIABLES = */
+		/* ====================== */
 		[Bindable] public var currentModuleName:String;
+		
 
 		/* =================================== */
 		/* = VARS FOR PAGINATION OF TILELIST = */
@@ -260,9 +268,146 @@ package components.views
 	        sortMenu.width = 160;
 	        sortMenu.rowHeight = 27;
 	        sortMenu.show(sort_menu_btn.x + 5, 460);  
+			sortMenu.addEventListener(MenuEvent.ITEM_CLICK,sortSearchResults);
           }
        
- 
+ 		/* =================================== */
+		/* = FUNCTION TO SORT SEARCH RESULTS = */
+		/* =================================== */
+ 		private function sortSearchResults(event:MenuEvent):void
+ 		{
+		   /*SORT BY MOST RECENT*/
+		   if(event.label == "Most Recent")
+			{
+				sortMostRecent();
+			}
+			/*SORT BY MOST RECENT*/
+			else if (event.label == "Most Viewed")
+			{
+				sortMostViewed();
+			}
+ 		}
+
+
+		/* =================================== */
+		/* = FUNCTION TO SORT BY MOST RECENT = */
+		/* =================================== */
+		public function sortMostRecent():void
+		{
+
+				/*CREATE TEMPORARY ARRAY COLLECTION WITH STRIPPED ID TO SORT*/
+				var tempArrayColl:ArrayCollection = new ArrayCollection();
+				for each (var video:XML in pagedDataProvider)
+				{
+					tempArrayColl.addItem({"id":video.@id.substring(3),"title":video.title,"shortdescription":video.shortdescription,"longdescription":video.longdescription});
+				}
+
+				/*BELOW WE SORT THE RESULTS DESCENDING BASED ON ID*/
+				var dataSortField:SortField = new SortField();
+				dataSortField.name = "id";
+				dataSortField.numeric = true;
+				dataSortField.descending = true;
+				var numericDataSort:Sort = new Sort();
+				numericDataSort.fields = [dataSortField];
+				tempArrayColl.sort = numericDataSort;
+				tempArrayColl.refresh();
+
+				/*REBUILD THE XML*/
+				var xmlstr:String = "<mediacenter>";
+				for each (var finalVideo:Object in tempArrayColl)
+				{
+					xmlstr += "<video id=\"ven"+finalVideo.id+"\">\n";
+					xmlstr += "<title>"+finalVideo.title+"</title>\n"; 
+					xmlstr += "<shortdescription>"+finalVideo.shortdescription+"</shortdescription>\n"; 
+					xmlstr += "<longdescription>"+finalVideo.longdescription+"</longdescription>\n"; 
+					xmlstr += "</video>";
+				}
+				xmlstr += "</mediacenter>";
+				parentDocument.video_list = new XML(xmlstr);
+				parentDocument.current_video = parentDocument.video_list.children()[0];
+				pagination_setup()
+
+				}
+
+		/* =================================== */
+		/* = FUNCTION TO SORT BY MOST VIEWED = */
+		/* =================================== */
+		public function sortMostViewed():void
+		{
+			/*POP UP SEARCH IN PROGRESS SCREEN*/
+			parentDocument.main_view_stack.selectedIndex = 2;
+
+			/*SET CURRENT SEARCH TERM (FOR DISPLAY ON VIDEO PLAYER PAGE)*/
+
+			/*SEARCHING MESSAGE*/
+			parentDocument.current_search_message = "Sorting By Most Viewed";
+
+			akamai_svc.send();
+		}
+
+
+
+		/* ====================================== */
+		/* = AKAMAI RESULT HANDLER 				= */
+		/* ====================================== */
+		public function akamaiResultHandler():void
+		{
+
+		  //SET UP SORT BY MOST VIEWED
+		  // Convert XML to ArrayCollection
+		  var clipentArray:ArrayCollection = new ArrayCollection();
+          for each(var clip:XML in akamai_svc.lastResult.clips.clipent)
+		  {
+              clipentArray.addItem(clip);
+          }
+
+			// Convert XML to ArrayCollection
+			  var videoArray:ArrayCollection = new ArrayCollection();
+			  var finalArray:ArrayCollection = new ArrayCollection();
+	          for each(var video:XML in parentDocument.video_list.video)
+			  {
+	              videoArray.addItem(video);
+	          }
+
+
+
+			/*LOOP OVER THE AKAMAI DATA AND GET THE VIDEO INFO FOR EACH*/
+			for each (var newVideo:Object in videoArray)
+			{
+				var indexOfVideo:int  = parentDocument.getItemIndexByProperty(clipentArray,"url",newVideo.@id);
+				finalArray.addItem({"streamhits":clipentArray[indexOfVideo].streamhits,"id":newVideo.@id,"title":newVideo.title,"shortdescription":newVideo.shortdescription,"longdescription":newVideo.longdescription});
+
+				/*BELOW WE SORT THE RESULTS DESCENDING BASED ON STREAMHITS*/
+				var dataSortField:SortField = new SortField();
+				dataSortField.name = "streamhits";
+				dataSortField.numeric = true;
+				dataSortField.descending = true;
+				var numericDataSort:Sort = new Sort();
+				numericDataSort.fields = [dataSortField];
+				finalArray.sort = numericDataSort;
+				finalArray.refresh();
+
+				}
+
+				/*REBUILD THE XML*/
+				var xmlstr:String = "<mediacenter>";
+				for each (var finalVideo:Object in finalArray)
+				{
+					xmlstr += "<video id=\""+finalVideo.id+"\">\n";
+					xmlstr += "<title>"+finalVideo.title+"</title>\n"; 
+					xmlstr += "<shortdescription>"+finalVideo.shortdescription+"</shortdescription>\n"; 
+					xmlstr += "<longdescription>"+finalVideo.longdescription+"</longdescription>\n"; 
+					xmlstr += "<streamhits>"+finalVideo.streamhits+"</streamhits>\n"; 
+					xmlstr += "</video>";
+				}
+				xmlstr += "</mediacenter>";
+				parentDocument.video_list = new XML(xmlstr);
+				parentDocument.current_video = parentDocument.video_list.children()[0];
+				pagination_setup();
+				parentDocument.main_view_stack.selectedIndex = 3;
+		}
+
+
 
 	}
 }
