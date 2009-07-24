@@ -256,6 +256,7 @@ package components.views
 	        shareMenu.width = 180;
 	        shareMenu.rowHeight = 27;
 	        shareMenu.show(565, share_menu_btn.y + 97);
+			shareMenu.addEventListener(MenuEvent.ITEM_CLICK,shareMenuHandler);
           }
 
 		/* ============================================= */
@@ -319,7 +320,7 @@ package components.views
 					xmlstr += "<video id=\"ven"+finalVideo.id+"\">\n";
 					xmlstr += "<title>"+finalVideo.title+"</title>\n"; 
 					xmlstr += "<shortdescription>"+finalVideo.shortdescription+"</shortdescription>\n"; 
-					xmlstr += "<longdescription>"+finalVideo.longdescription+"</longdescription>\n"; 
+					//xmlstr += "<longdescription>"+finalVideo.longdescription+"</longdescription>\n"; 
 					xmlstr += "</video>";
 				}
 				xmlstr += "</mediacenter>";
@@ -396,7 +397,7 @@ package components.views
 					xmlstr += "<video id=\""+finalVideo.id+"\">\n";
 					xmlstr += "<title>"+finalVideo.title+"</title>\n"; 
 					xmlstr += "<shortdescription>"+finalVideo.shortdescription+"</shortdescription>\n"; 
-					xmlstr += "<longdescription>"+finalVideo.longdescription+"</longdescription>\n"; 
+				//	xmlstr += "<longdescription>"+finalVideo.longdescription+"</longdescription>\n"; 
 					xmlstr += "<streamhits>"+finalVideo.streamhits+"</streamhits>\n"; 
 					xmlstr += "</video>";
 				}
@@ -406,7 +407,18 @@ package components.views
 				pagination_setup();
 				parentDocument.main_view_stack.selectedIndex = 3;
 		}
-
+		
+		/* ====================== */
+		/* = SHARE MENU HANDLER = */
+		/* ====================== */
+		public function shareMenuHandler(event:MenuEvent):void
+		{
+			if(event.label == "Email")
+			{
+				parentDocument.sendEmail(parentDocument.current_video.title); 
+				
+			}
+		}
 
 
 	}

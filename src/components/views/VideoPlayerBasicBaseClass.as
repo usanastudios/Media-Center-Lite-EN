@@ -281,7 +281,7 @@ package components.views
 					xmlstr += "<video id=\"ven"+finalVideo.id+"\">\n";
 					xmlstr += "<title>"+finalVideo.title+"</title>\n"; 
 					xmlstr += "<shortdescription>"+finalVideo.shortdescription+"</shortdescription>\n"; 
-					xmlstr += "<longdescription>"+finalVideo.longdescription+"</longdescription>\n"; 
+					//xmlstr += "<longdescription>"+finalVideo.longdescription+"</longdescription>\n"; 
 					xmlstr += "</video>";
 				}
 				xmlstr += "</mediacenter>";
@@ -358,7 +358,7 @@ package components.views
 					xmlstr += "<video id=\""+finalVideo.id+"\">\n";
 					xmlstr += "<title>"+finalVideo.title+"</title>\n"; 
 					xmlstr += "<shortdescription>"+finalVideo.shortdescription+"</shortdescription>\n"; 
-					xmlstr += "<longdescription>"+finalVideo.longdescription+"</longdescription>\n"; 
+					//xmlstr += "<longdescription>"+finalVideo.longdescription+"</longdescription>\n"; 
 					xmlstr += "<streamhits>"+finalVideo.streamhits+"</streamhits>\n"; 
 					xmlstr += "</video>";
 				}
@@ -368,6 +368,10 @@ package components.views
 				pagination_setup();
 				parentDocument.main_view_stack.selectedIndex = 1;
 		}
+		
+		
+		
+		
 
 	}
 }

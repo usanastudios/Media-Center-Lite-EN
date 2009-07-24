@@ -6,9 +6,10 @@
 
 package components.views
 {
-	import components.views.VideoPlayerBasic;
 	import flash.events.MouseEvent;
+	
 	import modules.video_player.VideoPlayerInterface;
+	
 	import mx.collections.ArrayCollection;
 	import mx.collections.Sort;
 	import mx.collections.SortField;
@@ -16,13 +17,14 @@ package components.views
 	import mx.controls.Alert;
 	import mx.controls.Menu;
 	import mx.events.MenuEvent;
+	import mx.formatters.DateFormatter;
+	import mx.managers.PopUpManager;
 	import mx.rpc.http.mxml.HTTPService;
 	import mx.validators.Validator;
+	
 	import spark.components.Application;
 	import spark.components.Button;
 	import spark.components.TextInput;
-	import mx.formatters.DateFormatter;
-
 
 
 	public class MainBaseClass extends Application
@@ -341,7 +343,7 @@ package components.views
 				xmlstr += "<video id=\"ven"+finalVideo.id+"\">\n";
 				xmlstr += "<title>"+finalVideo.title+"</title>\n"; 
 				xmlstr += "<shortdescription>"+finalVideo.shortdescription+"</shortdescription>\n"; 
-				xmlstr += "<longdescription>"+finalVideo.longdescription+"</longdescription>\n"; 
+				//xmlstr += "<longdescription>"+finalVideo.longdescription+"</longdescription>\n"; 
 				xmlstr += "</video>";
 			}
 			xmlstr += "</mediacenter>";
@@ -428,12 +430,14 @@ package components.views
 		var xmlstr:String = "<mediacenter>";
 		for each (var finalVideo:Object in finalArray)
 		{
+			trace('test');
 			xmlstr += "<video id=\""+finalVideo.id+"\">\n";
 			xmlstr += "<title>"+finalVideo.title+"</title>\n"; 
 			xmlstr += "<shortdescription>"+finalVideo.shortdescription+"</shortdescription>\n"; 
-			xmlstr += "<longdescription>"+finalVideo.longdescription+"</longdescription>\n"; 
+			//xmlstr += "<longdescription>"+finalVideo.longdescription+"</longdescription>\n"; 
 			xmlstr += "<streamhits>"+finalVideo.streamhits+"</streamhits>\n"; 
 			xmlstr += "</video>";
+			
 		}
 		xmlstr += "</mediacenter>";
 		video_list = new XML(xmlstr);
@@ -443,6 +447,21 @@ package components.views
 		
 	}
   
+	
+		/* ======================================== */
+		/* = FUNCTION TO POP UP SEND EMAIL WINDOW = */
+		/* ======================================== */
+		public function sendEmail(title:String):void
+		{
+			var emailWindow:SendEmailPage = new components.views.SendEmailPage();
+	        PopUpManager.addPopUp(emailWindow, this, false);
+			emailWindow.title = "Send \""+title+"\" to a Friend";
+			emailWindow.y = 100;
+			emailWindow.x = 100;
+		}
+		
+		
+ 
 
 		/* ==================================================================== */
 		/* = SEARCH AN ARRAY COLLECTION FOR A PROPERTY ON AN OBJECT = */
@@ -458,9 +477,7 @@ package components.views
 		   return -1;
 		}
 		
-	
-	
-	
+
           
 	}
 }
