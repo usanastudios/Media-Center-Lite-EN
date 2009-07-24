@@ -13,4 +13,5 @@
 	</s:states>
 	<fx:Metadata>[HostComponent("spark.components.CheckBox")]</fx:Metadata>
 	<s:BitmapImage source="@Embed('/assets/skins/send_copy_chk_skin.png')" resizeMode="scale"/>
+	
 </s:Skin>
