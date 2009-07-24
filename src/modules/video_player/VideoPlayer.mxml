@@ -17,11 +17,10 @@
 			
 			import org.openvideoplayer.events.*;
 			import org.openvideoplayer.net.*; 
-			import org.openvideoplayer.rss.*;
 			import org.openvideoplayer.cc.*;
 			
 			import com.akamai.net.*;
-			import com.akamai.rss.*;
+			import com.akamai.rss.AkamaiBOSSParser;
 			
 			import mx.utils.*;
 					
@@ -46,7 +45,7 @@
             private var video_id:String;
 			[BINDABLE]
 			public var VIDEO_URL:String = "http://usana.edgeboss.net/flash/usana/"+FlexGlobals.topLevelApplication.current_video.@id+".flv?xmlvers=1";
-			private const _CAPTION_URL_:String = "modules/video_player/xml/caption/sample_caption.xml";
+			public var _CAPTION_URL_:String = "http://www.usana.com/media/File/mediaCenter/closed_caption/"+FlexGlobals.topLevelApplication.current_video.@id+".xml";
 	
 			/* ================================================== */
 			/* = FUNCTION TO CHANGE VIDEO URL AND START PLAYBACK = */
@@ -54,6 +53,7 @@
 	 		public function setVideo(id:String):void {
 				_ns.pause(); 
 	           VIDEO_URL = "http://usana.edgeboss.net/flash/usana/"+id+".flv?xmlvers=1";
+	           _CAPTION_URL_ = "http://www.usana.com/media/File/mediaCenter/closed_caption/"+id+".xml";
 	           startPlayback();
 	        }
 	    
@@ -98,54 +98,11 @@
 			}	
 			// Handles the notification that the BOSS feed was successfully loaded.
 			private function bossLoadHandler(e:OvpEvent):void {
-				write("BOSS loaded successfully");
+				//write("BOSS loaded successfully");
 			}
 			// Handles the notification that the BOSS feed was successfully parsed
 			private function bossParsedHandler(e:OvpEvent):void {
-				write("BOSS parsed successfully:");
-				write("========== Metafile data ==============");
-				switch (_bossMetafile.versionOfMetafile) {
-					case _bossMetafile.METAFILE_VERSION_I:
-						write("  Server name: " + _bossMetafile.serverName);
-						write("  Fallback server name: " + _bossMetafile.fallbackServerName);
-						write("  App name: " + _bossMetafile.appName);
-						write("  Stream name: " + _bossMetafile.streamName);
-						write("  Is live: " + _bossMetafile.isLive);
-						write("  Buffer time: " + _bossMetafile.bufferTime);
-						write("  Connect Auth Params: " + _bossMetafile.connectAuthParams);
-						write("  Play Auth Params: " + _bossMetafile.playAuthParams);
-						_nc.requestedProtocol = "any";
-					break;
-					case _bossMetafile.METAFILE_VERSION_II:
-						write("  Server name: " + _bossMetafile.serverName);
-						write("  App name: " + _bossMetafile.appName);
-						write("  Stream name: " + _bossMetafile.streamName);
-						write("  Is live: " + _bossMetafile.isLive);
-						write("  Buffer time: " + _bossMetafile.bufferTime);
-						write("  Connect Auth Params: " + _bossMetafile.connectAuthParams);
-						write("  Play Auth Params: " + _bossMetafile.playAuthParams);
-						_nc.requestedProtocol = "any";
-					break;
-					case _bossMetafile.METAFILE_VERSION_IV:
-						write("  Server name: " + _bossMetafile.serverName);
-						write("  App name: " + _bossMetafile.appName);
-						write("  Stream name: " + _bossMetafile.streamName);
-						write("  Protocol: " + _bossMetafile.protocol);
-						write("  Is live: " + _bossMetafile.isLive);
-						write("  Title: " + _bossMetafile.title);
-						write("  Source: " + _bossMetafile.source);
-						write("  Author: " + _bossMetafile.author);
-						write("  Clip begin: " + _bossMetafile.clipBegin);
-						write("  Clip end: " + _bossMetafile.clipEnd);
-						write("  Duration: " + _bossMetafile.duration);
-						write("  Connect Auth Params: " + _bossMetafile.connectAuthParams);
-						write("  Play Auth Params: " + _bossMetafile.playAuthParams);
-						write("  Secondary Encoder Source: " + _bossMetafile.secondaryEncoderSrc);
-						write("  Keywords: " + _bossMetafile.keywords);
-						_nc.requestedProtocol = _bossMetafile.protocol.indexOf("rtmpe") != -1 ? "rtmpe,rtmpte":"any";
-					break;
-				}
-				write("======= End of Metafile data ===========");
+				
 				// Establish the connection
 				trace("requested protocl set to " + _nc.requestedProtocol);
 				_nc.connectionAuth = _bossMetafile.connectAuthParams;
@@ -229,7 +186,6 @@
 			}
 			// Receives all status events dispatched by the active NetStream
 			private function streamStatusHandler(e:NetStatusEvent):void {
-				write(e.info.code);	
 				if (e.info.code == "NetStream.Buffer.Full") {
 					// _waitForSeek is used to stop the scrubber from updating
 					// while the stream transtions after a seek
@@ -238,21 +194,11 @@
 			}
 			// Receives all onPlayStatus events dispatched by the active NetStream
 			private function streamPlayStatusHandler(e:OvpEvent):void {
-				write(e.data.code);
+
 			}
 			// Receives all onMetadata events dispatched by the active NetStream
 			private function metadataHandler(e:OvpEvent):void {
 				positionCaption();
-				
-				write("========== Metadata found in stream  ===========");
-				for (var propName:String in e.data) {
-					write("  "+propName+" = "+e.data[propName]);
-				}
-				write("========== End of Stream Metadata  ===========");
-				
-				//Alert.show(_video.width.toString() + "  :  " + _video.height.toString());
-				
-				// !!!!  For some reason the videos are showing as 320 x 240 in the metadata but they are really 544 x 306
 				
 				// Adjust the video dimensions on the stage if they do not match the metadata
 				if ((Number(e.data["width"]) != _video.width)  || (Number(e.data["height"]) != _video.height)) {
@@ -354,8 +300,6 @@
 					_isPaused = false;
 				
 			}
-			
-			
 			
 			
 			
@@ -463,7 +407,7 @@
 						captionLabel.setStyle("backgroundColor", styleObj.backgroundColor);
 					}
 					
-					callLater(changeTextRange, [txtRange, styleObj]);
+					//callLater(changeTextRange, [txtRange, styleObj]);
 					
 					if (captionLabel.wordWrap != styleObj.wrapOption) {
 						captionLabel.wordWrap = styleObj.wrapOption;
@@ -479,26 +423,7 @@
 			}
 		}
 		
-		private function changeTextRange(txtRange:TextRange, styleObj:Style):void {
-			if (styleObj.color != "") {
-				txtRange.color = styleObj.color;
-			}
-			if (styleObj.fontFamily != "") {
-				txtRange.fontFamily = styleObj.fontFamily;
-			}
-			if (styleObj.fontSize > 0) {
-				txtRange.fontSize = styleObj.fontSize;
-			}
-			if (styleObj.fontStyle != "") {
-				txtRange.fontStyle = styleObj.fontStyle;
-			}
-			if (styleObj.fontWeight != "") {
-				txtRange.fontWeight = styleObj.fontWeight;
-			}
-			if (styleObj.textAlign != "") {
-				txtRange.textAlign = styleObj.textAlign;
-			}			
-		}
+		
 		
 		// Handles the hiding of the caption
 		private function hideCaption():void {
@@ -554,9 +479,9 @@
 	    <!-- BEGIN VIDEO PLAYER-->
 	    
 		<mx:Canvas id="videoContainer" width="544" height="359" backgroundAlpha="0.09" backgroundColor="#000000" horizontalScrollPolicy="off" verticalScrollPolicy="off">
-			<mx:VBox x="0" y="0" height="359" verticalGap="0" width="544" horizontalScrollPolicy="off" verticalScrollPolicy="off" borderStyle="none" horizontalAlign="center" verticalAlign="middle">
-			  <mx:HBox width="544" height="306" id="videoWindow" borderStyle="none" verticalAlign="middle" horizontalAlign="center" backgroundColor="#000000"/>   	
-			  	<mx:HBox width="{videoWindow.width}" height="50" verticalAlign="middle" styleName="controlBarBackground">
+			
+			  <mx:HBox width="544" height="306" x="0" y="0" id="videoWindow" borderStyle="none" verticalAlign="middle" horizontalAlign="center" backgroundColor="#000000"/>   	
+			  	<mx:HBox width="{videoWindow.width}" y="0" x="0" height="50" verticalAlign="middle" styleName="controlBarBackground">
 			  	     <mx:Button id="bPlayPause" click="doPlayPause()" styleName="vpPlayBtn" buttonMode="true" useHandCursor="true"/>
 			  	     <mx:Spacer width="5" />
 			  	     <mx:HSlider 
@@ -593,8 +518,11 @@
 			  	     	allowTrackClick="true" 
 			  	     	liveDragging="true"/>
 			  	</mx:HBox>
-			</mx:VBox>
+
+
 		</mx:Canvas>
+		
+
 		
 		<!-- END VIDEO PLAYER-->
 		

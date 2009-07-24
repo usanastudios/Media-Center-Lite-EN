@@ -54,3 +54,31 @@ Command-line arguments:  -os macosx -ws carbon -arch x86 -clean -keyring /Users/
 
 !ENTRY org.eclipse.core.net 1 0 2009-07-14 14:40:12.451
 !MESSAGE System property socksProxyPort has been set to 8080 by an external source. This value will be overwritten using the values from the preferences
+!SESSION 2009-07-20 14:43:36.045 -----------------------------------------------
+eclipse.buildId=unknown
+java.version=1.5.0_16
+java.vendor=Apple Inc.
+BootLoader constants: OS=macosx, ARCH=x86, WS=carbon, NL=en_US
+Framework arguments:  -keyring /Users/chrishall/.eclipse_keyring -showlocation
+Command-line arguments:  -os macosx -ws carbon -arch x86 -clean -keyring /Users/chrishall/.eclipse_keyring -consoleLog -showlocation
+
+!ENTRY org.eclipse.core.net 1 0 2009-07-20 14:43:42.699
+!MESSAGE System property http.proxyHost has been set to proxy1.usana.com by an external source. This value will be overwritten using the values from the preferences
+
+!ENTRY org.eclipse.core.net 1 0 2009-07-20 14:43:42.704
+!MESSAGE System property http.proxyPort has been set to 8080 by an external source. This value will be overwritten using the values from the preferences
+
+!ENTRY org.eclipse.core.net 1 0 2009-07-20 14:43:42.704
+!MESSAGE System property http.nonProxyHosts has been set to usana.com|*.usana.com|slc-exch5.usana.com|*.slc-exch5.usana.com|slc-internet2.usana.com|*.slc-internet2.usana.com|www.usana.com|*.www.usana.com|usananet.usana.com|*.usananet.usana.com|slc-dc5|*.slc-dc5 by an external source. This value will be overwritten using the values from the preferences
+
+!ENTRY org.eclipse.core.net 1 0 2009-07-20 14:43:42.719
+!MESSAGE System property https.proxyHost has been set to proxy1.usana.com by an external source. This value will be overwritten using the values from the preferences
+
+!ENTRY org.eclipse.core.net 1 0 2009-07-20 14:43:42.719
+!MESSAGE System property https.proxyPort has been set to 8080 by an external source. This value will be overwritten using the values from the preferences
+
+!ENTRY org.eclipse.core.net 1 0 2009-07-20 14:43:42.719
+!MESSAGE System property socksProxyHost has been set to proxy1.usana.com by an external source. This value will be overwritten using the values from the preferences
+
+!ENTRY org.eclipse.core.net 1 0 2009-07-20 14:43:42.720
+!MESSAGE System property socksProxyPort has been set to 8080 by an external source. This value will be overwritten using the values from the preferences
