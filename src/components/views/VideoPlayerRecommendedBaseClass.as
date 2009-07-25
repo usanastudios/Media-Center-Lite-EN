@@ -418,6 +418,11 @@ package components.views
 				parentDocument.sendEmail(parentDocument.current_video.title); 
 				
 			}
+			if(event.label == "Embed")
+			{
+				parentDocument.embedVideo(parentDocument.current_video.title); 
+
+			}
 		}
 
 
