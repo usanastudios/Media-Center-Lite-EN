@@ -34,7 +34,7 @@
 				<mx:DataGridColumn dataField="delete" > 
 					<mx:itemRenderer> 
                         <mx:Component> 
-                                <mx:Image source="@Embed(source='file:////Users/jeff/Documents/AdobeFlashBuilderBeta/Media-Center-Lite-Gumbo/src/assets/skins/delete_email_skin.png')" buttonMode="true"/> 
+                                <mx:Image source="@Embed(source='file:../../assets/skins/delete_email_skin.png')" buttonMode="true"/> 
                         </mx:Component> 
                     </mx:itemRenderer>
 				</mx:DataGridColumn>
