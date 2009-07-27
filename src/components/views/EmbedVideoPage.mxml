@@ -2,7 +2,7 @@
 <views:EmbedVideoPageBaseClass xmlns:mx="http://www.adobe.com/2006/mxml" xmlns:views="components.views.*" titleBackgroundSkin="@Embed('../../assets/skins/send_email_title_skin.png')"  close="PopUpManager.removePopUp(this)" width="800" height="500" title="Send To A Friend" showCloseButton="true" backgroundColor="#040404" titleStyleName="emailPageTitleBar" contentBackgroundColor="#030303" xmlns:s="library://ns.adobe.com/flex/spark" creationComplete="init()">
 
     
-	
+	  
 	<mx:Script><![CDATA[ 
 		import mx.managers.PopUpManager;
 	 ]]></mx:Script>
