@@ -460,6 +460,18 @@ package components.views
 			emailWindow.x = 100;
 		}
 		
+		/* ======================================== */
+		/* = FUNCTION TO POP UP EMBED WINDOW = */
+		/* ======================================== */
+		public function embedVideo(title:String):void
+		{
+			var embedWindow:EmbedVideoPage = new components.views.EmbedVideoPage();
+	        PopUpManager.addPopUp(embedWindow, this, false);
+			embedWindow.title = "Embed \""+title+"\"";
+			embedWindow.y = 100;
+			embedWindow.x = 100;
+		}
+		
 		
  
 

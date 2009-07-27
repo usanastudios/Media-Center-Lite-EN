@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<s:Button xmlns:s="library://ns.adobe.com/flex/spark" xmlns:mx="http://www.adobe.com/2006/mxml" skinClass="components.skins.DeleteEmailButtonSkin">
+
+	<!-- Copyright 2009 __MyCompanyName__. -->
+	
+	<mx:Script>
+	    <![CDATA[
+		
+		import mx.events.FlexEvent;
+		
+		/**
+		 *	Description
+		 *
+		 *	@langversion ActionScript 3.0
+		 *	@playerversion Flash 9.0
+		 *
+		 *	@author Jeff
+		 *	@since  2009-07-24
+		 */
+
+		/**
+		 *	Event handler for Creation Complete event.
+		 *	
+		 *	@see mx.events.FlexEvent
+		 */
+		private function onCreationComplete(event:FlexEvent):void {}
+
+	    ]]>
+	</mx:Script>
+	
+</s:Button>

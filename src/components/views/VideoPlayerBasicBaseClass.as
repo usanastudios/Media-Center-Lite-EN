@@ -217,6 +217,7 @@ package components.views
 	        shareMenu.width = 180;
 	        shareMenu.rowHeight = 27;
 	        shareMenu.show(565, share_menu_btn.y + 97);
+			shareMenu.addEventListener(MenuEvent.ITEM_CLICK,shareMenuHandler);
           }
 
 		/* ============================================= */
@@ -370,6 +371,24 @@ package components.views
 		}
 		
 		
+		/* ====================== */
+		/* = SHARE MENU HANDLER = */
+		/* ====================== */
+		public function shareMenuHandler(event:MenuEvent):void
+		{
+			if(event.label == "Email")
+			{
+				parentDocument.sendEmail(parentDocument.current_video.title); 
+				
+			}			
+			
+			if(event.label == "Embed")
+			{
+				parentDocument.embedVideo(parentDocument.current_video.title); 
+				
+			}
+		}
+
 		
 		
 
