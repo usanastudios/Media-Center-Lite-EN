@@ -6,6 +6,7 @@ package components.views
 	import mx.controls.Menu;
 	import mx.events.MenuEvent;
 	import spark.components.Button;
+	import mx.controls.Alert;
 
 
 
@@ -19,10 +20,15 @@ public class LandingPageBaseClass extends Canvas
 	
 	public function initLandingPage():void
 	{
-		
+	
+	parentApplication.landing_page_view.wall.content.addEventListener("Wall3DEvent", wallClick);
+	
 	}
 	
-	
+	public function wallClick():void
+	{
+		Alert.show("wall clicked");
+	}
 	
 	/* =========================================== */
      /* =  CREATE AND DISPLAY THE MENU 2 CONTROL. = */

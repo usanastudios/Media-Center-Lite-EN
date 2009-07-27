@@ -12,7 +12,7 @@
 		<!-- =========== -->
 		<!-- = 3D WALL = -->
 		<!-- =========== -->
-		<mx:SWFLoader x="0" y="136" width="1000" height="500" source="../libs/3dwall.swf" id="wall"/> 
+		<mx:SWFLoader id="wall" x="0" y="136" width="1000" height="500" source="../libs/3dwall.swf" /> 
 
 
 </views:LandingPageBaseClass>
