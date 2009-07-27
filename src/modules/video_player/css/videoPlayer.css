@@ -8,7 +8,7 @@
 }
 
 .timer {
-fontSize: 8px;
+fontSize: 14px;
 color: #ffffff;	
 }
 
@@ -97,4 +97,8 @@ color: #ffffff;
 	 thumbSkin: Embed(source="modules/video_player/skins/VideoPlayer/sliderThumb.png");
 
 	
+}
+.dataTipStyle
+{
+	background-color:#000000;
 }
