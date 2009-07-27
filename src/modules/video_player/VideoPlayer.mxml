@@ -1,5 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
-<mx:Module xmlns:mx="http://www.adobe.com/2006/mxml" layout="absolute" width="544" height="356" creationComplete="init()" clipContent="false" implements="modules.video_player.VideoPlayerInterface">
+<mx:Module xmlns:mx="http://www.adobe.com/2006/mxml" xmlns:s="library://ns.adobe.com/flex/spark" layout="absolute" width="544" height="356" creationComplete="init()" clipContent="false" implements="modules.video_player.VideoPlayerInterface">
+
+	 <!-- SEARCH RESULTS TEST DATA -->
+     
+    <!-- HTTPService TO CHECK FOR CC FILE -->
+    <mx:HTTPService id="closed_caption_svc" url="http://www.usana.com/media/File/mediaCenter/closed_caption/{FlexGlobals.topLevelApplication.current_video.@id}.xml" resultFormat="e4x" result="ccFound()" fault="ccNotFound()" />
+
+
+
 	<mx:Style source="modules/video_player/css/videoPlayer.css" />
 	<mx:Style source="modules/video_player/css/SampleCaptioning.css" />
 	<mx:Script>
@@ -9,15 +17,15 @@
 			import mx.events.SliderEvent;
 			import mx.controls.Alert;
 			import mx.core.FlexGlobals;
-			import flash.geom.*; 
-			import flash.events.FullScreenEvent;
+			import flash.geom.*;  
+			import flash.events.FullScreenEvent; 
 			import flash.display.Stage; 
 			import flash.display.StageDisplayState;
 			import mx.controls.textClasses.TextRange;
 			
 			import org.openvideoplayer.events.*;
 			import org.openvideoplayer.net.*; 
-			import org.openvideoplayer.cc.*;
+			import org.openvideoplayer.cc.*; 
 			
 			import com.akamai.net.*;
 			import com.akamai.rss.AkamaiBOSSParser;
@@ -53,7 +61,9 @@
 	 		public function setVideo(id:String):void {
 				_ns.pause(); 
 	           VIDEO_URL = "http://usana.edgeboss.net/flash/usana/"+id+".flv?xmlvers=1";
-	           _CAPTION_URL_ = "http://www.usana.com/media/File/mediaCenter/closed_caption/"+id+".xml";
+	           _CAPTION_URL_ = "http://www.usana.com/media/File/mediaCenter/closed_caption/"+FlexGlobals.topLevelApplication.current_video.@id+".xml";
+				//CHECK FOR CLOSE CAPTIONED FILE
+				closed_caption_svc.send();
 	           startPlayback();
 	        }
 	    
@@ -66,7 +76,6 @@
 			
 			// Define functions
 			private function init():void {
-				
 				
 				stage.addEventListener(FullScreenEvent.FULL_SCREEN, handleReturnFromFullScreen);
 				//
@@ -469,10 +478,31 @@
 				bClosedcaption.styleName = "ccBtnOn";
 			}
 		}
+		
+		
+		/* ========================================== */
+		/* = FUNCTION CALLED  IF CC FILE EXISTS = */
+		/* ========================================== */
+		private function ccFound():void
+		{
+			bClosedcaption.enabled = true;
+		}
+		
+		
+		/* =============================================== */
+		/* = FUNCTIONC CALLED IF CC FILE DOES NOT EXISTS = */
+		/* =============================================== */
+		private function ccNotFound():void
+		{
+			mx.controls.Alert.show('disabling');
+			
+			bClosedcaption.enabled = false;
+		}
+		
 		]]>
 	</mx:Script>
 	
-
+		
 
 	    <mx:HBox>
 	    
@@ -501,7 +531,7 @@
 			  	     <mx:Spacer width="20" />
 			  	     <mx:Text id="timeDisplay" styleName="timer"  text="00:00/00:00"/>
 			  	     <mx:Button id="bFullscreen" click="switchToFullScreen()" enabled="false" styleName="fsBtn" buttonMode="true" useHandCursor="true"/>
-			  	     <mx:Button id="bClosedcaption" styleName="ccBtn" click="onClickCC(event)" buttonMode="true" useHandCursor="true"/>
+			  	     <s:Button id="bClosedcaption" styleName="ccBtn" skinClass="components.skins.CCButtonSkin" click="onClickCC(event)" buttonMode="true" useHandCursor="true" enabled="false"/>
 			  	     <mx:HSlider id="volumeSlider"
 			  	     	buttonMode="true" 
 			  	     	useHandCursor="true" 
@@ -510,7 +540,7 @@
 			  	     	trackSkin="modules.video_player.vpSliderTrack"
 			  	     	sliderThumbClass="modules.video_player.vpSliderThumb" 
 			  	     	trackHighlightSkin="modules.video_player.vpSliderHighlight"
-			  	     	styleName="vpSlider" 
+			  	     	styleName="vpSlider"  
 			  	     	dataTipFormatFunction="showVolume" 
 			  	     	minimum="0" maximum="1" 
 			  	     	change="changeVolume(event)" 
