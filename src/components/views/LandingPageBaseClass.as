@@ -20,9 +20,7 @@ public class LandingPageBaseClass extends Canvas
 	
 	public function initLandingPage():void
 	{
-	
-	parentApplication.landing_page_view.wall.content.addEventListener("Wall3DEvent", wallClick);
-	
+		parentApplication.landing_page_view.wall.content.addEventListener("Wall3DEvent", wallClick);
 	}
 	
 	public function wallClick():void
