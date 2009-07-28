@@ -38,7 +38,7 @@
 
 <s:VGroup>
 	<s:HGroup>
-		<mx:ModuleLoader id="video_player" url="modules/video_player/VideoPlayer.swf?video_id={current_video.@id}" paddingLeft="25" paddingTop="17"  />
+		<mx:ModuleLoader id="video_player" url="modules/video_player/VideoPlayer.swf?video_id={current_video.@id}" paddingLeft="25" paddingTop="17" paddingBottom="25"  />
 		<s:VGroup>
 			<mx:Text id="video_title_txt" width="375" paddingLeft="20" paddingTop="17" paddingRight="20"  text="Video Title Sample" styleName="videoTitle"/>
 			<mx:Text id="video_short_description_txt" width="375" paddingLeft="20" text="Video Sub Title Sample" styleName="videoSubTitle"/>

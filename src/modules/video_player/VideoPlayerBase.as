@@ -1,7 +1,4 @@
 
-			
-			
-			
 			import com.akamai.net.*;
 			import com.akamai.rss.AkamaiBOSSParser;
 			import flash.display.Stage; 
@@ -203,10 +200,12 @@
 				if ((Number(e.data["width"]) != _video.width)  || (Number(e.data["height"]) != _video.height)) {
 					scaleVideo(Number(e.data["width"]),Number(e.data["height"]));
 				}
+				
 			}
 			// Scales the video to fit into the 544x306 window while preserving aspect ratio.
 			private function scaleVideo(w:Number,h:Number):void {
-				  if (w/h <= 4/3) {
+
+				  if (w/h >= 16/9) {
 					_video.width = 306*w/h;
 					_video.height = 306;
 				} else {
@@ -215,6 +214,7 @@
 				}
 				_video.x = (_videoHolder.width-_video.width)/2;
 				_video.y = (_videoHolder.height-_video.height)/2;
+				
 				_video.visible = true;
 				
 			}
@@ -356,21 +356,16 @@
 				    _videoSettings.x = _videoHolder.x;
 				    _videoSettings.y = _videoHolder.y;
 				  
-				     
-				    stage["fullScreenSourceRect"] = new Rectangle(0,0, _video.videoWidth ,_video.videoHeight);	 
+				    stage["fullScreenSourceRect"] = new Rectangle(25, 75, 544, 306);	 
 				    stage["displayState"] = StageDisplayState.FULL_SCREEN;
 				    
 				    videoWindow.removeChild(_videoHolder);
 				    addChild(_videoHolder);
 				   	_video.x = _videoHolder.x = 0;
-				   	_video.y = _videoHolder.y = -15;
-				   	main_container.y = -75;
-				   	controls_hb.x = controls_hb.x - 10;
-				   	controls_hb.scaleX = 0.6;
-				    _video.width =  _videoHolder.width = _video.videoWidth;
-				    _video.height =  _videoHolder.height = _video.videoHeight;
-				    _video.width =  _videoHolder.width = _video.videoWidth;
-				    _video.height =  _videoHolder.height = _video.videoHeight;
+				   	_video.y = _videoHolder.y = 0;
+				    _video.width =  _videoHolder.width = stage.stageWidth;
+				    _video.height =  _videoHolder.height = stage.stageWidth*9/16;
+
 				    _video.smoothing = true;
 	
 
@@ -381,9 +376,6 @@
 				if (!e.fullScreen) {
 					removeChild(_videoHolder);
 					videoWindow.addChild(_videoHolder);
-					main_container.y = 0;
-					controls_hb.x = 0
-					controls_hb.scaleX = 1;
 				    _video.smoothing = true;
 				    _videoHolder.width = _videoSettings.savedWidth;
 				    _videoHolder.height = _videoSettings.savedHeight;
@@ -490,7 +482,7 @@
 		/* =============================================== */
 		private function ccNotFound():void
 		{
-			mx.controls.Alert.show('disabling');
+			//mx.controls.Alert.show('disabling');
 			
 			bClosedcaption.enabled = false;
 		}
