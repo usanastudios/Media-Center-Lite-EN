@@ -1,22 +1,23 @@
 
-			import mx.modules.Module;
-			import mx.core.UIComponent;
-			import mx.events.SliderEvent;
-			import mx.controls.Alert;
-			import mx.core.FlexGlobals;
-			import flash.geom.*;  
-			import flash.events.FullScreenEvent; 
-			import flash.display.Stage; 
-			import flash.display.StageDisplayState;
-			import mx.controls.textClasses.TextRange;
 			
-			import org.openvideoplayer.events.*;
-			import org.openvideoplayer.net.*; 
-			import org.openvideoplayer.cc.*; 
+			
 			
 			import com.akamai.net.*;
 			import com.akamai.rss.AkamaiBOSSParser;
-			
+			import flash.display.Stage; 
+			import flash.display.StageDisplayState;
+			import flash.events.FullScreenEvent; 
+			import flash.geom.*;  
+			import mx.controls.Alert;
+			import mx.controls.textClasses.TextRange;
+			import mx.core.FlexGlobals;
+			import mx.core.UIComponent;
+			import mx.events.SliderEvent;
+			import mx.modules.Module;
+			import org.openvideoplayer.cc.*; 
+			import org.openvideoplayer.events.*;
+			import org.openvideoplayer.net.*; 
+
 			import mx.utils.*;
 
 	
@@ -362,7 +363,10 @@
 				    videoWindow.removeChild(_videoHolder);
 				    addChild(_videoHolder);
 				   	_video.x = _videoHolder.x = 0;
-				   	_video.y = _videoHolder.y = 0;
+				   	_video.y = _videoHolder.y = -15;
+				   	main_container.y = -75;
+				   	controls_hb.x = controls_hb.x - 10;
+				   	controls_hb.scaleX = 0.6;
 				    _video.width =  _videoHolder.width = _video.videoWidth;
 				    _video.height =  _videoHolder.height = _video.videoHeight;
 				    _video.width =  _videoHolder.width = _video.videoWidth;
@@ -377,6 +381,9 @@
 				if (!e.fullScreen) {
 					removeChild(_videoHolder);
 					videoWindow.addChild(_videoHolder);
+					main_container.y = 0;
+					controls_hb.x = 0
+					controls_hb.scaleX = 1;
 				    _video.smoothing = true;
 				    _videoHolder.width = _videoSettings.savedWidth;
 				    _videoHolder.height = _videoSettings.savedHeight;
