@@ -1,13 +1,13 @@
 package components.views
 {
 
-	import flash.events.MouseEvent;
 	import mx.containers.Canvas;
-	import mx.controls.Menu;
-	import mx.events.MenuEvent;
-	import spark.components.Button;
 	import mx.controls.Alert;
-
+	import mx.controls.Menu;
+	import mx.controls.SWFLoader;
+	import mx.events.MenuEvent;
+	
+	import spark.components.Button;
 
 
 public class LandingPageBaseClass extends Canvas
@@ -17,10 +17,13 @@ public class LandingPageBaseClass extends Canvas
 	/* = PUBLIC VARIABLES = */
 	/* ==================== */
 	public var prospectMenu2_btn:Button;
+	public var wall:SWFLoader;
 	
 	public function initLandingPage():void
 	{
-		parentApplication.landing_page_view.wall.content.addEventListener("Wall3DEvent", wallClick);
+	
+	wall.content.addEventListener("Wall3DEvent", wallClick);
+	
 	}
 	
 	public function wallClick():void
