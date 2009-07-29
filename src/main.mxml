@@ -23,6 +23,13 @@
    		<mx:request>
 			<l>en</l>
 		</mx:request>
+	</mx:HTTPService>    	
+	
+	<!-- Define the All Videos HTTP service -->
+    <mx:HTTPService id="wall_video_svc" url="http://www.usana.com/Main/mediaCenter/searchV" resultFormat="e4x" result="wallVideoResultHandler()" fault="mx.controls.Alert.show(event.fault.message)" >
+   		<mx:request>
+			<l>en</l>
+		</mx:request>
 	</mx:HTTPService>    
 	
 	<!-- Define the All Videos HTTP service -->

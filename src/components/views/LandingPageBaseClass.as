@@ -14,7 +14,7 @@ package components.views
 
 public class LandingPageBaseClass extends Canvas
 {
-	
+	 
 	/* ==================== */
 	/* = PUBLIC VARIABLES = */
 	/* ==================== */
@@ -44,8 +44,9 @@ public class LandingPageBaseClass extends Canvas
 		var thumbUrl:String = StringUtil.trim(event.currentTarget.wall.selectedElement.src);
 		var lastSlash:Number = thumbUrl.lastIndexOf("/");
 		var video_id:String = thumbUrl.substr(lastSlash + 1).replace(".jpg","");
-		
-		
+		parentDocument.selectedWallVideoID = video_id;
+	    parentDocument.getWallVideo();
+	    
 	}
 	
 

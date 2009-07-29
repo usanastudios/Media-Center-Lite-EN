@@ -35,6 +35,7 @@ package components.views
 		/* ==================== */
 		public var akamai_svc:HTTPService;
 		public var all_videos_svc:HTTPService;
+		public var wall_video_svc:HTTPService;
 		public var clipentArray:ArrayCollection = new ArrayCollection();
 		public var current_search_message:String
 		public var current_search_term:String;
@@ -51,6 +52,7 @@ package components.views
 		public var video_list:XML = new XML;
 		public var video_player_basic_view:VideoPlayerBasic;
 		public var video_player_recommended_view:VideoPlayerRecommended;
+		public var selectedWallVideoID:String;
 
 		/* ====================== */
 		/* = BINDABLE VARIABLES = */
@@ -447,6 +449,36 @@ package components.views
 		
 	}
   
+	
+	/* ==================================================== */
+	/* = FUNCTION TO GET THE VIDEO SELECTED ON THE 3DWALL = */
+	/* ==================================================== */
+	public function getWallVideo():void
+	{
+
+		/*SEARCHING MESSAGE*/
+		current_search_message = "Retrieving Selected Video";
+		
+		main_view_stack.selectedIndex = 2;
+		wall_video_svc.send();
+	}
+	
+	/* ================================================= */
+	/* = FUNCTION CALLED WHEN WALL VIDEO CALL RETURNED = */
+	/* ================================================= */
+	public function wallVideoResultHandler():void
+	{
+		var all_videos:XMLList = wall_video_svc.lastResult.video;
+		var wall_video:XMLList =  all_videos.(@id==selectedWallVideoID);
+		current_video = wall_video[0];
+		
+		/*SET CURRENT SEARCH TERM (FOR DISPLAY ON VIDEO PLAYER PAGE)*/
+		current_search_term = current_video.title;
+		
+		/*SET THE VIDEO_LIST RESULTS*/
+		video_list = wall_video_svc.lastResult as XML;
+		main_view_stack.selectedIndex = 1;
+	}
 	
 		/* ======================================== */
 		/* = FUNCTION TO POP UP SEND EMAIL WINDOW = */
