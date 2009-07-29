@@ -68,7 +68,7 @@
 	
 	
 	
-	<mx:ViewStack verticalScrollPolicy="on"  horizontalScrollPolicy="on" id="main_view_stack"   historyManagementEnabled="true"   y="66.75" x="0">
+	<mx:ViewStack verticalScrollPolicy="off"  horizontalScrollPolicy="off" id="main_view_stack"   historyManagementEnabled="true"   y="66.75" x="0">
 		
 		<!-- ================ -->
 		<!-- = LANDING PAGE = -->
@@ -78,7 +78,7 @@
 		<!-- =========================== -->
 		<!-- = VIDEO PLAYER BASIC PAGE = -->
 		<!-- =========================== -->
-		<views:VideoPlayerBasic id="video_player_basic_view" width="1000"  left="0" right="0" /> 
+		<views:VideoPlayerBasic id="video_player_basic_view" verticalScrollPolicy="off" width="1000"  left="0" right="0" /> 
 	
 		<!-- =========================== -->
 		<!-- = SEARCH IN PROGRESS VIEW = -->
