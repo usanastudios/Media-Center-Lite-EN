@@ -28,7 +28,7 @@ package components.views
 		/* = PUBLIC VARIABLES = */
 		/* ==================== */
 		public var akamai_svc:HTTPService;
-		public var current_video:XML;
+		[Bindable] public var current_video:XML;
 		public var share_menu_btn:Button;
 		public var sortMenuData:XML;
 		public var sort_menu_btn:Button;

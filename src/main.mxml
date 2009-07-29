@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<views:MainBaseClass xmlns:fx="http://ns.adobe.com/mxml/2009" xmlns:s="library://ns.adobe.com/flex/spark" defaultButton="{search_btn}" preloader="modules.preloader.Pre" xmlns:mx="library://ns.adobe.com/flex/halo" xmlns:views="components.views.*" minWidth="1000" minHeight="1185" width="1000" backgroundColor="0x101010" creationComplete="initMainApp()">
+<views:MainBaseClass xmlns:fx="http://ns.adobe.com/mxml/2009"  xmlns:s="library://ns.adobe.com/flex/spark" defaultButton="{search_btn}" preloader="modules.preloader.Pre" xmlns:mx="library://ns.adobe.com/flex/halo" xmlns:views="components.views.*" minWidth="1000" minHeight="1185" width="1000" backgroundColor="0x101010" creationComplete="initMainApp()">
 	<fx:Style source="main.css"/>
 	
 	 <!-- SEARCH RESULTS TEST DATA -->
@@ -21,7 +21,7 @@
 	<!-- Define the All Videos HTTP service -->
     <mx:HTTPService id="all_videos_svc" url="http://www.usana.com/Main/mediaCenter/searchV" resultFormat="e4x" result="allVideosResultHandler()" fault="mx.controls.Alert.show(event.fault.message)" >
    		<mx:request>
-			<l>en</l>
+			<l>en</l> 
 		</mx:request>
 	</mx:HTTPService>    	
 	
@@ -68,7 +68,7 @@
 	
 	
 	
-	<mx:ViewStack width="1000" verticalScrollPolicy="auto" horizontalScrollPolicy="off" id="main_view_stack" right="0" left="0" bottom="0" top="66.75" historyManagementEnabled="true" resizeToContent="true">
+	<mx:ViewStack verticalScrollPolicy="on"  horizontalScrollPolicy="on" id="main_view_stack"   historyManagementEnabled="true"   y="66.75" x="0">
 		
 		<!-- ================ -->
 		<!-- = LANDING PAGE = -->
@@ -78,7 +78,7 @@
 		<!-- =========================== -->
 		<!-- = VIDEO PLAYER BASIC PAGE = -->
 		<!-- =========================== -->
-		<views:VideoPlayerBasic id="video_player_basic_view" width="100%" height="100%"	left="0" right="0" /> 
+		<views:VideoPlayerBasic id="video_player_basic_view" width="1000"  left="0" right="0" /> 
 	
 		<!-- =========================== -->
 		<!-- = SEARCH IN PROGRESS VIEW = -->

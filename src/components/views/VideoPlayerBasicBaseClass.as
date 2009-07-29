@@ -50,9 +50,9 @@ package components.views
 		/* =================================== */
 		[Bindable] public var search_results_dp:ArrayCollection = new ArrayCollection();
 		[Bindable] public var pagedDataProvider:ArrayCollection;
-		[Bindable] private var currentPage:int=1;
-		[Bindable] private var pageCount:int=0;
-		private var PERPAGE:int=10;
+		[Bindable] public var currentPage:int=1;
+		[Bindable] public var pageCount:int=0;
+		private var PERPAGE:int=15;
 		public var next_btn:Button;
 		public var previous_btn:Button;
 		public var results_for_txt:Text;

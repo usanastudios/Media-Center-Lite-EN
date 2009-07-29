@@ -49,28 +49,26 @@
 		<mx:Text id="results_for_txt" text="Results For "  styleName="resultsFor"/>
 		<s:Button id="sort_menu_btn" fontFamily="Arial" skinClass="components.skins.SortMenuSkin" buttonMode="true"/>
 		<s:Button id="previous_btn" click="getPreviousPage()" skinClass="components.skins.PreviousButtonSkin" buttonMode="true"/>
+	 
 		<s:Button id="next_btn" click="getNextPage()" skinClass="components.skins.NextButtonSkin" buttonMode="true" enabled="false"/>
 	</s:HGroup>
-
 
 	<!-- ======================================= -->
 	<!-- = TILE LIST CONTAINING THE THUMBNAILS = -->
 	<!-- ======================================= -->
-     <s:List id="list" dataProvider="{pagedDataProvider}" 
-            itemRenderer="components.renderers.Thumbnail"
-            horizontalCenter="0"
-            verticalCenter="0"
-            width="1000"
-           height="300"
+     <s:List id="list" dataProvider="{pagedDataProvider}" y="100"
+           itemRenderer="components.renderers.Thumbnail"
+           width="1000"
             click="showVideo(event);"
-            contentBackgroundColor="0x101010"
+            contentBackgroundColor="0x101010" 
           >
         <s:layout>
             <s:TileLayout 
             	    rowHeight="140"
             	    columnWidth="180"
                     horizontalGap="20"
-                    verticalGap="0" />
+                    verticalGap="0" 
+					requestedRowCount="3"/>
         </s:layout>
         
     </s:List>

@@ -74,7 +74,7 @@ public class SendEmailPageBaseClass extends TitleWindow
 
        private function emailValidator_invalid(evt:ValidationResultEvent):void {
 		
-           mx.controls.Alert.show("You entered an invalid email address:",null,null,email_dg);
+           mx.controls.Alert.show("You entered an invalid email address:",null,0,email_dg);
       
        }
 }
