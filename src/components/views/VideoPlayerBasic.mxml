@@ -1,39 +1,51 @@
 <?xml version="1.0" encoding="utf-8"?>
-<views:VideoPlayerBasicBaseClass xmlns:mx="http://www.adobe.com/2006/mxml" xmlns:views="components.views.*" show="pagination_setup()" creationComplete="basic_video_init()" xmlns:s="library://ns.adobe.com/flex/spark" hide="pauseVideo()">
+<views:VideoPlayerBasicBaseClass xmlns:fx="http://ns.adobe.com/mxml/2009" xmlns:mx="library://ns.adobe.com/flex/halo" xmlns:views="components.views.*" show="pagination_setup()" creationComplete="basic_video_init()" xmlns:s="library://ns.adobe.com/flex/spark" hide="pauseVideo()">
+	<fx:Script>
+		<![CDATA[
+			
+		]]>
+			</fx:Script>
 	
-	<!-- Define the Akamai HTTP service -->
-    <mx:HTTPService id="akamai_svc" url="https://secure.streamos.com/qos/qos-xml.php" resultFormat="e4x" result="akamaiResultHandler()" fault="mx.controls.Alert.show(event.fault.message)" >
-    	<mx:request>
-			<USERNAME>usana</USERNAME>
-			<PASSWORD>vision99</PASSWORD>
-			<OUTPUT>xml</OUTPUT>
-			<STARTDATE>{parentDocument.akamai_start_date}</STARTDATE>
-			<ENDDATE>{parentDocument.akamai_stop_date}</ENDDATE>
-		</mx:request>
-	</mx:HTTPService>
+
+
 	
+	<fx:Declarations>
+		
+		<!-- Define the Akamai HTTP service -->
+	    <mx:HTTPService id="akamai_svc" url="https://secure.streamos.com/qos/qos-xml.php" resultFormat="e4x" result="akamaiResultHandler()" fault="mx.controls.Alert.show(event.fault.message)" >
+	    	<mx:request>
+				<USERNAME>usana</USERNAME>
+				<PASSWORD>vision99</PASSWORD>
+				<OUTPUT>xml</OUTPUT>
+				<STARTDATE>{parentDocument.akamai_start_date}</STARTDATE>
+				<ENDDATE>{parentDocument.akamai_stop_date}</ENDDATE>
+			</mx:request>
+		</mx:HTTPService>
+		
 	 <!-- Define the share menu data. -->
-    <mx:XML format="e4x" id="shareMenuData">
+    <fx:XML format="e4x" id="shareMenuData">
         <root>
            <menuitem label="Email"/>
            <menuitem label="Embed"/>
            <menuitem label="Download"/>
         </root> 
-    </mx:XML>
+    </fx:XML>
 
 	 <!-- Define the sort menu data. -->
-    <mx:XML format="e4x" id="sortMenuData">
+    <fx:XML format="e4x" id="sortMenuData">
         <root>
            <menuitem label="Most Viewed"/>
            <menuitem label="Most Recent"/>
         </root> 
-    </mx:XML>
-	
+    </fx:XML>
+</fx:Declarations>
+		
 
-
+        
 <s:VGroup>
 	<s:HGroup>
 		<mx:ModuleLoader id="video_player" url="modules/video_player/VideoPlayer.swf?video_id={parentDocument.current_video.@id}" />
+	
 		<s:VGroup>
 			<mx:Text id="video_title_txt" width="100%" text="Video Title Sample" styleName="videoTitle"/>
 			<mx:Text id="video_short_description_txt" width="100%" text="Video Sub Title Sample" styleName="videoSubTitle"/>
@@ -49,7 +61,11 @@
 		<mx:Text id="results_for_txt" text="Results For "  styleName="resultsFor"/>
 		<s:Button id="sort_menu_btn" fontFamily="Arial" skinClass="components.skins.SortMenuSkin" buttonMode="true"/>
 		<s:Button id="previous_btn" click="getPreviousPage()" skinClass="components.skins.PreviousButtonSkin" buttonMode="true"/>
-	 
+		<mx:HBox>             
+			<mx:Repeater id="rp" dataProvider="{pageCountDummyArray}" count="10" startingIndex="1">
+		       <mx:Label id="pageNumber_lbl" text="{rp.currentIndex}" />
+		    </mx:Repeater>
+		</mx:HBox>
 		<s:Button id="next_btn" click="getNextPage()" skinClass="components.skins.NextButtonSkin" buttonMode="true" enabled="false"/>
 	</s:HGroup>
 
@@ -74,4 +90,5 @@
     </s:List>
 
 </s:VGroup>	
+
 </views:VideoPlayerBasicBaseClass>

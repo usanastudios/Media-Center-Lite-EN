@@ -15,6 +15,7 @@ package components.views
 	import mx.rpc.http.mxml.HTTPService;
 	import spark.components.Button;
 	import spark.components.List;
+	import mx.controls.Label;
 
  
 	
@@ -42,7 +43,7 @@ package components.views
 		public var video_short_description_txt:Text;
 		public var video_tile_list:TileList;
 		public var video_title_txt:Text;
-
+		
 		
 
 		/* =================================== */
@@ -52,10 +53,12 @@ package components.views
 		[Bindable] public var pagedDataProvider:ArrayCollection;
 		[Bindable] public var currentPage:int=1;
 		[Bindable] public var pageCount:int=0;
+		[Bindable] public var pageCountDummyArray:Array;
 		private var PERPAGE:int=15;
 		public var next_btn:Button;
 		public var previous_btn:Button;
 		public var results_for_txt:Text;
+		
 		
 		
 		/* ======================================== */
@@ -124,6 +127,7 @@ package components.views
 			    currentPage=1;
 			    if(pageCount > 1){
    			        next_btn.enabled=true;
+					pageCountDummyArray = new Array(pageCount);
    			    }
 			    if(search_results_dp.length >= PERPAGE){
 			        for(var i:int=0;i<PERPAGE;i++){
@@ -142,6 +146,8 @@ package components.views
 		public function getNextPage():void{
 		    var start:int=PERPAGE*currentPage;
 		    var end:int=0;
+			
+			
 		    //BE SURE WE HAVE ENOUGH VIDEOS IN DP
 		    if((search_results_dp.length-start)>PERPAGE)
 			{
