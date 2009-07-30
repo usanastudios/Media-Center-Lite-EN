@@ -379,7 +379,7 @@
 				    _video.height =  _videoHolder.height = stage.stageWidth*9/16;
 
 				    _video.smoothing = true;
-	
+
 
 				   
 			}
