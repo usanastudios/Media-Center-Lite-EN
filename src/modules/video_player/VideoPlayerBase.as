@@ -36,18 +36,23 @@
 			private var _captionTimer:Timer;
 			private var _ccOn:Boolean;
 			private var _ccPositioned:Boolean;
+            
+            
             [Bindable]
             private var video_id:String;
 			[BINDABLE]
-			public var VIDEO_URL:String = "http://usana.edgeboss.net/flash/usana/"+FlexGlobals.topLevelApplication.current_video.@id+".flv?xmlvers=1";
+			public var VIDEO_URL:String = "http://usana.edgeboss.net/flash/usana/h.264/"+FlexGlobals.topLevelApplication.current_video.@id+".mp4?xmlvers=1";
 			public var _CAPTION_URL_:String = "http://www.usana.com/media/File/mediaCenter/closed_caption/"+FlexGlobals.topLevelApplication.current_video.@id+".xml";
 	
+			
+			
+			
 			/* ================================================== */
 			/* = FUNCTION TO CHANGE VIDEO URL AND START PLAYBACK = */
 			/* ================================================== */
 	 		public function setVideo(id:String):void {
 				_ns.pause(); 
-	           VIDEO_URL = "http://usana.edgeboss.net/flash/usana/"+id+".flv?xmlvers=1";
+	           VIDEO_URL = "http://usana.edgeboss.net/flash/usana/h.264/"+id+".mp4?xmlvers=1";
 	           _CAPTION_URL_ = "http://www.usana.com/media/File/mediaCenter/closed_caption/"+FlexGlobals.topLevelApplication.current_video.@id+".xml";
 				//CHECK FOR CLOSE CAPTIONED FILE
 				closed_caption_svc.send();
@@ -199,13 +204,20 @@
 				// Adjust the video dimensions on the stage if they do not match the metadata
 				if ((Number(e.data["width"]) != _video.width)  || (Number(e.data["height"]) != _video.height)) {
 					scaleVideo(Number(e.data["width"]),Number(e.data["height"]));
+				
+				} else {
+					
+					_video.visible = true;
+					
 				}
+				
+				
 				
 			}
 			// Scales the video to fit into the 544x306 window while preserving aspect ratio.
 			private function scaleVideo(w:Number,h:Number):void {
 
-				  if (w/h >= 16/9) {
+				if (w/h <= 16/9) {
 					_video.width = 306*w/h;
 					_video.height = 306;
 				} else {
@@ -443,6 +455,8 @@
 		
 		private function positionCaption():void {
 			// only need to do this once
+			
+
 			if (!_ccPositioned) {
 				_ccPositioned = true;
 				var pt:Point = videoContainer.contentToGlobal(new Point(videoContainer.x, videoContainer.y));
@@ -451,6 +465,8 @@
 				captionLabel.y = pt.y + videoWindow.height - captionLabel.height;	
 					
 			}
+			
+
 		}
 		
 		private function onClickCC(e:Event):void {

@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<mx:Module xmlns:mx="http://www.adobe.com/2006/mxml"   xmlns:s="library://ns.adobe.com/flex/spark" layout="absolute" width="544" height="356" creationComplete="init()" clipContent="false" implements="modules.video_player.VideoPlayerInterface">
+<mx:Module xmlns:mx="http://www.adobe.com/2006/mxml" xmlns:s="library://ns.adobe.com/flex/spark" layout="absolute" creationComplete="init()" clipContent="false" implements="modules.video_player.VideoPlayerInterface">
 
 	 <!-- SEARCH RESULTS TEST DATA -->
      
@@ -12,16 +12,17 @@
 <mx:Script source="VideoPlayerBase.as" />	
 		
 
-	    <mx:HBox id="main_container">
 	    
 	    <!-- BEGIN VIDEO PLAYER-->
 	    
-		<mx:Canvas id="videoContainer" width="544" height="359" backgroundAlpha="0.09" backgroundColor="#000000" horizontalScrollPolicy="off" verticalScrollPolicy="off">
-			
-			  <mx:HBox width="544" height="306" x="0" y="0" id="videoWindow" borderStyle="none" verticalAlign="middle" horizontalAlign="center" backgroundColor="#000000"/>   	
-			  	<mx:HBox width="{videoWindow.width}" id="controls_hb" y="306" x="0" height="60" verticalAlign="middle" styleName="controlBarBackground" horizontalScrollPolicy="off" verticalScrollPolicy="off">
+	    
+	    
+		<mx:Canvas id="videoContainer" width="544" height="366" backgroundAlpha="0.09" backgroundColor="#000000" horizontalScrollPolicy="off" verticalScrollPolicy="off">
 
-			  	  		
+		<mx:HBox width="544" height="306" x="0" y="0" id="videoWindow" borderStyle="none" verticalAlign="middle" horizontalAlign="center" backgroundColor="#000000"/>   	
+
+			<mx:ApplicationControlBar width="{videoWindow.width}" id="controls_hb" y="306" x="{videoContainer.x}" height="60" verticalAlign="middle" styleName="controlBarBackground" horizontalScrollPolicy="off" verticalScrollPolicy="off">
+	
 			  	     <mx:Button id="bPlayPause" click="doPlayPause()" styleName="vpPlayBtn" buttonMode="true" useHandCursor="true"/>
 			  	     <mx:Spacer width="5" />
 			  	     <mx:HSlider 
@@ -59,18 +60,12 @@
 			  	     	allowTrackClick="true" 
 			  	     	liveDragging="true"
 			  	     	dataTipStyleName="dataTipStyle"/>
-
-
-			  	</mx:HBox>
-
-
-		</mx:Canvas>
-		
-
-		
+			  	     	
+			  	</mx:ApplicationControlBar>
+			  	
 		<!-- END VIDEO PLAYER-->
 		
-		</mx:HBox>
+		</mx:Canvas>
 		
 		<!-- SHOW CC -->
 				
