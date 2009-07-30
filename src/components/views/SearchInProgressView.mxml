@@ -12,6 +12,6 @@
 	<s:VGroup horizontalCenter="5" verticalCenter="0" horizontalAlign="center">
 		<mx:Text id="searching_for_txt" text="" styleName="searchingFor"  horizontalCenter="0" verticalCenter="0"/>
 	</s:VGroup>
-	<mx:SWFLoader source="circlePreloader.swf" x="0" y="-90"/>
+	<mx:SWFLoader source="assets/swf/circlePreloader.swf" x="0" y="-90"/>
 
 </views:LandingPageBaseClass>
