@@ -50,7 +50,7 @@
 			<mx:Text id="video_title_txt" width="100%" text="{parentDocument.video_title}" styleName="videoTitle"/>
 			<mx:Text id="video_short_description_txt" width="100%" text="{parentDocument.video_short_description}" styleName="videoSubTitle"/>
 			<s:Button id="share_menu_btn" skinClass="components.skins.ShareMenuSkin" buttonMode="true" />
-			<mx:Text id="video_long_description_txt" width="100%" text="{parentDocument.video_long_description}" styleName="videoSubTitle"/>
+			<mx:Text id="video_long_description_txt" width="100%" htmlText="{parentDocument.video_long_description}" styleName="videoSubTitle"/>
 		</s:VGroup>
 	</s:HGroup> 
 	
@@ -63,7 +63,7 @@
 		<s:Button id="previous_btn" click="{parentDocument.getPreviousPage(this)}" skinClass="components.skins.PreviousButtonSkin" buttonMode="true"/>
 		<mx:HBox>             
 			<mx:Repeater id="rp" dataProvider="{parentDocument.pageCountDummyArray}" count="10" startingIndex="1">
-		       <mx:Label id="pageNumber_lbl" text="{rp.currentIndex}" click="{parentDocument.getSelectedPage(event.target.text,this)}"/>
+		       <mx:LinkButton id="pageNumber_lbl" buttonMode="true" label="{rp.currentIndex}" click="{parentDocument.getSelectedPage(event.target.label,this)}"/>
 		    </mx:Repeater>
 		</mx:HBox>
 		<s:Button id="next_btn" click="parentDocument.getNextPage(this)" skinClass="components.skins.NextButtonSkin" buttonMode="true" enabled="false"/>

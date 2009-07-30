@@ -630,7 +630,8 @@ package components.views
 			public function getSelectedPage(pageNum:String,videoPage:Object):void{
 			    var start:int=PERPAGE*currentPage;
 			    var end:int=0;
-				
+				currentPage = pageNum as int;
+ 			    
 			    //BE SURE WE HAVE ENOUGH VIDEOS IN DP
 			   if((search_results_dp.length-start)>PERPAGE)
  				{
@@ -645,7 +646,6 @@ package components.views
  				{
  			        pagedDataProvider.addItem(search_results_dp.getItemAt(i));
  			    }
- 			    currentPage = pageNum as int;
  			   	videoPage.previous_btn.enabled=true;
  			    if(currentPage==pageCount){
  			     videoPage.next_btn.enabled=false;
