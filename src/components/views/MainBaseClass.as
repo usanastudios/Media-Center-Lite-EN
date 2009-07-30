@@ -572,6 +572,20 @@ package components.views
 			        pagedDataProvider=search_results_dp;
 			    }
 			
+			
+				//IF MORE THAN 10 PAGES, SHOW THE CONTINUATION DOTS :) 
+				if(pageCount > 10)
+				{
+					videoPage.nextTen_btn.visible=true;
+				}
+				else
+				{
+					videoPage.nextTen_btn.visible=false;
+				}
+				
+			
+				
+			
 		}
 		
 	     
@@ -629,17 +643,18 @@ package components.views
 			/* ======================================= */
 			/* = FUNCTION TO GET SELECTED PAGE OF VIDEOS = */
 			/* ======================================= */
-				public function getSelectedPage(pageNum:String,videoPage:Object,event_target:Object):void{
+				public function getSelectedPage(pageNum:String,videoPage:Object,event_target:Object = null):void{
 				var pageNumber:int = parseInt(pageNum);
 			    var start:int=PERPAGE*pageNumber;
 			    var end:int=0;
 			
 				
 			
-				//SET CURRENT PAGE TO SELECTED PAGE
-				
 				//UNDERLINE CURRENT PAGE NUMBER
- 			    event_target.setStyle('textDecoration','underline');
+				if(event_target)
+ 			    {
+					event_target.setStyle('textDecoration','underline');
+				}
 			    //BE SURE WE HAVE ENOUGH VIDEOS IN DP
 			   if((search_results_dp.length-start)>PERPAGE)
  				{
@@ -661,9 +676,46 @@ package components.views
  			    if(currentPage==pageCount){
  			     videoPage.next_btn.enabled=false;
  			    }
+
+				//SHOW PREVIOUS TEN BUTTON IF WE ARE NOT ON FIRST PAGE
+				if(videoPage.rp.startingIndex > 1)
+				{
+					videoPage.previousTen_btn.visible=true;
+				}
+				else
+				{
+					videoPage.previousTen_btn.visible=false;
+				}
+				
+				//SHOW NEXT TEN BUTTON IF WE ARE NOT ON LAST PAGE
+				if (videoPage.rp.startingIndex > search_results_dp.length / 15)
+				{
+					videoPage.nextTen_btn.visible = false;
+				}
+				
 			}
 
 
+	/* =================================================== */
+	/* = FUNCTION TO GET THE NEXT 10 PAGES OF THUMBNAILS = */
+	/* =================================================== */
+	public function getNextTen(videoPage:Object):void
+	{
+		videoPage.rp.startingIndex = videoPage.rp.startingIndex + 9;
+		currentPage = videoPage.rp.startingIndex;
+		getSelectedPage(videoPage.rp.startingIndex,videoPage);
+	}
+	
+			
+	/* =================================================== */
+	/* = FUNCTION TO GET THE NEXT 10 PAGES OF THUMBNAILS = */
+	/* =================================================== */
+	public function getPreviousTen(videoPage:Object):void
+	{
+		videoPage.rp.startingIndex = videoPage.rp.startingIndex - 9;
+		currentPage = videoPage.rp.startingIndex;
+		getSelectedPage(videoPage.rp.startingIndex,videoPage);
+	}
           
 	}
 }
