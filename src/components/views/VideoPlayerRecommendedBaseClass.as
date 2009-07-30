@@ -29,6 +29,10 @@ package components.views
 		/* ==================== */
 		public var akamai_svc:HTTPService;
 		[Bindable] public var current_video:XML;
+		public var next_btn:Button;
+		public var previous_btn:Button;
+		public var results_for_txt:Text;
+		public var shareMenuData:XML;
 		public var share_menu_btn:Button;
 		public var sortMenuData:XML;
 		public var sort_menu_btn:Button;
@@ -37,7 +41,7 @@ package components.views
 		public var video_short_description_txt:Text;
 		public var video_tile_list:TileList;
 		public var video_title_txt:Text;
-		public var shareMenuData:XML;
+
 
 		/* ====================== */
 		/* = BINDABLE VARIABLES = */
@@ -45,17 +49,8 @@ package components.views
 		[Bindable] public var currentModuleName:String;
 		
 
-		/* =================================== */
-		/* = VARS FOR PAGINATION OF TILELIST = */
-		/* =================================== */
-		[Bindable] public var search_results_dp:ArrayCollection = new ArrayCollection();
-		[Bindable] public var pagedDataProvider:ArrayCollection;
-		[Bindable] private var currentPage:int=1;
-		[Bindable] private var pageCount:int=0;
-		private var PERPAGE:int=10;
-		public var next_btn:Button;
-		public var previous_btn:Button;
-		public var results_for_txt:Text;
+	
+
 		
 		
 		/* ======================================== */
@@ -70,7 +65,7 @@ package components.views
 			sort_menu_btn.addEventListener(MouseEvent.CLICK,createAndShowSortMenu);
 			
 			/*SET UP PAGINATION*/
-			pagination_setup()
+			parentDocument.pagination_setup(this);
 			
 			
 			//SET UP VARS IF RELOADING VIDEO PAGE WITHOUT SEARCH
@@ -107,82 +102,6 @@ package components.views
 		
 		
 		
-		/* ===================== */
-		/* = SET UP PAGINATION = */
-		/* ===================== */ 
-		public function pagination_setup():void
-		{
-			 
-			// Convert XML to ArrayCollection
-			  var ii:int = 0;
-              for each(var s:XML in parentDocument.video_list.video){
-				  if (ii > 5)
-				  {
-                  	search_results_dp.addItem(s);
-				  }	
-				  ii++
-              }
-			
-	
-			pagedDataProvider=new ArrayCollection();
-			  	pageCount=(search_results_dp.length/PERPAGE)+1;
-			    currentPage=1;
-			    if(pageCount > 1){
-			        next_btn.enabled=true;
-			    }
-			    if(search_results_dp.length >= PERPAGE){
-			        for(var i:int=0;i<PERPAGE;i++){
-			            pagedDataProvider.addItem(search_results_dp.getItemAt(i));
-			        }
-			    }else{
-			        pagedDataProvider=search_results_dp;
-			    }
-		}
-		
-	     
-		/* ======================================= */
-		/* = FUNCTION TO GET NEXT PAGE OF VIDEOS = */
-		/* ======================================= */
-		public function getNextPage():void{
-		    var start:int=PERPAGE*currentPage;
-		    var end:int=0;
-		    //BE SURE WE HAVE ENOUGH VIDEOS IN DP
-		    if((search_results_dp.length-start)>PERPAGE)
-			{
-		        end=start+PERPAGE;
-		    }
-			else
-			{
-		        end=search_results_dp.length;
-		    }
-		    pagedDataProvider=new ArrayCollection();
-		    for(var i:int=start;i<end;i++)
-			{
-		        pagedDataProvider.addItem(search_results_dp.getItemAt(i));
-		    }
-		    currentPage++; //INCREMENT PAGE
-		    previous_btn.enabled=true;
-		    if(currentPage==pageCount){
-		        next_btn.enabled=false;
-		    }
-		}
-	
-		/* =============================================== */
-		/* = FUNCTION TO GET THE PREVIOUS PAGE OF VIDEOS = */
-		/* =============================================== */
-		public function getPreviousPage():void{
-		    currentPage--; //DECREMENT PAGE
-		    next_btn.enabled=true;
-		    if(currentPage==1){
-		        previous_btn.enabled=false;
-		    }
-		    var start:int=PERPAGE*(currentPage-1);
-		    var end:int=start+PERPAGE;
-		    pagedDataProvider=new ArrayCollection();
-		    for(var i:int=start;i<end;i++){
-		        pagedDataProvider.addItem(search_results_dp.getItemAt(i));
-		    }
-		}
 	
 	
 		/* =================================== */
@@ -298,7 +217,7 @@ package components.views
 
 				/*CREATE TEMPORARY ARRAY COLLECTION WITH STRIPPED ID TO SORT*/
 				var tempArrayColl:ArrayCollection = new ArrayCollection();
-				for each (var video:XML in pagedDataProvider)
+				for each (var video:XML in parentDocument.pagedDataProvider)
 				{
 					tempArrayColl.addItem({"id":video.@id.substring(3),"title":video.title,"shortdescription":video.shortdescription,"longdescription":video.longdescription});
 				}
@@ -326,7 +245,7 @@ package components.views
 				xmlstr += "</mediacenter>";
 				parentDocument.video_list = new XML(xmlstr);
 				parentDocument.current_video = parentDocument.video_list.children()[0];
-				pagination_setup()
+				parentDocument.pagination_setup(this);
 
 				}
 
@@ -404,7 +323,7 @@ package components.views
 				xmlstr += "</mediacenter>";
 				parentDocument.video_list = new XML(xmlstr);
 				parentDocument.current_video = parentDocument.video_list.children()[0];
-				pagination_setup();
+				parentDocument.pagination_setup(this);
 				parentDocument.main_view_stack.selectedIndex = 3;
 		}
 		

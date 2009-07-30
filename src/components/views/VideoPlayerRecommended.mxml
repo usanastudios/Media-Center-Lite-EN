@@ -55,8 +55,8 @@
 	<s:HGroup>
 		<mx:Text id="results_for_txt" text="Results For "  styleName="resultsFor"/>
 		<s:Button id="sort_menu_btn" fontFamily="Arial" skinClass="components.skins.SortMenuSkin" buttonMode="true"/>
-		<s:Button id="previous_btn" click="getPreviousPage()" skinClass="components.skins.PreviousButtonSkin" buttonMode="true"/>
-		<s:Button id="next_btn" click="getNextPage()" skinClass="components.skins.NextButtonSkin" buttonMode="true"/>
+		<s:Button id="previous_btn" click="parentDocument.getPreviousPage(this)" skinClass="components.skins.PreviousButtonSkin" buttonMode="true"/>
+		<s:Button id="next_btn" click="parentDocument.getNextPage(this)" skinClass="components.skins.NextButtonSkin" buttonMode="true"/>
 	</s:HGroup>
 
 	
@@ -77,7 +77,7 @@
 	<!-- ======================================= -->
 	<!-- = TILE LIST CONTAINING THE THUMBNAILS = -->
 	<!-- ======================================= -->
-     <s:List id="list" dataProvider="{pagedDataProvider}" 
+     <s:List id="list" dataProvider="{parentDocument.pagedDataProvider}" 
             itemRenderer="components.renderers.Thumbnail"
             horizontalCenter="0"
             verticalCenter="0"

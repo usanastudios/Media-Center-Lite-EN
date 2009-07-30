@@ -21,7 +21,6 @@ package components.views
 	import mx.managers.PopUpManager;
 	import mx.rpc.http.mxml.HTTPService;
 	import mx.validators.Validator;
-	
 	import spark.components.Application;
 	import spark.components.Button;
 	import spark.components.TextInput;
@@ -53,6 +52,7 @@ package components.views
 		public var video_player_basic_view:VideoPlayerBasic;
 		public var video_player_recommended_view:VideoPlayerRecommended;
 		public var selectedWallVideoID:String;
+		
 
 		/* ====================== */
 		/* = BINDABLE VARIABLES = */
@@ -60,14 +60,24 @@ package components.views
 		[Bindable] public var dateFormatter:DateFormatter;
 		[Bindable] public var akamai_start_date:String;
 		[Bindable] public var akamai_stop_date:String;
-		
-		
-		/* ====================== */
-		/* = BINDABLE VARIABLES = */
-		/* ====================== */
+		[Bindable] public var video_title:String;
+		[Bindable] public var video_short_description:String;
+		[Bindable] public var video_long_description:String;
+		[Bindable] public var results_for:String;
 		[Bindable]public var search_txt:TextInput;
 		[Bindable] public var search_btn:Button;
+		[Bindable] public var search_results_dp:ArrayCollection = new ArrayCollection();
 		
+		
+		/* =================================== */
+		/* = VARS FOR PAGINATION OF TILELIST = */
+		/* =================================== */
+		[Bindable] public var pagedDataProvider:ArrayCollection;
+		[Bindable] public var currentPage:int=1;
+		[Bindable] public var pageCount:int=0;
+		[Bindable] public var pageCountDummyArray:Array;
+		private var PERPAGE:int=15;
+	
 		
 		
 		
@@ -521,6 +531,127 @@ package components.views
 		   return -1;
 		}
 		
+
+
+
+		/* ===================== */
+		/* = SET UP PAGINATION = */
+		/* ===================== */ 
+		public function pagination_setup(videoPage:Object):void
+		{
+			
+			//SET UP FIRST VIDEO THAT WILL PLAY
+			video_title = current_video.title;
+			video_short_description = current_video.shortdescription;
+			video_long_description = current_video.longdescription;
+			results_for = "Results For \"" + current_search_term +"\"";
+			
+			
+			 
+			//CLEAR EXISTING DP
+			search_results_dp.removeAll();
+			// Convert XML to ArrayCollection
+              for each(var s:XML in parentDocument.video_list.video){
+                  search_results_dp.addItem(s);
+              }
+			
+			pagedDataProvider=new ArrayCollection();
+			  	pageCount=(search_results_dp.length/PERPAGE)+1;
+			    currentPage=1;
+			    if(pageCount > 1){
+   			     videoPage.next_btn.enabled=true;
+					pageCountDummyArray = new Array(pageCount);
+   			    }
+			    if(search_results_dp.length >= PERPAGE){
+			        for(var i:int=0;i<PERPAGE;i++){
+			            pagedDataProvider.addItem(search_results_dp.getItemAt(i));
+			        }
+			    }else{
+			        pagedDataProvider=search_results_dp;
+			    }
+			
+		}
+		
+	     
+		/* ======================================= */
+		/* = FUNCTION TO GET NEXT PAGE OF VIDEOS = */
+		/* ======================================= */
+		public function getNextPage(videoPage:Object):void{
+		    var start:int=PERPAGE*currentPage;
+		    var end:int=0;
+			
+			
+		    //BE SURE WE HAVE ENOUGH VIDEOS IN DP
+		    if((search_results_dp.length-start)>PERPAGE)
+			{
+		        end=start+PERPAGE;
+		    }
+			else
+			{
+		        end=search_results_dp.length;
+		    }
+		    pagedDataProvider=new ArrayCollection();
+		    for(var i:int=start;i<end;i++)
+			{
+		        pagedDataProvider.addItem(search_results_dp.getItemAt(i));
+		    }
+		    currentPage++; //INCREMENT PAGE
+		    videoPage.previous_btn.enabled=true;
+		    if(currentPage==pageCount){
+		       videoPage.next_btn.enabled=false;
+		    }
+		}
+	
+	
+	
+	
+		/* =============================================== */
+		/* = FUNCTION TO GET THE PREVIOUS PAGE OF VIDEOS = */
+		/* =============================================== */
+		public function getPreviousPage(videoPage:Object):void{
+		    currentPage--; //DECREMENT PAGE
+		    videoPage.next_btn.enabled=true;
+		    if(currentPage==1){
+		      videoPage.previous_btn.enabled=false;
+		    }
+		    var start:int=PERPAGE*(currentPage-1);
+		    var end:int=start+PERPAGE;
+		    pagedDataProvider=new ArrayCollection();
+		    for(var i:int=start;i<end;i++){
+		        pagedDataProvider.addItem(search_results_dp.getItemAt(i));
+		    }
+		}
+	
+	
+	
+			/* ======================================= */
+			/* = FUNCTION TO GET SELECTED PAGE OF VIDEOS = */
+			/* ======================================= */
+			public function getSelectedPage(pageNum:String,videoPage:Object):void{
+			    var start:int=PERPAGE*currentPage;
+			    var end:int=0;
+				
+			    //BE SURE WE HAVE ENOUGH VIDEOS IN DP
+			   if((search_results_dp.length-start)>PERPAGE)
+ 				{
+ 			        end=start+PERPAGE;
+ 			    }
+ 				else
+ 				{
+ 			        end=search_results_dp.length;
+ 			    }
+ 			    pagedDataProvider=new ArrayCollection();
+ 			    for(var i:int=start;i<end;i++)
+ 				{
+ 			        pagedDataProvider.addItem(search_results_dp.getItemAt(i));
+ 			    }
+ 			    currentPage = pageNum as int;
+ 			   	videoPage.previous_btn.enabled=true;
+ 			    if(currentPage==pageCount){
+ 			     videoPage.next_btn.enabled=false;
+ 			    }
+			}
+
 
           
 	}
