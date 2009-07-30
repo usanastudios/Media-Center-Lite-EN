@@ -40,12 +40,12 @@
 	<s:HGroup>
 		<mx:ModuleLoader id="video_player" url="modules/video_player/VideoPlayer.swf?video_id={current_video.@id}" paddingLeft="25" paddingTop="17" paddingBottom="25"  />
 		<s:VGroup>
-			<mx:Text id="video_title_txt" width="375" paddingLeft="20" paddingTop="17" paddingRight="20"  text="Video Title Sample" styleName="videoTitle"/>
-			<mx:Text id="video_short_description_txt" width="375" paddingLeft="20" text="Video Sub Title Sample" styleName="videoSubTitle"/>
+			<mx:Text id="video_title_txt" width="375" paddingLeft="20" paddingTop="17" paddingRight="20"  text="{parentDocument.video_title}" styleName="videoTitle"/>
+			<mx:Text id="video_short_description_txt" width="375" paddingLeft="20" text="{parentDocument.video_short_description}" styleName="videoSubTitle"/>
 				<mx:Box paddingLeft="17">
 					<s:Button id="share_menu_btn" skinClass="components.skins.ShareMenuSkin" buttonMode="true" />
 				</mx:Box>
-			<mx:Text id="video_long_description_txt" width="375" paddingLeft="20" text="Video Description Sample" styleName="videoSubTitle"/>
+			<mx:Text id="video_long_description_txt" width="375" paddingLeft="20" htmlText="{parentDocument.video_long_description}" styleName="videoSubTitle"/>
 		</s:VGroup>
 	</s:HGroup> 
 	
@@ -55,8 +55,13 @@
 	<s:HGroup>
 		<mx:Text id="results_for_txt" text="Results For "  styleName="resultsFor"/>
 		<s:Button id="sort_menu_btn" fontFamily="Arial" skinClass="components.skins.SortMenuSkin" buttonMode="true"/>
-		<s:Button id="previous_btn" click="getPreviousPage()" skinClass="components.skins.PreviousButtonSkin" buttonMode="true"/>
-		<s:Button id="next_btn" click="getNextPage()" skinClass="components.skins.NextButtonSkin" buttonMode="true"/>
+		<s:Button id="previous_btn" click="parentDocument.getPreviousPage(this)" skinClass="components.skins.PreviousButtonSkin" buttonMode="true"/>
+			<mx:HBox>             
+				<mx:Repeater id="rp_rec" dataProvider="{parentDocument.pageCountDummyArray}" count="10" startingIndex="1">
+			       <mx:LinkButton id="pageNumber_lbl" buttonMode="true" label="{rp_rec.currentIndex}" click="{parentDocument.getSelectedPage(event.target.label,this)}"/>
+			    </mx:Repeater>
+			</mx:HBox>
+		<s:Button id="next_btn" click="parentDocument.getNextPage(this)" skinClass="components.skins.NextButtonSkin" buttonMode="true"/>
 	</s:HGroup>
 
 	
@@ -77,7 +82,7 @@
 	<!-- ======================================= -->
 	<!-- = TILE LIST CONTAINING THE THUMBNAILS = -->
 	<!-- ======================================= -->
-     <s:List id="list" dataProvider="{pagedDataProvider}" 
+     <s:List id="list" dataProvider="{parentDocument.pagedDataProvider}" 
             itemRenderer="components.renderers.Thumbnail"
             horizontalCenter="0"
             verticalCenter="0"
