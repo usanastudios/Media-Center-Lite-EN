@@ -50,10 +50,19 @@
 		<mx:ModuleLoader id="video_player" url="modules/video_player/VideoPlayer.swf?video_id={parentDocument.current_video.@id}" />
 	
 		<s:VGroup>
+<<<<<<< HEAD:src/components/views/VideoPlayerBasic.mxml
+			
+			<mx:Text id="video_title_txt" width="100%" text="Video Title Sample" styleName="videoTitle"/>
+			<mx:Text id="video_short_description_txt" width="100%" text="Video Sub Title Sample" styleName="videoSubTitle"/>
+				<s:Button id="share_menu_btn" skinClass="components.skins.ShareMenuSkin" buttonMode="true" />
+			<mx:Text id="video_long_description_txt" width="100%" text="Video Description Sample" styleName="videoSubTitle"/>
+			
+=======
 			<mx:Text id="video_title_txt" width="100%" text="{parentDocument.video_title}" styleName="videoTitle"/>
 			<mx:Text id="video_short_description_txt" width="100%" text="{parentDocument.video_short_description}" styleName="videoSubTitle"/>
 			<s:Button id="share_menu_btn" skinClass="components.skins.ShareMenuSkin" buttonMode="true" />
 			<mx:Text id="video_long_description_txt" width="100%" htmlText="{parentDocument.video_long_description}" styleName="videoSubTitle"/>
+>>>>>>> b500aba4f7fdcb5ab1c7fcd60304a05923b16f7b:src/components/views/VideoPlayerBasic.mxml
 		</s:VGroup>
 	</s:HGroup> 
 	
@@ -61,6 +70,7 @@
 	<!-- = RESULTS AND PAGING = -->
 	<!-- ==================== -->
 	<s:HGroup>
+	
 		<mx:Text id="results_for_txt" text="Results For "  styleName="resultsFor"/>
 		<s:Button id="sort_menu_btn" fontFamily="Arial" skinClass="components.skins.SortMenuSkin" buttonMode="true"/>
 		<s:Button id="previous_btn" click="{pageNumber_lbl[parentDocument.currentPage -1].setStyle('textDecoration','none');pageNumber_lbl[parentDocument.currentPage - 2].setStyle('textDecoration','underline');parentDocument.getPreviousPage(this)}" skinClass="components.skins.PreviousButtonSkin" buttonMode="true"/>
@@ -93,5 +103,6 @@
     </s:List>
 
 </s:VGroup>	
+
 
 </views:VideoPlayerBasicBaseClass>
