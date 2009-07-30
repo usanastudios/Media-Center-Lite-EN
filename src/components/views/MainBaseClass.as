@@ -24,7 +24,7 @@ package components.views
 	import spark.components.Application;
 	import spark.components.Button;
 	import spark.components.TextInput;
-
+	import mx.controls.LinkButton;
 
 	public class MainBaseClass extends Application
 	{
@@ -52,6 +52,8 @@ package components.views
 		public var video_player_basic_view:VideoPlayerBasic;
 		public var video_player_recommended_view:VideoPlayerRecommended;
 		public var selectedWallVideoID:String;
+		public var last_selected_page:Number;
+		
 		
 
 		/* ====================== */
@@ -627,11 +629,17 @@ package components.views
 			/* ======================================= */
 			/* = FUNCTION TO GET SELECTED PAGE OF VIDEOS = */
 			/* ======================================= */
-			public function getSelectedPage(pageNum:String,videoPage:Object):void{
-			    var start:int=PERPAGE*currentPage;
+				public function getSelectedPage(pageNum:String,videoPage:Object,event_target:Object):void{
+				var pageNumber:int = parseInt(pageNum);
+			    var start:int=PERPAGE*pageNumber;
 			    var end:int=0;
-				currentPage = pageNum as int;
- 			    
+			
+				
+			
+				//SET CURRENT PAGE TO SELECTED PAGE
+				
+				//UNDERLINE CURRENT PAGE NUMBER
+ 			    event_target.setStyle('textDecoration','underline');
 			    //BE SURE WE HAVE ENOUGH VIDEOS IN DP
 			   if((search_results_dp.length-start)>PERPAGE)
  				{
@@ -646,6 +654,9 @@ package components.views
  				{
  			        pagedDataProvider.addItem(search_results_dp.getItemAt(i));
  			    }
+				currentPage = pageNumber;
+				
+
  			   	videoPage.previous_btn.enabled=true;
  			    if(currentPage==pageCount){
  			     videoPage.next_btn.enabled=false;

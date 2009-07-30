@@ -88,7 +88,7 @@
 		<!-- ================================= -->
 		<!-- = VIDEO PLAYER RECOMMENDED PAGE = -->
 		<!-- ================================= -->
-		<views:VideoPlayerRecommended id="video_player_recommended_view" width="100%" 	left="0" right="0" /> 
+		<views:VideoPlayerRecommended id="video_player_recommended_view" verticalScrollPolicy="off" width="100%" 	left="0" right="0" /> 
 		
 
 	</mx:ViewStack>

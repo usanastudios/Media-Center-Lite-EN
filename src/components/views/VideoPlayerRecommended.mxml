@@ -55,13 +55,13 @@
 	<s:HGroup>
 		<mx:Text id="results_for_txt" text="Results For "  styleName="resultsFor"/>
 		<s:Button id="sort_menu_btn" fontFamily="Arial" skinClass="components.skins.SortMenuSkin" buttonMode="true"/>
-		<s:Button id="previous_btn" click="parentDocument.getPreviousPage(this)" skinClass="components.skins.PreviousButtonSkin" buttonMode="true"/>
+		<s:Button id="previous_btn" click="{pageNumber_lbl[parentDocument.currentPage -1].setStyle('textDecoration','none');pageNumber_lbl[parentDocument.currentPage - 2].setStyle('textDecoration','underline');parentDocument.getPreviousPage(this)}" skinClass="components.skins.PreviousButtonSkin" buttonMode="true"/>
 			<mx:HBox>             
 				<mx:Repeater id="rp_rec" dataProvider="{parentDocument.pageCountDummyArray}" count="10" startingIndex="1">
-			       <mx:LinkButton id="pageNumber_lbl" buttonMode="true" label="{rp_rec.currentIndex}" click="{parentDocument.getSelectedPage(event.target.label,this)}"/>
+			       <mx:LinkButton id="pageNumber_lbl" buttonMode="true" label="{rp_rec.currentIndex}"  click="{pageNumber_lbl[parentDocument.currentPage - 1].setStyle('textDecoration','none');parentDocument.getSelectedPage(event.target.label,this,event.target)}"/>
 			    </mx:Repeater>
 			</mx:HBox>
-		<s:Button id="next_btn" click="parentDocument.getNextPage(this)" skinClass="components.skins.NextButtonSkin" buttonMode="true"/>
+		<s:Button id="next_btn" click="{pageNumber_lbl[parentDocument.currentPage -1].setStyle('textDecoration','none');pageNumber_lbl[parentDocument.currentPage].setStyle('textDecoration','underline');parentDocument.getNextPage(this)}" skinClass="components.skins.NextButtonSkin" buttonMode="true"/>
 	</s:HGroup>
 
 	
