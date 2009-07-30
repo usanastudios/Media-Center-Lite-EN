@@ -9,7 +9,7 @@
 	<mx:Style source="modules/video_player/css/videoPlayer.css" />
 	<mx:Style source="modules/video_player/css/SampleCaptioning.css" />
 
-<mx:Script source="VideoPlayerBase.as" />	
+	<mx:Script source="VideoPlayerBase.as" />	
 		
 
 	    

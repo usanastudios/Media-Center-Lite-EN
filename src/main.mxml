@@ -68,7 +68,7 @@
 	
 	
 	
-	<mx:ViewStack verticalScrollPolicy="off"  horizontalScrollPolicy="off" id="main_view_stack"   historyManagementEnabled="true"   y="66.75" x="0">
+	<mx:ViewStack verticalScrollPolicy="off"  horizontalScrollPolicy="off" id="main_view_stack" resizeToContent="true" historyManagementEnabled="true"   y="66.75" x="0">
 		
 		<!-- ================ -->
 		<!-- = LANDING PAGE = -->
