@@ -26,6 +26,11 @@ s|TextInput.searchTextField
 	fontSize: 12;
 	color: #FBFCFC;
 }
+
+mx|HBox.pageBar {
+	background-color: #0a0a0a;
+}
+
 mx|Menu.prospectMenu1
 {
 	
@@ -55,10 +60,6 @@ mx|Text.videoSubTitle
 {
 	color: #7FB1D1;
 	fontSize: 11;
-}
-
-s|HGroup.middleBar {
-	content-background-color: #0a0a0a;
 }
 
 mx|Text.resultsFor{
