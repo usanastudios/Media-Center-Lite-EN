@@ -6,6 +6,7 @@
 	public function nextButtonHandler():void
 	{
 	
+	/*UNDERLINING*/
 	//IF NOT ON THE FIRST 10 PAGES
 	if(rp.startingIndex > 1){
 		var lastPageNum:int = ((parentDocument.currentPage - rp.startingIndex)-1);
@@ -20,14 +21,20 @@
 	//IF FIRST 10 PAGES
 	else
 	{
+		try
+		{
 		pageNumber_lbl[parentDocument.currentPage - 1].setStyle('textDecoration','none');
 		pageNumber_lbl[parentDocument.currentPage].setStyle('textDecoration','underline');
+		}
+		catch(e:Error)
+		{
+			
+		}
+	
 	
 	}
 	
 	 
-	
-
 	parentDocument.getNextPage(this);
 	}
 
@@ -55,9 +62,15 @@
 	//IF FIRST 10 PAGES
 	else
 	{
-		pageNumber_lbl[parentDocument.currentPage -1].setStyle('textDecoration','none');
-		pageNumber_lbl[parentDocument.currentPage - 2].setStyle('textDecoration','underline');		
-	
+		try
+		{
+			pageNumber_lbl[parentDocument.currentPage -1].setStyle('textDecoration','none');
+			pageNumber_lbl[parentDocument.currentPage - 2].setStyle('textDecoration','underline');		
+		}
+		catch(e:Error)
+		{
+			
+		}
 	}
 
 	parentDocument.getPreviousPage(this)
