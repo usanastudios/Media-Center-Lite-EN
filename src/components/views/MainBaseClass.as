@@ -632,9 +632,10 @@ package components.views
 		    }
 		    currentPage++; //INCREMENT PAGE
 		    videoPage.previous_btn.enabled=true;
-		    if(currentPage==pageCount){
+		    if(!(currentPage % 10) || currentPage==pageCount){
 		       videoPage.next_btn.enabled=false;
 		    }
+	
 		}
 	
 	
@@ -646,7 +647,7 @@ package components.views
 		public function getPreviousPage(videoPage:Object):void{
 		    currentPage--; //DECREMENT PAGE
 		    videoPage.next_btn.enabled=true;
-		    if(currentPage==1){
+		    if(currentPage == 1 ||currentPage == 11 || currentPage == 21 || currentPage == 31 || currentPage == 41 || currentPage == 51 || currentPage == 61){
 		      videoPage.previous_btn.enabled=false;
 		    }
 		    var start:int=PERPAGE*(currentPage-1);
@@ -697,21 +698,48 @@ package components.views
  			    }
 
 				//SHOW PREVIOUS TEN BUTTON IF WE ARE NOT ON FIRST PAGE
-				if(videoPage.rp.startingIndex > 1)
+				if(currentPage > 10)
 				{
-					videoPage.previousTen_btn.visible=true;
+					videoPage.previousTen_btn.enabled=true;
 				}
 				else
 				{
-					videoPage.previousTen_btn.visible=false;
+					videoPage.previousTen_btn.enabled=false;
 				}
 				
 				//SHOW NEXT TEN BUTTON IF WE ARE NOT ON LAST PAGE
-				if (videoPage.rp.startingIndex > search_results_dp.length / 15)
+				if (currentPage > pageCount - 10)
 				{
-					videoPage.nextTen_btn.visible = false;
+					videoPage.nextTen_btn.enabled = false;
 				}
+				else
+				{
+					videoPage.nextTen_btn.enabled = true;
+				}
+			
+				//DISABLE NEXT BUTTON IF ON LAST PAGE OF SET OF 10
+				if(!(currentPage % 10))
+				{
+					videoPage.next_btn.enabled=false;
+ 			     
+				}
+				else
+				{
+					videoPage.next_btn.enabled=true;
+					
+				}			
 				
+				//DISABLE PREVIOUS BUTTON IF ON FIRST PAGE OF SET OF 10 -- NEED TO FIND A BETTER WAY TO DO THIS
+				if(currentPage == 1 ||currentPage == 11 || currentPage == 21 || currentPage == 31 || currentPage == 41 || currentPage == 51 || currentPage == 61)
+				{
+					videoPage.previous_btn.enabled=false;
+ 			     
+				}
+				else
+				{
+					videoPage.previous_btn.enabled=true;
+					
+				}
 			}
 
 
@@ -720,7 +748,7 @@ package components.views
 	/* =================================================== */
 	public function getNextTen(videoPage:Object):void
 	{
-		videoPage.rp.startingIndex = videoPage.rp.startingIndex + 9;
+		videoPage.rp.startingIndex = videoPage.rp.startingIndex + 10;
 		currentPage = videoPage.rp.startingIndex;
 		getSelectedPage(videoPage.rp.startingIndex,videoPage);
 	}
@@ -731,7 +759,7 @@ package components.views
 	/* =================================================== */
 	public function getPreviousTen(videoPage:Object):void
 	{
-		videoPage.rp.startingIndex = videoPage.rp.startingIndex - 9;
+		videoPage.rp.startingIndex = videoPage.rp.startingIndex - 10;
 		currentPage = videoPage.rp.startingIndex;
 		getSelectedPage(videoPage.rp.startingIndex,videoPage);
 	}

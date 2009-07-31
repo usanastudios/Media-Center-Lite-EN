@@ -68,7 +68,7 @@
 	
 	
 	
-	<mx:ViewStack verticalScrollPolicy="off"  horizontalScrollPolicy="off" id="main_view_stack" resizeToContent="true" historyManagementEnabled="true"   y="66.75" x="0">
+	<mx:ViewStack verticalScrollPolicy="off"  horizontalScrollPolicy="off" id="main_view_stack" resizeToContent="true" historyManagementEnabled="true" width="1000"  y="66.75" x="0">
 		
 		<!-- ================ -->
 		<!-- = LANDING PAGE = -->
@@ -83,7 +83,7 @@
 		<!-- =========================== -->
 		<!-- = SEARCH IN PROGRESS VIEW = -->
 		<!-- =========================== -->
-		<views:SearchInProgressView id="search_in_progress_view" width="100%" height="100%" left="0" right="0"/>
+		<views:SearchInProgressView id="search_in_progress_view" width="1000" height="100%" />
 		
 		<!-- ================================= -->
 		<!-- = VIDEO PLAYER RECOMMENDED PAGE = -->

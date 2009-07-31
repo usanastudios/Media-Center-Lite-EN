@@ -1,5 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <views:VideoPlayerRecommendedBaseClass  xmlns:mx="http://www.adobe.com/2006/mxml" xmlns:views="components.views.*" creationComplete="recommended_video_init()" xmlns:s="library://ns.adobe.com/flex/spark" hide="pauseVideo()">
+	
+	<!-- ==================================================================================================== -->
+	<!-- = IMPORT THE VIDEO PAGING CODE - THIS HAS TO GO HERE INSTEAD OF IN THE BASE CLASS DUE TO REPEATERS = -->
+	<!-- ==================================================================================================== -->
+	<mx:Script source="VideoPaging.as" />
 
 	<!-- Define the Akamai HTTP service -->
     <mx:HTTPService id="akamai_svc" url="https://secure.streamos.com/qos/qos-xml.php" resultFormat="e4x" result="akamaiResultHandler()" fault="mx.controls.Alert.show(event.fault.message)" >
@@ -55,15 +60,21 @@
 	<s:HGroup>
 		<mx:Text id="results_for_txt" text="Results For "  styleName="resultsFor"/>
 		<s:Button id="sort_menu_btn" fontFamily="Arial" skinClass="components.skins.SortMenuSkin" buttonMode="true"/>
-		<s:Button id="previous_btn" click="{pageNumber_lbl[parentDocument.currentPage -1].setStyle('textDecoration','none');pageNumber_lbl[parentDocument.currentPage - 2].setStyle('textDecoration','underline');parentDocument.getPreviousPage(this)}" skinClass="components.skins.PreviousButtonSkin" buttonMode="true"/>
+		<s:Button id="previousTen_btn" skinClass="components.skins.PreviousPageButtonSkin" buttonMode="true" label="....." enabled="false" click="parentDocument.getPreviousTen(this);"/>
+		<s:Button id="previous_btn" click="previousButtonHandler()" skinClass="components.skins.PreviousButtonSkin" buttonMode="true"/>
 			<mx:HBox id="rp_hbox">             
-				<mx:Repeater id="rp_rec" dataProvider="{parentDocument.pageCountDummyArray}" count="10" startingIndex="1">
-			       <mx:LinkButton id="pageNumber_lbl" buttonMode="true" label="{rp_rec.currentIndex}"  click="{pageNumber_lbl[parentDocument.currentPage - 1].setStyle('textDecoration','none');parentDocument.getSelectedPage(event.target.label,this,event.target)}"/>
+				<mx:Repeater id="rp" dataProvider="{parentDocument.pageCountDummyArray}" count="10" startingIndex="1">
+			       <mx:LinkButton id="pageNumber_lbl" buttonMode="true" label="{rp.currentIndex}"  click="	pageNumberHandler();parentDocument.getSelectedPage(event.target.label,this,event.target)"/>
 			    </mx:Repeater>
 			</mx:HBox>
-			<mx:LinkButton id="nextTen_btn" buttonMode="true" label="....." visible="false"/>
-		<s:Button id="next_btn" click="{pageNumber_lbl[parentDocument.currentPage -1].setStyle('textDecoration','none');pageNumber_lbl[parentDocument.currentPage].setStyle('textDecoration','underline');parentDocument.getNextPage(this)}" skinClass="components.skins.NextButtonSkin" buttonMode="true"/>
+		<s:Button id="next_btn" click="nextButtonHandler()" skinClass="components.skins.NextButtonSkin" buttonMode="true"/>
+		<s:Button id="nextTen_btn" skinClass="components.skins.NextPageButtonSkin" buttonMode="true" label="....." visible="false" click="parentDocument.getNextTen(this);"/>
+		
 	</s:HGroup>
+
+
+
+
 
 	
 <!-- ====================== -->
@@ -72,8 +83,8 @@
  <mx:Tile direction="horizontal" borderStyle="inset" backgroundImage="assets/images/recommended.png" horizontalAlign="center"
        horizontalGap="10" verticalGap="15"
        paddingLeft="45" paddingTop="39" paddingBottom="39" paddingRight="10" width="1000">
-       <mx:Repeater id="rp" dataProvider="{parentDocument.video_list.video}" count="5">
-      <mx:Image  autoLoad="true" automationName="{rp.currentIndex}" source="http://www.usana.com/media/File/mediaCenter/thumbnails/{rp.currentItem.@id}.jpg" buttonMode="true" click="showRecommendedVideo(event);"/>
+       <mx:Repeater id="rp_thumbnails" dataProvider="{parentDocument.video_list.video}" count="5">
+      <mx:Image  autoLoad="true" automationName="{rp_thumbnails.currentIndex}" source="http://www.usana.com/media/File/mediaCenter/thumbnails/{rp_thumbnails.currentItem.@id}.jpg" buttonMode="true" click="showRecommendedVideo(event);"/>
 
        </mx:Repeater>
    </mx:Tile>

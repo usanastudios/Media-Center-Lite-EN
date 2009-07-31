@@ -15,7 +15,8 @@
 	<s:BitmapImage 
 		   source.up="@Embed('/assets/skins/next_page_btn.png')" 
 		   source.over="@Embed('/assets/skins/next_page_over_btn.png')" 
-		   source.down="@Embed('/assets/skins/next_page_over_btn.png')"
+		   source.down="@Embed('/assets/skins/next_page_over_btn.png')" 
+		   source.disabled="@Embed('/assets/skins/next_page_btn.png')"
 		
 		resizeMode="scale" />
-</s:Skin>
+</s:Skin> 

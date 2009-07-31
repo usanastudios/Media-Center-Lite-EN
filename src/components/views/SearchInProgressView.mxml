@@ -6,13 +6,14 @@
 			public function init():void
 			{
 				searching_for_txt.text = parentDocument.current_search_message;
+			//	mx.controls.Alert.show(searching_for_txt.y.toString());
+				
 			}
 		]]>
 	</fx:Script>
-	<s:VGroup horizontalCenter="5" verticalCenter="0" horizontalAlign="center">
-		<mx:Text id="searching_for_txt" text="" styleName="searchingFor"  horizontalCenter="0" verticalCenter="0"/>
-	</s:VGroup>
-	<mx:SWFLoader source="assets/swf/circlePreloader.swf" x="0" y="-90"/>
+	<mx:VBox horizontalCenter="0" verticalCenter="0">
+	<mx:Image id="circlePreloader" source="@Embed(source='../../assets/swf/circlePreloader.swf')" autoLoad="true" />
+	<mx:Text id="searching_for_txt" text="" styleName="searchingFor"/>
+	</mx:VBox>
 	
-
 </views:LandingPageBaseClass>
