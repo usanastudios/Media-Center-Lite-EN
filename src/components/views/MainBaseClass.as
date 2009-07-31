@@ -595,11 +595,11 @@ package components.views
 				//IF MORE THAN 10 PAGES, SHOW THE CONTINUATION DOTS :) 
 				if(pageCount > 10)
 				{
-					videoPage.nextTen_btn.visible=true;
+					videoPage.lastTen_btn.visible=true;
 				}
 				else
 				{
-					videoPage.nextTen_btn.visible=false;
+					videoPage.lastTen_btn.visible=false;
 				}
 				
 			
@@ -632,8 +632,10 @@ package components.views
 		    }
 		    currentPage++; //INCREMENT PAGE
 		    videoPage.previous_btn.enabled=true;
-		    if(!(currentPage % 10) || currentPage==pageCount){
-		       videoPage.next_btn.enabled=false;
+		    if(currentPage == 11 ||currentPage == 21 ||currentPage == 31 ||currentPage == 41 ||currentPage == 51 ||currentPage == 61) {
+		       //videoPage.next_btn.enabled=false;
+				//GET NEXT TEN PAGES
+				getNextTen(videoPage);
 		    }
 	
 		}
@@ -647,14 +649,23 @@ package components.views
 		public function getPreviousPage(videoPage:Object):void{
 		    currentPage--; //DECREMENT PAGE
 		    videoPage.next_btn.enabled=true;
+			//NEED TO FIND BETTER WAY TO DO THIS - 
 		    if(currentPage == 1 ||currentPage == 11 || currentPage == 21 || currentPage == 31 || currentPage == 41 || currentPage == 51 || currentPage == 61){
-		      videoPage.previous_btn.enabled=false;
+		     // videoPage.previous_btn.enabled=false;
+					//GET NEXT TEN PAGES
+					getPreviousTen(videoPage);
 		    }
 		    var start:int=PERPAGE*(currentPage-1);
 		    var end:int=start+PERPAGE;
 		    pagedDataProvider=new ArrayCollection();
 		    for(var i:int=start;i<end;i++){
+				try{
 		        pagedDataProvider.addItem(search_results_dp.getItemAt(i));
+				}
+				catch(e:Error)
+				{
+					Alert.show("Already at the beginning.");
+				}
 		    }
 		}
 	
@@ -694,52 +705,12 @@ package components.views
 
  			   	videoPage.previous_btn.enabled=true;
  			    if(currentPage==pageCount){
- 			     videoPage.next_btn.enabled=false;
+ 			     //videoPage.next_btn.enabled=false;
  			    }
 
-				//SHOW PREVIOUS TEN BUTTON IF WE ARE NOT ON FIRST PAGE
-				if(currentPage > 10)
-				{
-					videoPage.previousTen_btn.enabled=true;
-				}
-				else
-				{
-					videoPage.previousTen_btn.enabled=false;
-				}
-				
-				//SHOW NEXT TEN BUTTON IF WE ARE NOT ON LAST PAGE
-				if (currentPage > pageCount - 10)
-				{
-					videoPage.nextTen_btn.enabled = false;
-				}
-				else
-				{
-					videoPage.nextTen_btn.enabled = true;
-				}
 			
-				//DISABLE NEXT BUTTON IF ON LAST PAGE OF SET OF 10
-				if(!(currentPage % 10))
-				{
-					videoPage.next_btn.enabled=false;
- 			     
-				}
-				else
-				{
-					videoPage.next_btn.enabled=true;
-					
-				}			
-				
-				//DISABLE PREVIOUS BUTTON IF ON FIRST PAGE OF SET OF 10 -- NEED TO FIND A BETTER WAY TO DO THIS
-				if(currentPage == 1 ||currentPage == 11 || currentPage == 21 || currentPage == 31 || currentPage == 41 || currentPage == 51 || currentPage == 61)
-				{
-					videoPage.previous_btn.enabled=false;
- 			     
-				}
-				else
-				{
-					videoPage.previous_btn.enabled=true;
-					
-				}
+			
+			
 			}
 
 
@@ -763,6 +734,28 @@ package components.views
 		currentPage = videoPage.rp.startingIndex;
 		getSelectedPage(videoPage.rp.startingIndex,videoPage);
 	}
+	
+	/* =================================================== */
+	/* = FUNCTION TO GET THE LAST 10 PAGES OF THUMBNAILS = */
+	/* =================================================== */
+	public function getFirstTen(videoPage:Object):void
+	{
+		videoPage.rp.startingIndex = 1;
+		currentPage = videoPage.rp.startingIndex;
+		getSelectedPage(videoPage.rp.startingIndex,videoPage);
+	}	
+	
+	/* =================================================== */
+	/* = FUNCTION TO GET THE LAST 10 PAGES OF THUMBNAILS = */
+	/* =================================================== */
+	public function getLastTen(videoPage:Object):void
+	{
+		videoPage.rp.startingIndex = pageCount - 10;
+		currentPage = videoPage.rp.startingIndex;
+		getSelectedPage(videoPage.rp.startingIndex,videoPage);
+	}
+	
+	
           
 	}
 }
