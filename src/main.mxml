@@ -78,7 +78,7 @@
 		<!-- =========================== -->
 		<!-- = VIDEO PLAYER BASIC PAGE = -->
 		<!-- =========================== -->
-		<views:VideoPlayerBasic id="video_player_basic_view" verticalScrollPolicy="off" width="1000"  left="0" right="0" /> 
+		<views:VideoPlayerBasic id="video_player_basic_view" y="60" verticalScrollPolicy="off" width="1000"  left="0" right="0" /> 
 	
 		<!-- =========================== -->
 		<!-- = SEARCH IN PROGRESS VIEW = -->
