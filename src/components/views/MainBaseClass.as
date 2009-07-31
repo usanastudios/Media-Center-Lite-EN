@@ -53,7 +53,7 @@ package components.views
 		public var video_player_recommended_view:VideoPlayerRecommended;
 		public var selectedWallVideoID:String;
 		public var last_selected_page:Number;
-		
+		public var landing_page_view:components.views.LandingPage;
 		
 
 		/* ====================== */
@@ -220,6 +220,10 @@ package components.views
 			if ((video_list) && (video_list.video.length() > 0))
 			{	
 				current_video = video_list.video[0];
+				
+				//REMOVE 3DWALL DUE TO BUG
+				landing_page_view.wall.unloadAndStop();
+				
 				main_view_stack.selectedIndex = 1;
 			}
 			else
@@ -280,6 +284,9 @@ package components.views
 			if ((video_list) && (video_list.video.length() > 0))
 			{			
 				
+				//REMOVE 3DWALL DUE TO BUG
+				landing_page_view.wall.unloadAndStop();
+							
 				current_video = video_list.video[0];
 				main_view_stack.selectedIndex = 3;
 			
@@ -363,6 +370,9 @@ package components.views
 			xmlstr += "</mediacenter>";
 			video_list = new XML(xmlstr);
 		current_video = video_list.children()[0];
+		
+		//REMOVE 3DWALL DUE TO BUG
+		landing_page_view.wall.unloadAndStop();
 		
 	    main_view_stack.selectedIndex = 1;
 	
@@ -456,6 +466,10 @@ package components.views
 		xmlstr += "</mediacenter>";
 		video_list = new XML(xmlstr);
 		current_video = video_list.children()[0];
+		
+		//REMOVE 3DWALL DUE TO BUG
+		landing_page_view.wall.unloadAndStop();
+		
 	    main_view_stack.selectedIndex = 1;
 	
 		
@@ -487,8 +501,13 @@ package components.views
 		/*SET CURRENT SEARCH TERM (FOR DISPLAY ON VIDEO PLAYER PAGE)*/
 		current_search_term = current_video.title;
 		
+		
 		/*SET THE VIDEO_LIST RESULTS*/
 		video_list = wall_video_svc.lastResult as XML;
+	
+		//REMOVE 3DWALL DUE TO BUG
+		landing_page_view.wall.unloadAndStop();
+		
 		main_view_stack.selectedIndex = 1;
 	}
 	
