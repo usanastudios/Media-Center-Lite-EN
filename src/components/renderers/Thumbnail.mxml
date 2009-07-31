@@ -4,7 +4,7 @@
 
 		<mx:Image autoLoad="true" source="http://www.usana.com/media/File/mediaCenter/thumbnails/{data.@id}.jpg" buttonMode="true" mouseOver="{play_button_overlay.visible=true;}"/>
 		<mx:Image source="assets/images/thumb_overlay.png"  buttonMode="true" id="play_button_overlay" visible="false" mouseOut="{play_button_overlay.visible=false}"/>
-		<mx:Text width="100%" text="{data.title}"  x="1" y="100" styleName="videoSubTitle"/>
+		<mx:Text width="100%" text="{data.title}"  x="1" y="105" styleName="videoSubTitle"/>
 
 </mx:Canvas>
  
