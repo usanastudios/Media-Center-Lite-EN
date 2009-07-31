@@ -1,15 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <views:VideoPlayerBasicBaseClass xmlns:fx="http://ns.adobe.com/mxml/2009" xmlns:mx="library://ns.adobe.com/flex/halo" xmlns:views="components.views.*" show="{parentDocument.pagination_setup(this)}" creationComplete="basic_video_init()" xmlns:s="library://ns.adobe.com/flex/spark" hide="pauseVideo()">
-	<fx:Script>
-		<![CDATA[
-			public function removeUnderline(lastPage:Number):void
-			{
-				pageNumber_lbl[lastPage].setStyle('textDecoration','none');
-			}
-		]]>
-			</fx:Script>
-	
 
+
+	<!-- ==================================================================================================== -->
+	<!-- = IMPORT THE VIDEO PAGING CODE - THIS HAS TO GO HERE INSTEAD OF IN THE BASE CLASS DUE TO REPEATERS = -->
+	<!-- ==================================================================================================== -->
+	<fx:Script source="VideoPaging.as" />
 
 	
 	<fx:Declarations>
@@ -64,14 +60,14 @@
 	
 		<mx:Text id="results_for_txt" text="Results For "  styleName="resultsFor"/>
 		<s:Button id="sort_menu_btn" fontFamily="Arial" skinClass="components.skins.SortMenuSkin" buttonMode="true"/>
-		<s:Button id="previousTen_btn" skinClass="components.skins.PreviousPageButtonSkin" buttonMode="true" label="....." visible="false" click="parentDocument.getPreviousTen(this);"/>
-		<s:Button id="previous_btn" click="{pageNumber_lbl[parentDocument.currentPage -1].setStyle('textDecoration','none');pageNumber_lbl[parentDocument.currentPage - 2].setStyle('textDecoration','underline');parentDocument.getPreviousPage(this)}" skinClass="components.skins.PreviousButtonSkin" buttonMode="true"/>
+		<s:Button id="previousTen_btn" skinClass="components.skins.PreviousPageButtonSkin" buttonMode="true" label="....." enabled="false" click="parentDocument.getPreviousTen(this);"/>
+		<s:Button id="previous_btn" click="previousButtonHandler()" skinClass="components.skins.PreviousButtonSkin" buttonMode="true"/>
 		<mx:HBox id="rp_hbox">             
 			<mx:Repeater id="rp" dataProvider="{parentDocument.pageCountDummyArray}" count="10" startingIndex="1">
-		       <mx:LinkButton id="pageNumber_lbl" buttonMode="true" label="{rp.currentIndex}" click="{pageNumber_lbl[parentDocument.currentPage - 1].setStyle('textDecoration','none');parentDocument.getSelectedPage(event.target.label,this,event.target)}"/>
+		       <mx:LinkButton id="pageNumber_lbl" buttonMode="true" label="{rp.currentIndex}" click="pageNumberHandler();parentDocument.getSelectedPage(event.target.label,this,event.target)"/>
 		    </mx:Repeater>
 		</mx:HBox>
-		<s:Button id="next_btn"  skinClass="components.skins.NextButtonSkin" buttonMode="true" enabled="false" click="{pageNumber_lbl[parentDocument.currentPage -1].setStyle('textDecoration','none');pageNumber_lbl[parentDocument.currentPage].setStyle('textDecoration','underline');parentDocument.getNextPage(this)}"/>
+		<s:Button id="next_btn"  skinClass="components.skins.NextButtonSkin" buttonMode="true" enabled="false" click="nextButtonHandler()"/>
 		<s:Button id="nextTen_btn" skinClass="components.skins.NextPageButtonSkin" buttonMode="true" label="....." visible="false" click="parentDocument.getNextTen(this);"/>
 		
 	</s:HGroup>

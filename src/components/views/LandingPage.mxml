@@ -12,6 +12,6 @@
 		<!-- =========== -->
 		<!-- = 3D WALL = -->
 		<!-- =========== -->
-		<mx:SWFLoader id="wall" x="0" y="100" width="1000" height="500" source="assets/swf/3dwall.swf" complete="wallLoaded(event)" /> 
+		<mx:SWFLoader id="wall" x="0" y="120" width="1000" height="500" source="assets/swf/3dwall.swf" complete="wallLoaded(event)" /> 
 
 </views:LandingPageBaseClass> 
