@@ -67,7 +67,7 @@
 			<mx:Repeater id="rp" dataProvider="{parentDocument.pageCountDummyArray}" count="10" startingIndex="0">
 		       <mx:LinkButton id="pageNumber_lbl" buttonMode="true" label="{rp.currentIndex + 1}"  click="pageNumberHandler();parentDocument.getSelectedPage(event.target.label,this,event.target)" />
 		    </mx:Repeater>
-		</mx:HBox>
+		</mx:HBox> 
 		<s:Button id="next_btn"  skinClass="components.skins.NextButtonSkin" buttonMode="true" enabled="false" click="nextButtonHandler()"/>
 		<s:Button id="lastTen_btn" skinClass="components.skins.NextPageButtonSkin" buttonMode="true" label="....." visible="false" click="parentDocument.getLastTen(this);"/>
 		

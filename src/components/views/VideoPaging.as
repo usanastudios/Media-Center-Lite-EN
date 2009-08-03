@@ -92,8 +92,10 @@
 				{
 					pageNumber_lbl[0].setStyle('textDecoration','none');
 				}
-				
-				pageNumber_lbl[lastPageNum].setStyle('textDecoration','none');
+				else
+				{
+					pageNumber_lbl[lastPageNum - 1].setStyle('textDecoration','none');
+				}
 			}
 			}
 			else

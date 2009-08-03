@@ -700,7 +700,14 @@ package components.views
  			    pagedDataProvider=new ArrayCollection();
  			    for(var i:int=start;i<end;i++)
  				{
- 			        pagedDataProvider.addItem(search_results_dp.getItemAt(i));
+					try
+					{
+						pagedDataProvider.addItem(search_results_dp.getItemAt(i));
+					} 
+					catch (e:Error)
+					{
+						
+					}
  			    }
 				currentPage = pageNumber;
 				
@@ -745,6 +752,7 @@ package components.views
 		videoPage.rp.startingIndex = 0;
 		currentPage = videoPage.rp.startingIndex;
 		getSelectedPage(videoPage.rp.startingIndex,videoPage);
+		videoPage.underlineFirstRecord();
 	}	
 	
 	/* =================================================== */
@@ -755,6 +763,7 @@ package components.views
 		videoPage.rp.startingIndex = pageCount - 10;
 		currentPage = videoPage.rp.startingIndex;
 		getSelectedPage(videoPage.rp.startingIndex,videoPage);
+		videoPage.underlineFirstRecord();
 	}
 	
 	
