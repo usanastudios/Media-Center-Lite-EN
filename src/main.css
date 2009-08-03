@@ -14,7 +14,7 @@ global
 {
 	baseColor: #5C5B5B;
 	contentBackgroundColor: #FEF9F9;
-	color: #FCFBFB;
+	/*color: #FCFBFB;*/
 	symbolColor: #F5EDED;
 }
 s|TextInput.searchTextField
@@ -26,11 +26,6 @@ s|TextInput.searchTextField
 	fontSize: 12;
 	color: #FBFCFC;
 }
-
-mx|HBox.pageBar {
-	background-color: #0a0a0a;
-}
-
 mx|Menu.prospectMenu1
 {
 	
@@ -62,6 +57,10 @@ mx|Text.videoSubTitle
 	fontSize: 11;
 }
 
+s|HGroup.middleBar {
+	content-background-color: #0a0a0a;
+}
+
 mx|Text.resultsFor{
 	fontFamily: HelveticaEmbed;
 	font-size:20;
@@ -83,4 +82,5 @@ mx|TitleWindow{
 	closeButtonOverSkin: ClassReference(null); 
 	closeButtonUpSkin: ClassReference(null);
 }
+
 
