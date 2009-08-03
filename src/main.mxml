@@ -1,17 +1,18 @@
 <?xml version="1.0" encoding="utf-8"?>
-<views:MainBaseClass xmlns:fx="http://ns.adobe.com/mxml/2009"  xmlns:s="library://ns.adobe.com/flex/spark" defaultButton="{search_btn}" preloader="modules.preloader.Pre" xmlns:mx="library://ns.adobe.com/flex/halo" xmlns:views="components.views.*" minWidth="1000" minHeight="1185" width="1000" backgroundColor="0x101010" creationComplete="initMainApp()">
+<views:MainBaseClass xmlns:fx="http://ns.adobe.com/mxml/2009"  xmlns:s="library://ns.adobe.com/flex/spark" xmlns:hc="com.hillelcoren.components.*" defaultButton="{search_btn}" preloader="modules.preloader.Pre" xmlns:mx="library://ns.adobe.com/flex/halo" xmlns:views="components.views.*" minWidth="1000" minHeight="1185" width="1000" backgroundColor="0x101010" creationComplete="initMainApp()">
+	
+
 	<fx:Style source="main.css"/>
 	
 	 <!-- SEARCH RESULTS TEST DATA -->
     <fx:Declarations>
-    		<!-- <fx:XML id="video_list" format="e4x" source="../bin-debug/search_results.xml"></fx:XML> -->
      
     <!-- Define the Basic Search HTTP service -->
     <mx:HTTPService id="search_svc" url="http://www.usana.com/Main/mediaCenter/searchV" resultFormat="e4x" result="searchResultHandler()" fault="mx.controls.Alert.show(event.fault.message)" >
     	<mx:request>
 			<q>{search_txt.text}</q>
 			<l>en</l>
-		</mx:request>
+		</mx:request> 
     </mx:HTTPService>
     
     <!-- Define the Recommended Search HTTP service -->
@@ -20,6 +21,14 @@
 
 	<!-- Define the All Videos HTTP service -->
     <mx:HTTPService id="all_videos_svc" url="http://www.usana.com/Main/mediaCenter/searchV" resultFormat="e4x" result="allVideosResultHandler()" fault="mx.controls.Alert.show(event.fault.message)" >
+   		<mx:request>
+			<l>en</l> 
+		</mx:request>
+	</mx:HTTPService>  	
+	
+	
+	<!-- Define the AutoComplete HTTP service -->
+    <mx:HTTPService id="auto_complete_svc" url="http://www.usana.com/Main/mediaCenter/searchV" resultFormat="e4x" result="setUpAutoComplete()" fault="mx.controls.Alert.show(event.fault.message)" showBusyCursor="true">
    		<mx:request>
 			<l>en</l> 
 		</mx:request>
@@ -63,9 +72,15 @@
 	<s:Button x="465" y="0" label="Button" id="mostViewed_btn" skinClass="components.skins.MostViewedSkin" buttonMode="true"/>
 	<s:Button x="585" y="-1" label="Button" id="mostRecent_btn" skinClass="components.skins.MostRecentSkin" buttonMode="true"/>
 	<s:Button x="705" y="-1" label="Button" id="audio_btn" skinClass="components.skins.AudioSkin" buttonMode="true"/>
-	<s:TextInput x="788" y="17" id="search_txt" styleName="searchTextField" skinClass="components.skins.SearchFieldSkin"/>
-	<s:Button x="938" y="19" label="Button" id="search_btn" skinClass="components.skins.SearchButtonSkin" buttonMode="true"/>
+<!--	<s:TextInput x="788" y="17" id="search_txt" styleName="searchTextField" skinClass="components.skins.SearchFieldSkin"/>
+-->	
+
+ 	<s:Button x="938" y="19" label="Button" id="search_btn" skinClass="components.skins.SearchButtonSkin" buttonMode="true"/>
 	
+
+
+	    <hc:AutoComplete id="search_txt" dataProvider="{myDP}" x="788" y="17" prompt="Please select" backspaceAction="remove"  
+	    styleName="customSkin" labelField="title"/>  
 	
 	
 	<mx:ViewStack verticalScrollPolicy="off"  horizontalScrollPolicy="off" id="main_view_stack" resizeToContent="true" historyManagementEnabled="true" width="1000"  y="62" x="0">
