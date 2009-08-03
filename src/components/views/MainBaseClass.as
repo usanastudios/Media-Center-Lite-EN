@@ -24,7 +24,6 @@ package components.views
 	import spark.components.Application;
 	import spark.components.Button;
 	import spark.components.TextInput;
-	import mx.controls.LinkButton;
 
 	public class MainBaseClass extends Application
 	{
@@ -369,7 +368,7 @@ package components.views
 			}
 			xmlstr += "</mediacenter>";
 			video_list = new XML(xmlstr);
-		current_video = video_list.children()[0];
+			current_video = video_list.children()[0];
 		
 		//REMOVE 3DWALL DUE TO BUG
 		landing_page_view.wall.unloadAndStop();
@@ -567,7 +566,6 @@ package components.views
 			video_long_description = current_video.longdescription;
 			results_for = "Results For \"" + current_search_term +"\"";
 			
-			
 			 
 			//CLEAR EXISTING DP
 			search_results_dp.removeAll();
@@ -602,6 +600,8 @@ package components.views
 					videoPage.lastTen_btn.visible=false;
 				}
 				
+				
+			 videoPage.underlineFirstRecord();
 			
 				
 			
@@ -665,6 +665,8 @@ package components.views
 				catch(e:Error)
 				{
 					Alert.show("Already at the beginning.");
+					pagination_setup(videoPage);
+					break;
 				}
 		    }
 		}
@@ -705,7 +707,7 @@ package components.views
 
  			   	videoPage.previous_btn.enabled=true;
  			    if(currentPage==pageCount){
- 			     //videoPage.next_btn.enabled=false;
+ 			     videoPage.next_btn.enabled=false;
  			    }
 
 			
@@ -740,7 +742,7 @@ package components.views
 	/* =================================================== */
 	public function getFirstTen(videoPage:Object):void
 	{
-		videoPage.rp.startingIndex = 1;
+		videoPage.rp.startingIndex = 0;
 		currentPage = videoPage.rp.startingIndex;
 		getSelectedPage(videoPage.rp.startingIndex,videoPage);
 	}	

@@ -1,18 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <views:VideoPlayerBasicBaseClass xmlns:fx="http://ns.adobe.com/mxml/2009" backgroundColor="0x030303" xmlns:mx="library://ns.adobe.com/flex/halo" xmlns:views="components.views.*" show="{parentDocument.pagination_setup(this)}" creationComplete="basic_video_init()" xmlns:s="library://ns.adobe.com/flex/spark" hide="pauseVideo()">
-	<fx:Script>
-		<![CDATA[
-			public function removeUnderline(lastPage:Number):void
-			{
-				pageNumber_lbl[lastPage].setStyle('textDecoration','none');
-			}
-		]]>
-			</fx:Script>
-	
-
-<views:VideoPlayerBasicBaseClass xmlns:fx="http://ns.adobe.com/mxml/2009" xmlns:mx="library://ns.adobe.com/flex/halo" xmlns:views="components.views.*" show="{parentDocument.pagination_setup(this)}" creationComplete="basic_video_init()" xmlns:s="library://ns.adobe.com/flex/spark" hide="pauseVideo()">
-
-
+ 
 
 	<!-- ==================================================================================================== -->
 	<!-- = IMPORT THE VIDEO PAGING CODE - THIS HAS TO GO HERE INSTEAD OF IN THE BASE CLASS DUE TO REPEATERS = -->
@@ -76,8 +64,8 @@
 		<s:Button id="firstTen_btn" skinClass="components.skins.PreviousPageButtonSkin" buttonMode="true" label="....."  click="parentDocument.getFirstTen(this);"/>
 		<s:Button id="previous_btn" click="previousButtonHandler()" skinClass="components.skins.PreviousButtonSkin" buttonMode="true"/>
 		<mx:HBox id="rp_hbox">             
-			<mx:Repeater id="rp" dataProvider="{parentDocument.pageCountDummyArray}" count="10" startingIndex="1">
-		       <mx:LinkButton id="pageNumber_lbl" buttonMode="true" label="{rp.currentIndex}" click="pageNumberHandler();parentDocument.getSelectedPage(event.target.label,this,event.target)"/>
+			<mx:Repeater id="rp" dataProvider="{parentDocument.pageCountDummyArray}" count="10" startingIndex="0">
+		       <mx:LinkButton id="pageNumber_lbl" buttonMode="true" label="{rp.currentIndex + 1}"  click="pageNumberHandler();parentDocument.getSelectedPage(event.target.label,this,event.target)" />
 		    </mx:Repeater>
 		</mx:HBox>
 		<s:Button id="next_btn"  skinClass="components.skins.NextButtonSkin" buttonMode="true" enabled="false" click="nextButtonHandler()"/>

@@ -68,9 +68,7 @@
 			pageNumber_lbl[parentDocument.currentPage - 2].setStyle('textDecoration','underline');		
 		}
 		catch(e:Error)
-		{
-			
-		}
+		{}
 	}
 
 	parentDocument.getPreviousPage(this)
@@ -83,17 +81,35 @@
 	public function pageNumberHandler():void
 	{
 		//IF NOT ON THE FIRST 10 PAGES
-		if(rp.startingIndex > 1)
+		if(rp.startingIndex > -1)
 		{
 			var lastPageNum:int = ((parentDocument.currentPage - rp.startingIndex));
+		
 			if(lastPageNum > -1)
 			{
+				//THIS IS A TEMP HACK TO REMOVE THE UNDERLINE FROM THE FIRST RECORD
+				if(pageNumber_lbl[0].getStyle('textDecoration') == 'underline')
+				{
+					pageNumber_lbl[0].setStyle('textDecoration','none');
+				}
+				
 				pageNumber_lbl[lastPageNum].setStyle('textDecoration','none');
 			}
-		}
-		else
-		{
-			pageNumber_lbl[parentDocument.currentPage - 1].setStyle('textDecoration','none');
-		}
+			}
+			else
+			{
+				pageNumber_lbl[parentDocument.currentPage].setStyle('textDecoration','none');
+			}
 		
 	}
+	
+	<!-- ================================================= -->
+	<!-- = FUNCTION TO UNDERLINE FIRST RECORD            = -->
+	<!-- ================================================= -->		
+	public function underlineFirstRecord():void
+	{
+			   //UNDERLINE CURRENT PAGE NUMBER
+				pageNumber_lbl[0].setStyle('textDecoration','underline');
+	}
+		
+
