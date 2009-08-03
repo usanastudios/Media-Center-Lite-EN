@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
 <views:VideoPlayerBasicBaseClass xmlns:fx="http://ns.adobe.com/mxml/2009" backgroundColor="0x030303" xmlns:mx="library://ns.adobe.com/flex/halo" xmlns:views="components.views.*" show="{parentDocument.pagination_setup(this)}" creationComplete="basic_video_init()" xmlns:s="library://ns.adobe.com/flex/spark" hide="pauseVideo()">
- 
 
 	<!-- ==================================================================================================== -->
 	<!-- = IMPORT THE VIDEO PAGING CODE - THIS HAS TO GO HERE INSTEAD OF IN THE BASE CLASS DUE TO REPEATERS = -->
@@ -39,9 +38,8 @@
     </fx:XML>
 </fx:Declarations>
 		
-
         
-<s:VGroup>
+<s:VGroup gap="0">
 	<s:HGroup>
 		<mx:ModuleLoader id="video_player" url="modules/video_player/VideoPlayer.swf?video_id={parentDocument.current_video.@id}" paddingLeft="25" paddingTop="17" paddingBottom="25"  />
 		<s:VGroup>
@@ -54,12 +52,17 @@
 		</s:VGroup>
 	</s:HGroup>
 	
+
 	<!-- ==================== -->
 	<!-- = RESULTS AND PAGING = -->
 	<!-- ==================== -->
-	<s:HGroup styleName="middleBar">
 	
-		<mx:Text id="results_for_txt" text="Results For "  styleName="resultsFor" paddingLeft="25"/>
+	<mx:Box width="1000" height="1" backgroundColor="0x000000" />
+	<mx:Box width="1000" height="1" backgroundColor="0x151515" />
+	
+	<mx:HBox id="pageBarBox" styleName="pageBar" width="1000" height="56" verticalAlign="middle">
+		
+		<mx:Text id="results_for_txt" text="Results For " styleName="resultsFor" paddingLeft="25"/>
 		<s:Button id="sort_menu_btn" fontFamily="Arial" skinClass="components.skins.SortMenuSkin" buttonMode="true"/>
 		<s:Button id="firstTen_btn" skinClass="components.skins.PreviousPageButtonSkin" buttonMode="true" label="....."  click="parentDocument.getFirstTen(this);"/>
 		<s:Button id="previous_btn" click="previousButtonHandler()" skinClass="components.skins.PreviousButtonSkin" buttonMode="true"/>
@@ -71,34 +74,24 @@
 		<s:Button id="next_btn"  skinClass="components.skins.NextButtonSkin" buttonMode="true" enabled="false" click="nextButtonHandler()"/>
 		<s:Button id="lastTen_btn" skinClass="components.skins.NextPageButtonSkin" buttonMode="true" label="....." visible="false" click="parentDocument.getLastTen(this);"/>
 		
-	</s:HGroup>
-
+	</mx:HBox>
+	
+	<mx:Box width="1000" height="1" backgroundColor="0x000000" />
+	
 	<!-- ======================================= -->
 	<!-- = TILE LIST CONTAINING THE THUMBNAILS = -->
 	<!-- ======================================= -->
      <s:List id="list" dataProvider="{parentDocument.pagedDataProvider}" 
-     	y="100" height="475"
+      	height="475" skinClass="components.skins.ThumbnailListSkin"
         itemRenderer="components.renderers.Thumbnail"
         width="1000" 
-        click="showVideo(event);"
-        contentBackgroundColor="0x101010" >
+        click="showVideo(event);">
           
-        <s:layout>
-            <s:TileLayout 
-            	    rowHeight="140" 
-            	    columnAlign="justifyUsingWidth" 
-            	    horizontalAlign="center" 
-            	    rowAlign="justifyUsingHeight" 
-            	    verticalAlign="middle"
-            	    columnWidth="170"
-                    horizontalGap="-25"
-                    verticalGap="-25" 
-					requestedRowCount="3"/>
-        </s:layout>
-        
     </s:List>
 
 </s:VGroup>	
+
+
 
 
 </views:VideoPlayerBasicBaseClass>

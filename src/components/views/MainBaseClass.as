@@ -7,6 +7,8 @@
 package components.views
 {
 	import flash.events.MouseEvent;
+	import flash.net.URLRequest;
+	import flash.net.navigateToURL;
 	
 	import modules.video_player.VideoPlayerInterface;
 	
@@ -21,6 +23,7 @@ package components.views
 	import mx.managers.PopUpManager;
 	import mx.rpc.http.mxml.HTTPService;
 	import mx.validators.Validator;
+	
 	import spark.components.Application;
 	import spark.components.Button;
 	import spark.components.TextInput;
@@ -67,7 +70,9 @@ package components.views
 		[Bindable] public var results_for:String;
 		[Bindable]public var search_txt:TextInput;
 		[Bindable] public var search_btn:Button;
+		[Bindable] public var audio_btn:Button;
 		[Bindable] public var search_results_dp:ArrayCollection = new ArrayCollection();
+
 		
 		
 		/* =================================== */
@@ -92,6 +97,7 @@ package components.views
 			search_btn.addEventListener(MouseEvent.CLICK,search);
 			mostViewed_btn.addEventListener(MouseEvent.CLICK,get_most_viewed);
 			mostRecent_btn.addEventListener(MouseEvent.CLICK,get_most_recent);
+			audio_btn.addEventListener(MouseEvent.CLICK, navigateToAudio);
 			
 			
 			/*DEFINE AKAMAI START AND STOP DATES*/
@@ -159,6 +165,14 @@ package components.views
 				recommendedSearch("USANA Health Sciences");
 			}
 			
+		}
+		
+		
+		public function navigateToAudio(event:MouseEvent):void
+		{
+			var audioURL:String = "http://www.usana.com/Main/myUsana/page/MediaCenterAudio";
+			var audioURLRequest:URLRequest = new URLRequest(audioURL);
+			navigateToURL(audioURLRequest, "_self");
 		}
           
       	/* ============================================== */
