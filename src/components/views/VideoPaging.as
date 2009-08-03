@@ -15,7 +15,10 @@
 		{
 		pageNumber_lbl[lastPageNum].setStyle('textDecoration','none');
 		}
-		pageNumber_lbl[selectedPageNum].setStyle('textDecoration','underline');
+		if(pageNumber_lbl[selectedPageNum])
+		{
+			pageNumber_lbl[selectedPageNum].setStyle('textDecoration','underline');
+		}
 		
 	}
 	//IF FIRST 10 PAGES
@@ -45,9 +48,12 @@
 	public function previousButtonHandler():void
 	{
 	
+	
+	
 	//IF NOT ON THE FIRST 10 PAGES
 	if(rp.startingIndex > 1){
-		var lastPageNum:int = (parentDocument.currentPage - rp.startingIndex) ;
+		var lastPageNum:int = (parentDocument.currentPage - rp.startingIndex);
+		
 		var selectedPageNum:int = ((parentDocument.currentPage - rp.startingIndex) -1);
 		if(lastPageNum > -1 && pageNumber_lbl[lastPageNum])
 		{
@@ -62,6 +68,8 @@
 	//IF FIRST 10 PAGES
 	else
 	{
+	//	mx.controls.Alert.show(parentDocument.currentPage.toString());
+		
 		try
 		{
 			pageNumber_lbl[parentDocument.currentPage -1].setStyle('textDecoration','none');
@@ -71,9 +79,8 @@
 		{}
 	}
 
-	parentDocument.getPreviousPage(this)
+		parentDocument.getPreviousPage(this);
 	}
-	
 	
 	<!-- ================================================= -->
 	<!-- = FUNCTION CALLED WHEN A PAGE NUMBER IS CLICKED = -->
@@ -111,7 +118,10 @@
 	public function underlineFirstRecord():void
 	{
 			   //UNDERLINE CURRENT PAGE NUMBER
+			if(pageNumber_lbl[0])
+			{
 				pageNumber_lbl[0].setStyle('textDecoration','underline');
+			}
 	}
 		
 

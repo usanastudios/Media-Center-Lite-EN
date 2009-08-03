@@ -60,7 +60,7 @@
 	<s:HGroup>
 		<mx:Text id="results_for_txt" text="Results For "  styleName="resultsFor"/>
 		<s:Button id="sort_menu_btn" fontFamily="Arial" skinClass="components.skins.SortMenuSkin" buttonMode="true"/>
-		<s:Button id="previousTen_btn" skinClass="components.skins.PreviousPageButtonSkin" buttonMode="true" label="....." enabled="false" click="parentDocument.getPreviousTen(this);"/>
+		<s:Button id="firstTen_btn" skinClass="components.skins.PreviousPageButtonSkin" buttonMode="true" label="....." enabled="false" click="parentDocument.getPreviousTen(this);"/>
 		<s:Button id="previous_btn" click="previousButtonHandler()" skinClass="components.skins.PreviousButtonSkin" buttonMode="true"/>
 			<mx:HBox id="rp_hbox">             
 				<mx:Repeater id="rp" dataProvider="{parentDocument.pageCountDummyArray}" count="10" startingIndex="1">
@@ -68,7 +68,7 @@
 			    </mx:Repeater>
 			</mx:HBox>
 		<s:Button id="next_btn" click="nextButtonHandler()" skinClass="components.skins.NextButtonSkin" buttonMode="true"/>
-		<s:Button id="nextTen_btn" skinClass="components.skins.NextPageButtonSkin" buttonMode="true" label="....." visible="false" click="parentDocument.getNextTen(this);"/>
+		<s:Button id="lastTen_btn" skinClass="components.skins.NextPageButtonSkin" buttonMode="true" label="....." visible="false" click="parentDocument.getNextTen(this);"/>
 		
 	</s:HGroup>
 

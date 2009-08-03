@@ -566,6 +566,8 @@ package components.views
 			video_long_description = current_video.longdescription;
 			results_for = "Results For \"" + current_search_term +"\"";
 			
+			videoPage.previous_btn.enabled=false;
+		 	
 			 
 			//CLEAR EXISTING DP
 			search_results_dp.removeAll();
@@ -593,7 +595,7 @@ package components.views
 				//IF MORE THAN 10 PAGES, SHOW THE CONTINUATION DOTS :) 
 				if(pageCount > 10)
 				{
-					videoPage.lastTen_btn.visible=true;
+						videoPage.lastTen_btn.visible=true;
 				}
 				else
 				{
@@ -630,13 +632,17 @@ package components.views
 			{
 		        pagedDataProvider.addItem(search_results_dp.getItemAt(i));
 		    }
-		    currentPage++; //INCREMENT PAGE
 		    videoPage.previous_btn.enabled=true;
-		    if(currentPage == 11 ||currentPage == 21 ||currentPage == 31 ||currentPage == 41 ||currentPage == 51 ||currentPage == 61) {
-		       //videoPage.next_btn.enabled=false;
+			
+		    if(currentPage == 10 ||currentPage == 20 ||currentPage == 30 ||currentPage == 40 ||currentPage == 50 ||currentPage == 60) {
 				//GET NEXT TEN PAGES
 				getNextTen(videoPage);
 		    }
+			else
+			{
+				currentPage++; //INCREMENT PAGE
+			    
+			}
 	
 		}
 	
@@ -647,28 +653,33 @@ package components.views
 		/* = FUNCTION TO GET THE PREVIOUS PAGE OF VIDEOS = */
 		/* =============================================== */
 		public function getPreviousPage(videoPage:Object):void{
-		    currentPage--; //DECREMENT PAGE
+		
 		    videoPage.next_btn.enabled=true;
 			//NEED TO FIND BETTER WAY TO DO THIS - 
-		    if(currentPage == 1 ||currentPage == 11 || currentPage == 21 || currentPage == 31 || currentPage == 41 || currentPage == 51 || currentPage == 61){
-		     // videoPage.previous_btn.enabled=false;
-					//GET NEXT TEN PAGES
-					getPreviousTen(videoPage);
-		    }
-		    var start:int=PERPAGE*(currentPage-1);
+		    if(currentPage == 10 || currentPage == 20 || currentPage == 30 || currentPage == 40|| currentPage == 50 || currentPage == 60){
+				//GET PREVIOUS TEN PAGES
+				getPreviousTen(videoPage);
+			}
+			else
+			{
+				currentPage --; //DECREMENT PAGE
+			    
+			}
+			if(currentPage == 1)
+			{
+			 	videoPage.previous_btn.enabled=false;
+			 	videoPage.firstTen_btn.enabled=false;
+	    	}
+		    var start:int=PERPAGE*(currentPage -1);
 		    var end:int=start+PERPAGE;
 		    pagedDataProvider=new ArrayCollection();
 		    for(var i:int=start;i<end;i++){
-				try{
-		        pagedDataProvider.addItem(search_results_dp.getItemAt(i));
-				}
-				catch(e:Error)
-				{
-					Alert.show("Already at the beginning.");
-					pagination_setup(videoPage);
-					break;
-				}
-		    }
+			
+					pagedDataProvider.addItem(search_results_dp.getItemAt(i));
+	    	}
+	
+		
+		
 		}
 	
 	
@@ -678,10 +689,10 @@ package components.views
 			/* ======================================= */
 				public function getSelectedPage(pageNum:String,videoPage:Object,event_target:Object = null):void{
 				var pageNumber:int = parseInt(pageNum);
-			    var start:int=PERPAGE*pageNumber;
+			    var start:int=PERPAGE*(pageNumber -1);
 			    var end:int=0;
 			
-				
+				videoPage.previous_btn.enabled=true;
 			
 				//UNDERLINE CURRENT PAGE NUMBER
 				if(event_target)
@@ -712,7 +723,11 @@ package components.views
 				currentPage = pageNumber;
 				
 
- 			   	videoPage.previous_btn.enabled=true;
+ 		   		if(currentPage <= 1)
+				{
+				 	videoPage.previous_btn.enabled=false;
+					videoPage.firstTen_btn.enabled=false;
+		    	}
  			    if(currentPage==pageCount){
  			     videoPage.next_btn.enabled=false;
  			    }
@@ -728,9 +743,9 @@ package components.views
 	/* =================================================== */
 	public function getNextTen(videoPage:Object):void
 	{
-		videoPage.rp.startingIndex = videoPage.rp.startingIndex + 10;
-		currentPage = videoPage.rp.startingIndex;
-		getSelectedPage(videoPage.rp.startingIndex,videoPage);
+		videoPage.rp.startingIndex = currentPage;
+		getSelectedPage(currentPage.toString(),videoPage);
+		currentPage++; //INCREMENT PAGE
 	}
 	
 			
@@ -739,9 +754,11 @@ package components.views
 	/* =================================================== */
 	public function getPreviousTen(videoPage:Object):void
 	{
-		videoPage.rp.startingIndex = videoPage.rp.startingIndex - 10;
-		currentPage = videoPage.rp.startingIndex;
-		getSelectedPage(videoPage.rp.startingIndex,videoPage);
+		videoPage.rp.startingIndex = currentPage - 10;
+		getSelectedPage(currentPage.toString(),videoPage);
+		currentPage--; //DECREMENT PAGE
+		
+		
 	}
 	
 	/* =================================================== */
