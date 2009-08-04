@@ -4,7 +4,6 @@
 	<!-- ==================================================================================================== -->
 	<!-- = IMPORT THE VIDEO PAGING CODE - THIS HAS TO GO HERE INSTEAD OF IN THE BASE CLASS DUE TO REPEATERS = -->
 	<!-- ==================================================================================================== -->
-	<mx:Script source="VideoPaging.as" />
 
 	<!-- Define the Akamai HTTP service -->
     <mx:HTTPService id="akamai_svc" url="https://secure.streamos.com/qos/qos-xml.php" resultFormat="e4x" result="akamaiResultHandler()" fault="mx.controls.Alert.show(event.fault.message)" >
@@ -60,18 +59,16 @@
 		<mx:Text id="results_for_txt" text="Results For "  styleName="resultsFor"/>
 		<s:Button id="sort_menu_btn" fontFamily="Arial" skinClass="components.skins.SortMenuSkin" buttonMode="true"/>
 		<s:Button id="firstTen_btn" skinClass="components.skins.PreviousPageButtonSkin" buttonMode="true" label="....." enabled="false" click="parentDocument.getPreviousTen(this);"/>
-		<s:Button id="previous_btn" click="previousButtonHandler()" skinClass="components.skins.PreviousButtonSkin" buttonMode="true"/>
+		<s:Button id="previous_btn" click="parentDocument.getPreviousPage()" skinClass="components.skins.PreviousButtonSkin" buttonMode="true"/>
 			<mx:HBox id="rp_hbox">             
 				<mx:Repeater id="rp" dataProvider="{parentDocument.pageCountDummyArray}" count="10" startingIndex="1">
-			       <mx:LinkButton id="pageNumber_lbl" buttonMode="true" label="{rp.currentIndex}"  click="	pageNumberHandler();parentDocument.getSelectedPage(event.target.label,this,event.target)"/>
+			       <mx:LinkButton id="pageNumber_lbl" buttonMode="true" label="{rp.currentIndex}"  click="parentDocument.getSelectedPage(event.target.label,this,event.target)"/>
 			    </mx:Repeater>
 			</mx:HBox>
-		<s:Button id="next_btn" click="nextButtonHandler()" skinClass="components.skins.NextButtonSkin" buttonMode="true"/>
+		<s:Button id="next_btn" click="parentDocument.getNextPage()" skinClass="components.skins.NextButtonSkin" buttonMode="true"/>
 		<s:Button id="lastTen_btn" skinClass="components.skins.NextPageButtonSkin" buttonMode="true" label="....." visible="false" click="parentDocument.getNextTen(this);"/>
 		
 	</s:HGroup>
-
-
 
 
 

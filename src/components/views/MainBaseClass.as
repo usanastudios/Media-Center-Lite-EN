@@ -26,6 +26,7 @@ package components.views
 	import mx.validators.Validator;
 	import spark.components.Application;
 	import spark.components.Button;
+	import mx.controls.LinkButton;
 
 
 	public class MainBaseClass extends Application
@@ -56,6 +57,7 @@ package components.views
 		public var video_player_recommended_view:VideoPlayerRecommended;
 		public var selectedWallVideoID:String;
 		public var last_selected_page:Number;
+		public var lastPageSelectedButton:LinkButton;
 		public var landing_page_view:components.views.LandingPage;
 		
 		public static const LANGUAGE:String = "en";
@@ -190,7 +192,6 @@ package components.views
 		public function search(event:MouseEvent):void
 		{	
 
-			mx.controls.Alert.show(search_txt.selectedLabel);
 			
 			/*SET CURRENT SEARCH TERM (FOR DISPLAY ON VIDEO PLAYER PAGE)*/
 			current_search_term = search_txt.selectedLabel;
@@ -628,7 +629,7 @@ package components.views
 				}
 				
 				
-			 videoPage.underlineFirstRecord();
+			underlineFirstRecord(videoPage);
 			
 				
 			
@@ -641,6 +642,23 @@ package components.views
 		public function getNextPage(videoPage:Object):void{
 		    var start:int=PERPAGE*currentPage;
 		    var end:int=0;
+			
+			var lastPageNum:int = ((currentPage - videoPage.rp.startingIndex)-1);
+			var selectedPageNum:int = currentPage - videoPage.rp.startingIndex;
+			
+			if(lastPageNum > -1)
+			{
+			videoPage.pageNumber_lbl[lastPageNum].setStyle('textDecoration','none');
+			}
+		
+			if(videoPage.pageNumber_lbl[selectedPageNum])
+			{
+				videoPage.pageNumber_lbl[selectedPageNum].setStyle('textDecoration','underline');
+			}
+		
+			
+			//SET LAST PAGE BUTTON
+			lastPageSelectedButton = videoPage.pageNumber_lbl[lastPageNum + 1];
 			
 			
 		    //BE SURE WE HAVE ENOUGH VIDEOS IN DP
@@ -668,6 +686,9 @@ package components.views
 				currentPage++; //INCREMENT PAGE
 			    
 			}
+			
+				
+			
 	
 		}
 	
@@ -679,14 +700,35 @@ package components.views
 		/* =============================================== */
 		public function getPreviousPage(videoPage:Object):void{
 		
-		    videoPage.next_btn.enabled=true;
-			//NEED TO FIND BETTER WAY TO DO THIS - 
-		    if(currentPage == 10 || currentPage == 20 || currentPage == 30 || currentPage == 40|| currentPage == 50 || currentPage == 60){
-				//GET PREVIOUS TEN PAGES
-				getPreviousTen(videoPage);
-			}
-			else
-			{
+		    	videoPage.next_btn.enabled=true;
+		
+				//NEED TO FIND BETTER WAY TO DO THIS - 
+			    if(currentPage == 11 || currentPage == 21 || currentPage == 31 || currentPage == 41|| currentPage == 51 || currentPage == 61){
+					//GET PREVIOUS TEN PAGES
+					getPreviousTen(videoPage);
+				}
+				else
+				{
+		
+				var lastPageNum:int = (currentPage - videoPage.rp.startingIndex);
+				var selectedPageNum:int = ((currentPage - videoPage.rp.startingIndex) -2);
+				
+				if(lastPageNum > -1 && videoPage.pageNumber_lbl[lastPageNum -1])
+				{
+					videoPage.pageNumber_lbl[lastPageNum - 1].setStyle('textDecoration','none');
+				}
+				if(videoPage.pageNumber_lbl[selectedPageNum])
+				{
+					videoPage.pageNumber_lbl[selectedPageNum].setStyle('textDecoration','underline');
+				}
+
+		
+		
+			
+			//SET LAST PAGE BUTTON
+			lastPageSelectedButton = videoPage.pageNumber_lbl[lastPageNum -1];
+			
+		
 				currentPage --; //DECREMENT PAGE
 			    
 			}
@@ -712,18 +754,26 @@ package components.views
 			/* ======================================= */
 			/* = FUNCTION TO GET SELECTED PAGE OF VIDEOS = */
 			/* ======================================= */
-				public function getSelectedPage(pageNum:String,videoPage:Object,event_target:Object = null):void{
+				public function getSelectedPage(pageNum:String,videoPage:Object,event_target:LinkButton = null):void{
 				var pageNumber:int = parseInt(pageNum);
 			    var start:int=PERPAGE*(pageNumber -1);
 			    var end:int=0;
 			
 				videoPage.previous_btn.enabled=true;
-			
-				//UNDERLINE CURRENT PAGE NUMBER
-				if(event_target)
- 			    {
-					event_target.setStyle('textDecoration','underline');
+				
+				//REMOVE UNDERLINE FROM SELECTED LAST PAGE
+			 	if(lastPageSelectedButton)
+				{
+					lastPageSelectedButton.setStyle('textDecoration','none');
 				}
+				
+				else
+				{
+					videoPage.pageNumber_lbl[0].setStyle('textDecoration','none');
+				}
+			
+		
+				
 			    //BE SURE WE HAVE ENOUGH VIDEOS IN DP
 			   if((search_results_dp.length-start)>PERPAGE)
  				{
@@ -757,9 +807,24 @@ package components.views
  			     videoPage.next_btn.enabled=false;
  			    }
 
+				//UNDERLINE CURRENT PAGE 
+				if(event_target)
+ 			    {
+					event_target.setStyle('textDecoration','underline');
+				}
+
+				if(currentPage == 0 || currentPage == 10 || currentPage == 20 || currentPage == 30 || currentPage == 40 || currentPage == 50 || currentPage == 60 || currentPage == 70)
+				{
+					videoPage.pageNumber_lbl[0].setStyle('textDecoration','underline');
+				}
+				if(currentPage == 11 || currentPage == 21 || currentPage == 31 || currentPage == 41 || currentPage == 51 || currentPage == 61 || currentPage == 71)
+				{
+					videoPage.pageNumber_lbl[9].setStyle('textDecoration','underline');
+				}
 			
-			
-			
+				
+				//SET LAST PAGE BUTTON
+				lastPageSelectedButton = event_target;
 			}
 
 
@@ -769,7 +834,7 @@ package components.views
 	public function getNextTen(videoPage:Object):void
 	{
 		videoPage.rp.startingIndex = currentPage;
-		getSelectedPage(currentPage.toString(),videoPage);
+		getSelectedPage((currentPage).toString(),videoPage);
 		currentPage++; //INCREMENT PAGE
 	}
 	
@@ -779,8 +844,8 @@ package components.views
 	/* =================================================== */
 	public function getPreviousTen(videoPage:Object):void
 	{
-		videoPage.rp.startingIndex = currentPage - 10;
-		getSelectedPage(currentPage.toString(),videoPage);
+		videoPage.rp.startingIndex = currentPage - 11;
+		getSelectedPage((currentPage).toString(),videoPage);
 		currentPage--; //DECREMENT PAGE
 		
 		
@@ -794,7 +859,7 @@ package components.views
 		videoPage.rp.startingIndex = 0;
 		currentPage = videoPage.rp.startingIndex;
 		getSelectedPage(videoPage.rp.startingIndex,videoPage);
-		videoPage.underlineFirstRecord();
+		underlineFirstRecord(videoPage);
 	}	
 	
 	/* =================================================== */
@@ -805,7 +870,7 @@ package components.views
 		videoPage.rp.startingIndex = pageCount - 10;
 		currentPage = videoPage.rp.startingIndex;
 		getSelectedPage(videoPage.rp.startingIndex,videoPage);
-		videoPage.underlineFirstRecord();
+		underlineFirstRecord(videoPage);
 	}
 	
 	/* =============================================================== */
@@ -818,6 +883,19 @@ package components.views
 		myDP = myXMLList;
 	//	search_txt.enabled = true;
 	}
+	
+	<!-- ================================================= -->
+	<!-- = FUNCTION TO UNDERLINE FIRST RECORD            = -->
+	<!-- ================================================= -->		
+	public function underlineFirstRecord(videoPage:Object):void
+	{
+			   //UNDERLINE CURRENT PAGE NUMBER
+			if(videoPage.pageNumber_lbl[0])
+			{
+				videoPage.pageNumber_lbl[0].setStyle('textDecoration','underline');
+			}
+	}
+	
           
 	}
 }
