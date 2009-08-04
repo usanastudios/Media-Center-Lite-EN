@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+
+<s:Group xmlns:fx="http://ns.adobe.com/mxml/2009" xmlns:s="library://ns.adobe.com/flex/spark" xmlns:mx="library://ns.adobe.com/flex/halo">
+
+		
+		<mx:HBox width="{parentDocument.videoWindow.width}" id="controls_hb" y="306" x="{parentDocument.videoContainer.x}" verticalAlign="middle" styleName="controlBarBackground" horizontalScrollPolicy="off" verticalScrollPolicy="off">
+	
+			  	     <mx:Button id="bPlayPause" click="parentDocument.doPlayPause()" styleName="vpPlayBtn" buttonMode="true" useHandCursor="true"/>
+			  	     <mx:Spacer width="5" />
+			  	     <mx:HSlider id="slider"
+			  	     	allowTrackClick="false"
+			  	     	buttonMode="true" 
+			  	     	useHandCursor="true"
+			  	     	showTrackHighlight="true" 
+			  	     	sliderThumbClass="modules.video_player.vpSliderThumb" 
+			  	     	trackSkin="modules.video_player.vpSliderTrack"
+			  	     	trackHighlightSkin="modules.video_player.vpSliderHighlight"
+			  	     	styleName="vpSlider" width="265"  
+			  	     	enabled="false" 
+			  	     	dataTipFormatFunction="parentDocument.showScrubTime" 
+			  	     	thumbPress="parentDocument.toggleDragging(true)" 
+			  	     	thumbRelease="parentDocument.toggleDragging(false)" 
+			  	     	dataTipStyleName="dataTipStyle"/>
+			  	     <mx:Spacer width="3" />
+			  	     <mx:Text id="timeDisplay" styleName="timer"  text="00:00/00:00"/>
+			  	     <mx:Spacer width="7" />
+			  	     <mx:Button id="bFullscreen" click="parentDocument.switchToFullScreen()" enabled="false" styleName="fsBtn" buttonMode="true" useHandCursor="true"/>
+			  	     <s:ToggleButton id="bClosedcaption" styleName="ccBtn" skinClass="components.skins.CCButtonSkin" click="parentDocument.onClickCC(event)" buttonMode="true" useHandCursor="true" enabled="false"/>
+			  	     <mx:Spacer width="3" />
+			  	     <mx:HSlider id="volumeSlider"
+			  	     	buttonMode="true" 
+			  	     	useHandCursor="true" 
+			  	     	width="56" value=".75" 
+			  	     	showTrackHighlight="true" 
+			  	     	trackSkin="modules.video_player.vpSliderTrack"
+			  	     	sliderThumbClass="modules.video_player.vpSliderThumb" 
+			  	     	trackHighlightSkin="modules.video_player.vpSliderHighlight"
+			  	     	styleName="vpSlider"  
+			  	     	dataTipFormatFunction="parentDocument.showVolume" 
+			  	     	minimum="0" maximum="1" 
+			  	     	change="parentDocument.changeVolume(event)" 
+			  	     	allowTrackClick="false" 
+			  	     	liveDragging="true"
+			  	     	dataTipStyleName="dataTipStyle"/>
+			  	     	
+			  	</mx:HBox>
+
+</s:Group>

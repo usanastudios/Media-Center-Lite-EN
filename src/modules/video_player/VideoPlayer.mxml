@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<mx:Module xmlns:mx="http://www.adobe.com/2006/mxml" xmlns:s="library://ns.adobe.com/flex/spark" layout="absolute" creationComplete="init()" clipContent="false" implements="modules.video_player.VideoPlayerInterface">
+<mx:Module xmlns:mx="http://www.adobe.com/2006/mxml" xmlns:s="library://ns.adobe.com/flex/spark" layout="absolute" creationComplete="init()" clipContent="false" implements="modules.video_player.VideoPlayerInterface" xmlns:controls="components.controls.*">
 
 	 <!-- SEARCH RESULTS TEST DATA -->
      
@@ -21,47 +21,7 @@
 
 		<mx:HBox width="544" height="306" x="0" y="0" id="videoWindow" borderStyle="none" verticalAlign="middle" horizontalAlign="center" backgroundColor="#000000"/>   	
 
-			<mx:HBox width="{videoWindow.width}" id="controls_hb" y="306" x="{videoContainer.x}" verticalAlign="middle" styleName="controlBarBackground" horizontalScrollPolicy="off" verticalScrollPolicy="off">
-	
-			  	     <mx:Button id="bPlayPause" click="doPlayPause()" styleName="vpPlayBtn" buttonMode="true" useHandCursor="true"/>
-			  	     <mx:Spacer width="5" />
-			  	     <mx:HSlider id="slider"
-			  	     	allowTrackClick="false"
-			  	     	buttonMode="true" 
-			  	     	useHandCursor="true"
-			  	     	showTrackHighlight="true" 
-			  	     	sliderThumbClass="modules.video_player.vpSliderThumb" 
-			  	     	trackSkin="modules.video_player.vpSliderTrack"
-			  	     	trackHighlightSkin="modules.video_player.vpSliderHighlight"
-			  	     	styleName="vpSlider" width="265"  
-			  	     	enabled="false" 
-			  	     	dataTipFormatFunction="showScrubTime" 
-			  	     	thumbPress="toggleDragging(true)" 
-			  	     	thumbRelease="toggleDragging(false)" 
-			  	     	dataTipStyleName="dataTipStyle"/>
-			  	     <mx:Spacer width="3" />
-			  	     <mx:Text id="timeDisplay" styleName="timer"  text="00:00/00:00"/>
-			  	     <mx:Spacer width="7" />
-			  	     <mx:Button id="bFullscreen" click="switchToFullScreen()" enabled="false" styleName="fsBtn" buttonMode="true" useHandCursor="true"/>
-			  	     <s:ToggleButton id="bClosedcaption" styleName="ccBtn" skinClass="components.skins.CCButtonSkin" click="onClickCC(event)" buttonMode="true" useHandCursor="true" enabled="false"/>
-			  	     <mx:Spacer width="3" />
-			  	     <mx:HSlider id="volumeSlider"
-			  	     	buttonMode="true" 
-			  	     	useHandCursor="true" 
-			  	     	width="56" value=".75" 
-			  	     	showTrackHighlight="true" 
-			  	     	trackSkin="modules.video_player.vpSliderTrack"
-			  	     	sliderThumbClass="modules.video_player.vpSliderThumb" 
-			  	     	trackHighlightSkin="modules.video_player.vpSliderHighlight"
-			  	     	styleName="vpSlider"  
-			  	     	dataTipFormatFunction="showVolume" 
-			  	     	minimum="0" maximum="1" 
-			  	     	change="changeVolume(event)" 
-			  	     	allowTrackClick="false" 
-			  	     	liveDragging="true"
-			  	     	dataTipStyleName="dataTipStyle"/>
-			  	     	
-			  	</mx:HBox>
+		<controls:VideoControls id="videoControls"/>
 			  	
 		<!-- END VIDEO PLAYER-->
 		

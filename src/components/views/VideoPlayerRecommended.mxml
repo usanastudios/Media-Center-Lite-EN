@@ -91,23 +91,11 @@
 	<!-- = TILE LIST CONTAINING THE THUMBNAILS = -->
 	<!-- ======================================= -->
      <s:List id="list" dataProvider="{parentDocument.pagedDataProvider}" 
-            itemRenderer="components.renderers.Thumbnail"
-            horizontalCenter="0"
-            verticalCenter="0"
-            width="1000"
-           height="300"
-            click="showVideo(event);"
-            contentBackgroundColor="#101010"
-          >
-        <s:layout>
-            <s:TileLayout 
-            	    rowHeight="140"
-            	    columnWidth="180"
-                    horizontalGap="20"
-                    verticalGap="0" 
-					/>
-        </s:layout>
-        
+      	height="480" skinClass="components.skins.ThumbnailListRecommendedSkin"
+        itemRenderer="components.renderers.Thumbnail"
+        width="1000" 
+        click="showVideo(event);">
+          
     </s:List>
      
 </s:VGroup>	
