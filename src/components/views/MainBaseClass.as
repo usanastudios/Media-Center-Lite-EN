@@ -6,14 +6,12 @@
 
 package components.views
 {
+	
 	import com.adobe.flex.extras.controls.AutoComplete;
-	
 	import flash.events.MouseEvent;
-	import flash.net.URLRequest;
 	import flash.net.navigateToURL;
-	
+	import flash.net.URLRequest;
 	import modules.video_player.VideoPlayerInterface;
-	
 	import mx.collections.ArrayCollection;
 	import mx.collections.Sort;
 	import mx.collections.SortField;
@@ -26,9 +24,9 @@ package components.views
 	import mx.managers.PopUpManager;
 	import mx.rpc.http.mxml.HTTPService;
 	import mx.validators.Validator;
-	
 	import spark.components.Application;
 	import spark.components.Button;
+
 
 	public class MainBaseClass extends Application
 	{
@@ -60,8 +58,8 @@ package components.views
 		public var last_selected_page:Number;
 		public var landing_page_view:components.views.LandingPage;
 		
+		public static const LANGUAGE:String = "en";
 		
-
 		/* ====================== */
 		/* = BINDABLE VARIABLES = */
 		/* ====================== */
@@ -291,7 +289,7 @@ package components.views
 				/*CALL THE WEB SERVICE*/
 				var params:Object = new Object;
 	 			params['q'] = search_term;
-				params['l'] = "en";
+				params['l'] = LANGUAGE;
 				recommended_search_svc.send(search_term);
 			} 
 					

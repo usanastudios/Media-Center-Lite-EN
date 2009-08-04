@@ -317,7 +317,7 @@
    			// Handles play and pause
    			private function doPlayPause():void {
    				switch (_isPaused){
-   					case false:
+   					case false: 
    						bPlayPause.styleName = "vpPlayBtn";
    						_ns.pause();
    						_isPaused=true;
