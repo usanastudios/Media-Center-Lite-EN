@@ -1,6 +1,7 @@
 /* CSS file */
 @namespace s "library://ns.adobe.com/flex/spark";
 @namespace mx "library://ns.adobe.com/flex/halo";
+@namespace hc "com.hillelcoren.components.*";
 
 @font-face
 {
@@ -14,7 +15,7 @@ global
 {
 	baseColor: #5C5B5B;
 	contentBackgroundColor: #FEF9F9;
-	color: #FCFBFB;
+	/*color: #FCFBFB;*/
 	symbolColor: #F5EDED;
 }
 s|TextInput.searchTextField
@@ -26,11 +27,6 @@ s|TextInput.searchTextField
 	fontSize: 12;
 	color: #FBFCFC;
 }
-
-mx|HBox.pageBar {
-	background-color: #0a0a0a;
-}
-
 mx|Menu.prospectMenu1
 {
 	
@@ -62,6 +58,10 @@ mx|Text.videoSubTitle
 	fontSize: 11;
 }
 
+s|HGroup.middleBar {
+	content-background-color: #0a0a0a;
+}
+
 mx|Text.resultsFor{
 	fontFamily: HelveticaEmbed;
 	font-size:20;
@@ -82,5 +82,107 @@ mx|TitleWindow{
 	closeButtonDownSkin: ClassReference(null); 
 	closeButtonOverSkin: ClassReference(null); 
 	closeButtonUpSkin: ClassReference(null);
+}
+mx|TextInput
+{
+	fontFamily: Arial;
+	backgroundAlpha: 0.0;
+	borderStyle: solid;
+	borderThickness: 1;
+	cornerRadius: 8;
+	borderSkin: Embed(source="file:////Users/jeff/Documents/AdobeFlashBuilderBeta/Media-Center-Lite-Gumbo/src/assets/skins/search_txt.png");
+}
+
+
+/* ================= */
+/* = AUTO COMPLETE = */
+/* ================= */
+
+
+
+hc|AutoComplete
+{
+	selected-item-style-name: macMail;
+}
+
+.none 
+{
+	over-skin: ClassReference("com.hillelcoren.assets.skins.BlankSkin");
+	up-skin: ClassReference("com.hillelcoren.assets.skins.BlankSkin");
+	down-skin: ClassReference("com.hillelcoren.assets.skins.BlankSkin");
+	selected-over-skin : ClassReference("com.hillelcoren.assets.skins.BlankSkin");
+	selected-up-skin : ClassReference("com.hillelcoren.assets.skins.BlankSkin");
+	selected-down-skin : ClassReference("com.hillelcoren.assets.skins.BlankSkin");
+	padding-top: 0;
+	padding-bottom: 0;
+	padding-left: 0;
+	padding-right: 0;
+	font-weight: normal;
+	selected-font-weight: bold;
+	show-comma: yes;
+}
+  
+.underline
+{
+	over-skin: ClassReference("com.hillelcoren.assets.skins.BlankSkin");
+	up-skin: ClassReference("com.hillelcoren.assets.skins.BlankSkin");
+	down-skin: ClassReference("com.hillelcoren.assets.skins.BlankSkin");
+	selected-over-skin : ClassReference("com.hillelcoren.assets.skins.BlankSkin");
+	selected-up-skin : ClassReference("com.hillelcoren.assets.skins.BlankSkin");
+	selected-down-skin : ClassReference("com.hillelcoren.assets.skins.BlankSkin");
+	padding-top: 0;
+	padding-bottom: 0;
+	padding-left: 0;
+	padding-right: 0;
+	text-decoration: underline;
+	font-weight: normal;
+	selected-font-weight: bold;
+	show-comma: yes;
+}
+  
+.macMail 
+{
+	over-skin: ClassReference("com.hillelcoren.assets.skins.MacMailSkin");
+	up-skin: ClassReference("com.hillelcoren.assets.skins.MacMailSkin");
+	down-skin: ClassReference("com.hillelcoren.assets.skins.MacMailSkin");
+	selected-over-skin : ClassReference("com.hillelcoren.assets.skins.MacMailSkin");
+	selected-up-skin: ClassReference("com.hillelcoren.assets.skins.MacMailSkin");
+	selected-down-skin : ClassReference("com.hillelcoren.assets.skins.MacMailSkin");
+	padding-top: 0;
+	padding-bottom: 0;
+	text-selected-color: #FFFFFF;
+	padding-left: 8;
+	padding-right: 8;
+	font-weight: normal; 
+}
+
+.facebook 
+{
+	over-skin: ClassReference("com.hillelcoren.assets.skins.FacebookSkin");
+	up-skin: ClassReference("com.hillelcoren.assets.skins.FacebookSkin");
+	down-skin: ClassReference("com.hillelcoren.assets.skins.FacebookSkin");
+	selected-over-skin : ClassReference("com.hillelcoren.assets.skins.FacebookSkin");
+	selected-up-skin : ClassReference("com.hillelcoren.assets.skins.FacebookSkin");
+	selected-down-skin : ClassReference("com.hillelcoren.assets.skins.FacebookSkin");        
+	padding-top: 0;
+	padding-bottom: 0;
+	text-selected-color: #FFFFFF;
+	padding-left: 2;
+	padding-right: 5;
+	font-weight: normal;                
+}
+
+.actionsMenuButton
+{
+	over-skin: ClassReference("com.hillelcoren.assets.skins.BlankSkin");
+	up-skin: ClassReference("com.hillelcoren.assets.skins.BlankSkin");
+	down-skin: ClassReference("com.hillelcoren.assets.skins.BlankSkin");
+	selected-over-skin : ClassReference("com.hillelcoren.assets.skins.BlankSkin");
+	selected-up-skin : ClassReference("com.hillelcoren.assets.skins.BlankSkin");
+	selected-down-skin : ClassReference("com.hillelcoren.assets.skins.BlankSkin");
+	padding-top: 0;
+	padding-bottom: 0;
+	padding-left: 0;
+	padding-right: 4;			
 }
 

@@ -6,6 +6,8 @@
 
 package components.views
 {
+	import com.adobe.flex.extras.controls.AutoComplete;
+	
 	import flash.events.MouseEvent;
 	import flash.net.URLRequest;
 	import flash.net.navigateToURL;
@@ -15,6 +17,7 @@ package components.views
 	import mx.collections.ArrayCollection;
 	import mx.collections.Sort;
 	import mx.collections.SortField;
+	import mx.collections.XMLListCollection;
 	import mx.containers.ViewStack;
 	import mx.controls.Alert;
 	import mx.controls.Menu;
@@ -26,7 +29,6 @@ package components.views
 	
 	import spark.components.Application;
 	import spark.components.Button;
-	import spark.components.TextInput;
 
 	public class MainBaseClass extends Application
 	{
@@ -49,6 +51,7 @@ package components.views
 		public var recent_videos_svc:HTTPService;
 		public var recommended_search_svc:HTTPService;
 		public var search_svc:HTTPService;
+		public var auto_complete_svc:HTTPService;
 		public var search_text_validator:Validator;
 		public var video_list:XML = new XML;
 		public var video_player_basic_view:VideoPlayerBasic;
@@ -56,6 +59,7 @@ package components.views
 		public var selectedWallVideoID:String;
 		public var last_selected_page:Number;
 		public var landing_page_view:components.views.LandingPage;
+		
 		
 
 		/* ====================== */
@@ -68,10 +72,11 @@ package components.views
 		[Bindable] public var video_short_description:String;
 		[Bindable] public var video_long_description:String;
 		[Bindable] public var results_for:String;
-		[Bindable]public var search_txt:TextInput;
+		[Bindable]public var search_txt:AutoComplete;
 		[Bindable] public var search_btn:Button;
 		[Bindable] public var audio_btn:Button;
 		[Bindable] public var search_results_dp:ArrayCollection = new ArrayCollection();
+		[Bindable] public var myDP:XMLListCollection;
 
 		
 		
@@ -92,6 +97,8 @@ package components.views
 		/* =================================== */
 		public function initMainApp():void
 		{
+			auto_complete_svc.send();
+			
 			/*EVENT LISTENERS*/
 			prospectMenu1_btn.addEventListener(MouseEvent.CLICK,createAndShowProspectMenu1);
 			search_btn.addEventListener(MouseEvent.CLICK,search);
@@ -181,8 +188,10 @@ package components.views
 		public function search(event:MouseEvent):void
 		{	
 
+			mx.controls.Alert.show(search_txt.selectedLabel);
+			
 			/*SET CURRENT SEARCH TERM (FOR DISPLAY ON VIDEO PLAYER PAGE)*/
-			current_search_term = search_txt.text;
+			current_search_term = search_txt.selectedLabel;
 
 			/*SEARCHING MESSAGE*/
 			current_search_message = "Searching videos for '" +search_txt.text+ "'";
@@ -797,7 +806,16 @@ package components.views
 		videoPage.underlineFirstRecord();
 	}
 	
-	
+	/* =============================================================== */
+	/* = FUNCTIONC CALLED WHEN VIDEOS FOR AUTO COMPLETE ARE RETURNED = */
+	/* =============================================================== */
+	public function setUpAutoComplete():void
+	{
+		var myXMLList:XMLListCollection = new XMLListCollection();
+		myXMLList.source = auto_complete_svc.lastResult.video;
+		myDP = myXMLList;
+	//	search_txt.enabled = true;
+	}
           
 	}
 }
