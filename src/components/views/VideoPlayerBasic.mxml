@@ -60,7 +60,7 @@
 	<mx:Box width="1000" height="1" backgroundColor="0x151515" />
 	
 	<mx:HBox id="pageBarBox" styleName="pageBar" width="1000" height="56" verticalAlign="middle">
-		
+		 
 		<mx:Text id="results_for_txt" text="Results For " styleName="resultsFor" paddingLeft="25"/>
 		<s:Button id="sort_menu_btn" fontFamily="Arial" skinClass="components.skins.SortMenuSkin" buttonMode="true"/>
 		<s:Button id="firstTen_btn" skinClass="components.skins.PreviousPageButtonSkin" buttonMode="true" label="....."  click="parentDocument.getFirstTen(this);"/>

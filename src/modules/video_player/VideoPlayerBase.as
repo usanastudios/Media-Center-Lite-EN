@@ -286,7 +286,7 @@
    				}
    			}
    			// Seeks the stream after the slider is dropped
-   			private function doSeek():void {
+   			private function doSeek():void { 
    				hideCaption();
    				write("calling seek to " + videoControls.slider.value);
    				if (_hasEnded) {
@@ -297,7 +297,7 @@
    				_ns.seek(videoControls.slider.value);
    			}
    			// Toggles the dragging state
-   			private function toggleDragging(state:Boolean):void {
+   			public function toggleDragging(state:Boolean):void {
    				_sliderDragging = state;
    				if (!state) {
    					_waitForSeek = true;
@@ -325,7 +325,7 @@
 			
 			
    			// Handles play and pause
-   			private function doPlayPause():void {
+   			public function doPlayPause():void {
    				switch (_isPaused){
 
    					case false:
@@ -346,20 +346,20 @@
    					break;
    				}
    			}
-   			// Formats the slider dataTip
-			private function showVolume(val:String):String {
+   			// Formats the slider dataTip 
+			public function showVolume(val:String):String {
 				return ("Volume: "+Math.round(Number(val)*100)+"%");
 			}
 			// Converts time to timecode
-			private function showScrubTime(val:String):String {
-	   			var sec:Number = Number(val);
+			public function showScrubTime(val:String):String {
+	   			var sec:Number = Number(val); 
 				var h:Number = Math.floor(sec/3600);
 				var m:Number = Math.floor((sec%3600)/60);
 				var s:Number = Math.floor((sec%3600)%60);
 				return (h == 0 ? "":(h<10 ? "0"+h.toString()+":" : h.toString()+":"))+(m<10 ? "0"+m.toString() : m.toString())+":"+(s<10 ? "0"+s.toString() : s.toString());
 			}
 			// Changes the stream volume
-			private function changeVolume(event:SliderEvent):void {
+			public function changeVolume(event:SliderEvent):void {
 				//if (_ns is AkamaiConnection) 
 					_ns.volume = event.value;
 			}
@@ -369,11 +369,11 @@
 				//output.verticalScrollPosition = output.maxVerticalScrollPosition+1;
 			}
 			// Switches to full screen mode
-			private function switchToFullScreen():void {
+			public function switchToFullScreen():void {
 				    // when going out of full screen mode 
 				    // we use these values
 				   
-				    _videoSettings = new Object();
+				    _videoSettings = new Object(); 
 				    _videoSettings.savedWidth = _videoHolder.width;
 				    _videoSettings.savedHeight = _videoHolder.height;
 				    _videoSettings.x = _videoHolder.x;
