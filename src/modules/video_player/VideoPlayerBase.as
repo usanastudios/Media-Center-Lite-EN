@@ -1,21 +1,30 @@
 
 			import com.akamai.net.*;
 			import com.akamai.rss.AkamaiBOSSParser;
-			import flash.display.Stage; 
+			
+			import components.controls.VideoControls;
+			
 			import flash.display.StageDisplayState;
-			import flash.events.FullScreenEvent; 
-			import flash.geom.*;  
+			import flash.events.FullScreenEvent;
+			import flash.geom.*;
+			
+			import mx.containers.ControlBar;
 			import mx.controls.Alert;
 			import mx.controls.textClasses.TextRange;
 			import mx.core.FlexGlobals;
 			import mx.core.UIComponent;
 			import mx.events.SliderEvent;
-			import mx.modules.Module;
-			import org.openvideoplayer.cc.*; 
-			import org.openvideoplayer.events.*;
-			import org.openvideoplayer.net.*; 
-
 			import mx.utils.*;
+			
+			import org.openvideoplayer.cc.*;
+			import org.openvideoplayer.events.*;
+			import org.openvideoplayer.net.*;
+
+;
+
+;
+
+;
 
 	
 					
@@ -36,6 +45,7 @@
 			private var _captionTimer:Timer;
 			private var _ccOn:Boolean;
 			private var _ccPositioned:Boolean;
+
             
             
             [Bindable]
@@ -128,7 +138,7 @@
 				_ccMgr.addEventListener(OvpEvent.ERROR, errorHandler);		
 				_ccMgr.addEventListener(OvpEvent.CAPTION, captionHandler);
 				_ccMgr.parse(_CAPTION_URL_); 
-				bClosedcaption.styleName = "ccBtnOn";				
+				videoControls.bClosedcaption.styleName = "ccBtnOn";				
 				
 				_ns.maxBufferLength = 2;
 				_ns.liveStreamAuthParams = _bossMetafile.playAuthParams;
@@ -235,10 +245,10 @@
 			// Handles the stream length response after a request to requestStreamLength
 			private function streamLengthHandler(e:OvpEvent):void {
 				write("Stream length is " + e.data.streamLength);
-				slider.maximum = e.data.streamLength;
-				slider.enabled = true;
-				bPlayPause.enabled = true;
-				bFullscreen.enabled = true;
+				videoControls.slider.maximum = e.data.streamLength;
+				videoControls.slider.enabled = true;
+				videoControls.bPlayPause.enabled = true;
+				videoControls.bFullscreen.enabled = true;
 				_streamLength = e.data.streamLength;
 			}
 			
@@ -248,7 +258,7 @@
 			private function completeHandler(e:OvpEvent):void {
 				write("Stream is complete");
 				_hasEnded = true;
-				bPlayPause.styleName = "vpPlayBtn";
+				videoControls.bPlayPause.styleName = "vpPlayBtn";
 			}
 			// Attaches the video to the stage
 			private function addVideoToStage():void {
@@ -264,27 +274,27 @@
    			// Plays the stream 
    			private function playVideo(name:String):void {
    				_ns.play(name);
-   				bPlayPause.styleName = "vpPauseBtn";  				
+   				videoControls.bPlayPause.styleName = "vpPauseBtn";  				
    			}
    			// Updates the time display and slider
    			private function update(e:OvpEvent):void {
-   				timeDisplay.text =  _ns.timeAsTimeCode + "|"+ _nc.streamLengthAsTimeCode(_streamLength);
+   				videoControls.timeDisplay.text =  _ns.timeAsTimeCode + "|"+ _nc.streamLengthAsTimeCode(_streamLength);
 
    					if (!_sliderDragging && !_waitForSeek) {
-   						slider.value = _ns.time;
+   						videoControls.slider.value = _ns.time;
    					
    				}
    			}
    			// Seeks the stream after the slider is dropped
    			private function doSeek():void {
    				hideCaption();
-   				write("calling seek to " + slider.value);
+   				write("calling seek to " + videoControls.slider.value);
    				if (_hasEnded) {
    					_hasEnded = false;
    					_ns.play(VIDEO_URL);
-   					bPlayPause.styleName = "vpPauseBtn";
+   					videoControls.bPlayPause.styleName = "vpPauseBtn";
    				} 
-   				_ns.seek(slider.value);
+   				_ns.seek(videoControls.slider.value);
    			}
    			// Toggles the dragging state
    			private function toggleDragging(state:Boolean):void {
@@ -298,8 +308,8 @@
    			// Commences connection to a new link
 			private function startPlayback():void {
 				//output.text = "";
-				bPlayPause.enabled = false;
-				bFullscreen.enabled = false;
+				videoControls.bPlayPause.enabled = false;
+				videoControls.bFullscreen.enabled = false;
 				_hasEnded = false;
 				// Clean up from previous session, if it exists
 				if (_nc.netConnection is NetConnection) {
@@ -318,12 +328,12 @@
    			private function doPlayPause():void {
    				switch (_isPaused){
    					case false:
-   						bPlayPause.styleName = "vpPlayBtn";
+   						videoControls.bPlayPause.styleName = "vpPlayBtn";
    						_ns.pause();
    						_isPaused=true;
    					break;
    					case true:
-   						bPlayPause.styleName = "vpPauseBtn";
+   						videoControls.bPlayPause.styleName = "vpPauseBtn";
    						if (_hasEnded) {
    							_hasEnded = false;
    							_ns.play(VIDEO_URL);
@@ -368,17 +378,36 @@
 				    _videoSettings.x = _videoHolder.x;
 				    _videoSettings.y = _videoHolder.y;
 				  
+				  	// Creates a rectangle around the video and makes it go fullscreen
 				    stage["fullScreenSourceRect"] = new Rectangle(25, 75, 544, 306);	 
 				    stage["displayState"] = StageDisplayState.FULL_SCREEN;
 				    
 				    videoWindow.removeChild(_videoHolder);
+				    
+				    // adds the video
 				    addChild(_videoHolder);
+					 
+					 
+					 // Add the fullscreen controls
+				    var fs_controls:ControlBar;
+				    addChild(fs_controls);
+				    
+	
+					
+					// positions the video
 				   	_video.x = _videoHolder.x = 0;
 				   	_video.y = _videoHolder.y = 0;
 				    _video.width =  _videoHolder.width = stage.stageWidth;
 				    _video.height =  _videoHolder.height = stage.stageWidth*9/16;
 
 				    _video.smoothing = true;
+				    
+				    
+				   // positions the controls
+				    fs_controls.x= 100;
+				    fs_controls.y= _video.height - fs_controls.height - 10;
+				    fs_controls.width=100;
+				    fs_controls.height=20;
 
 
 				   
@@ -477,9 +506,9 @@
 			//ccBox.setStyle("borderColor", color);
 			if (!_ccOn) {
 				captionLabel.htmlText = "";
-				bClosedcaption.styleName = "ccBtn";
+				videoControls.bClosedcaption.styleName = "ccBtn";
 			} else {
-				bClosedcaption.styleName = "ccBtnOn";
+				videoControls.bClosedcaption.styleName = "ccBtnOn";
 			}
 		}
 		
@@ -489,7 +518,7 @@
 		/* ========================================== */
 		private function ccFound():void
 		{
-			bClosedcaption.enabled = true;
+			videoControls.bClosedcaption.enabled = true;
 		}
 		
 		
@@ -500,7 +529,7 @@
 		{
 			//mx.controls.Alert.show('disabling');
 			
-			bClosedcaption.enabled = false;
+			videoControls.bClosedcaption.enabled = false;
 		}
 		
 	

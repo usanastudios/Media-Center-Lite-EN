@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8"?>
+<s:Skin xmlns:fx="http://ns.adobe.com/mxml/2009" xmlns:s="library://ns.adobe.com/flex/spark">
+
+    <s:states>
+        <s:State name="normal" />
+        <s:State name="disabled" />
+    </s:states>
+
+    <fx:Metadata>
+        <![CDATA[
+            [HostComponent("spark.components.List")]
+        ]]>
+    </fx:Metadata>
+
+
+    <!-- border -->
+    <s:Rect left="0" right="0" top="0" bottom="0">
+        <s:stroke>
+            <s:SolidColorStroke color="0x1a1a1a" weight="1"/>
+        </s:stroke>
+    </s:Rect>
+
+    <!-- fill -->
+    <s:Rect id="background" left="1" right="1" top="1" bottom="1" >
+        <s:fill>
+            <s:SolidColor id="bgFill" color="0x101010" />
+        </s:fill>
+    </s:Rect>
+
+    <s:Scroller id="scroller"
+            focusEnabled="false"
+            horizontalScrollPolicy="off"
+            left="1" top="1" right="1" bottom="1">
+       
+        <s:DataGroup id="dataGroup"
+                itemRenderer="spark.skins.default.DefaultItemRenderer">
+            <s:layout>
+            <s:TileLayout 
+            	    rowHeight="140"
+            	    columnAlign="justifyUsingWidth" 
+            	    horizontalAlign="center" 
+            	    rowAlign="justifyUsingHeight" 
+            	    verticalAlign="middle"
+            	    columnWidth="170"
+                    horizontalGap="-25"
+                    verticalGap="-25" 
+					requestedRowCount="3"/>
+        </s:layout>
+        </s:DataGroup>
+    </s:Scroller>
+
+</s:Skin>
