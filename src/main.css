@@ -17,6 +17,16 @@ global
 	color: #FCFBFB;
 	symbolColor: #F5EDED;
 }
+
+mx|Alert {
+    modalTransparencyBlur: 5;
+    modalTransparency: 0.6;
+    modalTransparencyColor: #000000;
+    modalTransparencyDuration: 300;
+ }
+
+
+
 s|TextInput.searchTextField
 {
 	fontFamily: HelveticaEmbed;
