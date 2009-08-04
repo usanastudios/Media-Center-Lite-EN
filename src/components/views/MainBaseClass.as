@@ -175,12 +175,16 @@ package components.views
 		}
 		
 		
+		/* ============================================== */
+		/* = FUNCTION TO NAVIGATE TO AUDIO LINK		    = */
+		/* ============================================== */
 		public function navigateToAudio(event:MouseEvent):void
 		{
 			var audioURL:String = "http://www.usana.com/Main/myUsana/page/MediaCenterAudio";
 			var audioURLRequest:URLRequest = new URLRequest(audioURL);
 			navigateToURL(audioURLRequest, "_self");
 		}
+		
           
       	/* ============================================== */
 		/* = FUNCTION TO DO BASIC SEARCH FOR VIDEOS = */
