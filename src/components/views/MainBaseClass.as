@@ -6,6 +6,8 @@
 
 package components.views
 {
+	import com.adobe.flex.extras.controls.AutoComplete;
+	
 	import flash.events.MouseEvent;
 	import flash.net.URLRequest;
 	import flash.net.navigateToURL;
@@ -15,6 +17,7 @@ package components.views
 	import mx.collections.ArrayCollection;
 	import mx.collections.Sort;
 	import mx.collections.SortField;
+	import mx.collections.XMLListCollection;
 	import mx.containers.ViewStack;
 	import mx.controls.Alert;
 	import mx.controls.Menu;
@@ -26,10 +29,7 @@ package components.views
 	
 	import spark.components.Application;
 	import spark.components.Button;
-	import spark.components.TextInput;
-	import mx.collections.XMLListCollection;
-	import com.hillelcoren.components.AutoComplete;
-	
+
 	public class MainBaseClass extends Application
 	{
 
@@ -188,8 +188,10 @@ package components.views
 		public function search(event:MouseEvent):void
 		{	
 
+			mx.controls.Alert.show(search_txt.selectedLabel);
+			
 			/*SET CURRENT SEARCH TERM (FOR DISPLAY ON VIDEO PLAYER PAGE)*/
-			current_search_term = search_txt.text;
+			current_search_term = search_txt.selectedLabel;
 
 			/*SEARCHING MESSAGE*/
 			current_search_message = "Searching videos for '" +search_txt.text+ "'";

@@ -1,6 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
-<views:MainBaseClass xmlns:fx="http://ns.adobe.com/mxml/2009"  xmlns:s="library://ns.adobe.com/flex/spark" xmlns:hc="com.hillelcoren.components.*" defaultButton="{search_btn}" preloader="modules.preloader.Pre" xmlns:mx="library://ns.adobe.com/flex/halo" xmlns:views="components.views.*" minWidth="1000" minHeight="1185" width="1000" backgroundColor="0x101010" creationComplete="initMainApp()">
+<views:MainBaseClass defaultButton="{search_btn}" preloader="modules.preloader.Pre" minWidth="1000" minHeight="1185" width="1000" backgroundColor="0x101010" creationComplete="initMainApp()"
+		xmlns:fx="http://ns.adobe.com/mxml/2009"  
+		xmlns:s="library://ns.adobe.com/flex/spark" 
+		xmlns:fc="http://www.adobe.com/2006/fc"
+ 		xmlns:mx="library://ns.adobe.com/flex/halo" xmlns:views="components.views.*"
+		xmlns:local="*"
+ >
 	
+
 
 	<fx:Style source="main.css"/>
 	
@@ -15,7 +22,7 @@
 		</mx:request> 
     </mx:HTTPService>
     
-    <!-- Define the Recommended Search HTTP service -->
+    <!-- Define the Recommended Search HTTP service --> 
     <mx:HTTPService id="recommended_search_svc" url="http://www.usana.com/Main/mediaCenter/searchV" resultFormat="e4x" result="recommendedSearchResultHandler()" fault="mx.controls.Alert.show(event.fault.message)" >
     </mx:HTTPService>       
 
@@ -72,17 +79,15 @@
 	<s:Button x="465" y="0" label="Button" id="mostViewed_btn" skinClass="components.skins.MostViewedSkin" buttonMode="true"/>
 	<s:Button x="585" y="-1" label="Button" id="mostRecent_btn" skinClass="components.skins.MostRecentSkin" buttonMode="true"/>
 	<s:Button x="705" y="-1" label="Button" id="audio_btn" skinClass="components.skins.AudioSkin" buttonMode="true"/>
+	
 <!--	<s:TextInput x="788" y="17" id="search_txt" styleName="searchTextField" skinClass="components.skins.SearchFieldSkin"/>
--->	
-
- 	<s:Button x="938" y="19" label="Button" id="search_btn" skinClass="components.skins.SearchButtonSkin" buttonMode="true"/>
-	
+-->	 
 
 
-	    <hc:AutoComplete id="search_txt" dataProvider="{myDP}" x="788" y="17" prompt="Please select" backspaceAction="remove"  
-	    styleName="customSkin" labelField="title"/>  
-	
-	
+	<fc:AutoComplete width="171" id="search_txt" dataProvider="{myDP}" labelField="title" 
+	 lookAhead="false" x="782" y="19" height="26" borderThickness="0" paddingLeft="15"/>
+			
+ 	<s:Button x="938" y="19" label="Button" id="search_btn" skinClass="components.skins.SearchButtonSkin" buttonMode="true" height="27"/>
 	<mx:ViewStack verticalScrollPolicy="off"  horizontalScrollPolicy="off" id="main_view_stack" resizeToContent="true" historyManagementEnabled="true" width="1000"  y="62" x="0">
 		
 		<!-- ================ -->
@@ -103,10 +108,10 @@
 		<!-- ================================= -->
 		<!-- = VIDEO PLAYER RECOMMENDED PAGE = -->
 		<!-- ================================= -->
-		<views:VideoPlayerRecommended id="video_player_recommended_view" verticalScrollPolicy="off" width="100%" 	left="0" right="0" /> 
+		<views:VideoPlayerRecommended id="video_player_recommended_view" verticalScrollPolicy="off" width="100%" 	left="0" right="0"  /> 
 		
 
 	</mx:ViewStack>
-	
+
 	 
 </views:MainBaseClass>

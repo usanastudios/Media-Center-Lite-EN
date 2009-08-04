@@ -1,6 +1,7 @@
 /* CSS file */
 @namespace s "library://ns.adobe.com/flex/spark";
 @namespace mx "library://ns.adobe.com/flex/halo";
+@namespace hc "com.hillelcoren.components.*";
 
 @font-face
 {
@@ -81,6 +82,16 @@ mx|TitleWindow{
 	closeButtonDownSkin: ClassReference(null); 
 	closeButtonOverSkin: ClassReference(null); 
 	closeButtonUpSkin: ClassReference(null);
+}
+mx|TextInput
+{
+
+	borderSkin: Embed(source="file:////Users/jeff/Documents/AdobeFlashBuilderBeta/Media-Center-Lite-Gumbo/src/assets/skins/search_txt.png");
+	fontFamily: HelveticaEmbed;
+	paddingTop: 8;
+	focusAlpha: .25;
+	fontSize: 10;
+	color: #FBFCFC;
 }
 
 
