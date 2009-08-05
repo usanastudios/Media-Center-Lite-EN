@@ -85,9 +85,10 @@
 	<!-- = EMAIL SENT SCREEN ==== -->
 	<!-- ======================== -->
 	<mx:Canvas>
-	<mx:VBox horizontalCenter="0" verticalCenter="0">
+	<mx:VBox horizontalCenter="0" verticalCenter="0" horizontalAlign="center">
 	<mx:Image id="circlePreloader2" source="@Embed(source='../../assets/swf/circlePreloader.swf')" autoLoad="true" />
 	<mx:Text id="email_sent_txt" text="Your Emails Have Been Sent" styleName="searchingFor"/>
+	<s:Button id="close_btn" skinClass="components.skins.CloseButtonSkin" click="close_email_window()" />
 	</mx:VBox>
 	</mx:Canvas>
 	

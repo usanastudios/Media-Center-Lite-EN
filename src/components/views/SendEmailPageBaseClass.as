@@ -163,6 +163,16 @@ public class SendEmailPageBaseClass extends TitleWindow
 		//PUT UP "EMAILS SENT" SCREEN
 		email_view_stack.selectedIndex = 2;
 	}
+	
+	
+	/* ================================== */
+	/* = FUNCTION TO CLOSE EMAIL WINDOW = */
+	/* ================================== */
+	public function close_email_window():void
+	{
+		PopUpManager.removePopUp(this);
+	}
+	
 }
 
 }
