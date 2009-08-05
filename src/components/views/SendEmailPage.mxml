@@ -17,6 +17,7 @@
 	<fx:Script><![CDATA[ 
 		import mx.managers.PopUpManager;
 	 ]]></fx:Script>
+	
 
 
 	<mx:ViewStack id="email_view_stack" historyManagementEnabled="false" resizeToContent="true"  selectedIndex="0"   height="383" width="791">

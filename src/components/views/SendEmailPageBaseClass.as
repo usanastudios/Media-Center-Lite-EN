@@ -15,6 +15,9 @@ import spark.components.TextArea;
 import mx.rpc.http.mxml.HTTPService;
 import mx.containers.ViewStack;
 import spark.components.CheckBox;
+import mx.core.UIComponent;
+
+import components.data.MochiBot;
 
 public class SendEmailPageBaseClass extends TitleWindow
 {
@@ -111,12 +114,17 @@ public class SendEmailPageBaseClass extends TitleWindow
 			for each (var email:Object in emailArrayColl)
 			{ 
 				email_action(email.email);
+				//TRACK WITH MOCHIBOT
+				MochiBot.track(this, "9a3ec6e1");
+				
 			}
 			
 			//IF SEND TO SELF IS CHECKED, SEND EMAIL TO SENDER'S EMAIL
 			if (send_to_self_chk.selected == true)
 			{
-				email_action(your_email.text)
+				email_action(your_email.text);
+				MochiBot.track(this, "9a3ec6e1");
+				
 			}
 			
 		}
@@ -134,6 +142,7 @@ public class SendEmailPageBaseClass extends TitleWindow
 	{
 			var randEMailId:Number = Math.round (Math.random() *9999999999);
 			var params:Object = {};
+			
 			params['email1'] = emailAddress;
 			params['fromname'] = your_name.text;
 			params['fromemail'] = your_email.text;
@@ -142,6 +151,8 @@ public class SendEmailPageBaseClass extends TitleWindow
 			params['videoID'] = parentDocument.current_video.@id;
 			params['emailID'] = randEMailId;
 			email_svc.send(params);
+			
+		
 	}
 	
 	/* ========================================= */
