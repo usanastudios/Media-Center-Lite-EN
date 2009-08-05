@@ -86,7 +86,7 @@
 	<s:Button x="705" y="-1" label="Button" id="audio_btn" skinClass="components.skins.AudioSkin" buttonMode="true"/>
 	
 	<s:TextInput x="788" y="17" id="search_txt" styleName="searchTextField" skinClass="components.skins.SearchFieldSkin"/>
-	 
+	  
 
 
 	<!-- <fc:AutoComplete width="171" id="search_txt" dataProvider="{myDP}" labelField="title"

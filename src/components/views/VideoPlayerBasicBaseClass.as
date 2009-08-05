@@ -70,11 +70,30 @@ package components.views
 				
 			}
 			
-			pauseVideo();
+			
 			
 				    
 		} 
-		 
+		
+		
+		/* ============================================= */
+		/* = FUNCTION CALLED WHEN THIS SCREEN IS SHOWN = */
+		/* ============================================= */
+		public function onShow():void
+		{
+			parentDocument.pagination_setup(this);
+			results_for_txt.text = parentDocument.current_search_term;
+			if(parentDocument.search_type == "single_video")
+			{
+				results_for_txt.visible = false;
+			}
+			else
+			{
+				results_for_txt.visible = true;
+			}
+		} 
+		
+		
 		/* ========================== */
 		/* = FUNCTION TO STOP VIDEO = */
 		/* ========================== */
@@ -139,7 +158,7 @@ package components.views
 	        sortMenu.styleName="prospectMenu1";
 	        sortMenu.width = 160;
 	        sortMenu.rowHeight = 27;
-	        sortMenu.show(sort_menu_btn.x + 5, 460);  
+	        sortMenu.show(sort_menu_btn.x + 5, 500);  
 			sortMenu.addEventListener(MenuEvent.ITEM_CLICK,sortSearchResults);
           }
        
