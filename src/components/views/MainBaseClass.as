@@ -172,9 +172,9 @@ package components.views
 				recommendedSearch("USANA Health Sciences");
 			}
 			
-		}
+		} 
 		
-		
+		     
 		/* ============================================== */
 		/* = FUNCTION TO NAVIGATE TO AUDIO LINK		    = */
 		/* ============================================== */
@@ -284,7 +284,7 @@ package components.views
 		            } else {                
 		                trace("Uh oh. The video_player.child property is null");                 
 		            }
-				}
+				}   
 			
 				
 				/*CALL THE WEB SERVICE*/
@@ -325,7 +325,7 @@ package components.views
 		            } else {                
 		                trace("Uh oh. The video_player.child property is null");                 
 		            }
-				}
+				} 
 			}
 			else
 			{
@@ -335,7 +335,7 @@ package components.views
 		}
 
 		
-
+  
 		
 	/* =================================================================== */
 	/* = FUNCTION TO GET MOST RECENT VIDEOS AND GO TO RECENT VIDEOS PAGE = */
@@ -383,7 +383,7 @@ package components.views
 		
 		
 		/*REBUILD THE XML*/
-		var xmlstr:String = "<mediacenter>";
+		var xmlstr:String = "<mediacenter>"; 
 			for each (var finalVideo:Object in videoArray)
 			{
 				xmlstr += "<video id=\"ven"+finalVideo.id+"\">\n";
@@ -707,7 +707,7 @@ package components.views
 					//GET PREVIOUS TEN PAGES
 					getPreviousTen(videoPage);
 				}
-				else
+				else  
 				{
 		
 				var lastPageNum:int = (currentPage - videoPage.rp.startingIndex);

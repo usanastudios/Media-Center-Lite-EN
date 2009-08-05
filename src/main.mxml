@@ -6,7 +6,7 @@
  		xmlns:mx="library://ns.adobe.com/flex/halo" xmlns:views="components.views.*"
 		xmlns:local="*"
  >
-	
+	 
 
 
 	<fx:Style source="main.css"/>
@@ -84,7 +84,7 @@
 -->	 
 
 
-	<fc:AutoComplete width="171" id="search_txt" dataProvider="{myDP}" labelField="title" 
+	<fc:AutoComplete width="171" id="search_txt" dataProvider="{myDP}" labelField="title"
 	 lookAhead="false" x="782" y="19" height="26" borderThickness="0" paddingLeft="15"/>
 			
  	<s:Button x="938" y="19" label="Button" id="search_btn" skinClass="components.skins.SearchButtonSkin" buttonMode="true" height="27"/>

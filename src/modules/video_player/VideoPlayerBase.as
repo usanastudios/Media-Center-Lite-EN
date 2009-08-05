@@ -19,16 +19,9 @@
 			import org.openvideoplayer.cc.*;
 			import org.openvideoplayer.events.*;
 			import org.openvideoplayer.net.*;
-
-;
-
-;
-
-;
-
 	
 					
-			// Define private variables
+			/*Define private variables*/
 			private var _nc:AkamaiConnection;
 			private var _ns:AkamaiNetStream;
 			private var _bossMetafile:AkamaiBOSSParser;
@@ -66,10 +59,10 @@
 	           _CAPTION_URL_ = "http://www.usana.com/media/File/mediaCenter/closed_caption/"+FlexGlobals.topLevelApplication.current_video.@id+".xml";
 				//CHECK FOR CLOSE CAPTIONED FILE
 				closed_caption_svc.send();
-	           startPlayback();
+	            startPlayback();
 	        }
 	    
-			
+			 
 			public function setIsPausedVar(isPaused:Boolean):void{
 				_isPaused = isPaused;
 				doPlayPause();
@@ -102,10 +95,11 @@
 				_ccPositioned = false;
 				_captionTimer = new Timer(10000);
 				_captionTimer.addEventListener(TimerEvent.TIMER, onCaptionTimer);
-				
+				 
+		
 				// This inititates the video playback
 				startPlayback();
-					
+			
 			}	
 			// Handles the notification that the BOSS feed was successfully loaded.
 			private function bossLoadHandler(e:OvpEvent):void {
@@ -113,7 +107,7 @@
 			}
 			// Handles the notification that the BOSS feed was successfully parsed
 			private function bossParsedHandler(e:OvpEvent):void {
-				
+				 
 				// Establish the connection
 				trace("requested protocl set to " + _nc.requestedProtocol);
 				_nc.connectionAuth = _bossMetafile.connectAuthParams;
@@ -162,6 +156,8 @@
 						write("Measuring bandwidth ... ");
 						_nc.detectBandwidth();
 					}
+					
+					
 				}
 
 			// Handles all error events

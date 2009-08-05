@@ -70,6 +70,8 @@ package components.views
 				
 			}
 			
+			pauseVideo();
+			
 				    
 		}
 		 
