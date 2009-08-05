@@ -92,7 +92,7 @@ mx|TitleWindow{
 	closeButtonOverSkin: ClassReference(null); 
 	closeButtonUpSkin: ClassReference(null);
 }
-mx|TextInput
+/*mx|TextInput
 {
 
 	borderSkin: Embed(source="assets/skins/search_txt.png");
@@ -101,6 +101,6 @@ mx|TextInput
 	focusAlpha: .25;
 	fontSize: 10;
 	color: #FBFCFC;
-}
+}*/
 
 
