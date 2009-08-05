@@ -8,7 +8,7 @@
 	fontFamily: HelveticaEmbed;
 	fontWeight: normal;
 	fontStyle: normal;
-	src: local("Helvetica");
+	src: url("assets/fonts/Helvetica.dfont");
 }
 
 global
@@ -58,7 +58,6 @@ mx|Text.videoTitle
 {
 	fontFamily: HelveticaEmbed;
 	fontSize: 24;
-	fontWeight: bold;
 	color: #F9FBFC;
 }
 
@@ -93,7 +92,7 @@ mx|TitleWindow{
 	closeButtonOverSkin: ClassReference(null); 
 	closeButtonUpSkin: ClassReference(null);
 }
-mx|TextInput
+/*mx|TextInput
 {
 
 	borderSkin: Embed(source="assets/skins/search_txt.png");
@@ -102,6 +101,6 @@ mx|TextInput
 	focusAlpha: .25;
 	fontSize: 10;
 	color: #FBFCFC;
-}
+}*/
 
 
