@@ -17,6 +17,10 @@ global
 	contentBackgroundColor: #FEF9F9;
 	color: #FCFBFB;
 	symbolColor: #F5EDED;
+	modalTransparencyBlur: 0;
+            modalTransparency: 0.8;
+            modalTransparencyColor: black;
+            modalTransparencyDuration: 500;
 }
 
 mx|Alert {
@@ -25,7 +29,6 @@ mx|Alert {
     modalTransparencyColor: #000000;
     modalTransparencyDuration: 300;
  }
-
 
 
 s|TextInput.searchTextField

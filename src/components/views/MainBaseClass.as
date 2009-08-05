@@ -113,12 +113,17 @@ package components.views
 			
 			/*DEFINE DATA FOR THE PROSPECT MENU*/
 			prospectMenuData = <root>
-	           <menuitem label="True Wealth"/> 
+	           <menuitem label="True Wealth">
+	          	 	<menuitem label="The Pay Plan"/>
+	           		<menuitem label="The Opportunity"/>
+	           		<menuitem label="Testimonials"/>
+	           </menuitem> 
 	           <menuitem label="True Health" >
 	                <menuitem label="Skin Care"/>
 	                <menuitem label="Nutrition"/> 
 	                <menuitem label="Energy"/>
 	                <menuitem label="Atheletes"/>
+	                <menuitem label="Testimonials"/>
 	            </menuitem>
 	            <menuitem label="USANA Health Sciences"/> 
 	            <menuitem label="I'm Not Sure"/>
