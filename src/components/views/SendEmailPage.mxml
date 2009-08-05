@@ -1,24 +1,40 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<views:SendEmailPageBaseClass xmlns:mx="http://www.adobe.com/2006/mxml" xmlns:views="components.views.*" titleBackgroundSkin="@Embed('../../assets/skins/send_email_title_skin.png')"  close="PopUpManager.removePopUp(this)" width="800" height="500" title="Send To A Friend" showCloseButton="true" backgroundColor="#040404" titleStyleName="emailPageTitleBar" contentBackgroundColor="#030303" xmlns:s="library://ns.adobe.com/flex/spark" creationComplete="init()">
+<views:SendEmailPageBaseClass titleBackgroundSkin="@Embed('../../assets/skins/send_email_title_skin.png')"  creationComplete="init()" close="PopUpManager.removePopUp(this)" width="800" height="500" title="Send To A Friend" showCloseButton="true" backgroundColor="#040404" titleStyleName="emailPageTitleBar" contentBackgroundColor="#030303" 
+	xmlns:views="components.views.*" 
+	xmlns:fx="http://ns.adobe.com/mxml/2009"  
+	xmlns:mx="library://ns.adobe.com/flex/halo"
+	xmlns:s="library://ns.adobe.com/flex/spark">
 
-    
+
 	
-	<mx:Script><![CDATA[ 
-		import mx.managers.PopUpManager;
-	 ]]></mx:Script>
+	<fx:Declarations>
 
+    <!-- Define the Basic Search HTTP service -->
+    <mx:HTTPService id="email_svc" method="POST" url=" http://www.usana.com/Main/mediaCenter/sendEmail" result="emailResultHandler()" fault="mx.controls.Alert.show(event.fault.message)" showBusyCursor="true"/>
+ 
+	</fx:Declarations>
+	
+	<fx:Script><![CDATA[ 
+		import mx.managers.PopUpManager;
+	 ]]></fx:Script>
+
+
+	<mx:ViewStack id="email_view_stack" historyManagementEnabled="false" resizeToContent="true"  selectedIndex="0"   height="383" width="791">
+	
+	<mx:Canvas>
 	<mx:Form width="100%" height="100%">
 	<mx:HBox>
 	<mx:VBox horizontalAlign="right"> 
-	<mx:FormItem label="Your Email" direction="horizontal"><mx:TextInput id="your_email" width="200"  contentBackgroundColor="#C2C2C2" color="#000000"/></mx:FormItem>	
-	<mx:FormItem label="Subject" direction="horizontal"><mx:TextInput id="your_subject" width="200"  contentBackgroundColor="#C2C2C2" color="#000000"/></mx:FormItem>	
-	<mx:FormItem label="Message" direction="horizontal"><mx:TextArea height="166" id="your_message" width="200"  contentBackgroundColor="#C2C2C2" color="#000000"/></mx:FormItem>
+	<mx:FormItem label="Your Name" direction="horizontal"><s:TextInput id="your_name" width="200"  contentBackgroundColor="#C2C2C2" color="#000000"/></mx:FormItem>	
+	<mx:FormItem label="Your Email" direction="horizontal"><s:TextInput id="your_email" width="200"  contentBackgroundColor="#C2C2C2" color="#000000"/></mx:FormItem>	
+	<mx:FormItem label="Subject" direction="horizontal"><s:TextInput id="your_subject" width="200"  contentBackgroundColor="#C2C2C2" color="#000000"/></mx:FormItem>	
+	<mx:FormItem label="Message" direction="horizontal"><s:TextArea height="166" id="your_message" width="200"  contentBackgroundColor="#C2C2C2" color="#000000"/></mx:FormItem>
 	<mx:FormItem label="Direct Link" direction="horizontal">
-		<mx:TextInput id="direct_link" width="200"  contentBackgroundColor="#C2C2C2" color="#000000"/>
+		<s:TextInput id="direct_link" width="200"  contentBackgroundColor="#C2C2C2" color="#000000"/>
 		<s:Button skinClass="components.skins.CopyButtonSkin"/>
 	</mx:FormItem>
 	<mx:FormItem label="Send Me A Copy" direction="horizontal">
-		<s:CheckBox/>
+		<s:CheckBox id="send_to_self_chk"/>
 	</mx:FormItem>
 	</mx:VBox>   
 		<mx:VBox horizontalAlign="right">
@@ -33,9 +49,9 @@
 				<mx:DataGridColumn dataField="email" width="250"/>
 				<mx:DataGridColumn dataField="delete" > 
 					<mx:itemRenderer> 
-                        <mx:Component> 
+                        <fx:Component> 
                                 <mx:Image source="@Embed(source='file:../../assets/skins/delete_email_skin.png')" buttonMode="true"/> 
-                        </mx:Component> 
+                        </fx:Component> 
                     </mx:itemRenderer>
 				</mx:DataGridColumn>
 			</mx:columns>
@@ -49,6 +65,34 @@
 	
 	</mx:HBox>
 	</mx:Form>
+	</mx:Canvas>
+	
+	
 
+
+	<!-- ======================== -->
+	<!-- = SENDING EMAIL SCREEN = -->
+	<!-- ======================== -->
+	<mx:Canvas>
+	<mx:VBox horizontalCenter="0" verticalCenter="0">
+	<mx:Image id="circlePreloader1" source="@Embed(source='../../assets/swf/circlePreloader.swf')" autoLoad="true" />
+	<mx:Text id="sending_email_txt" text="Sending Emails" styleName="searchingFor"/>
+	</mx:VBox>
+	</mx:Canvas>	
+	
+	<!-- ======================== -->
+	<!-- = EMAIL SENT SCREEN ==== -->
+	<!-- ======================== -->
+	<mx:Canvas>
+	<mx:VBox horizontalCenter="0" verticalCenter="0">
+	<mx:Image id="circlePreloader2" source="@Embed(source='../../assets/swf/circlePreloader.swf')" autoLoad="true" />
+	<mx:Text id="email_sent_txt" text="Your Emails Have Been Sent" styleName="searchingFor"/>
+	</mx:VBox>
+	</mx:Canvas>
+	
+	</mx:ViewStack>
+
+
+	
 
 </views:SendEmailPageBaseClass>

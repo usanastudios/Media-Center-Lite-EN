@@ -73,7 +73,7 @@ package components.views
 			pauseVideo();
 			
 				    
-		}
+		} 
 		 
 		/* ========================== */
 		/* = FUNCTION TO STOP VIDEO = */
@@ -126,7 +126,7 @@ package components.views
 	        shareMenu.styleName="prospectMenu1";
 	        shareMenu.width = 180;
 	        shareMenu.rowHeight = 27;
-	        shareMenu.show(565, share_menu_btn.y + 97);
+	        shareMenu.show(600, share_menu_btn.y + 175);
 			shareMenu.addEventListener(MenuEvent.ITEM_CLICK,shareMenuHandler);
           }
 

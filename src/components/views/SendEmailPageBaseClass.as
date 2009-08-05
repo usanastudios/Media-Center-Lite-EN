@@ -11,25 +11,39 @@ import mx.managers.PopUpManager;
 import mx.validators.EmailValidator;
 import spark.components.Button;
 import spark.components.TextInput;
-
+import spark.components.TextArea;
+import mx.rpc.http.mxml.HTTPService;
+import mx.containers.ViewStack;
+import spark.components.CheckBox;
 
 public class SendEmailPageBaseClass extends TitleWindow
 {
 	
 	public var cancel_btn:Button; 
+	public var send_btn:Button; 
 	public var add_email_btn:Button; 
 	public var target_email:TextInput;
 	public var email_dg:DataGrid;
 	public var emailValidator:EmailValidator;
+	
 	 
 	[Bindable] public var emailArrayColl:ArrayCollection = new ArrayCollection();
-	
-	/* ================================ */
-	/* = INITIALIZE SEND EMAIL WINDOW = */
-	/* ================================ */
+	[Bindable] public var your_name:TextInput;
+	[Bindable] public var your_email:TextInput;
+	[Bindable] public var your_subject:TextInput;
+	[Bindable] public var your_message:TextArea;
+	[Bindable] public var email_svc:HTTPService;
+	[Bindable] public var email_view_stack:ViewStack;
+	[Bindable] public var send_to_self_chk:CheckBox;
+ 
+
+  /* ================================ */
+  /* = INITIALIZE SEND EMAIL WINDOW = */
+  /* ================================ */
 	public function init():void
 	{
 		cancel_btn.addEventListener(MouseEvent.CLICK, cancelEmail);
+		send_btn.addEventListener(MouseEvent.CLICK,send_email);
 	}
 	
 	
@@ -66,6 +80,7 @@ public class SendEmailPageBaseClass extends TitleWindow
 		
 	}
 	
+	
 	private function emailValidator_valid(evt:ValidationResultEvent):void 
 		{
 	        emailArrayColl.addItem({"email":target_email.text});
@@ -77,6 +92,66 @@ public class SendEmailPageBaseClass extends TitleWindow
            mx.controls.Alert.show("You entered an invalid email address:",null,0,email_dg);
       
        }
+
+
+
+	/* ========================== */
+	/* = FUNCTION TO SEND EMAIL = */
+	/* ========================== */
+	public function send_email(event:MouseEvent):void
+	{
+		//BE SURE FIELDS ARE FILLED OUT
+		if(your_name.text.length > 0 && your_email.text.length > 0 && your_subject.text.length > 0 && your_message.text.length > 0 && emailArrayColl.length > 0)
+		{
+
+			//PUT UP THE "SENDING EMAILS" SCREEN
+			email_view_stack.selectedIndex = 1;
+			
+			//FOR EACH EMAIL ADDRESS, SEND EMAIL
+			for each (var email:Object in emailArrayColl)
+			{ 
+				email_action(email.email);
+			}
+			
+			//IF SEND TO SELF IS CHECKED, SEND EMAIL TO SENDER'S EMAIL
+			if (send_to_self_chk.selected == true)
+			{
+				email_action(your_email.text)
+			}
+			
+		}
+		else
+		{
+			mx.controls.Alert.show("Please make sure all fields are filled in.");
+			
+		}
+	}
+	
+	/* ============================== */
+	/* = ACTION EMAIL SEND FUNCTION = */
+	/* ============================== */
+	public function email_action(emailAddress:String):void
+	{
+			var randEMailId:Number = Math.round (Math.random() *9999999999);
+			var params:Object = {};
+			params['email1'] = emailAddress;
+			params['fromname'] = your_name.text;
+			params['fromemail'] = your_email.text;
+			params['subject'] = your_subject.text;
+			params['body'] = your_message.text+ "\n Link to standalone video will go here. Video ID for this one is"+parentDocument.current_video.@id;
+			params['videoID'] = parentDocument.current_video.@id;
+			params['emailID'] = randEMailId;
+			email_svc.send(params);
+	}
+	
+	/* ========================================= */
+	/* = FUNCTION CALLED AFTER EACH EMAIL SENT = */
+	/* ========================================= */
+	public function emailResultHandler():void
+	{
+		//PUT UP "EMAILS SENT" SCREEN
+		email_view_stack.selectedIndex = 2;
+	}
 }
 
 }

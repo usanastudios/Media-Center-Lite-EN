@@ -79,7 +79,6 @@ package components.views
 		[Bindable] public var myDP:XMLListCollection;
 
 		
-		
 		/* =================================== */
 		/* = VARS FOR PAGINATION OF TILELIST = */
 		/* =================================== */
@@ -394,6 +393,7 @@ package components.views
 			}
 			xmlstr += "</mediacenter>";
 			video_list = new XML(xmlstr);
+			
 			current_video = video_list.children()[0];
 		
 		//REMOVE 3DWALL DUE TO BUG
@@ -585,6 +585,7 @@ package components.views
 		/* ===================== */ 
 		public function pagination_setup(videoPage:Object):void
 		{
+			
 			
 			//SET UP FIRST VIDEO THAT WILL PLAY
 			video_title = current_video.title;
