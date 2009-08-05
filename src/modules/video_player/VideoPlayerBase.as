@@ -54,7 +54,10 @@
 			/* = FUNCTION TO CHANGE VIDEO URL AND START PLAYBACK = */
 			/* ================================================== */
 	 		public function setVideo(id:String):void {
+			if(_ns)
+			{
 				_ns.pause(); 
+			}
 	           VIDEO_URL = "http://usana.edgeboss.net/flash/usana/h.264/"+id+".mp4?xmlvers=1";
 	           _CAPTION_URL_ = "http://www.usana.com/media/File/mediaCenter/closed_caption/"+FlexGlobals.topLevelApplication.current_video.@id+".xml";
 				//CHECK FOR CLOSE CAPTIONED FILE
@@ -139,7 +142,9 @@
 				
 				_video.attachNetStream(_ns);
 				
-				
+					//HIDE REPLAY BUTTON
+					parentDocument.replay_btn.visible=false;
+					
 					currentState = "";
 					write("Successfully connected to: " + _nc.netConnection.uri);
 					write("Port: " + _nc.actualPort);
@@ -255,6 +260,8 @@
 				write("Stream is complete");
 				_hasEnded = true;
 				videoControls.bPlayPause.styleName = "vpPlayBtn";
+				//SHOW REPLAY BUTTON
+				parentDocument.replay_btn.visible=true;
 			}
 			// Attaches the video to the stage
 			private function addVideoToStage():void {

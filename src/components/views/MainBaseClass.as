@@ -268,7 +268,7 @@ package components.views
 		/* ============================================== */
 		public function recommendedSearch(search_term:String):void
 		{	
-			
+            
 				/*SET CURRENT SEARCH TERM (FOR DISPLAY ON VIDEO PLAYER PAGE)*/
 				current_search_term = search_term;
 				
