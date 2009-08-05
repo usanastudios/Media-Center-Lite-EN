@@ -618,8 +618,8 @@ package components.views
 			    }
 			
 			
-				//IF MORE THAN 10 PAGES, SHOW THE CONTINUATION DOTS :) 
-				if(pageCount > 10)
+				//IF MORE THAN 6 PAGES, SHOW THE CONTINUATION DOTS :) 
+				if(pageCount > 6)
 				{
 						videoPage.lastTen_btn.visible=true;
 				}
@@ -677,7 +677,7 @@ package components.views
 		    }
 		    videoPage.previous_btn.enabled=true;
 			
-		    if(currentPage == 10 ||currentPage == 20 ||currentPage == 30 ||currentPage == 40 ||currentPage == 50 ||currentPage == 60) {
+		    if(currentPage == 6 ||currentPage == 12 ||currentPage == 18 ||currentPage == 24 ||currentPage == 30 ||currentPage == 36 ||currentPage == 42 ||currentPage == 48 ||currentPage == 54 ||currentPage == 60) {
 				//GET NEXT TEN PAGES
 				getNextTen(videoPage);
 		    }
@@ -703,7 +703,7 @@ package components.views
 		    	videoPage.next_btn.enabled=true;
 		
 				//NEED TO FIND BETTER WAY TO DO THIS - 
-			    if(currentPage == 11 || currentPage == 21 || currentPage == 31 || currentPage == 41|| currentPage == 51 || currentPage == 61){
+			    if(currentPage == 7 ||currentPage == 13 ||currentPage == 19 ||currentPage == 25 ||currentPage == 31 ||currentPage == 37 ||currentPage == 43 ||currentPage == 49 ||currentPage == 55 ||currentPage == 61){
 					//GET PREVIOUS TEN PAGES
 					getPreviousTen(videoPage);
 				}
@@ -813,13 +813,13 @@ package components.views
 					event_target.setStyle('textDecoration','underline');
 				}
 
-				if(currentPage == 0 || currentPage == 10 || currentPage == 20 || currentPage == 30 || currentPage == 40 || currentPage == 50 || currentPage == 60 || currentPage == 70)
+				if(currentPage == 6 ||currentPage == 12 ||currentPage == 18 ||currentPage == 24 ||currentPage == 30 ||currentPage == 36 ||currentPage == 42 ||currentPage == 48 ||currentPage == 54 ||currentPage == 60)
 				{
 					videoPage.pageNumber_lbl[0].setStyle('textDecoration','underline');
 				}
-				if(currentPage == 11 || currentPage == 21 || currentPage == 31 || currentPage == 41 || currentPage == 51 || currentPage == 61 || currentPage == 71)
+				if(currentPage == 7 ||currentPage == 13 ||currentPage == 19 ||currentPage == 25 ||currentPage == 31 ||currentPage == 37 ||currentPage == 43 ||currentPage == 49 ||currentPage == 55 ||currentPage == 61)
 				{
-					videoPage.pageNumber_lbl[9].setStyle('textDecoration','underline');
+					videoPage.pageNumber_lbl[5].setStyle('textDecoration','underline');
 				}
 			
 				
@@ -844,7 +844,7 @@ package components.views
 	/* =================================================== */
 	public function getPreviousTen(videoPage:Object):void
 	{
-		videoPage.rp.startingIndex = currentPage - 11;
+		videoPage.rp.startingIndex = currentPage - 7;
 		getSelectedPage((currentPage).toString(),videoPage);
 		currentPage--; //DECREMENT PAGE
 		
@@ -867,7 +867,7 @@ package components.views
 	/* =================================================== */
 	public function getLastTen(videoPage:Object):void
 	{
-		videoPage.rp.startingIndex = pageCount - 10;
+		videoPage.rp.startingIndex = pageCount - 6;
 		currentPage = videoPage.rp.startingIndex;
 		getSelectedPage(videoPage.rp.startingIndex,videoPage);
 		underlineFirstRecord(videoPage);

@@ -22,7 +22,7 @@
 		<mx:HBox width="544" height="306" x="0" y="0" id="videoWindow" borderStyle="none" verticalAlign="middle" horizontalAlign="center" backgroundColor="#000000"/>   	
 
 		<controls:VideoControls id="videoControls"/>
-			  	
+		
 		<!-- END VIDEO PLAYER-->
 		
 		</mx:Canvas>

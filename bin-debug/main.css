@@ -15,7 +15,7 @@ global
 {
 	baseColor: #5C5B5B;
 	contentBackgroundColor: #FEF9F9;
-	/*color: #FCFBFB;*/
+	color: #FCFBFB;
 	symbolColor: #F5EDED;
 }
 
@@ -68,8 +68,8 @@ mx|Text.videoSubTitle
 	fontSize: 11;
 }
 
-s|HGroup.middleBar {
-	content-background-color: #0a0a0a;
+mx|HBox.pageBar {
+	background-color: #0a0a0a;
 }
 
 mx|Text.resultsFor{
@@ -96,7 +96,7 @@ mx|TitleWindow{
 mx|TextInput
 {
 
-	borderSkin: Embed(source="file:////Users/jeff/Documents/AdobeFlashBuilderBeta/Media-Center-Lite-Gumbo/src/assets/skins/search_txt.png");
+	borderSkin: Embed(source="assets/skins/search_txt.png");
 	fontFamily: HelveticaEmbed;
 	paddingTop: 8;
 	focusAlpha: .25;
