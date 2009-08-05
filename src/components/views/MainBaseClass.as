@@ -78,6 +78,7 @@ package components.views
 		[Bindable] public var audio_btn:Button;
 		[Bindable] public var search_results_dp:ArrayCollection = new ArrayCollection();
 		[Bindable] public var myDP:XMLListCollection;
+		[Bindable] public var search_type:String;
 
 		
 		/* =================================== */
@@ -97,7 +98,7 @@ package components.views
 		/* =================================== */
 		public function initMainApp():void
 		{
-			auto_complete_svc.send();
+		//	auto_complete_svc.send();
 			
 			/*EVENT LISTENERS*/
 			prospectMenu1_btn.addEventListener(MouseEvent.CLICK,createAndShowProspectMenu1);
@@ -254,6 +255,9 @@ package components.views
 				//REMOVE 3DWALL DUE TO BUG
 				landing_page_view.wall.unloadAndStop();
 				
+				search_type = null;
+				current_search_term = "Results for '"+search_txt.text+"'";
+		 		
 				main_view_stack.selectedIndex = 1;
 			}
 			else
@@ -269,7 +273,7 @@ package components.views
 		/* ============================================== */
 		public function recommendedSearch(search_term:String):void
 		{	
-			
+            
 				/*SET CURRENT SEARCH TERM (FOR DISPLAY ON VIDEO PLAYER PAGE)*/
 				current_search_term = search_term;
 				
@@ -405,6 +409,9 @@ package components.views
 		//REMOVE 3DWALL DUE TO BUG
 		landing_page_view.wall.unloadAndStop();
 		
+		search_type = "most_recent";
+ 		current_search_term = "Showing Most Recent";
+		
 	    main_view_stack.selectedIndex = 1;
 	
 	
@@ -501,6 +508,10 @@ package components.views
 		//REMOVE 3DWALL DUE TO BUG
 		landing_page_view.wall.unloadAndStop();
 		
+		search_type = "most_viewed";
+		current_search_term = "Showing Most Viewed";
+ 		
+		
 	    main_view_stack.selectedIndex = 1;
 	
 		
@@ -538,6 +549,8 @@ package components.views
 	
 		//REMOVE 3DWALL DUE TO BUG
 		landing_page_view.wall.unloadAndStop();
+		
+		search_type = "single_video";
 		
 		main_view_stack.selectedIndex = 1;
 	}
