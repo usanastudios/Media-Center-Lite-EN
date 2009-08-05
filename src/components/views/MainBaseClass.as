@@ -27,6 +27,7 @@ package components.views
 	import spark.components.Application;
 	import spark.components.Button;
 	import mx.controls.LinkButton;
+	import spark.components.TextInput;
 
 
 	public class MainBaseClass extends Application
@@ -72,7 +73,7 @@ package components.views
 		[Bindable] public var video_short_description:String;
 		[Bindable] public var video_long_description:String;
 		[Bindable] public var results_for:String;
-		[Bindable]public var search_txt:AutoComplete;
+		[Bindable]public var search_txt:TextInput;
 		[Bindable] public var search_btn:Button;
 		[Bindable] public var audio_btn:Button;
 		[Bindable] public var search_results_dp:ArrayCollection = new ArrayCollection();
@@ -193,7 +194,7 @@ package components.views
 
 			
 			/*SET CURRENT SEARCH TERM (FOR DISPLAY ON VIDEO PLAYER PAGE)*/
-			current_search_term = search_txt.selectedLabel;
+			current_search_term = search_txt.text;
 
 			/*SEARCHING MESSAGE*/
 			current_search_message = "Searching videos for '" +search_txt.text+ "'";
