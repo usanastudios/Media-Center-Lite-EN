@@ -18,9 +18,9 @@ global
 	color: #FCFBFB;
 	symbolColor: #F5EDED;
 	modalTransparencyBlur: 0;
-            modalTransparency: 0.8;
-            modalTransparencyColor: black;
-            modalTransparencyDuration: 500;
+    modalTransparency: 0.8;
+    modalTransparencyColor: black;
+    modalTransparencyDuration: 500;
 }
 
 mx|Alert {

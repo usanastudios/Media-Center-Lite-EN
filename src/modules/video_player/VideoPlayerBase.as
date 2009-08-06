@@ -383,31 +383,28 @@
 				    _videoSettings.x = _videoHolder.x;
 				    _videoSettings.y = _videoHolder.y;
 				  
-				  	// Creates a rectangle around the video and makes it go fullscreen
-				    //stage["fullScreenSourceRect"] = new Rectangle(25, 75, 544, 306);
-				    
-				    
-				    
-				    	 
+				  	// Creates a rectangle around the video and makes it go fullscreen - need to find a better way to do this
+				    stage["fullScreenSourceRect"] = new Rectangle(25, 75, 544, 306);
 				    stage["displayState"] = StageDisplayState.FULL_SCREEN;
 				    
 				    
 				    videoWindow.removeChild(_videoHolder);
+					addChild(_videoHolder);
 
+					/*
+					placing the video in a popup seems to work weel, the only problem is getting the controls in there
 				   	PopUpManager.addPopUp(_videoHolder,parentApplication as DisplayObject,true);
 					PopUpManager.centerPopUp(_videoHolder);
-					
-					//removeChild(videoControls);
-					_videoHolder.addChild(videoControls);
+					*/
+
 					 
 
 					// positions the video
-				   	
-				    _video.width = _videoHolder.width = stage.stageWidth - (stage.stageWidth*.2);
-				    _video.height = _videoHolder.height = _video.width*9/16;
+				    _video.width = _videoHolder.width = stage.stageWidth;
+				    _video.height = _videoHolder.height = stage.stageWidth*9/16;
 				    
 				    _video.x = _videoHolder.x = 0;
-				   	_video.y = _videoHolder.y = 200;
+				   	_video.y = _videoHolder.y = 0;
 				   	
 				    _video.smoothing = true;
 				    
@@ -417,10 +414,10 @@
 			// Handles the return from fullscreen
 			private function handleReturnFromFullScreen(e:FullScreenEvent):void {
 				if (!e.fullScreen) {
-					PopUpManager.removePopUp(_videoHolder);
+					//PopUpManager.removePopUp(_videoHolder);
 					//removeChild(_videoHolder);
-					_videoHolder.removeChild(videoControls);
-					addChild(videoControls);
+					//_videoHolder.removeChild(videoControls);
+					//addChild(videoControls);
 					videoWindow.addChild(_videoHolder);
 				    _video.smoothing = true;
 				    _videoHolder.width = _videoSettings.savedWidth;
