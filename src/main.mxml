@@ -11,9 +11,10 @@
 <fx:Script>
 	<![CDATA[ 
 	public static const WEB_SERVICE_URL:String = "http://www.usana.com/Main/mediaCenter/searchV";
+//	public static const WEB_SERVICE_URL:String = "http://slc-webdev1.usana.com/Main/mediaCenter/searchV";
  	]]>
 </fx:Script>
-
+ 
 	<fx:Style source="main.css"/>
 	
 	 <!-- SEARCH RESULTS TEST DATA -->
@@ -99,7 +100,6 @@
 		<!-- = LANDING PAGE = -->
 		<!-- ================ -->
 		<views:LandingPage id="landing_page_view"  width="1000" height="100%" left="0" right="0" />
-			
 		<!-- =========================== -->
 		<!-- = VIDEO PLAYER BASIC PAGE = -->
 		<!-- =========================== -->

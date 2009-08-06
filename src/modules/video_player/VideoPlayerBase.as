@@ -47,9 +47,7 @@
 			public var VIDEO_URL:String = "http://usana.edgeboss.net/flash/usana/h.264/"+FlexGlobals.topLevelApplication.current_video.@id+".mp4?xmlvers=1";
 			public var _CAPTION_URL_:String = "http://www.usana.com/media/File/mediaCenter/closed_caption/"+FlexGlobals.topLevelApplication.current_video.@id+".xml";
 	
-			
-			
-			
+		
 			/* ================================================== */
 			/* = FUNCTION TO CHANGE VIDEO URL AND START PLAYBACK = */
 			/* ================================================== */
@@ -134,7 +132,7 @@
 				_ccMgr = new OvpCCManager(_ns);
 				_ccMgr.addEventListener(OvpEvent.ERROR, errorHandler);		
 				_ccMgr.addEventListener(OvpEvent.CAPTION, captionHandler);
-				_ccMgr.parse(_CAPTION_URL_); 
+//				_ccMgr.parse(_CAPTION_URL_); 
 				videoControls.bClosedcaption.styleName = "ccBtnOn";				
 				
 				_ns.maxBufferLength = 2;
@@ -319,8 +317,10 @@
 					_ns.useFastStartBuffer = false;
 					_nc.close();
 				}
-
-					_bossMetafile.load(VIDEO_URL)
+				
+				mx.controls.Alert.show(VIDEO_URL);
+				
+				_bossMetafile.load(VIDEO_URL)
 					_isPaused = false;
 				
 			}

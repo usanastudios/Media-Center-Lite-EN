@@ -47,7 +47,9 @@ mx|Menu.prospectMenu1
 	color: #FAFBFB;
 	fontFamily: HelveticaEmbed;
 	fontSize: 12;
-	borderStyle: none;
+border-thickness: 0;    
+borderStyle: "none";
+	borderColor:#FFFFFF;
 	openDuration: 0;
 	verticalScrollBarStyleName: menuVerticalScrollBar;
 

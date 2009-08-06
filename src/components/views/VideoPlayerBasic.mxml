@@ -1,10 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <views:VideoPlayerBasicBaseClass xmlns:fx="http://ns.adobe.com/mxml/2009" backgroundColor="0x030303" xmlns:mx="library://ns.adobe.com/flex/halo" xmlns:views="components.views.*" show="onShow()" creationComplete="basic_video_init()" xmlns:s="library://ns.adobe.com/flex/spark" hide="pauseVideo()">
 
-	<!-- ==================================================================================================== -->
-	<!-- = IMPORT THE VIDEO PAGING CODE - THIS HAS TO GO HERE INSTEAD OF IN THE BASE CLASS DUE TO REPEATERS = -->
-	<!-- ==================================================================================================== -->
-	<!-- <fx:Script source="VideoPaging.as" /> -->
+
 
 	
 	<fx:Declarations>
@@ -88,7 +85,7 @@
 	<!-- ======================================= -->
      <s:List id="list" dataProvider="{parentDocument.pagedDataProvider}" 
       	height="480" skinClass="components.skins.ThumbnailListBasicSkin"
-        itemRenderer="components.renderers.Thumbnail"
+        itemRenderer="components.renderers.Thumbnail" 
         width="1000" 
         click="showVideo(event);">
           

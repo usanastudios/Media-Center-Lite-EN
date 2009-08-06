@@ -57,9 +57,10 @@ public class LandingPageBaseClass extends Canvas
          var prospectMenu2:Menu = Menu.createMenu(null, parentDocument.prospectMenuData, false);
          prospectMenu2.labelField="@label";
          prospectMenu2.styleName="prospectMenu1";
+		prospectMenu2.setStyle("border-thickness",0);
          prospectMenu2.width = 250;
          prospectMenu2.rowHeight = 27;
-         prospectMenu2.show(440, 198);
+         prospectMenu2.show(prospectMenu2_btn.x + 12,prospectMenu2_btn.y + 95);
 		 prospectMenu2.addEventListener(MenuEvent.ITEM_CLICK, parentDocument.prospectMenu1ClickHandler);
 		
      }
