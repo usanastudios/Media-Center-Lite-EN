@@ -319,7 +319,7 @@
 					_nc.close();
 				}
 				
-				mx.controls.Alert.show(VIDEO_URL);
+			//	mx.controls.Alert.show(VIDEO_URL);
 				
 				_bossMetafile.load(VIDEO_URL)
 					_isPaused = false;
