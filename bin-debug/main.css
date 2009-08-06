@@ -17,14 +17,11 @@ global
 	contentBackgroundColor: #FEF9F9;
 	color: #FCFBFB;
 	symbolColor: #F5EDED;
-}
-
-mx|Alert {
-    modalTransparencyBlur: 5;
-    modalTransparency: 0.6;
+	modalTransparencyBlur: 0;
+    modalTransparency: 0.9;
     modalTransparencyColor: #000000;
-    modalTransparencyDuration: 300;
- }
+    modalTransparencyDuration: 500;
+}
 
 
 
@@ -86,12 +83,16 @@ mx|Text.searchingFor{
 mx|TitleWindow{
 	headerHeight:50px;
 	closeButtonSkin: Embed(source='assets/skins/close_button_skin.png'); 
+	fontFamily: HelveticaEmbed;
+	font-size: 12;
 	/* Set values from defaults.css to null. */ 
 	closeButtonDisabledSkin: ClassReference(null); 
 	closeButtonDownSkin: ClassReference(null); 
 	closeButtonOverSkin: ClassReference(null); 
 	closeButtonUpSkin: ClassReference(null);
 }
+
+
 /*mx|TextInput
 {
 

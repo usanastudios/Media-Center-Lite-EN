@@ -2,24 +2,24 @@
 			import com.akamai.net.*;
 			import com.akamai.rss.AkamaiBOSSParser;
 			
-			import components.controls.VideoControls;
-			
 			import flash.display.StageDisplayState;
 			import flash.events.FullScreenEvent;
 			import flash.geom.*;
 			
-			import mx.containers.ControlBar;
 			import mx.controls.Alert;
 			import mx.controls.textClasses.TextRange;
 			import mx.core.FlexGlobals;
 			import mx.core.UIComponent;
 			import mx.events.SliderEvent;
+			import mx.managers.PopUpManager;
 			import mx.utils.*;
 			
 			import org.openvideoplayer.cc.*;
 			import org.openvideoplayer.events.*;
 			import org.openvideoplayer.net.*;
-	
+
+;
+
 					
 			/*Define private variables*/
 			private var _nc:AkamaiConnection;
@@ -38,6 +38,7 @@
 			private var _captionTimer:Timer;
 			private var _ccOn:Boolean;
 			private var _ccPositioned:Boolean;
+
 
             
             
@@ -382,44 +383,41 @@
 				    _videoSettings.x = _videoHolder.x;
 				    _videoSettings.y = _videoHolder.y;
 				  
-				  	// Creates a rectangle around the video and makes it go fullscreen
-				    stage["fullScreenSourceRect"] = new Rectangle(25, 75, 544, 306);	 
+				  	// Creates a rectangle around the video and makes it go fullscreen - need to find a better way to do this
+				    stage["fullScreenSourceRect"] = new Rectangle(25, 75, 544, 306);
 				    stage["displayState"] = StageDisplayState.FULL_SCREEN;
 				    
+				    
 				    videoWindow.removeChild(_videoHolder);
-				    
-				    // adds the video
-				    addChild(_videoHolder);
-					 
-					 
-					 // Add the fullscreen controls
-				    var fs_controls:ControlBar;
-				    addChild(fs_controls);
-				    
-	
-					
-					// positions the video
-				   	_video.x = _videoHolder.x = 0;
-				   	_video.y = _videoHolder.y = 0;
-				    _video.width =  _videoHolder.width = stage.stageWidth;
-				    _video.height =  _videoHolder.height = stage.stageWidth*9/16;
+					addChild(_videoHolder);
 
+					/*
+					placing the video in a popup seems to work weel, the only problem is getting the controls in there
+				   	PopUpManager.addPopUp(_videoHolder,parentApplication as DisplayObject,true);
+					PopUpManager.centerPopUp(_videoHolder);
+					*/
+
+					 
+
+					// positions the video
+				    _video.width = _videoHolder.width = stage.stageWidth;
+				    _video.height = _videoHolder.height = stage.stageWidth*9/16;
+				    
+				    _video.x = _videoHolder.x = 0;
+				   	_video.y = _videoHolder.y = 0;
+				   	
 				    _video.smoothing = true;
 				    
-				    
-				   // positions the controls
-				    fs_controls.x= 100;
-				    fs_controls.y= _video.height - fs_controls.height - 10;
-				    fs_controls.width=100;
-				    fs_controls.height=20;
-
 
 				   
 			}
 			// Handles the return from fullscreen
 			private function handleReturnFromFullScreen(e:FullScreenEvent):void {
 				if (!e.fullScreen) {
-					removeChild(_videoHolder);
+					//PopUpManager.removePopUp(_videoHolder);
+					//removeChild(_videoHolder);
+					//_videoHolder.removeChild(videoControls);
+					//addChild(videoControls);
 					videoWindow.addChild(_videoHolder);
 				    _video.smoothing = true;
 				    _videoHolder.width = _videoSettings.savedWidth;

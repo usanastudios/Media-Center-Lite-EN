@@ -16,6 +16,7 @@ import mx.rpc.http.mxml.HTTPService;
 import mx.containers.ViewStack;
 import spark.components.CheckBox;
 import mx.core.UIComponent;
+import mx.core.mx_internal;
 
 import components.data.MochiBot;
 
@@ -28,7 +29,9 @@ public class SendEmailPageBaseClass extends TitleWindow
 	public var target_email:TextInput;
 	public var email_dg:DataGrid;
 	public var emailValidator:EmailValidator;
-	
+
+
+
 	 
 	[Bindable] public var emailArrayColl:ArrayCollection = new ArrayCollection();
 	[Bindable] public var your_name:TextInput;
@@ -47,6 +50,14 @@ public class SendEmailPageBaseClass extends TitleWindow
 	{
 		cancel_btn.addEventListener(MouseEvent.CLICK, cancelEmail);
 		send_btn.addEventListener(MouseEvent.CLICK,send_email);
+		
+		this.mx_internal::closeButton.x = 778;
+		this.mx_internal::closeButton.y = -6;
+		this.mx_internal::closeButton.width = 29;
+		this.mx_internal::closeButton.height = 29;
+		this.mx_internal::closeButton.buttonMode = true;
+		this.mx_internal::closeButton.useHandCursor = true;
+		
 	}
 	
 	
@@ -172,6 +183,7 @@ public class SendEmailPageBaseClass extends TitleWindow
 	{
 		PopUpManager.removePopUp(this);
 	}
+	
 	
 }
 

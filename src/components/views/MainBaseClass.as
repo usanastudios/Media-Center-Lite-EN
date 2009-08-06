@@ -114,12 +114,17 @@ package components.views
 			
 			/*DEFINE DATA FOR THE PROSPECT MENU*/
 			prospectMenuData = <root>
-	           <menuitem label="True Wealth"/> 
+	           <menuitem label="True Wealth">
+	          	 	<menuitem label="The Pay Plan"/>
+	           		<menuitem label="The Opportunity"/>
+	           		<menuitem label="Testimonials"/>
+	           </menuitem> 
 	           <menuitem label="True Health" >
 	                <menuitem label="Skin Care"/>
 	                <menuitem label="Nutrition"/> 
 	                <menuitem label="Energy"/>
 	                <menuitem label="Atheletes"/>
+	                <menuitem label="Testimonials"/>
 	            </menuitem>
 	            <menuitem label="USANA Health Sciences"/> 
 	            <menuitem label="I'm Not Sure"/>
@@ -556,7 +561,7 @@ package components.views
 		public function sendEmail(title:String):void
 		{
 			var emailWindow:SendEmailPage = new components.views.SendEmailPage();
-	        PopUpManager.addPopUp(emailWindow, this, false);
+	        PopUpManager.addPopUp(emailWindow, this, true);
 			emailWindow.title = "Send \""+title+"\" to a Friend";
 			emailWindow.y = 100;
 			emailWindow.x = 100;
@@ -568,7 +573,7 @@ package components.views
 		public function embedVideo(title:String):void
 		{
 			var embedWindow:EmbedVideoPage = new components.views.EmbedVideoPage();
-	        PopUpManager.addPopUp(embedWindow, this, false);
+	        PopUpManager.addPopUp(embedWindow, this, true);
 			embedWindow.title = "Embed \""+title+"\"";
 			embedWindow.y = 100;
 			embedWindow.x = 100;
