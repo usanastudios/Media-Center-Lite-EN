@@ -18,8 +18,6 @@
 			import org.openvideoplayer.events.*;
 			import org.openvideoplayer.net.*;
 
-;
-
 					
 			/*Define private variables*/
 			private var _nc:AkamaiConnection;
@@ -319,7 +317,6 @@
 					_nc.close();
 				}
 				
-			//	mx.controls.Alert.show(VIDEO_URL);
 				
 				_bossMetafile.load(VIDEO_URL)
 					_isPaused = false;

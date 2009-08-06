@@ -17,6 +17,7 @@ import mx.containers.ViewStack;
 import spark.components.CheckBox;
 import mx.core.UIComponent;
 import mx.core.mx_internal;
+import flash.system.System;
 
 import components.data.MochiBot;
 
@@ -41,6 +42,7 @@ public class SendEmailPageBaseClass extends TitleWindow
 	[Bindable] public var email_svc:HTTPService;
 	[Bindable] public var email_view_stack:ViewStack;
 	[Bindable] public var send_to_self_chk:CheckBox;
+	[Bindable] public var direct_link:TextInput;
  
 
   /* ================================ */
@@ -185,6 +187,15 @@ public class SendEmailPageBaseClass extends TitleWindow
 	}
 	
 	
+	/* ================================================ */
+	/* = FUNCTION TO COPY VIDEO LINK TO THE CLIPBOARD = */
+	/* ================================================ */
+	public function copyLinkToClipboard():void
+	{
+		System.setClipboard(direct_link.text);
+		mx.controls.Alert.show("Video link URL copied to clipboard.");
+		
+	}
 }
 
 }
