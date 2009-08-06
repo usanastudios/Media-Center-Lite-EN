@@ -47,6 +47,7 @@ package components.views
 		public var previous_btn:Button;
 		public var results_for_txt:Text;
 		public var replay_btn:Button;
+		public var play_overlay_btn:Button;
 			
 					
 		/* ======================================== */
@@ -59,6 +60,7 @@ package components.views
 			share_menu_btn.addEventListener(MouseEvent.CLICK,createAndShowShareMenu);
 			sort_menu_btn.addEventListener(MouseEvent.CLICK,createAndShowSortMenu);
 			replay_btn.addEventListener(MouseEvent.CLICK,replayVideo);
+			play_overlay_btn.addEventListener(MouseEvent.CLICK,replayVideo);
 			
 			/*SET UP PAGINATION*/
 			parentDocument.pagination_setup(this);

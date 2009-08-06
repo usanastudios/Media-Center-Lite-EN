@@ -41,6 +41,10 @@ package components.views
 		public var video_short_description_txt:Text;
 		public var video_tile_list:TileList;
 		public var video_title_txt:Text;
+		public var replay_btn:Button;
+		public var play_overlay_btn:Button;
+		
+		
 
 
 		/* ====================== */
@@ -63,6 +67,8 @@ package components.views
 			/*EVENT LISTENERS*/
 			share_menu_btn.addEventListener(MouseEvent.CLICK,createAndShowShareMenu);
 			sort_menu_btn.addEventListener(MouseEvent.CLICK,createAndShowSortMenu);
+			replay_btn.addEventListener(MouseEvent.CLICK,replayVideo);
+			play_overlay_btn.addEventListener(MouseEvent.CLICK,replayVideo);
 			
 			/*SET UP PAGINATION*/
 			parentDocument.pagination_setup(this);
@@ -344,6 +350,28 @@ package components.views
 			}
 		}
 
+
+			/* ============================ */
+			/* = FUNCTION TO REPLAY VIDEO = */
+			/* ============================ */
+
+	public function replayVideo(evt:MouseEvent):void {
+
+		// Cast the ModuleLoader's child to the interface.
+          // This child is an instance of the module.
+          // We can now call methods on that instance.
+          var vpchild:* = video_player.child as VideoPlayerInterface;                
+            if (video_player.child != null) {                    
+                // Call setters in the module to adjust its
+                // appearance when it loads.
+              vpchild.setVideo(parentDocument.current_video.@id);
+			   //video_title_txt.text = evt.currentTarget.selectedItem.title;
+			   //video_short_description_txt.text = evt.currentTarget.selectedItem.shortdescription;
+			   //video_long_description_txt.htmlText = evt.currentTarget.selectedItem.longdescription;
+            } else {                
+                trace("Uh oh. The video_player.child property is null");                 
+            }
+}
 
 	}
 }

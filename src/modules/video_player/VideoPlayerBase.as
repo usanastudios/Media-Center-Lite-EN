@@ -59,7 +59,7 @@
 	           _CAPTION_URL_ = "http://www.usana.com/media/File/mediaCenter/closed_caption/"+FlexGlobals.topLevelApplication.current_video.@id+".xml";
 				//CHECK FOR CLOSE CAPTIONED FILE
 				closed_caption_svc.send();
-	            startPlayback();
+	            startPlayback("on_demand");
 	        }
 	    
 			 
@@ -99,7 +99,7 @@
 		
 				// This inititates the video playback
 				startPlayback();
-			
+				
 			}	
 			// Handles the notification that the BOSS feed was successfully loaded.
 			private function bossLoadHandler(e:OvpEvent):void {
@@ -141,6 +141,7 @@
 				
 					//HIDE REPLAY BUTTON
 					parentDocument.replay_btn.visible=false;
+					parentDocument.play_overlay_btn.visible=false;
 					
 					currentState = "";
 					write("Successfully connected to: " + _nc.netConnection.uri);
@@ -153,7 +154,7 @@
 
 					// start the asynchronous process of estimating bandwidth if it hasn't already been esimated
 					if (_bandwidthMeasured) {
-						playVideo(_bossMetafile.streamName);
+						playVideo(_bossMetafile.streamName); 
 					} else {
 						write("Measuring bandwidth ... ");
 						_nc.detectBandwidth();
@@ -306,7 +307,7 @@
    			}
    			 
    			// Commences connection to a new link
-			private function startPlayback():void {
+			private function startPlayback(mode:String = null):void {
 				//output.text = "";
 				videoControls.bPlayPause.enabled = false;
 				videoControls.bFullscreen.enabled = false;
@@ -318,8 +319,12 @@
 				}
 				
 				
-				_bossMetafile.load(VIDEO_URL)
-					_isPaused = false;
+				//IF CLICKING VIDEO OR PLAY BUTTON, PLAY VIDEO (OTHERWISE DO NOT AUTO PLAY)
+				if(mode == "on_demand")
+				{
+					_bossMetafile.load(VIDEO_URL);
+				}
+				_isPaused = false;
 				
 			}
 			

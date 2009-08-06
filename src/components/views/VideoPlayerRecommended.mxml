@@ -87,7 +87,7 @@
 	
     	
 		
-	<!-- ======================================= -->
+	<!-- ======================================= --> 
 	<!-- = TILE LIST CONTAINING THE THUMBNAILS = -->
 	<!-- ======================================= -->
      <s:List id="list" dataProvider="{parentDocument.pagedDataProvider}" 
@@ -99,4 +99,17 @@
     </s:List>
      
 </s:VGroup>	
+
+<!-- ================= -->
+<!-- = REPLAY BUTTON = -->
+<!-- ================= -->
+<s:Button id="replay_btn" skinClass="components.skins.ReplayButtonSkin" x="220" y="150" buttonMode="false" visible="false"/>
+
+
+<!-- ====================== -->
+<!-- = PLAY BUTTON OVERLAY= -->
+<!-- ====================== -->
+<s:Button id="play_overlay_btn"  x="0" y="0" buttonMode="true" visible="true" skinClass="components.skins.PlayOverlayButtonSkin"/>
+
+
 </views:VideoPlayerRecommendedBaseClass>
