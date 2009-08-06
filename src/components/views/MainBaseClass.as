@@ -561,7 +561,7 @@ package components.views
 		public function sendEmail(title:String):void
 		{
 			var emailWindow:SendEmailPage = new components.views.SendEmailPage();
-	        PopUpManager.addPopUp(emailWindow, this, false);
+	        PopUpManager.addPopUp(emailWindow, this, true);
 			emailWindow.title = "Send \""+title+"\" to a Friend";
 			emailWindow.y = 100;
 			emailWindow.x = 100;
@@ -573,7 +573,7 @@ package components.views
 		public function embedVideo(title:String):void
 		{
 			var embedWindow:EmbedVideoPage = new components.views.EmbedVideoPage();
-	        PopUpManager.addPopUp(embedWindow, this, false);
+	        PopUpManager.addPopUp(embedWindow, this, true);
 			embedWindow.title = "Embed \""+title+"\"";
 			embedWindow.y = 100;
 			embedWindow.x = 100;

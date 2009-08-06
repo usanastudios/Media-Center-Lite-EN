@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<views:SendEmailPageBaseClass titleBackgroundSkin="@Embed('../../assets/skins/send_email_title_skin.png')"  creationComplete="init()" close="PopUpManager.removePopUp(this)" width="800" height="500" title="Send To A Friend" showCloseButton="true" backgroundColor="#040404" titleStyleName="emailPageTitleBar" contentBackgroundColor="#030303" 
+<views:SendEmailPageBaseClass titleBackgroundSkin="@Embed('assets/skins/send_email_title_skin.png')"  creationComplete="init()" close="PopUpManager.removePopUp(this)" width="800" height="500" title="Send To A Friend" titleStyleName="emailTitleSkin" showCloseButton="true" backgroundColor="#0a0a0a" horizontalScrollPolicy="off" contentBackgroundColor="#0a0a0a" 
 	xmlns:views="components.views.*" 
 	xmlns:fx="http://ns.adobe.com/mxml/2009"  
 	xmlns:mx="library://ns.adobe.com/flex/halo"
@@ -20,38 +20,38 @@
 	
 
 
-	<mx:ViewStack id="email_view_stack" historyManagementEnabled="false" resizeToContent="true"  selectedIndex="0"   height="383" width="791">
+	<mx:ViewStack id="email_view_stack" historyManagementEnabled="false" resizeToContent="true"  selectedIndex="0" width="791">
 	
-	<mx:Canvas>
-	<mx:Form width="100%" height="100%">
-	<mx:HBox>
+	<mx:Canvas contentBackgroundColor="#0a0a0a" horizontalScrollPolicy="off" verticalScrollPolicy="off">
+	<mx:Form width="100%" height="100%" verticalGap="5">
+	<mx:HBox paddingTop="50" paddingLeft="45" horizontalScrollPolicy="off" verticalScrollPolicy="off">
 	<mx:VBox horizontalAlign="right"> 
-	<mx:FormItem label="Your Name" direction="horizontal"><s:TextInput id="your_name" width="200"  contentBackgroundColor="#C2C2C2" color="#000000"/></mx:FormItem>	
-	<mx:FormItem label="Your Email" direction="horizontal"><s:TextInput id="your_email" width="200"  contentBackgroundColor="#C2C2C2" color="#000000"/></mx:FormItem>	
-	<mx:FormItem label="Subject" direction="horizontal"><s:TextInput id="your_subject" width="200"  contentBackgroundColor="#C2C2C2" color="#000000"/></mx:FormItem>	
-	<mx:FormItem label="Message" direction="horizontal"><s:TextArea height="166" id="your_message" width="200"  contentBackgroundColor="#C2C2C2" color="#000000"/></mx:FormItem>
+	<mx:FormItem label="Your Name" direction="horizontal"><s:TextInput id="your_name" width="250"  contentBackgroundColor="#C2C2C2" color="#000000"/></mx:FormItem>	
+	<mx:FormItem label="Your Email" direction="horizontal"><s:TextInput id="your_email" width="250"  contentBackgroundColor="#C2C2C2" color="#000000"/></mx:FormItem>	
+	<mx:FormItem label="Subject" direction="horizontal"><s:TextInput id="your_subject" width="250"  contentBackgroundColor="#C2C2C2" color="#000000"/></mx:FormItem>	
+	<mx:FormItem label="Message" direction="horizontal"><s:TextArea height="166" id="your_message" width="250"  contentBackgroundColor="#C2C2C2" color="#000000"/></mx:FormItem>
 	<mx:FormItem label="Direct Link" direction="horizontal">
-		<s:TextInput id="direct_link" width="200"  contentBackgroundColor="#C2C2C2" color="#000000"/>
-		<s:Button skinClass="components.skins.CopyButtonSkin"/>
+		<s:TextInput id="direct_link" width="182"  contentBackgroundColor="#C2C2C2" color="#000000"/>
+		<s:Button skinClass="components.skins.CopyButtonSkin" buttonMode="true" useHandCursor="true"/>
 	</mx:FormItem>
-	<mx:FormItem label="Send Me A Copy" direction="horizontal">
+	<mx:FormItem label="Send Me A Copy" direction="horizontal" paddingTop="25">
 		<s:CheckBox id="send_to_self_chk"/>
 	</mx:FormItem>
 	</mx:VBox>   
 		<mx:VBox horizontalAlign="right">
-	<mx:FormItem label="Add Recipients" direction="horizontal"></mx:FormItem>	
+	<mx:FormItem label="Add Recipients" direction="horizontal" horizontalAlign="left" width="278"></mx:FormItem>	
 	<mx:FormItem direction="horizontal">
-		<s:TextInput id="target_email" width="200"  contentBackgroundColor="#C2C2C2" color="#000000"/>
+		<s:TextInput id="target_email" width="202"  contentBackgroundColor="#C2C2C2" color="#000000"/>
 		<s:Button id="add_email_btn" label="Add" skinClass="components.skins.AddButtonSkin" buttonMode="true" click="validateEmail()"/>
 	</mx:FormItem>	 
 	<mx:FormItem  direction="horizontal"> 
-		<mx:DataGrid id="email_dg"  itemClick="deleteEmail(event)" showHeaders="false" width="278" color="#000000" verticalGridLines="false" backgroundColor="#C2C2C2" backgroundAlpha=".75" dataProvider="{emailArrayColl}">
+		<mx:DataGrid id="email_dg"  itemClick="deleteEmail(event)" showHeaders="false" width="278" height="192" color="#000000" verticalGridLines="false" backgroundColor="#C2C2C2" backgroundAlpha=".75" dataProvider="{emailArrayColl}">
 			<mx:columns>
 				<mx:DataGridColumn dataField="email" width="250"/>
 				<mx:DataGridColumn dataField="delete" > 
 					<mx:itemRenderer> 
                         <fx:Component> 
-                                <mx:Image source="@Embed(source='file:../../assets/skins/delete_email_skin.png')" buttonMode="true"/> 
+                                <mx:Image source="@Embed(source='assets/skins/delete_email_skin.png')" buttonMode="true"/> 
                         </fx:Component> 
                     </mx:itemRenderer>
 				</mx:DataGridColumn>
