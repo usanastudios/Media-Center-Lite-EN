@@ -33,7 +33,7 @@ package components.views
 		/* = PUBLIC VARIABLES = */
 		/* ==================== */
 		public var akamai_svc:HTTPService;
-		public var list:TileList;
+		public var list:List;
 		public var shareMenuData:XML;
 		public var share_menu_btn:Button;
 		public var sortMenuData:XML;
