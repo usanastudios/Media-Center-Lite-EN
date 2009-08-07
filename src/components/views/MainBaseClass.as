@@ -37,51 +37,52 @@ package components.views
 		/* ==================== */
 		/* = PUBLIC VARIABLES = */
 		/* ==================== */
+		public var akamaiArray:ArrayCollection = new ArrayCollection();
 		public var akamai_svc:HTTPService;
 		public var all_videos_svc:HTTPService;
-		public var wall_video_svc:HTTPService;
+		public var auto_complete_svc:HTTPService;
 		public var clipentArray:ArrayCollection = new ArrayCollection();
 		public var current_search_message:String
-		public var current_search_term:String;
 		public var current_video:XML;
+		public var landing_page_view:components.views.LandingPage;
+		public var lastPageSelectedButton:LinkButton;
+		public var last_selected_page:Number;
 		public var main_view_stack:ViewStack;
 		public var mostRecent_btn:Button;
 		public var mostViewed_btn:Button;
+		public var most_viewed_videos_svc:HTTPService;
 		public var prospectMenu1_btn:Button;
 		public var prospectMenuData:XML;
 		public var recent_videos_svc:HTTPService;
-		public var most_viewed_videos_svc:HTTPService;
 		public var recommended_search_svc:HTTPService;
 		public var search_svc:HTTPService;
-		public var auto_complete_svc:HTTPService;
 		public var search_text_validator:Validator;
+		public var selectedWallVideoID:String;
 		public var video_list:XML = new XML;
 		public var video_player_basic_view:VideoPlayerBasic;
 		public var video_player_recommended_view:VideoPlayerRecommended;
-		public var selectedWallVideoID:String;
-		public var last_selected_page:Number;
-		public var lastPageSelectedButton:LinkButton;
-		public var landing_page_view:components.views.LandingPage;
-		public var akamaiArray:ArrayCollection = new ArrayCollection();
+		public var wall_video_svc:HTTPService;
+
 		
 		public static const LANGUAGE:String = "en";
 		
 		/* ====================== */
 		/* = BINDABLE VARIABLES = */
 		/* ====================== */
-		[Bindable] public var dateFormatter:DateFormatter;
 		[Bindable] public var akamai_start_date:String;
 		[Bindable] public var akamai_stop_date:String;
-		[Bindable] public var video_title:String;
-		[Bindable] public var video_short_description:String;
-		[Bindable] public var video_long_description:String;
-		[Bindable] public var results_for:String;
-		[Bindable]public var search_txt:TextInput;
-		[Bindable] public var search_btn:Button;
 		[Bindable] public var audio_btn:Button;
-		[Bindable] public var search_results_dp:ArrayCollection = new ArrayCollection();
+		[Bindable] public var current_search_term:String;
+		[Bindable] public var dateFormatter:DateFormatter;
 		[Bindable] public var myDP:XMLListCollection;
+		[Bindable] public var results_for:String;
+		[Bindable] public var search_btn:Button;
+		[Bindable] public var search_results_dp:ArrayCollection = new ArrayCollection();
+		[Bindable] public var search_txt:TextInput;
 		[Bindable] public var search_type:String;
+		[Bindable] public var video_long_description:String;
+		[Bindable] public var video_short_description:String;
+		[Bindable] public var video_title:String;
 
 		
 		/* =================================== */
@@ -311,10 +312,8 @@ package components.views
 				
 				
 				/*CALL THE WEB SERVICE*/
-				var params:Object = new Object;
-	 			params['q'] = search_term;
-				params['l'] = LANGUAGE;
-				recommended_search_svc.send(search_term);
+				recommended_search_svc.send();
+				
 			} 
 					
 		
@@ -326,9 +325,11 @@ package components.views
 		public function recommendedSearchResultHandler():void
 		{
 			
-			/*SET THE VIDEO_LIST RESULTS*/
-			video_list = recommended_search_svc.lastResult as XML;
-				
+			/*SET THE VIDEO_LIST RESULTS SORTED BY MOST VIEWED*/
+			video_list = sort_by_most_viewed(recommended_search_svc.lastResult.video);
+		//	video_list = recommended_search_svc.lastResult.video as XML;
+		
+
 			if ((video_list) && (video_list.video.length() > 0))
 			{			
 				
@@ -355,6 +356,11 @@ package components.views
 				mx.controls.Alert.show("No results found. Please try a different search term");
 				main_view_stack.selectedIndex = 0;
 			}
+			
+
+	
+			
+			
 		}
 
 		
@@ -974,6 +980,9 @@ public function sort_by_most_recent(serviceResult:XMLList):XML
 
 public function sort_by_most_viewed(serviceResult:XMLList):XML
 {
+	
+	
+	
 	// Convert XML to ArrayCollection
 	  var videoArray:ArrayCollection = new ArrayCollection();
 	  var finalArray:ArrayCollection = new ArrayCollection();

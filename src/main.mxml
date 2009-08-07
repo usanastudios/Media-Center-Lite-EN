@@ -24,13 +24,17 @@
     <mx:HTTPService id="search_svc" url="{WEB_SERVICE_URL}" resultFormat="e4x" result="searchResultHandler()" fault="mx.controls.Alert.show(event.fault.message)" >
     	<mx:request>
 			<q>{search_txt.text}</q>
-			<l>en</l>
+			<l>{LANGUAGE}</l>
 		</mx:request> 
     </mx:HTTPService>
     
     <!-- Define the Recommended Search HTTP service --> 
     <mx:HTTPService id="recommended_search_svc" url="{WEB_SERVICE_URL}" resultFormat="e4x" result="recommendedSearchResultHandler()" fault="mx.controls.Alert.show(event.fault.message)" >
-    </mx:HTTPService>       
+   		<mx:request>
+				<q>{current_search_term}</q>
+				<l>{LANGUAGE}</l>
+			</mx:request>
+ 	</mx:HTTPService>       
 
 	<!-- Define the All Videos HTTP service -->
     <!-- <mx:HTTPService id="all_videos_svc" url="{WEB_SERVICE_URL}" resultFormat="e4x" result="allVideosResultHandler()" fault="mx.controls.Alert.show(event.fault.message)" >
@@ -43,28 +47,28 @@
 	<!-- Define the AutoComplete HTTP service -->
     <mx:HTTPService id="auto_complete_svc" url="{WEB_SERVICE_URL}" resultFormat="e4x" result="setUpAutoComplete()" fault="mx.controls.Alert.show(event.fault.message)" showBusyCursor="true">
    		<mx:request>
-			<l>en</l> 
+			<l>{LANGUAGE}</l> 
 		</mx:request>
 	</mx:HTTPService>    	
 	
 	<!-- Define the All Videos HTTP service -->
     <mx:HTTPService id="wall_video_svc" url="{WEB_SERVICE_URL}" resultFormat="e4x" result="wallVideoResultHandler()" fault="mx.controls.Alert.show(event.fault.message)" >
    		<mx:request>
-			<l>en</l>
+			<l>{LANGUAGE}</l>
 		</mx:request>
 	</mx:HTTPService>    
 	
 	<!-- Define the All Videos HTTP service -->
     <mx:HTTPService id="recent_videos_svc" url="{WEB_SERVICE_URL}" resultFormat="e4x" result="recentVideosResultHandler()" fault="mx.controls.Alert.show(event.fault.message)" >
    		<mx:request>
-			<l>en</l>
+			<l>{LANGUAGE}</l>
 		</mx:request>
 	</mx:HTTPService>    	
 	
 	<!-- Define the All Videos HTTP service -->
     <mx:HTTPService id="most_viewed_videos_svc" url="{WEB_SERVICE_URL}" resultFormat="e4x" result="mostViewedVideosResultHandler()" fault="mx.controls.Alert.show(event.fault.message)" >
    		<mx:request>
-			<l>en</l>
+			<l>{LANGUAGE}</l>
 		</mx:request>
 	</mx:HTTPService>    
 
