@@ -116,8 +116,10 @@ mx|Text.recommendedLabelSkin {
 	color: #FBFCFC;
 }*/
 
-mx|List.thumbnailsBasic{
-	
+mx|TileList
+{
+    roll-over-color: transparent;
+    selection-color: transparent;
 }
 
 
