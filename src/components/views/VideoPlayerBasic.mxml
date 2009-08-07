@@ -80,16 +80,18 @@
 	
 	<mx:Box width="1000" height="1" backgroundColor="0x000000" />
 	
+
+		
 	<!-- ======================================= -->
 	<!-- = TILE LIST CONTAINING THE THUMBNAILS = -->
 	<!-- ======================================= -->
-     <s:List id="list" dataProvider="{parentDocument.pagedDataProvider}" 
-      	height="480" skinClass="components.skins.ThumbnailListBasicSkin"
+     <mx:TileList id="list" dataProvider="{parentDocument.pagedDataProvider}" horizontalScrollPolicy="off" contentBackgroundColor="0x101010"
+      	height="480"  maxColumns="5" rowHeight="148" selectionColor="0x101010" 
         itemRenderer="components.renderers.Thumbnail" 
         width="1000" 
         click="showVideo(event);">
-          
-    </s:List>
+    </mx:TileList>
+
 
 </s:VGroup>	
 

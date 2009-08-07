@@ -1,10 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
-<mx:Canvas xmlns:mx="http://www.adobe.com/2006/mxml" backgroundColor="0x101010">
-
-
-		<mx:Image autoLoad="true" source="http://www.usana.com/media/File/mediaCenter/thumbnails/{data.@id}.jpg" buttonMode="true" mouseOver="{play_button_overlay.visible=true;}"/>
-		<mx:Image source="assets/images/thumb_overlay.png"  buttonMode="true" id="play_button_overlay" visible="false" mouseOut="{play_button_overlay.visible=false}"/>
-		<mx:Text width="100%" text="{data.title}"  x="1" y="105" styleName="videoSubTitle"/>
-
+<mx:Canvas xmlns:mx="http://www.adobe.com/2006/mxml" backgroundColor="0x101010" width="200">
+		<mx:Image autoLoad="true" source="http://www.usana.com/media/File/mediaCenter/thumbnails/{data.@id}.jpg" buttonMode="true" mouseOver="{play_button_overlay.visible=true;}" horizontalCenter="0" verticalCenter="0"/>
+		<mx:Image source="assets/images/thumb_overlay.png"  buttonMode="true" id="play_button_overlay" visible="false" mouseOut="{play_button_overlay.visible=false}" horizontalCenter="0" verticalCenter="0"/>
+		<mx:Text width="100%" text="{data.title}" styleName="videoSubTitle" y="124" horizontalCenter="0"/>
 </mx:Canvas>
- 
+  
