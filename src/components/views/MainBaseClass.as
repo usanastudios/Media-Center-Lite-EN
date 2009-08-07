@@ -21,7 +21,6 @@ package components.views
 	import mx.controls.Alert;
 	import mx.controls.LinkButton;
 	import mx.controls.Menu;
-	import mx.events.IndexChangedEvent;
 	import mx.events.MenuEvent;
 	import mx.formatters.DateFormatter;
 	import mx.managers.PopUpManager;
@@ -391,38 +390,10 @@ package components.views
 	/* =============================================== */
 	public function recentVideosResultHandler():void
 	{
-		var videoArray:ArrayCollection = new ArrayCollection();
-		for each (var video:XML in recent_videos_svc.lastResult.video)
-		{
-			videoArray.addItem({"id":video.@id.substring(3),"title":video.title,"shortdescription":video.shortdescription,"longdescription":video.longdescription});
-		}
 		
-		/*BELOW WE SORT THE RESULTS DESCENDING BASED ON STREAMHITS*/
-		var dataSortField:SortField = new SortField();
-		dataSortField.name = "id";
-		dataSortField.numeric = true;
-		dataSortField.descending = true;
-		var numericDataSort:Sort = new Sort();
-		numericDataSort.fields = [dataSortField];
-		videoArray.sort = numericDataSort;
-		videoArray.refresh();
+		video_list = sort_by_most_recent(recent_videos_svc.lastResult.video);
 		
-		
-		
-		/*REBUILD THE XML*/
-		var xmlstr:String = "<mediacenter>"; 
-			for each (var finalVideo:Object in videoArray)
-			{
-				xmlstr += "<video id=\"ven"+finalVideo.id+"\">\n";
-				xmlstr += "<title>"+finalVideo.title+"</title>\n"; 
-				xmlstr += "<shortdescription>"+finalVideo.shortdescription+"</shortdescription>\n"; 
-				//xmlstr += "<longdescription>"+finalVideo.longdescription+"</longdescription>\n"; 
-				xmlstr += "</video>";
-			}
-			xmlstr += "</mediacenter>";
-			video_list = new XML(xmlstr);
-
-			current_video = video_list.children()[0];
+		current_video = video_list.children()[0];
 			
 		//REMOVE 3DWALL DUE TO BUG
 		landing_page_view.wall.unloadAndStop();
@@ -431,8 +402,6 @@ package components.views
  		current_search_term = "Showing Most Recent";
 		
 	    main_view_stack.selectedIndex = 1;
-	
-	
 	}
         
 	/* =============================== */
@@ -449,92 +418,23 @@ package components.views
 		/*SEARCHING MESSAGE*/
 		current_search_message = "Getting The Most Viewed Videos";
 		
-		/*CALL SERVICE TO GET AKAMAI RESULTS*/
-		akamai_svc.send()
-	}
-	
-	
-	
-	/* ====================================== */
-	/* = AKAMAI (MOST RECENT)RESULT HANDLER = */
-	/* ====================================== */
-	public function akamaiResultHandler():void
-	{
-		
-		  // Convert XML to ArrayCollection
-          for each(var clip:XML in akamai_svc.lastResult.clips.clipent)
-		  {
-              clipentArray.addItem(clip);
-          }
-		
-		/*CALL TO GET ALL VIDEOS FROM USANA - WE COMPARE THEM IN THE RESULT HANDLER*/
-		all_videos_svc.send();
-		
-	}	
-	
-	
-	/* ================================= */
-	/* = ALL_VIDEOS_SVC RESULT HANDLER = */
-	/* ================================= */
-	public function allVideosResultHandler():void
-	{
-		// Convert XML to ArrayCollection
-		  var videoArray:ArrayCollection = new ArrayCollection();
-		  var finalArray:ArrayCollection = new ArrayCollection();
-          for each(var video:XML in all_videos_svc.lastResult.video)
-		  {
-              videoArray.addItem(video);
-          }
-		
-		
-		/*LOOP OVER THE AKAMAI DATA AND GET THE VIDEO INFO FOR EACH*/
-		for each (var newVideo:Object in videoArray)
-		{
-			var indexOfVideo:int  = parentDocument.getItemIndexByProperty(clipentArray,"url",newVideo.@id);
-			finalArray.addItem({"streamhits":clipentArray[indexOfVideo].streamhits,"id":newVideo.@id,"title":newVideo.title,"shortdescription":newVideo.shortdescription,"longdescription":newVideo.longdescription});
-			
-		/*BELOW WE SORT THE RESULTS DESCENDING BASED ON STREAMHITS*/
-		var dataSortField:SortField = new SortField();
-		dataSortField.name = "streamhits";
-		dataSortField.numeric = true;
-		dataSortField.descending = true;
-		var numericDataSort:Sort = new Sort();
-		numericDataSort.fields = [dataSortField];
-		finalArray.sort = numericDataSort;
-		finalArray.refresh();
-			
-		}
-		
-        
-		/*REBUILD THE XML*/
-		var xmlstr:String = "<mediacenter>";
-		for each (var finalVideo:Object in finalArray)
-		{
-			trace('test');
-			xmlstr += "<video id=\""+finalVideo.id+"\">\n";
-			xmlstr += "<title>"+finalVideo.title+"</title>\n"; 
-			xmlstr += "<shortdescription>"+finalVideo.shortdescription+"</shortdescription>\n"; 
-			//xmlstr += "<longdescription>"+finalVideo.longdescription+"</longdescription>\n"; 
-			xmlstr += "<streamhits>"+finalVideo.streamhits+"</streamhits>\n"; 
-			xmlstr += "</video>";
-			
-		}
-		xmlstr += "</mediacenter>";
-		video_list = new XML(xmlstr);
-		current_video = video_list.children()[0];
+		//SET VIDEO LIST TO MOST_VIEWED_VIDEOS
+		sort_by_most_viewed();
 		
 		//REMOVE 3DWALL DUE TO BUG
 		landing_page_view.wall.unloadAndStop();
-		
+
 		search_type = "most_viewed";
 		current_search_term = "Showing Most Viewed";
- 		
-		
-	    main_view_stack.selectedIndex = 1;
-	
+
+
+	    
 		
 	}
-  
+	
+	
+	
+
 	
 	/* ==================================================== */
 	/* = FUNCTION TO GET THE VIDEO SELECTED ON THE 3DWALL = */
@@ -557,46 +457,15 @@ package components.views
 		var all_videos:XMLList = wall_video_svc.lastResult.video;
 		var wall_video:XMLList =  all_videos.(@id==selectedWallVideoID);
 		
-		var videoArray:ArrayCollection = new ArrayCollection();
-		for each (var video:XML in all_videos)
-		{
-			videoArray.addItem({"id":video.@id.substring(3),"title":video.title,"shortdescription":video.shortdescription,"longdescription":video.longdescription});
-		}
-		
-		/*BELOW WE SORT THE RESULTS DESCENDING BASED ON STREAMHITS*/
-		var dataSortField:SortField = new SortField();
-		dataSortField.name = "id";
-		dataSortField.numeric = true;
-		dataSortField.descending = true;
-		var numericDataSort:Sort = new Sort();
-		numericDataSort.fields = [dataSortField];
-		videoArray.sort = numericDataSort;
-		videoArray.refresh();
-		
-		
-		
-		/*REBUILD THE XML*/
-		var xmlstr:String = "<mediacenter>"; 
-			for each (var finalVideo:Object in videoArray)
-			{
-				xmlstr += "<video id=\"ven"+finalVideo.id+"\">\n";
-				xmlstr += "<title>"+finalVideo.title+"</title>\n"; 
-				xmlstr += "<shortdescription>"+finalVideo.shortdescription+"</shortdescription>\n"; 
-				//xmlstr += "<longdescription>"+finalVideo.longdescription+"</longdescription>\n"; 
-				xmlstr += "</video>";
-			}
-			xmlstr += "</mediacenter>";
-			
-		/*SET THE VIDEO_LIST RESULTS*/
-		video_list = new XML(xmlstr);
-		
+		//RETURN VIDEO LIST SORTED BY MOST RECENT
+		video_list = sort_by_most_recent(all_videos);
+
+		//SET CURRENT VIDEO
 		current_video = wall_video[0];
 		
 		/*SET CURRENT SEARCH TERM (FOR DISPLAY ON VIDEO PLAYER PAGE)*/
 		current_search_term = "All Videos";
 		
-	
-	
 		//REMOVE 3DWALL DUE TO BUG
 		landing_page_view.wall.unloadAndStop();
 		
@@ -1042,7 +911,133 @@ public function showWallVideo(video_id:String):void {
                                                 
 
 }
+
+/* =============================== */
+/* = SORT RESULTS BY MOST RECENT = */
+/* =============================== */
+public function sort_by_most_recent(serviceResult:XMLList):XML
+{
 	
+	
+	var videoArray:ArrayCollection = new ArrayCollection();
+	for each (var video:XML in serviceResult)
+	{
+		videoArray.addItem({"id":video.@id.substring(3),"title":video.title,"shortdescription":video.shortdescription,"longdescription":video.longdescription});
+	}
+	
+	/*BELOW WE SORT THE RESULTS DESCENDING BASED ON STREAMHITS*/
+	var dataSortField:SortField = new SortField();
+	dataSortField.name = "id";
+	dataSortField.numeric = true;
+	dataSortField.descending = true;
+	var numericDataSort:Sort = new Sort();
+	numericDataSort.fields = [dataSortField];
+	videoArray.sort = numericDataSort;
+	videoArray.refresh();
+	
+	
+	
+	/*REBUILD THE XML*/
+	var xmlstr:String = "<mediacenter>"; 
+		for each (var finalVideo:Object in videoArray)
+		{
+			xmlstr += "<video id=\"ven"+finalVideo.id+"\">\n";
+			xmlstr += "<title>"+finalVideo.title+"</title>\n"; 
+			xmlstr += "<shortdescription>"+finalVideo.shortdescription+"</shortdescription>\n"; 
+			//xmlstr += "<longdescription>"+finalVideo.longdescription+"</longdescription>\n"; 
+			xmlstr += "</video>";
+		}
+			xmlstr += "</mediacenter>";
+		
+			/*SET THE VIDEO_LIST RESULTS*/
+			video_list = new XML(xmlstr);
+			return video_list
+		
+}
+
+
+
+/* =========================================== */
+/* = FUNCTION TO SORT RESULTS BY MOST VIEWED = */
+/* =========================================== */
+private function sort_by_most_viewed():void
+{
+	
+	 akamai_svc.send()
+}
+
+
+
+/* ====================================== */
+/* = AKAMAI (MOST RECENT)RESULT HANDLER = */
+/* ====================================== */
+public function akamaiResultHandler():void
+{
+	
+	  // Convert XML to ArrayCollection
+      for each(var clip:XML in akamai_svc.lastResult.clips.clipent)
+	  {
+          clipentArray.addItem(clip);
+      }
+	
+	/*CALL TO GET ALL VIDEOS FROM USANA - WE COMPARE THEM IN THE RESULT HANDLER*/
+	all_videos_svc.send();
+	
+}	
+
+
+/* ================================= */
+/* = ALL_VIDEOS_SVC RESULT HANDLER = */
+/* ================================= */
+public function allVideosResultHandler():void
+{
+	// Convert XML to ArrayCollection
+	  var videoArray:ArrayCollection = new ArrayCollection();
+	  var finalArray:ArrayCollection = new ArrayCollection();
+      for each(var video:XML in all_videos_svc.lastResult.video)
+	  {
+          videoArray.addItem(video);
+      }
+	
+	
+	/*LOOP OVER THE AKAMAI DATA AND GET THE VIDEO INFO FOR EACH*/
+	for each (var newVideo:Object in videoArray)
+	{
+		var indexOfVideo:int  = parentDocument.getItemIndexByProperty(clipentArray,"url",newVideo.@id);
+		finalArray.addItem({"streamhits":clipentArray[indexOfVideo].streamhits,"id":newVideo.@id,"title":newVideo.title,"shortdescription":newVideo.shortdescription,"longdescription":newVideo.longdescription});
+		
+	/*BELOW WE SORT THE RESULTS DESCENDING BASED ON STREAMHITS*/
+	var dataSortField:SortField = new SortField();
+	dataSortField.name = "streamhits";
+	dataSortField.numeric = true;
+	dataSortField.descending = true;
+	var numericDataSort:Sort = new Sort();
+	numericDataSort.fields = [dataSortField];
+	finalArray.sort = numericDataSort;
+	finalArray.refresh();
+		
+	}
+	
+    
+	/*REBUILD THE XML*/
+	var xmlstr:String = "<mediacenter>";
+	for each (var finalVideo:Object in finalArray)
+	{
+		trace('test');
+		xmlstr += "<video id=\""+finalVideo.id+"\">\n";
+		xmlstr += "<title>"+finalVideo.title+"</title>\n"; 
+		xmlstr += "<shortdescription>"+finalVideo.shortdescription+"</shortdescription>\n"; 
+		//xmlstr += "<longdescription>"+finalVideo.longdescription+"</longdescription>\n"; 
+		xmlstr += "<streamhits>"+finalVideo.streamhits+"</streamhits>\n"; 
+		xmlstr += "</video>";
+		
+	}
+	xmlstr += "</mediacenter>";
+	video_list = new XML(xmlstr);
+	current_video = video_list.children()[0];
+	main_view_stack.selectedIndex = 1;
+	
+}
 
       
 	}
