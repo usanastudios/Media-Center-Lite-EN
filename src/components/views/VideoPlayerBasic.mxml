@@ -88,7 +88,7 @@
      <mx:TileList id="list" dataProvider="{parentDocument.pagedDataProvider}" horizontalScrollPolicy="off" contentBackgroundColor="0x101010"
       	height="480"  maxColumns="5" rowHeight="148" selectionColor="0x101010" dataTipField="shortdescription" showDataTips="true"
         itemRenderer="components.renderers.Thumbnail" 
-        width="1000" 
+        width="1000"
         click="showVideo(event);">
     </mx:TileList>
 
