@@ -89,12 +89,12 @@ package components.views
 			parentDocument.pagination_setup(this);
 			if(parentDocument.search_type == "wall_video")
 			{
-				showWallVideo(parentDocument.current_video.@id);
+				parentDocument.showWallVideo(parentDocument.current_video.@id);
 				results_for_txt.visible = false;
 			}
 			else
 			{
-				showVideo2(parentDocument.current_video.@id);
+				parentDocument.showVideo2(parentDocument.current_video.@id,this);
 				results_for_txt.visible = true;
 			}
 			results_for_txt.text = parentDocument.current_search_term;
@@ -118,82 +118,8 @@ package components.views
 		}
 		
 	
-		/* =================================== */
-		/* = FUNCTION TO SHOW SELECTED VIDEO = */
-		/* =================================== */
-		public function showVideo(evt:MouseEvent):void {
-			
-			
-			//SET CURRENT VIDEO BASED ON CLICKED THUMBNAIL
-			parentDocument.current_video = evt.currentTarget.selectedItem;
-	 		// Cast the ModuleLoader's child to the interface.
-            // This child is an instance of the module.
-            // We can now call methods on that instance.
-            var vpchild:* = video_player.child as VideoPlayerInterface;                
-             if (video_player.child != null) {                    
-                  // Call setters in the module to adjust its
-                  // appearance when it loads.
-             vpchild.setVideo(evt.currentTarget.selectedItem.@id,true);
-       			   video_title_txt.text = evt.currentTarget.selectedItem.title;
-       			   video_short_description_txt.text = evt.currentTarget.selectedItem.shortdescription;
-       			   video_long_description_txt.htmlText = evt.currentTarget.selectedItem.longdescription;
-                   } else {                
-                       trace("Uh oh. The video_player.child property is null");                 
-                   }
-                                                             
-	
-		}
-		
-		/* =================================== */
-		/* = FUNCTION TO SHOW SELECTED VIDEO = */
-		/* =================================== */
-		public function showVideo2(video_id:String):void {
-			
-			//SET CURRENT VIDEO BASED ON CLICKED THUMBNAIL
-			//parentDocument.current_video = evt.currentTarget.selectedItem;
-	 		// Cast the ModuleLoader's child to the interface.
-            // This child is an instance of the module.
-            // We can now call methods on that instance.
-            var vpchild:* = video_player.child as VideoPlayerInterface;                
-              if (video_player.child != null) {                    
-                  // Call setters in the module to adjust its
-                  // appearance when it loads.
-                vpchild.setVideo(video_id,false);
-  			   video_title_txt.text = parentDocument.current_video.title;
-  			   video_short_description_txt.text = parentDocument.current_video.shortdescription;
-  			   video_long_description_txt.htmlText = parentDocument.current_video.longdescription;
-              } else {                
-                  trace("Uh oh. The video_player.child property is null");                 
-              }
-                                                        
-	
-		}
-		
-		
-		/* =================================== */
-		/* = FUNCTION TO SHOW SELECTED WALL VIDEO = */
-		/* =================================== */
-		public function showWallVideo(video_id:String):void {
-			
-			//SET CURRENT VIDEO BASED ON CLICKED THUMBNAIL
-			//parentDocument.current_video = evt.currentTarget.selectedItem;
-	 		// Cast the ModuleLoader's child to the interface.
-            // This child is an instance of the module.
-            // We can now call methods on that instance.
-            var vpchild:* = video_player.child as VideoPlayerInterface;                
-              if (video_player.child != null) {                    
-                  // Call setters in the module to adjust its
-                  // appearance when it loads.
-                vpchild.setVideo(video_id,true);
-  			   video_title_txt.text = parentDocument.current_video.title;
-  			   video_short_description_txt.text = parentDocument.current_video.shortdescription;
-  			   video_long_description_txt.htmlText = parentDocument.current_video.longdescription;
-              } else {                
-                  trace("Uh oh. The video_player.child property is null");                 
-              }
-                                                        
-	
-		}
+
+
 		
 		
 		/* ============================ */

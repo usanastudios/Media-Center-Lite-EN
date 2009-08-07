@@ -89,7 +89,7 @@
       	height="480"  maxColumns="5" rowHeight="148" selectionColor="0x101010" dataTipField="shortdescription" showDataTips="true"
         itemRenderer="components.renderers.Thumbnail" 
         width="1000" 
-        click="showVideo(event);">
+        click="parentDocument.showVideo(event,this);">
     </mx:TileList>
 
 
