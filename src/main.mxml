@@ -10,8 +10,8 @@
 
 <fx:Script>
 	<![CDATA[ 
-	public static const WEB_SERVICE_URL:String = "http://www.usana.com/Main/mediaCenter/searchV";
-//	public static const WEB_SERVICE_URL:String = "http://slc-webdev1.usana.com/Main/mediaCenter/searchV";
+	//public static const WEB_SERVICE_URL:String = "http://www.usana.com/Main/mediaCenter/searchV";
+	public static const WEB_SERVICE_URL:String = "http://slc-webdev1.usana.com/Main/mediaCenter/searchV";
  	]]>
 </fx:Script>
  
@@ -113,7 +113,7 @@
 		<!-- ================================= -->
 		<!-- = VIDEO PLAYER RECOMMENDED PAGE = -->
 		<!-- ================================= -->
-		<views:VideoPlayerRecommended id="video_player_recommended_view" verticalScrollPolicy="off" width="100%" 	left="0" right="0"  /> 
+		<views:VideoPlayerRecommended id="video_player_recommended_view" verticalScrollPolicy="off" width="100%" left="0" right="0"  /> 
 		
 
 	</mx:ViewStack>
