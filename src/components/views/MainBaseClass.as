@@ -7,28 +7,30 @@
 package components.views
 {
 	
-	import com.adobe.flex.extras.controls.AutoComplete;
 	import flash.events.MouseEvent;
-	import flash.net.navigateToURL;
 	import flash.net.URLRequest;
+	import flash.net.navigateToURL;
+	
 	import modules.video_player.VideoPlayerInterface;
+	
 	import mx.collections.ArrayCollection;
 	import mx.collections.Sort;
 	import mx.collections.SortField;
 	import mx.collections.XMLListCollection;
 	import mx.containers.ViewStack;
 	import mx.controls.Alert;
+	import mx.controls.LinkButton;
 	import mx.controls.Menu;
+	import mx.events.IndexChangedEvent;
 	import mx.events.MenuEvent;
 	import mx.formatters.DateFormatter;
 	import mx.managers.PopUpManager;
 	import mx.rpc.http.mxml.HTTPService;
 	import mx.validators.Validator;
+	
 	import spark.components.Application;
 	import spark.components.Button;
-	import mx.controls.LinkButton;
 	import spark.components.TextInput;
-
 
 	public class MainBaseClass extends Application
 	{
@@ -419,9 +421,9 @@ package components.views
 			}
 			xmlstr += "</mediacenter>";
 			video_list = new XML(xmlstr);
-			
+
 			current_video = video_list.children()[0];
-		
+			
 		//REMOVE 3DWALL DUE TO BUG
 		landing_page_view.wall.unloadAndStop();
 		
@@ -936,26 +938,23 @@ package components.views
 /* =================================== */
 /* = FUNCTION TO SHOW SELECTED VIDEO = */
 /* =================================== */
-public function showVideo(evt:MouseEvent,videoPage:Object):void {
-	
+public function showVideo(video:XML,videoPage:Object):void {
 	//SET CURRENT VIDEO BASED ON CLICKED THUMBNAIL
-	current_video = evt.currentTarget.selectedItem;
+	current_video = video;
 	// Cast the ModuleLoader's child to the interface.
 	// This child is an instance of the module.
 	// We can now call methods on that instance.
-	var vpchild:* = video_player_basic_view.video_player.child as VideoPlayerInterface;                
-	if (video_player_basic_view.video_player.child != null) {                    
-	     // Call setters in the module to adjust its
-	     // appearance when it loads.
-	vpchild.setVideo(evt.currentTarget.selectedItem.@id,true);
-	video_player_basic_view.video_title_txt.text = evt.currentTarget.selectedItem.title;
-	video_player_basic_view.video_short_description_txt.text = evt.currentTarget.selectedItem.shortdescription;
-	video_player_basic_view.video_long_description_txt.htmlText = evt.currentTarget.selectedItem.longdescription;
-	      } else {                
-	          trace("Uh oh. The video_player.child property is null");                 
-	      }
-                                                           
-
+	var vpchild:* = videoPage.video_player.child as VideoPlayerInterface;                
+		if (videoPage.video_player.child != null) {                    
+		     // Call setters in the module to adjust its
+		     // appearance when it loads.
+		vpchild.setVideo(video.@id,true);
+		videoPage.video_title_txt.text = video.title;
+		videoPage.video_short_description_txt.text = video.shortdescription;
+		videoPage.video_long_description_txt.htmlText = video.longdescription;
+		      } else {                
+		          trace("Uh oh. The video_player.child property is null");                 
+		      }
 }
 
 
