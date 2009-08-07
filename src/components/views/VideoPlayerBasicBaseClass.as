@@ -90,12 +90,10 @@ package components.views
 			if(parentDocument.search_type == "wall_video")
 			{
 				parentDocument.showWallVideo(parentDocument.current_video.@id);
-				results_for_txt.visible = false;
 			}
 			else
 			{
 				parentDocument.showVideo2(parentDocument.current_video.@id,this);
-				results_for_txt.visible = true;
 			}
 			results_for_txt.text = parentDocument.current_search_term;
 			

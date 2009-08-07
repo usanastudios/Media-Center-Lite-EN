@@ -85,9 +85,13 @@
      <s:List id="video_list" dataProvider="{parentDocument.pagedDataProvider}" 
       	height="480" skinClass="components.skins.ThumbnailListBasicSkin"
         itemRenderer="components.renderers.Thumbnail" 
+<<<<<<< HEAD:src/components/views/VideoPlayerBasic.mxml
         click="parentDocument.showVideo(event,this);"
         width="1000">
 
+=======
+        width="1000" 
+>>>>>>> 08afff1c5ceb507c8181f9efb6a9a07267532e4e:src/components/views/VideoPlayerBasic.mxml
     </s:List>
 
 
