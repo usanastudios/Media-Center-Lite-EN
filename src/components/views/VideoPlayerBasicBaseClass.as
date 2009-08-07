@@ -33,7 +33,7 @@ package components.views
 		/* = PUBLIC VARIABLES = */
 		/* ==================== */
 		public var akamai_svc:HTTPService;
-		public var list:List;
+		public var list:TileList;
 		public var shareMenuData:XML;
 		public var share_menu_btn:Button;
 		public var sortMenuData:XML;
@@ -65,7 +65,7 @@ package components.views
 			/*SET UP PAGINATION*/
 			parentDocument.pagination_setup(this);
 			
-		
+			
 			
 			//SET UP VARS IF RELOADING VIDEO PAGE WITHOUT SEARCH
 			if(parentDocument.current_video == null)
@@ -123,23 +123,24 @@ package components.views
 		/* =================================== */
 		public function showVideo(evt:MouseEvent):void {
 			
+			
 			//SET CURRENT VIDEO BASED ON CLICKED THUMBNAIL
 			parentDocument.current_video = evt.currentTarget.selectedItem;
 	 		// Cast the ModuleLoader's child to the interface.
             // This child is an instance of the module.
             // We can now call methods on that instance.
             var vpchild:* = video_player.child as VideoPlayerInterface;                
-              if (video_player.child != null) {                    
+             if (video_player.child != null) {                    
                   // Call setters in the module to adjust its
                   // appearance when it loads.
-                vpchild.setVideo(evt.currentTarget.selectedItem.@id,true);
-  			   video_title_txt.text = evt.currentTarget.selectedItem.title;
-  			   video_short_description_txt.text = evt.currentTarget.selectedItem.shortdescription;
-  			   video_long_description_txt.htmlText = evt.currentTarget.selectedItem.longdescription;
-              } else {                
-                  trace("Uh oh. The video_player.child property is null");                 
-              }
-                                                        
+             vpchild.setVideo(evt.currentTarget.selectedItem.@id,true);
+       			   video_title_txt.text = evt.currentTarget.selectedItem.title;
+       			   video_short_description_txt.text = evt.currentTarget.selectedItem.shortdescription;
+       			   video_long_description_txt.htmlText = evt.currentTarget.selectedItem.longdescription;
+                   } else {                
+                       trace("Uh oh. The video_player.child property is null");                 
+                   }
+                                                             
 	
 		}
 		

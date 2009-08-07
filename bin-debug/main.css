@@ -116,4 +116,10 @@ mx|Text.recommendedLabelSkin {
 	color: #FBFCFC;
 }*/
 
+mx|TileList
+{
+    roll-over-color: transparent;
+    selection-color: transparent;
+}
+
 
