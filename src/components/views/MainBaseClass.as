@@ -301,17 +301,17 @@ package components.views
 				main_view_stack.selectedIndex = 2;
 				
 				/*SET NEW VIDEO */
-				if(video_player_basic_view.video_player){
-					var vpchild:* = video_player_basic_view.video_player.child as VideoPlayerInterface;                
-		            if (video_player_basic_view.video_player.child != null) {                    
-		                // Call setters in the module to adjust its
-		                // appearance when it loads.
-		              vpchild.setVideo(current_video.@id,false);
-		            } else {                
-		                trace("Uh oh. The video_player.child property is null");                 
-		            }
-				}   
-			
+				/*if(video_player_basic_view.video_player){
+								var vpchild:* = video_player_basic_view.video_player.child as VideoPlayerInterface;                
+					            if (video_player_basic_view.video_player.child != null) {                    
+					                // Call setters in the module to adjust its
+					                // appearance when it loads.
+					              vpchild.setVideo(current_video.@id,false);
+					            } else {                
+					                trace("Uh oh. The video_player.child property is null");                 
+					            }
+							}   
+						*/
 				
 				/*CALL THE WEB SERVICE*/
 				var params:Object = new Object;
