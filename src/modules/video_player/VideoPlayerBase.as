@@ -50,7 +50,7 @@
 			/* ================================================== */
 			/* = FUNCTION TO CHANGE VIDEO URL AND START PLAYBACK = */
 			/* ================================================== */
-	 		public function setVideo(id:String):void {
+	 		public function setVideo(id:String,playNow:Boolean):void {
 			if(_ns)
 			{
 				_ns.pause(); 
@@ -59,7 +59,17 @@
 	           _CAPTION_URL_ = "http://www.usana.com/media/File/mediaCenter/closed_caption/"+FlexGlobals.topLevelApplication.current_video.@id+".xml";
 				//CHECK FOR CLOSE CAPTIONED FILE
 				closed_caption_svc.send();
-	            startPlayback("on_demand");
+				
+				if(playNow == true)
+				{
+					parentDocument.play_overlay_btn.visible=false;
+	            	startPlayback("on_demand");
+				}
+				else
+				{
+					parentDocument.play_overlay_btn.visible=true;
+					startPlayback();
+				}
 	        }
 	    
 			 

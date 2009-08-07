@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<views:VideoPlayerRecommendedBaseClass  xmlns:mx="http://www.adobe.com/2006/mxml" xmlns:views="components.views.*" creationComplete="recommended_video_init()" xmlns:s="library://ns.adobe.com/flex/spark" hide="pauseVideo()">
+<views:VideoPlayerRecommendedBaseClass  xmlns:mx="http://www.adobe.com/2006/mxml" xmlns:views="components.views.*" creationComplete="recommended_video_init()" xmlns:s="library://ns.adobe.com/flex/spark" hide="pauseVideo()" show="onShow()">
 	
 	<!-- ==================================================================================================== -->
 	<!-- = IMPORT THE VIDEO PAGING CODE - THIS HAS TO GO HERE INSTEAD OF IN THE BASE CLASS DUE TO REPEATERS = -->

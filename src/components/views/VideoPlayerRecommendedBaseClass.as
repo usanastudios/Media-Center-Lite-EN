@@ -91,6 +91,44 @@ package components.views
 			    
 		}
 		 
+		
+		/* ============================================= */
+		/* = FUNCTION CALLED WHEN THIS SCREEN IS SHOWN = */
+		/* ============================================= */
+		public function onShow():void
+		{
+			parentDocument.pagination_setup(this);
+			showVideo2(parentDocument.current_video.@id);
+		
+		}
+		
+		
+		/* =================================== */
+		/* = FUNCTION TO SHOW SELECTED VIDEO = */
+		/* =================================== */
+		public function showVideo2(video_id:String):void {
+			
+			//SET CURRENT VIDEO BASED ON CLICKED THUMBNAIL
+			//parentDocument.current_video = evt.currentTarget.selectedItem;
+	 		// Cast the ModuleLoader's child to the interface.
+            // This child is an instance of the module.
+            // We can now call methods on that instance.
+            var vpchild:* = video_player.child as VideoPlayerInterface;                
+              if (video_player.child != null) {                    
+                  // Call setters in the module to adjust its
+                  // appearance when it loads.
+                vpchild.setVideo(video_id,false);
+  			   video_title_txt.text = parentDocument.current_video.title;
+  			   video_short_description_txt.text = parentDocument.current_video.shortdescription;
+  			   video_long_description_txt.htmlText = parentDocument.current_video.longdescription;
+              } else {                
+                  trace("Uh oh. The video_player.child property is null");                 
+              }
+                                                        
+	
+		}
+		
+		
 		 /* =========================== */
 		 /* = FUNCTION TO STOP VIDEO  = */
 		 /* =========================== */
@@ -125,7 +163,7 @@ package components.views
             if (video_player.child != null) {                    
                 // Call setters in the module to adjust its
                 // appearance when it loads.
-               vpchild.setVideo(current_video.@id);
+               vpchild.setVideo(current_video.@id,true);
 			   video_title_txt.text = current_video.title;
 			   video_short_description_txt.text = current_video.shortdescription;
 			   video_long_description_txt.htmlText = current_video.longdescription;
@@ -158,7 +196,7 @@ package components.views
              if (video_player.child != null) {                    
                  // Call setters in the module to adjust its
                  // appearance when it loads.
-                vpchild.setVideo(current_video.@id);
+                vpchild.setVideo(current_video.@id,true);
  			   video_title_txt.text = current_video.title;
  			   video_short_description_txt.text = current_video.shortdescription;
  			   video_long_description_txt.htmlText = current_video.longdescription;
@@ -364,7 +402,7 @@ package components.views
             if (video_player.child != null) {                    
                 // Call setters in the module to adjust its
                 // appearance when it loads.
-              vpchild.setVideo(parentDocument.current_video.@id);
+              vpchild.setVideo(parentDocument.current_video.@id,true);
 			   //video_title_txt.text = evt.currentTarget.selectedItem.title;
 			   //video_short_description_txt.text = evt.currentTarget.selectedItem.shortdescription;
 			   //video_long_description_txt.htmlText = evt.currentTarget.selectedItem.longdescription;

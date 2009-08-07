@@ -289,7 +289,7 @@ package components.views
 		            if (video_player_basic_view.video_player.child != null) {                    
 		                // Call setters in the module to adjust its
 		                // appearance when it loads.
-		              vpchild.setVideo(current_video.@id);
+		              vpchild.setVideo(current_video.@id,false);
 		            } else {                
 		                trace("Uh oh. The video_player.child property is null");                 
 		            }
@@ -330,7 +330,7 @@ package components.views
 		            if (video_player_recommended_view.video_player.child != null) {                    
 		                // Call setters in the module to adjust its
 		                // appearance when it loads.
-		              vpchild.setVideo(current_video.@id);
+		              vpchild.setVideo(current_video.@id,false);
 		            } else {                
 		                trace("Uh oh. The video_player.child property is null");                 
 		            }
