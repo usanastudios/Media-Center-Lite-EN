@@ -160,7 +160,7 @@ public class SendEmailPageBaseClass extends TitleWindow
 			params['fromname'] = your_name.text;
 			params['fromemail'] = your_email.text;
 			params['subject'] = your_subject.text;
-			params['body'] = your_message.text+ "\n Link to standalone video will go here. Video ID for this one is"+parentDocument.current_video.@id;
+			params['body'] = your_message.text+ "<br><br>To view the video, visit http://www.usanamedia.com/Media-Center-Lite-Standalone/main.html#video_id="+parentDocument.current_video.@id;
 			params['videoID'] = parentDocument.current_video.@id;
 			params['emailID'] = randEMailId;
 			email_svc.send(params);
