@@ -340,7 +340,6 @@
 				{
 					_bossMetafile.load(VIDEO_URL);
 					parentDocument.play_overlay_btn.visible=true;
-					parentDocument.results_for_txt.visible = false;
 				}
 				_isPaused = false;
 				

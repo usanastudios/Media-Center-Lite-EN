@@ -556,14 +556,46 @@ package components.views
 	{
 		var all_videos:XMLList = wall_video_svc.lastResult.video;
 		var wall_video:XMLList =  all_videos.(@id==selectedWallVideoID);
+		
+		var videoArray:ArrayCollection = new ArrayCollection();
+		for each (var video:XML in all_videos)
+		{
+			videoArray.addItem({"id":video.@id.substring(3),"title":video.title,"shortdescription":video.shortdescription,"longdescription":video.longdescription});
+		}
+		
+		/*BELOW WE SORT THE RESULTS DESCENDING BASED ON STREAMHITS*/
+		var dataSortField:SortField = new SortField();
+		dataSortField.name = "id";
+		dataSortField.numeric = true;
+		dataSortField.descending = true;
+		var numericDataSort:Sort = new Sort();
+		numericDataSort.fields = [dataSortField];
+		videoArray.sort = numericDataSort;
+		videoArray.refresh();
+		
+		
+		
+		/*REBUILD THE XML*/
+		var xmlstr:String = "<mediacenter>"; 
+			for each (var finalVideo:Object in videoArray)
+			{
+				xmlstr += "<video id=\"ven"+finalVideo.id+"\">\n";
+				xmlstr += "<title>"+finalVideo.title+"</title>\n"; 
+				xmlstr += "<shortdescription>"+finalVideo.shortdescription+"</shortdescription>\n"; 
+				//xmlstr += "<longdescription>"+finalVideo.longdescription+"</longdescription>\n"; 
+				xmlstr += "</video>";
+			}
+			xmlstr += "</mediacenter>";
+			
+		/*SET THE VIDEO_LIST RESULTS*/
+		video_list = new XML(xmlstr);
+		
 		current_video = wall_video[0];
 		
 		/*SET CURRENT SEARCH TERM (FOR DISPLAY ON VIDEO PLAYER PAGE)*/
-		current_search_term = current_video.title;
+		current_search_term = "All Videos";
 		
-		
-		/*SET THE VIDEO_LIST RESULTS*/
-		video_list = wall_video_svc.lastResult as XML;
+	
 	
 		//REMOVE 3DWALL DUE TO BUG
 		landing_page_view.wall.unloadAndStop();
