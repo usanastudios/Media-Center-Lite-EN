@@ -123,3 +123,10 @@ mx|TileList
 }
 
 
+mx|ToolTip { 
+  fontFamily: HelveticaEmbed; 
+  fontSize: 12; 
+  color: #FFFFFF; 
+  backgroundColor: #101010;
+}
+
