@@ -10,8 +10,8 @@
 
 <fx:Script>
 	<![CDATA[ 
-	//public static const WEB_SERVICE_URL:String = "http://www.usana.com/Main/mediaCenter/searchV";
-	public static const WEB_SERVICE_URL:String = "http://slc-webdev1.usana.com/Main/mediaCenter/searchV";
+	public static const WEB_SERVICE_URL:String = "http://www.usana.com/Main/mediaCenter/searchV";
+	//public static const WEB_SERVICE_URL:String = "http://slc-webdev1.usana.com/Main/mediaCenter/searchV";
  	]]>
 </fx:Script>
  
