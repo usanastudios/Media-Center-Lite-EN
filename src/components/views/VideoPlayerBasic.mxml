@@ -1,9 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <views:VideoPlayerBasicBaseClass xmlns:fx="http://ns.adobe.com/mxml/2009" backgroundColor="0x030303" xmlns:mx="library://ns.adobe.com/flex/halo" xmlns:views="components.views.*" show="onShow()" creationComplete="basic_video_init()" xmlns:s="library://ns.adobe.com/flex/spark" hide="pauseVideo()">
 
-
-
-	
 	<fx:Declarations>
 		
 		<!-- Define the Akamai HTTP service -->
@@ -90,13 +87,9 @@
         itemRenderer="components.renderers.Thumbnail" 
         width="1000" 
         click="parentDocument.showVideo(event,this);">
-<<<<<<< HEAD:src/components/views/VideoPlayerBasic.mxml
 
-    </mx:TileList>
-
-=======
     </s:List>
->>>>>>> 015926744b485bef185aabab782510bc451a3971:src/components/views/VideoPlayerBasic.mxml
+
 
 </s:VGroup>	
 
