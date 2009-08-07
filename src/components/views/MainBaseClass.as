@@ -117,14 +117,14 @@ package components.views
 	           <menuitem label="True Wealth">
 	          	 	<menuitem label="The Pay Plan"/>
 	           		<menuitem label="The Opportunity"/>
-	           		<menuitem label="Testimonials"/>
+	           		<menuitem label="Wealth Testimonials"/>
 	           </menuitem> 
 	           <menuitem label="True Health" >
 	                <menuitem label="Skin Care"/>
 	                <menuitem label="Nutrition"/> 
 	                <menuitem label="Energy"/>
 	                <menuitem label="Atheletes"/>
-	                <menuitem label="Testimonials"/>
+	                <menuitem label="Health Testimonials"/>
 	            </menuitem>
 	            <menuitem label="USANA Health Sciences"/> 
 	            <menuitem label="I'm Not Sure"/>
@@ -176,6 +176,22 @@ package components.views
 			else if (event.label == "USANA Health Sciences")
 			{
 				recommendedSearch("USANA Health Sciences");
+			}
+			else if (event.label == "The Pay Plan")
+			{
+				recommendedSearch("The Pay Plan");
+			}
+			else if (event.label == "The Opportunity")
+			{
+				recommendedSearch("The Opportunity");
+			}
+			else if (event.label == "Health Testimonials")
+			{
+				recommendedSearch("Health Testimonials");
+			}
+			else if (event.label == "Wealth Testimonials")
+			{
+				recommendedSearch("Wealth Testimonials");
 			}
 			
 		} 
