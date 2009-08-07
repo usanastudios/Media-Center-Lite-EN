@@ -550,7 +550,7 @@ package components.views
 		//REMOVE 3DWALL DUE TO BUG
 		landing_page_view.wall.unloadAndStop();
 		
-		search_type = "single_video";
+		search_type = "wall_video";
 		
 		main_view_stack.selectedIndex = 1;
 	}

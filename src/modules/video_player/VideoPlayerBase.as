@@ -334,6 +334,14 @@
 				{
 					_bossMetafile.load(VIDEO_URL);
 				}
+
+				/*IF COMING FROM A WALL VIDEO, PLAY VIDEO NOW*/
+				if(FlexGlobals.topLevelApplication.search_type == "wall_video")
+				{
+					_bossMetafile.load(VIDEO_URL);
+					parentDocument.play_overlay_btn.visible=true;
+					parentDocument.results_for_txt.visible = false;
+				}
 				_isPaused = false;
 				
 			}
