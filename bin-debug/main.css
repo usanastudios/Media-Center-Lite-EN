@@ -44,7 +44,9 @@ mx|Menu.prospectMenu1
 	color: #FAFBFB;
 	fontFamily: HelveticaEmbed;
 	fontSize: 12;
-	borderStyle: none;
+border-thickness: 0;    
+borderStyle: "none";
+	borderColor:#FFFFFF;
 	openDuration: 0;
 	verticalScrollBarStyleName: menuVerticalScrollBar;
 
@@ -84,12 +86,22 @@ mx|TitleWindow{
 	headerHeight:50px;
 	closeButtonSkin: Embed(source='assets/skins/close_button_skin.png'); 
 	fontFamily: HelveticaEmbed;
-	font-size: 12;
+
 	/* Set values from defaults.css to null. */ 
 	closeButtonDisabledSkin: ClassReference(null); 
 	closeButtonDownSkin: ClassReference(null); 
 	closeButtonOverSkin: ClassReference(null); 
 	closeButtonUpSkin: ClassReference(null);
+}
+
+mx|Text.emailTitleSkin {
+	fontFamily: HelveticaEmbed;
+	
+}
+
+mx|Text.recommendedLabelSkin {
+	fontFamily: HelveticaEmbed;
+	
 }
 
 

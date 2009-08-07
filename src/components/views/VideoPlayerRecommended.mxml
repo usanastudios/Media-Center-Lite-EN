@@ -39,7 +39,7 @@
     </mx:XML>
     
 
-<s:VGroup>
+<s:VGroup gap="0">
 	<s:HGroup>
 		<mx:ModuleLoader id="video_player" url="modules/video_player/VideoPlayer.swf?video_id={current_video.@id}" paddingLeft="25" paddingTop="17" paddingBottom="25"  />
 		<s:VGroup>
@@ -49,44 +49,44 @@
 					<s:Button id="share_menu_btn" skinClass="components.skins.ShareMenuSkin" buttonMode="true" />
 				</mx:Box>
 			<mx:Text id="video_long_description_txt" width="375" paddingLeft="20" htmlText="{parentDocument.video_long_description}" styleName="videoSubTitle"/>
-		</s:VGroup>
+		
+		
+		
+   
+   </s:VGroup>
 	</s:HGroup> 
 	
 	<!-- ==================== -->
 	<!-- = RESULTS AND PAGING = -->
 	<!-- ==================== -->
-	<s:HGroup>
-		<mx:Text id="results_for_txt" text="Results For "  styleName="resultsFor"/>
+	
+	<mx:Box width="1000" height="1" backgroundColor="0x000000" />
+	<mx:Box width="1000" height="1" backgroundColor="0x151515" />
+	
+	<mx:HBox id="pageBarBox" styleName="pageBar" width="1000" height="56" verticalAlign="middle" paddingRight="16" verticalScrollPolicy="off" horizontalScrollPolicy="off">
+		 
+		<mx:Text id="results_for_txt" text="Results For " styleName="resultsFor" paddingLeft="25"/>
 		<s:Button id="sort_menu_btn" fontFamily="Arial" skinClass="components.skins.SortMenuSkin" buttonMode="true"/>
-		<s:Button id="firstTen_btn" skinClass="components.skins.PreviousPageButtonSkin" buttonMode="true" label="....." enabled="false" click="parentDocument.getPreviousTen(this);"/>
-		<s:Button id="previous_btn" click="parentDocument.getPreviousPage()" skinClass="components.skins.PreviousButtonSkin" buttonMode="true"/>
+		
+		<mx:ControlBar id="pagination" horizontalAlign="right" width="100%">
+			
+			<s:Button id="firstTen_btn" skinClass="components.skins.PreviousPageButtonSkin" buttonMode="true" label="....."  click="parentDocument.getFirstTen(this);"/>
+			<s:Button id="previous_btn" click="parentDocument.getPreviousPage(this)" skinClass="components.skins.PreviousButtonSkin" buttonMode="true"/>
 			<mx:HBox id="rp_hbox">             
-				<mx:Repeater id="rp" dataProvider="{parentDocument.pageCountDummyArray}" count="10" startingIndex="1">
-			       <mx:LinkButton id="pageNumber_lbl" buttonMode="true" label="{rp.currentIndex}"  click="parentDocument.getSelectedPage(event.target.label,this,event.target)"/>
+				<mx:Repeater id="rp" dataProvider="{parentDocument.pageCountDummyArray}" count="6" startingIndex="0">
+			       <mx:LinkButton id="pageNumber_lbl" cornerRadius="4" buttonMode="true" label="{rp.currentIndex + 1}"  click="parentDocument.getSelectedPage(event.target.label,this,event.target)" />
 			    </mx:Repeater>
-			</mx:HBox>
-		<s:Button id="next_btn" click="parentDocument.getNextPage()" skinClass="components.skins.NextButtonSkin" buttonMode="true"/>
-		<s:Button id="lastTen_btn" skinClass="components.skins.NextPageButtonSkin" buttonMode="true" label="....." visible="false" click="parentDocument.getNextTen(this);"/>
+			</mx:HBox> 
+			<s:Button id="next_btn"  skinClass="components.skins.NextButtonSkin" buttonMode="true" enabled="false" click="parentDocument.getNextPage(this)"/>
+			<s:Button id="lastTen_btn" skinClass="components.skins.NextPageButtonSkin" buttonMode="true" label="....." visible="false" click="parentDocument.getLastTen(this);"/>
+			
+		</mx:ControlBar>
 		
-	</s:HGroup>
-
-
-
+		</mx:HBox>
 	
-<!-- ====================== -->
-<!-- = RECOMMENDED VIDEOS = -->
-<!-- ====================== -->
- <mx:Tile direction="horizontal" borderStyle="inset" backgroundImage="assets/images/recommended.png" horizontalAlign="center"
-       horizontalGap="10" verticalGap="15"
-       paddingLeft="45" paddingTop="39" paddingBottom="39" paddingRight="10" width="1000">
-       <mx:Repeater id="rp_thumbnails" dataProvider="{parentDocument.video_list.video}" count="5">
-      <mx:Image  autoLoad="true" automationName="{rp_thumbnails.currentIndex}" source="http://www.usana.com/media/File/mediaCenter/thumbnails/{rp_thumbnails.currentItem.@id}.jpg" buttonMode="true" click="showRecommendedVideo(event);"/>
+	<mx:Box width="1000" height="1" backgroundColor="0x000000" />
 
-       </mx:Repeater>
-   </mx:Tile>
-	
-    	
-		
+
 	<!-- ======================================= --> 
 	<!-- = TILE LIST CONTAINING THE THUMBNAILS = -->
 	<!-- ======================================= -->
@@ -99,6 +99,28 @@
     </s:List>
      
 </s:VGroup>	
+
+		<!-- ====================== -->
+		<!-- = RECOMMENDED VIDEOS = -->
+		<!-- ====================== -->
+		<mx:VBox paddingLeft="20" y="275" x="578">
+			
+		<mx:Label text="Recommended Videos" styleName="recommendedLabelSkin"/>
+		
+		 <mx:Tile direction="vertical" backgroundColor="0x000000" cornerRadius="15" backgroundAlpha=".3"
+		 	verticalScrollPolicy="off" 
+		 	horizontalScrollPolicy="off"
+		 	   borderStyle="none" horizontalGap="10" horizontalAlign="center" verticalAlign="middle" paddingTop="14" paddingLeft="15" 
+
+		       width="368" height="73" >
+		       <mx:Repeater id="rp_thumbnails" dataProvider="{parentDocument.video_list.video}" count="4">
+		      		<mx:Image  autoLoad="true" smoothBitmapContent="true" automationName="{rp_thumbnails.currentIndex}" height="45" width="77" source="http://www.usana.com/media/File/mediaCenter/thumbnails/{rp_thumbnails.currentItem.@id}.jpg" buttonMode="true" click="showRecommendedVideo(event);"/>
+		       </mx:Repeater>
+		   </mx:Tile>
+		   
+		   </mx:VBox>
+		   
+		   
 
 <!-- ================= -->
 <!-- = REPLAY BUTTON = -->

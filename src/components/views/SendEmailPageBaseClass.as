@@ -193,7 +193,6 @@ public class SendEmailPageBaseClass extends TitleWindow
 	public function copyLinkToClipboard():void
 	{
 		System.setClipboard(direct_link.text);
-		mx.controls.Alert.show("Video link URL copied to clipboard.");
 		
 	}
 }

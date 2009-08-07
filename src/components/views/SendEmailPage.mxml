@@ -34,6 +34,7 @@
 		<s:TextInput id="direct_link" width="182"  contentBackgroundColor="#C2C2C2" color="#000000" text="http://someaddress.com/main.html#video_id={parentDocument.current_video.@id}.mp4"/>
 		<s:Button skinClass="components.skins.CopyButtonSkin" buttonMode="true" useHandCursor="true" click="copyLinkToClipboard()"/>
 	</mx:FormItem>
+	<mx:Text id="codeCopiedText"/>
 	<mx:FormItem label="Send Me A Copy" direction="horizontal" paddingTop="25">
 		<s:CheckBox id="send_to_self_chk"/>
 	</mx:FormItem>

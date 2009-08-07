@@ -99,6 +99,11 @@ mx|Text.emailTitleSkin {
 	
 }
 
+mx|Text.recommendedLabelSkin {
+	fontFamily: HelveticaEmbed;
+	
+}
+
 
 /*mx|TextInput
 {
