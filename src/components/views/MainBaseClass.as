@@ -203,6 +203,11 @@ package components.views
 			else if (event.label == "Wealth Testimonials")
 			{
 				recommendedSearch("Wealth Testimonials");
+			}			
+			else if (event.label == "I'm Not Sure")
+			{
+				//IF NOT SURE, GET MOST VIEWED
+				get_most_viewed();
 			}
 			
 		} 
@@ -410,7 +415,7 @@ package components.views
 	/* =============================== */
 	/* = FUNCTION TO GET MOST VIEWED = */
 	/* =============================== */
-	private function get_most_viewed(event:MouseEvent):void
+	private function get_most_viewed(event:MouseEvent=null):void
 	{
 		/*POP UP SEARCHING VIEW*/
 		main_view_stack.selectedIndex = 2;
