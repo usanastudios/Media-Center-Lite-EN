@@ -85,8 +85,7 @@
      <s:List id="video_list" dataProvider="{parentDocument.pagedDataProvider}" 
       	height="480" skinClass="components.skins.ThumbnailListBasicSkin"
         itemRenderer="components.renderers.Thumbnail" 
-        width="1000" 
-    </s:List>
+        width="1000" />
 
 
 </s:VGroup>	
