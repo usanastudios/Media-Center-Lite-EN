@@ -169,43 +169,43 @@ package components.views
 		{
 			if (event.label == "True Wealth")
 			{
-				recommendedSearch("True Wealth");
+				recommendedSearch("wealth");
 			}
 			else if (event.label == "Skin Care")
 			{
-				recommendedSearch("Skin Care");
+				recommendedSearch("skin");
 			}
 			else if (event.label == "Nutrition")
 			{
-				recommendedSearch("Nutrition");
+				recommendedSearch("nutrition");
 			}
 			else if (event.label == "Energy")
 			{
-				recommendedSearch("Energy");
+				recommendedSearch("energy");
 			}
 			else if (event.label == "Atheletes")
 			{
-				recommendedSearch("Atheletes");
+				recommendedSearch("atheletes");
 			}
 			else if (event.label == "USANA Health Sciences")
 			{
-				recommendedSearch("USANA Health Sciences");
+				recommendedSearch("usana");
 			}
 			else if (event.label == "The Pay Plan")
 			{
-				recommendedSearch("The Pay Plan");
+				recommendedSearch("comp plan");
 			}
 			else if (event.label == "The Opportunity")
 			{
-				recommendedSearch("The Opportunity");
+				recommendedSearch("opportunity");
 			}
 			else if (event.label == "Health Testimonials")
 			{
-				recommendedSearch("Health Testimonials");
+				recommendedSearch("health");
 			}
 			else if (event.label == "Wealth Testimonials")
 			{
-				recommendedSearch("Wealth Testimonials");
+				recommendedSearch("wealth");
 			}			
 			else if (event.label == "I'm Not Sure")
 			{
