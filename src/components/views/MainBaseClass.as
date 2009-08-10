@@ -166,43 +166,43 @@ package components.views
 		{
 			if (event.label == "True Wealth")
 			{
-				recommendedSearch("wealth");
+				recommendedSearch("wealth","True Wealth");
 			}
 			else if (event.label == "Skin Care")
 			{
-				recommendedSearch("skin");
+				recommendedSearch("skin","Skin Care");
 			}
 			else if (event.label == "Nutrition")
 			{
-				recommendedSearch("nutrition");
+				recommendedSearch("nutrition","Nutrition");
 			}
 			else if (event.label == "Energy")
 			{
-				recommendedSearch("energy");
+				recommendedSearch("energy","Energy");
 			}
 			else if (event.label == "Atheletes")
 			{
-				recommendedSearch("atheletes");
+				recommendedSearch("atheletes","Atheletes");
 			}
 			else if (event.label == "USANA Health Sciences")
 			{
-				recommendedSearch("usana");
+				recommendedSearch("usana","USANA Health Sciences");
 			}
 			else if (event.label == "The Pay Plan")
 			{
-				recommendedSearch("comp plan");
+				recommendedSearch("comp plan","The Pay Plan");
 			}
 			else if (event.label == "The Opportunity")
 			{
-				recommendedSearch("opportunity");
+				recommendedSearch("opportunity","The Opportunity");
 			}
 			else if (event.label == "Health Testimonials")
 			{
-				recommendedSearch("health");
+				recommendedSearch("health","Health Testimonials");
 			}
 			else if (event.label == "Wealth Testimonials")
 			{
-				recommendedSearch("wealth");
+				recommendedSearch("wealth","Wealth Testimonials");
 			}			
 			else if (event.label == "I'm Not Sure")
 			{
@@ -303,14 +303,14 @@ package components.views
 		/* ============================================== */
 		/* = FUNCTION TO DO RECOMMENDED SEARCH FOR VIDEOS = */
 		/* ============================================== */
-		public function recommendedSearch(search_term:String):void
+		public function recommendedSearch(search_term:String, searchTitle:String):void
 		{	
             
 				/*SET CURRENT SEARCH TERM (FOR DISPLAY ON VIDEO PLAYER PAGE)*/
 				current_search_term = search_term;
 				
 				/*SEARCHING MESSAGE*/
-				current_search_message = "Getting videos for '" +search_term+ "'";
+				current_search_message = "Getting videos for '" +searchTitle+ "'";
 				
 				/*POP UP SEARCHING VIEW*/
 				main_view_stack.selectedIndex = 2;
