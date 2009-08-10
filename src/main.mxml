@@ -5,7 +5,7 @@
 		xmlns:fc="http://www.adobe.com/2006/fc"
  		xmlns:mx="library://ns.adobe.com/flex/halo" xmlns:views="components.views.*"
 		xmlns:local="*"
- >
+		>
 	 
 
 <fx:Script>
