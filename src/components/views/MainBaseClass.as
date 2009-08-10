@@ -857,11 +857,16 @@ package components.views
 	<!-- ================================================= -->		
 	public function underlineFirstRecord(videoPage:Object):void
 	{
-			   //UNDERLINE CURRENT PAGE NUMBER
-			if(videoPage.pageNumber_lbl[0])
-			{
-				videoPage.pageNumber_lbl[0].setStyle('textDecoration','underline');
-			}
+		   if (videoPage.pageNumber_lbl[0])
+		   {
+			   //UNDERLINE FIRST PAGE NUMBER
+		   		if(videoPage.pageNumber_lbl[0])
+				{
+					videoPage.pageNumber_lbl[0].setStyle('textDecoration','underline');
+				}
+		   }
+		   
+		
 	}
 	
     

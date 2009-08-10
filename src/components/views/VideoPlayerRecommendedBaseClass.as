@@ -133,14 +133,15 @@ package components.views
 		/* ========================================================== */
 		public function showRecommendedVideo(event:MouseEvent):void {
 			
-			pauseVideo();
+			//pauseVideo();
 			
 			//WE ARE USING THE 'automationName' PROPERTY ON THE RECOMMENDED THUMBNAIL TO GET THE INDEX NUMBER BACK - KIND OF A HACK :)
 			//mx.controls.Alert.show(event.currentTarget.automationName.toString());
 			var thumbNailIndex:int = event.currentTarget.automationName;
 			
 			//SET CURRENT VIDEO BASED ON CLICKED THUMBNAIL
-			current_video = parentDocument.video_list.video[thumbNailIndex];
+			
+		 //	current_video = parentDocument.video_list.video[thumbNailIndex];
 	 		// Cast the ModuleLoader's child to the interface.
             // This child is an instance of the module.
             // We can now call methods on that instance.
@@ -148,17 +149,24 @@ package components.views
              if (video_player.child != null) {                    
                  // Call setters in the module to adjust its
                  // appearance when it loads.
-                vpchild.setVideo(current_video.@id,true);
- 			   video_title_txt.text = current_video.title;
- 			   video_short_description_txt.text = current_video.shortdescription;
- 			   video_long_description_txt.htmlText = current_video.longdescription;
+
+             vpchild.setVideo(parentDocument.video_list.video[thumbNailIndex].@id,true);
+ 			   video_title_txt.text = parentDocument.video_list.video[thumbNailIndex].title;
+ 			   video_short_description_txt.text = parentDocument.video_list.video[thumbNailIndex].shortdescription;
+ 			   video_long_description_txt.htmlText = parentDocument.video_list.video[thumbNailIndex].longdescription;
              } else {                
                  trace("Uh oh. The video_player.child property is null");                 
              }
+
+			//			mx.controls.Alert.show(current_video.toString());
+						
            
 	
 		}
-	 
+		
+		
+	
+ 
 		
 		
         /* ============================================== */
