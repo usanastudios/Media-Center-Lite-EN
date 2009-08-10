@@ -7,6 +7,7 @@
 package components.views
 {
 	
+	
 	import flash.events.MouseEvent;
 	import flash.net.URLRequest;
 	import flash.net.navigateToURL;
@@ -17,10 +18,12 @@ package components.views
 	import mx.collections.Sort;
 	import mx.collections.SortField;
 	import mx.collections.XMLListCollection;
+	import mx.containers.Panel;
 	import mx.containers.ViewStack;
 	import mx.controls.Alert;
 	import mx.controls.LinkButton;
 	import mx.controls.Menu;
+	import mx.core.UIComponent;
 	import mx.events.MenuEvent;
 	import mx.formatters.DateFormatter;
 	import mx.managers.PopUpManager;
@@ -103,7 +106,7 @@ package components.views
 		public function initMainApp():void
 		{
 		//	auto_complete_svc.send();
-			
+		
 			
 			/*EVENT LISTENERS*/
 			prospectMenu1_btn.addEventListener(MouseEvent.CLICK,createAndShowProspectMenu1);
