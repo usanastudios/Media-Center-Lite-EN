@@ -1,9 +1,11 @@
 package components.controls {
 	import flash.display.*;
 	import flash.events.*;
+	import flash.net.*;
 	import flash.system.*;
 	import flash.utils.*;
-	import flash.net.*;
+	
+	import mx.core.FlexGlobals;
 
 	public class ClearspringAPI extends MovieClip
 	{
@@ -30,13 +32,14 @@ package components.controls {
 		{
 			// Grab reference to actual kernel
 			kernel = Object(kernelLoader.content).kernel;
+			//kernel.share.put("google", {config: {video_id: 'ven123'}}, shareCallback);
+			
 
 			
 			// Send a custom event
 			// @see http://www.clearspring.com/docs/tech/apis/in-widget/track
 			kernel.track.event('Kernel loaded');
-			
-
+			kernel.widget.configure({video_id:FlexGlobals.topLevelApplication.current_video.@id });
 			
 			// @see http://www.clearspring.com/docs/tech/apis/in-widget/context
 			trace('You have viewed this widget ' + kernel.context.user.WIDGET_VIEWS + ' times');
