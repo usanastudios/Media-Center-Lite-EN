@@ -180,7 +180,7 @@
 					Alert.show("Connected to the server at " + _nc.serverIPaddress + " but timed-out trying to locate the live stream " + _bossMetafile.streamName, "UNABLE TO FIND STREAM ", Alert.OK);
 					break;
 				default:
-					Alert.show("Error #" + e.data.errorNumber+": " + e.data.errorDescription, "ERROR", Alert.OK);
+					//Alert.show("Error #" + e.data.errorNumber+": " + e.data.errorDescription, "ERROR", Alert.OK);
 					break;
 				}
 			}
