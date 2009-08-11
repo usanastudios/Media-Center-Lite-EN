@@ -954,8 +954,10 @@ public function sort_by_most_recent(serviceResult:XMLList):XML
 	
 	
 	var videoArray:ArrayCollection = new ArrayCollection();
+	
 	for each (var video:XML in serviceResult)
 	{
+		
 		videoArray.addItem({"id":video.@id.substring(3),"title":video.title,"shortdescription":video.shortdescription,"longdescription":video.longdescription});
 	}
 	
@@ -975,16 +977,23 @@ public function sort_by_most_recent(serviceResult:XMLList):XML
 	var xmlstr:String = "<mediacenter>"; 
 		for each (var finalVideo:Object in videoArray)
 		{
+			
 			xmlstr += "<video id=\"ven"+finalVideo.id+"\">\n";
 			xmlstr += "<title>"+finalVideo.title+"</title>\n"; 
 			xmlstr += "<shortdescription>"+finalVideo.shortdescription+"</shortdescription>\n"; 
 			//xmlstr += "<longdescription>"+finalVideo.longdescription+"</longdescription>\n"; 
 			xmlstr += "</video>";
-		}
+		
+			}
+			
+		
 			xmlstr += "</mediacenter>";
+			 
 		
 			/*SET THE VIDEO_LIST RESULTS*/
 			video_list = new XML(xmlstr);
+			
+			
 			return video_list
 		
 }
