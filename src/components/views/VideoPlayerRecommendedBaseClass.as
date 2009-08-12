@@ -346,6 +346,12 @@ package components.views
 				parentDocument.embedVideo(parentDocument.current_video.title); 
 
 			}
+			
+			if(event.label == "Download")
+			{
+				parentDocument.downloadVideo(parentDocument.current_video.@id); 
+				
+			}
 		}
 
 
