@@ -18,12 +18,11 @@ package components.views
 	import mx.collections.Sort;
 	import mx.collections.SortField;
 	import mx.collections.XMLListCollection;
-	import mx.containers.Panel;
 	import mx.containers.ViewStack;
 	import mx.controls.Alert;
 	import mx.controls.LinkButton;
 	import mx.controls.Menu;
-	import mx.core.UIComponent;
+	import mx.core.FlexGlobals;
 	import mx.events.MenuEvent;
 	import mx.formatters.DateFormatter;
 	import mx.managers.PopUpManager;
@@ -108,6 +107,7 @@ package components.views
 		//	auto_complete_svc.send();
 		
 			
+			
 			/*EVENT LISTENERS*/
 			prospectMenu1_btn.addEventListener(MouseEvent.CLICK,createAndShowProspectMenu1);
 			search_btn.addEventListener(MouseEvent.CLICK,search);
@@ -143,6 +143,10 @@ package components.views
 	            <menuitem label="USANA Health Sciences"/> 
 	            <menuitem label="I'm Not Sure"/>
         	</root>;
+
+
+		
+
     
 		}
 		
@@ -483,6 +487,7 @@ package components.views
 	/* ================================================= */
 	public function wallVideoResultHandler():void
 	{
+		
 		var all_videos:XMLList = wall_video_svc.lastResult.video;
 		var wall_video:XMLList =  all_videos.(@id==selectedWallVideoID);
 		
@@ -1073,6 +1078,13 @@ public function akamaiResultHandler():void
 	//RE-ENABLE MOST VIEWED BUTTON
 	mostViewed_btn.enabled = true;
 	
+		/*IF VIDEO_ID PASSED IN URL, GO DIRECTLY TO VIDEO PLAYER PAGE*/
+		/*WE RE-USE THE WALL VIDEO CLICK FUNCTIONS FOR THIS */
+		if (FlexGlobals.topLevelApplication.parameters.video_id != "null")
+		{
+			selectedWallVideoID = FlexGlobals.topLevelApplication.parameters.video_id;
+		    getWallVideo();
+		}
 
 	
 }	
