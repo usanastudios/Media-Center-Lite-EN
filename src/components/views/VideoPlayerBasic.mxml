@@ -42,7 +42,7 @@
 				<mx:Box paddingLeft="17">
 					<s:Button id="share_menu_btn" skinClass="components.skins.ShareMenuSkin" buttonMode="true" />
 				</mx:Box>
-			<mx:Text id="video_long_description_txt" width="375" paddingLeft="20" htmlText="{parentDocument.video_long_description}" styleName="videoSubTitle"/>
+			<mx:Text id="video_long_description_txt" width="380" paddingLeft="20" paddingTop="8" text="{parentDocument.video_long_description}" styleName="videoLongDesc"/>
 		</s:VGroup>
 	</s:HGroup>
 	
