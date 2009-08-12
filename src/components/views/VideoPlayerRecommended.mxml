@@ -27,6 +27,7 @@
         <root>
            <menuitem label="Email"/>
            <menuitem label="Embed"/>
+           <menuitem label="Download"/>
         </root> 
     </mx:XML>
 

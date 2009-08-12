@@ -532,6 +532,16 @@ package components.views
 			embedWindow.x = 100;
 		}
 		
+		/* ======================================== */
+		/* = FUNCTION TO DOWNLOAD VIDEO = */
+		/* ======================================== */
+		public function downloadVideo(id:String):void
+		{
+			var urlRequest:URLRequest = new URLRequest("http://www.usanamedia.com/downloads/?id=" + id +"&lan="+ LANGUAGE);
+                navigateToURL(urlRequest, "_blank");
+
+		}
+		
 		
  
 

@@ -61,6 +61,7 @@ package components.views
 			sort_menu_btn.addEventListener(MouseEvent.CLICK,createAndShowSortMenu);
 			replay_btn.addEventListener(MouseEvent.CLICK,replayVideo);
 			play_overlay_btn.addEventListener(MouseEvent.CLICK,replayVideo);
+
 			
 			/*SET UP PAGINATION*/
 			parentDocument.pagination_setup(this);
@@ -324,6 +325,12 @@ package components.views
 			if(event.label == "Embed")
 			{
 				parentDocument.embedVideo(parentDocument.current_video.title); 
+				
+			}
+			
+			if(event.label == "Download")
+			{
+				parentDocument.downloadVideo(parentDocument.current_video.@id); 
 				
 			}
 		}
