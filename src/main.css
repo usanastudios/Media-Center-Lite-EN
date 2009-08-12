@@ -66,6 +66,13 @@ mx|Text.videoSubTitle
 	fontSize: 11;
 }
 
+mx|Text.videoLongDesc
+{
+	color: #acacac;
+	fontSize: 12;
+	leading: 5;
+}
+
 mx|HBox.pageBar {
 	background-color: #0a0a0a;
 }
