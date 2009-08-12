@@ -981,7 +981,7 @@ public function sort_by_most_recent(serviceResult:XMLList):XML
 			xmlstr += "<video id=\"ven"+finalVideo.id+"\">\n";
 			xmlstr += "<title>"+finalVideo.title+"</title>\n"; 
 			xmlstr += "<shortdescription>"+finalVideo.shortdescription+"</shortdescription>\n"; 
-			//xmlstr += "<longdescription>"+finalVideo.longdescription+"</longdescription>\n"; 
+			xmlstr += "<longdescription>"+finalVideo.longdescription+"</longdescription>\n"; 
 			xmlstr += "</video>";
 		
 			}
@@ -1041,7 +1041,7 @@ public function sort_by_most_viewed(serviceResult:XMLList):XML
 		xmlstr += "<video id=\""+finalVideo.id+"\">\n";
 		xmlstr += "<title>"+finalVideo.title+"</title>\n"; 
 		xmlstr += "<shortdescription>"+finalVideo.shortdescription+"</shortdescription>\n"; 
-		//xmlstr += "<longdescription>"+finalVideo.longdescription+"</longdescription>\n"; 
+		xmlstr += "<longdescription>"+finalVideo.longdescription+"</longdescription>\n"; 
 		xmlstr += "<streamhits>"+finalVideo.streamhits+"</streamhits>\n"; 
 		xmlstr += "</video>";
 		
