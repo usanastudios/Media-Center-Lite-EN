@@ -2,6 +2,8 @@
 			import com.akamai.net.*;
 			import com.akamai.rss.AkamaiBOSSParser;
 			
+			import components.controls.VideoControls;
+			
 			import flash.display.StageDisplayState;
 			import flash.events.FullScreenEvent;
 			import flash.events.HTTPStatusEvent;
@@ -17,6 +19,8 @@
 			import org.openvideoplayer.cc.*;
 			import org.openvideoplayer.events.*;
 			import org.openvideoplayer.net.*;
+
+;
 
 ;
 
@@ -59,6 +63,7 @@
 			}
 	           VIDEO_URL = "http://usana.edgeboss.net/flash/usana/h.264/"+id+".mp4?xmlvers=1";
 	           _CAPTION_URL_ = "http://www.usana.com/media/File/mediaCenter/closed_caption/"+FlexGlobals.topLevelApplication.current_video.@id+".xml";
+
 				
 				
 				//CHECK FOR CLOSE CAPTIONED FILE
