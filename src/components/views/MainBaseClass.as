@@ -890,6 +890,9 @@ public function showVideo(video:XML,videoPage:Object):void {
 		      } else {                
 		          trace("Uh oh. The video_player.child property is null");                 
 		      }
+		
+		//PREVENT VOLUME FROM RESETTING
+		vpchild.changeVolume();
 }
 
 

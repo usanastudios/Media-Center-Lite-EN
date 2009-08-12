@@ -89,6 +89,9 @@
 					parentDocument.play_overlay_btn.visible=true;
 					startPlayback();
 				}
+				
+			
+				
 	        }
 	    
 			 
@@ -160,7 +163,7 @@
 				_ccMgr = new OvpCCManager(_ns);
 				_ccMgr.addEventListener(OvpEvent.ERROR, errorHandler);		
 				_ccMgr.addEventListener(OvpEvent.CAPTION, captionHandler);
-//				_ccMgr.parse(_CAPTION_URL_); 
+				_ccMgr.parse(_CAPTION_URL_); 
 				videoControls.bClosedcaption.styleName = "ccBtnOn";				
 				
 				_ns.maxBufferLength = 2;
@@ -304,7 +307,9 @@
    			// Plays the stream 
    			private function playVideo(name:String):void {
    				_ns.play(name);
-   				videoControls.bPlayPause.styleName = "vpPauseBtn";  				
+   				videoControls.bPlayPause.styleName = "vpPauseBtn";  
+ 				changeVolume();
+				
    			}
    			// Updates the time display and slider
    			private function update(e:OvpEvent):void {
@@ -362,6 +367,7 @@
 				}
 				_isPaused = false;
 				
+				
 			}
 			
 			
@@ -401,10 +407,29 @@
 				return (h == 0 ? "":(h<10 ? "0"+h.toString()+":" : h.toString()+":"))+(m<10 ? "0"+m.toString() : m.toString())+":"+(s<10 ? "0"+s.toString() : s.toString());
 			}
 			// Changes the stream volume
-			public function changeVolume(event:SliderEvent):void {
+			public function changeVolume(event:SliderEvent=null):void {
+			
+				
 				//if (_ns is AkamaiConnection) 
+				if(event)
+				{
 					_ns.volume = event.value;
+				}
+				else
+				{
+				try
+				{
+					_ns.volume = videoControls.volumeSlider.value;
+				} 
+				catch (e:Error)
+				{
+					
+				}
+					
+				}
+					
 			}
+			
 			// Writes trace statements to the output display
 			private function write(msg:String):void {
 				//output.text += msg + "\n";
