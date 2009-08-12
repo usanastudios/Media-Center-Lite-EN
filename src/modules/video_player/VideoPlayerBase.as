@@ -4,6 +4,7 @@
 			
 			import flash.display.StageDisplayState;
 			import flash.events.FullScreenEvent;
+			import flash.events.HTTPStatusEvent;
 			import flash.geom.*;
 			
 			import mx.controls.Alert;
@@ -11,12 +12,13 @@
 			import mx.core.FlexGlobals;
 			import mx.core.UIComponent;
 			import mx.events.SliderEvent;
-			import mx.managers.PopUpManager;
 			import mx.utils.*;
 			
 			import org.openvideoplayer.cc.*;
 			import org.openvideoplayer.events.*;
 			import org.openvideoplayer.net.*;
+
+;
 
 					
 			/*Define private variables*/
@@ -57,9 +59,21 @@
 			}
 	           VIDEO_URL = "http://usana.edgeboss.net/flash/usana/h.264/"+id+".mp4?xmlvers=1";
 	           _CAPTION_URL_ = "http://www.usana.com/media/File/mediaCenter/closed_caption/"+FlexGlobals.topLevelApplication.current_video.@id+".xml";
-				//CHECK FOR CLOSE CAPTIONED FILE
-				closed_caption_svc.send();
 				
+				
+				//CHECK FOR CLOSE CAPTIONED FILE
+				var loader:URLLoader = new URLLoader();
+				loader.addEventListener(IOErrorEvent.IO_ERROR,ccNotFound);
+				loader.addEventListener(Event.COMPLETE,ccFound);
+			   	var request:URLRequest = new URLRequest("http://www.usana.com/media/File/mediaCenter/closed_caption/"+FlexGlobals.topLevelApplication.current_video.@id+".xml");
+	            try {
+	                loader.load(request);
+	            	} 
+				catch (error:HTTPStatusEvent) {
+	                mx.controls.Alert.show("Unable to load requested document.");
+	            	}
+
+	       			
 				if(playNow == true)
 				{
 					parentDocument.play_overlay_btn.visible=false;
@@ -537,7 +551,7 @@
 		/* ========================================== */
 		/* = FUNCTION CALLED  IF CC FILE EXISTS = */
 		/* ========================================== */
-		private function ccFound():void
+		private function ccFound(event:Event):void
 		{
 			videoControls.bClosedcaption.enabled = true;
 		}
@@ -546,10 +560,8 @@
 		/* =============================================== */
 		/* = FUNCTIONC CALLED IF CC FILE DOES NOT EXISTS = */
 		/* =============================================== */
-		private function ccNotFound():void
+		private function ccNotFound(event:IOErrorEvent):void
 		{
-			//mx.controls.Alert.show('disabling');
-			
 			videoControls.bClosedcaption.enabled = false;
 		}
 		
