@@ -378,7 +378,10 @@
 
    					case false:
    						videoControls.bPlayPause.styleName = "vpPlayBtn";
+					if(_ns)
+						{
    						_ns.pause();
+						}
    						_isPaused=true;
    					break;
    					case true:
@@ -563,7 +566,7 @@
 
 		}
 		
-		private function onClickCC(e:Event):void {
+		public function onClickCC(e:Event):void {
 			_ccOn = !_ccOn;
 			captionLabel.visible = _ccOn;
 			_ccMgr.enableCuePoints(_ccOn);
