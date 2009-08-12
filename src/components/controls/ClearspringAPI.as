@@ -32,25 +32,22 @@ package components.controls {
 		{
 			// Grab reference to actual kernel
 			kernel = Object(kernelLoader.content).kernel;
-			//kernel.share.put("google", {config: {video_id: 'ven123'}}, shareCallback);
 			
 
 			
 			// Send a custom event
 			// @see http://www.clearspring.com/docs/tech/apis/in-widget/track
 			kernel.track.event('Kernel loaded');
-			kernel.widget.configure({video_id:FlexGlobals.topLevelApplication.current_video.@id });
-			
+
 			// @see http://www.clearspring.com/docs/tech/apis/in-widget/context
 			trace('You have viewed this widget ' + kernel.context.user.WIDGET_VIEWS + ' times');
 			trace('You seem to be in ' + kernel.context.user.geo.getCountry());
-			kernel.menu.show();
 
 			
 			// Retrieves a new embed tag for this widget
 			// @see http://www.clearspring.com/docs/tech/apis/in-widget/share
 			// Uncomment the following line to see how it works:
-			// kernel.share.get('tag', {}, shareCallback);
+			// kernel.share.get('tag', {videoID:FlexGlobals.topLevelApplication.current_video.@id}, shareCallback);
 			
 
 			
@@ -63,6 +60,10 @@ package components.controls {
 					kernel.menu.show();
 				}
 			});
+			
+			kernel.menu.setOptions({widgetId: "4a804e796cd38579"});
+			kernel.menu.configure({video_id:FlexGlobals.topLevelApplication.current_video.@id });
+			kernel.menu.show();
 			
 
 			
