@@ -1,57 +1,272 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <recommended>
+	<!-- ================ -->
+	<!-- = THE PAY PLAN = -->
+	<!-- ================ -->
 	<thepayplan>
-		<video id="ven123" title="Recession-Proof Formula" shortdescription="Learn Robert Allen's Recession-Proof Formula" longdescription="Learn from Robert G. Allen, one of today's most influential financial advisors and author of the bestseller Multiple Streams of Income, how to create financial stability and build true wealth through his proven M.O.N.E.Y.T.R.E.E. formula."/>
-		<video id="ven123" title="Recession-Proof Formula" shortdescription="Learn Robert Allen's Recession-Proof Formula" longdescription="Learn from Robert G. Allen, one of today's most influential financial advisors and author of the bestseller Multiple Streams of Income, how to create financial stability and build true wealth through his proven M.O.N.E.Y.T.R.E.E. formula."/>
-		<video id="ven123" title="Recession-Proof Formula" shortdescription="Learn Robert Allen's Recession-Proof Formula" longdescription="Learn from Robert G. Allen, one of today's most influential financial advisors and author of the bestseller Multiple Streams of Income, how to create financial stability and build true wealth through his proven M.O.N.E.Y.T.R.E.E. formula."/>
-		<video id="ven123" title="Recession-Proof Formula" shortdescription="Learn Robert Allen's Recession-Proof Formula" longdescription="Learn from Robert G. Allen, one of today's most influential financial advisors and author of the bestseller Multiple Streams of Income, how to create financial stability and build true wealth through his proven M.O.N.E.Y.T.R.E.E. formula."/>
+			<video>
+				<id>ven123</id> 
+				<title>Recession-Proof Formula</title>
+				<shortdescription>Learn Robert Allen's Recession-Proof Formula</shortdescription>
+				<longdescription>Learn from Robert G. Allen, one of today's most influential financial advisors and author of the bestseller Multiple Streams of Income, how to create financial stability and build true wealth through his proven M.O.N.E.Y.T.R.E.E. formula.</longdescription>
+			</video>		
+			<video>
+				<id>ven123</id> 
+				<title>Recession-Proof Formula</title>
+				<shortdescription>Learn Robert Allen's Recession-Proof Formula</shortdescription>
+				<longdescription>Learn from Robert G. Allen, one of today's most influential financial advisors and author of the bestseller Multiple Streams of Income, how to create financial stability and build true wealth through his proven M.O.N.E.Y.T.R.E.E. formula.</longdescription>
+			</video>		
+			<video>
+				<id>ven123</id> 
+				<title>Recession-Proof Formula</title>
+				<shortdescription>Learn Robert Allen's Recession-Proof Formula</shortdescription>
+				<longdescription>Learn from Robert G. Allen, one of today's most influential financial advisors and author of the bestseller Multiple Streams of Income, how to create financial stability and build true wealth through his proven M.O.N.E.Y.T.R.E.E. formula.</longdescription>
+			</video>		
+			<video>
+				<id>ven123</id> 
+				<title>Recession-Proof Formula</title>
+				<shortdescription>Learn Robert Allen's Recession-Proof Formula</shortdescription>
+				<longdescription>Learn from Robert G. Allen, one of today's most influential financial advisors and author of the bestseller Multiple Streams of Income, how to create financial stability and build true wealth through his proven M.O.N.E.Y.T.R.E.E. formula.</longdescription>
+			</video>	
 	</thepayplan>
+	
+	<!-- =================== -->
+	<!-- = THE OPPORTUNITY = -->
+	<!-- =================== -->
 	<theopportunity>
-		<video id="ven123" title="Recession-Proof Formula" shortdescription="Learn Robert Allen's Recession-Proof Formula" longdescription="Learn from Robert G. Allen, one of today's most influential financial advisors and author of the bestseller Multiple Streams of Income, how to create financial stability and build true wealth through his proven M.O.N.E.Y.T.R.E.E. formula."/>
-		<video id="ven123" title="Recession-Proof Formula" shortdescription="Learn Robert Allen's Recession-Proof Formula" longdescription="Learn from Robert G. Allen, one of today's most influential financial advisors and author of the bestseller Multiple Streams of Income, how to create financial stability and build true wealth through his proven M.O.N.E.Y.T.R.E.E. formula."/>
-		<video id="ven123" title="Recession-Proof Formula" shortdescription="Learn Robert Allen's Recession-Proof Formula" longdescription="Learn from Robert G. Allen, one of today's most influential financial advisors and author of the bestseller Multiple Streams of Income, how to create financial stability and build true wealth through his proven M.O.N.E.Y.T.R.E.E. formula."/>
-		<video id="ven123" title="Recession-Proof Formula" shortdescription="Learn Robert Allen's Recession-Proof Formula" longdescription="Learn from Robert G. Allen, one of today's most influential financial advisors and author of the bestseller Multiple Streams of Income, how to create financial stability and build true wealth through his proven M.O.N.E.Y.T.R.E.E. formula."/>
+			<video>
+				<id>ven123</id> 
+				<title>Recession-Proof Formula</title>
+				<shortdescription>Learn Robert Allen's Recession-Proof Formula</shortdescription>
+				<longdescription>Learn from Robert G. Allen, one of today's most influential financial advisors and author of the bestseller Multiple Streams of Income, how to create financial stability and build true wealth through his proven M.O.N.E.Y.T.R.E.E. formula.</longdescription>
+			</video>		
+			<video>
+				<id>ven123</id> 
+				<title>Recession-Proof Formula</title>
+				<shortdescription>Learn Robert Allen's Recession-Proof Formula</shortdescription>
+				<longdescription>Learn from Robert G. Allen, one of today's most influential financial advisors and author of the bestseller Multiple Streams of Income, how to create financial stability and build true wealth through his proven M.O.N.E.Y.T.R.E.E. formula.</longdescription>
+			</video>		
+			<video>
+				<id>ven123</id> 
+				<title>Recession-Proof Formula</title>
+				<shortdescription>Learn Robert Allen's Recession-Proof Formula</shortdescription>
+				<longdescription>Learn from Robert G. Allen, one of today's most influential financial advisors and author of the bestseller Multiple Streams of Income, how to create financial stability and build true wealth through his proven M.O.N.E.Y.T.R.E.E. formula.</longdescription>
+			</video>		
+			<video>
+				<id>ven123</id> 
+				<title>Recession-Proof Formula</title>
+				<shortdescription>Learn Robert Allen's Recession-Proof Formula</shortdescription>
+				<longdescription>Learn from Robert G. Allen, one of today's most influential financial advisors and author of the bestseller Multiple Streams of Income, how to create financial stability and build true wealth through his proven M.O.N.E.Y.T.R.E.E. formula.</longdescription>
+			</video>	
 	</theopportunity>
+	
+	<!-- ======================= -->
+	<!-- = WEALTH TESTIMONIALS = -->
+	<!-- ======================= -->
 	<wealthtestimonials>
-		<video id="ven123" title="Recession-Proof Formula" shortdescription="Learn Robert Allen's Recession-Proof Formula" longdescription="Learn from Robert G. Allen, one of today's most influential financial advisors and author of the bestseller Multiple Streams of Income, how to create financial stability and build true wealth through his proven M.O.N.E.Y.T.R.E.E. formula."/>
-		<video id="ven123" title="Recession-Proof Formula" shortdescription="Learn Robert Allen's Recession-Proof Formula" longdescription="Learn from Robert G. Allen, one of today's most influential financial advisors and author of the bestseller Multiple Streams of Income, how to create financial stability and build true wealth through his proven M.O.N.E.Y.T.R.E.E. formula."/>
-		<video id="ven123" title="Recession-Proof Formula" shortdescription="Learn Robert Allen's Recession-Proof Formula" longdescription="Learn from Robert G. Allen, one of today's most influential financial advisors and author of the bestseller Multiple Streams of Income, how to create financial stability and build true wealth through his proven M.O.N.E.Y.T.R.E.E. formula."/>
-		<video id="ven123" title="Recession-Proof Formula" shortdescription="Learn Robert Allen's Recession-Proof Formula" longdescription="Learn from Robert G. Allen, one of today's most influential financial advisors and author of the bestseller Multiple Streams of Income, how to create financial stability and build true wealth through his proven M.O.N.E.Y.T.R.E.E. formula."/>
+			<video>
+				<id>ven123</id> 
+				<title>Recession-Proof Formula</title>
+				<shortdescription>Learn Robert Allen's Recession-Proof Formula</shortdescription>
+				<longdescription>Learn from Robert G. Allen, one of today's most influential financial advisors and author of the bestseller Multiple Streams of Income, how to create financial stability and build true wealth through his proven M.O.N.E.Y.T.R.E.E. formula.</longdescription>
+			</video>		
+			<video>
+				<id>ven123</id> 
+				<title>Recession-Proof Formula</title>
+				<shortdescription>Learn Robert Allen's Recession-Proof Formula</shortdescription>
+				<longdescription>Learn from Robert G. Allen, one of today's most influential financial advisors and author of the bestseller Multiple Streams of Income, how to create financial stability and build true wealth through his proven M.O.N.E.Y.T.R.E.E. formula.</longdescription>
+			</video>		
+			<video>
+				<id>ven123</id> 
+				<title>Recession-Proof Formula</title>
+				<shortdescription>Learn Robert Allen's Recession-Proof Formula</shortdescription>
+				<longdescription>Learn from Robert G. Allen, one of today's most influential financial advisors and author of the bestseller Multiple Streams of Income, how to create financial stability and build true wealth through his proven M.O.N.E.Y.T.R.E.E. formula.</longdescription>
+			</video>		
+			<video>
+				<id>ven123</id> 
+				<title>Recession-Proof Formula</title>
+				<shortdescription>Learn Robert Allen's Recession-Proof Formula</shortdescription>
+				<longdescription>Learn from Robert G. Allen, one of today's most influential financial advisors and author of the bestseller Multiple Streams of Income, how to create financial stability and build true wealth through his proven M.O.N.E.Y.T.R.E.E. formula.</longdescription>
+			</video>	
 	</wealthtestimonials>
+	
+	<!-- ============= -->
+	<!-- = SKIN CARE = -->
+	<!-- ============= -->
 	<skincare>
-		<video id="ven123" title="Recession-Proof Formula" shortdescription="Learn Robert Allen's Recession-Proof Formula" longdescription="Learn from Robert G. Allen, one of today's most influential financial advisors and author of the bestseller Multiple Streams of Income, how to create financial stability and build true wealth through his proven M.O.N.E.Y.T.R.E.E. formula."/>
-		<video id="ven123" title="Recession-Proof Formula" shortdescription="Learn Robert Allen's Recession-Proof Formula" longdescription="Learn from Robert G. Allen, one of today's most influential financial advisors and author of the bestseller Multiple Streams of Income, how to create financial stability and build true wealth through his proven M.O.N.E.Y.T.R.E.E. formula."/>
-		<video id="ven123" title="Recession-Proof Formula" shortdescription="Learn Robert Allen's Recession-Proof Formula" longdescription="Learn from Robert G. Allen, one of today's most influential financial advisors and author of the bestseller Multiple Streams of Income, how to create financial stability and build true wealth through his proven M.O.N.E.Y.T.R.E.E. formula."/>
-		<video id="ven123" title="Recession-Proof Formula" shortdescription="Learn Robert Allen's Recession-Proof Formula" longdescription="Learn from Robert G. Allen, one of today's most influential financial advisors and author of the bestseller Multiple Streams of Income, how to create financial stability and build true wealth through his proven M.O.N.E.Y.T.R.E.E. formula."/>
-	</skincare>
+		<video>
+			<id>ven123</id> 
+			<title>Recession-Proof Formula</title>
+			<shortdescription>Learn Robert Allen's Recession-Proof Formula</shortdescription>
+			<longdescription>Learn from Robert G. Allen, one of today's most influential financial advisors and author of the bestseller Multiple Streams of Income, how to create financial stability and build true wealth through his proven M.O.N.E.Y.T.R.E.E. formula.</longdescription>
+		</video>		
+		<video>
+			<id>ven123</id> 
+			<title>Recession-Proof Formula</title>
+			<shortdescription>Learn Robert Allen's Recession-Proof Formula</shortdescription>
+			<longdescription>Learn from Robert G. Allen, one of today's most influential financial advisors and author of the bestseller Multiple Streams of Income, how to create financial stability and build true wealth through his proven M.O.N.E.Y.T.R.E.E. formula.</longdescription>
+		</video>		
+		<video>
+			<id>ven123</id> 
+			<title>Recession-Proof Formula</title>
+			<shortdescription>Learn Robert Allen's Recession-Proof Formula</shortdescription>
+			<longdescription>Learn from Robert G. Allen, one of today's most influential financial advisors and author of the bestseller Multiple Streams of Income, how to create financial stability and build true wealth through his proven M.O.N.E.Y.T.R.E.E. formula.</longdescription>
+		</video>		
+		<video>
+			<id>ven123</id> 
+			<title>Recession-Proof Formula</title>
+			<shortdescription>Learn Robert Allen's Recession-Proof Formula</shortdescription>
+			<longdescription>Learn from Robert G. Allen, one of today's most influential financial advisors and author of the bestseller Multiple Streams of Income, how to create financial stability and build true wealth through his proven M.O.N.E.Y.T.R.E.E. formula.</longdescription>
+		</video>
+		</skincare>
+	
+	<!-- ============= -->
+	<!-- = NUTRITION = -->
+	<!-- ============= -->	
 	<nutrition>
-		<video id="ven123" title="Recession-Proof Formula" shortdescription="Learn Robert Allen's Recession-Proof Formula" longdescription="Learn from Robert G. Allen, one of today's most influential financial advisors and author of the bestseller Multiple Streams of Income, how to create financial stability and build true wealth through his proven M.O.N.E.Y.T.R.E.E. formula."/>
-		<video id="ven123" title="Recession-Proof Formula" shortdescription="Learn Robert Allen's Recession-Proof Formula" longdescription="Learn from Robert G. Allen, one of today's most influential financial advisors and author of the bestseller Multiple Streams of Income, how to create financial stability and build true wealth through his proven M.O.N.E.Y.T.R.E.E. formula."/>
-		<video id="ven123" title="Recession-Proof Formula" shortdescription="Learn Robert Allen's Recession-Proof Formula" longdescription="Learn from Robert G. Allen, one of today's most influential financial advisors and author of the bestseller Multiple Streams of Income, how to create financial stability and build true wealth through his proven M.O.N.E.Y.T.R.E.E. formula."/>
-		<video id="ven123" title="Recession-Proof Formula" shortdescription="Learn Robert Allen's Recession-Proof Formula" longdescription="Learn from Robert G. Allen, one of today's most influential financial advisors and author of the bestseller Multiple Streams of Income, how to create financial stability and build true wealth through his proven M.O.N.E.Y.T.R.E.E. formula."/>
+			<video>
+				<id>ven123</id> 
+				<title>Recession-Proof Formula</title>
+				<shortdescription>Learn Robert Allen's Recession-Proof Formula</shortdescription>
+				<longdescription>Learn from Robert G. Allen, one of today's most influential financial advisors and author of the bestseller Multiple Streams of Income, how to create financial stability and build true wealth through his proven M.O.N.E.Y.T.R.E.E. formula.</longdescription>
+			</video>		
+			<video>
+				<id>ven123</id> 
+				<title>Recession-Proof Formula</title>
+				<shortdescription>Learn Robert Allen's Recession-Proof Formula</shortdescription>
+				<longdescription>Learn from Robert G. Allen, one of today's most influential financial advisors and author of the bestseller Multiple Streams of Income, how to create financial stability and build true wealth through his proven M.O.N.E.Y.T.R.E.E. formula.</longdescription>
+			</video>		
+			<video>
+				<id>ven123</id> 
+				<title>Recession-Proof Formula</title>
+				<shortdescription>Learn Robert Allen's Recession-Proof Formula</shortdescription>
+				<longdescription>Learn from Robert G. Allen, one of today's most influential financial advisors and author of the bestseller Multiple Streams of Income, how to create financial stability and build true wealth through his proven M.O.N.E.Y.T.R.E.E. formula.</longdescription>
+			</video>		
+			<video>
+				<id>ven123</id> 
+				<title>Recession-Proof Formula</title>
+				<shortdescription>Learn Robert Allen's Recession-Proof Formula</shortdescription>
+				<longdescription>Learn from Robert G. Allen, one of today's most influential financial advisors and author of the bestseller Multiple Streams of Income, how to create financial stability and build true wealth through his proven M.O.N.E.Y.T.R.E.E. formula.</longdescription>
+			</video>	
 	</nutrition>
+	
+	<!-- ========== -->
+	<!-- = ENERGY = -->
+	<!-- ========== -->
 	<energy>
-		<video id="ven123" title="Recession-Proof Formula" shortdescription="Learn Robert Allen's Recession-Proof Formula" longdescription="Learn from Robert G. Allen, one of today's most influential financial advisors and author of the bestseller Multiple Streams of Income, how to create financial stability and build true wealth through his proven M.O.N.E.Y.T.R.E.E. formula."/>
-		<video id="ven123" title="Recession-Proof Formula" shortdescription="Learn Robert Allen's Recession-Proof Formula" longdescription="Learn from Robert G. Allen, one of today's most influential financial advisors and author of the bestseller Multiple Streams of Income, how to create financial stability and build true wealth through his proven M.O.N.E.Y.T.R.E.E. formula."/>
-		<video id="ven123" title="Recession-Proof Formula" shortdescription="Learn Robert Allen's Recession-Proof Formula" longdescription="Learn from Robert G. Allen, one of today's most influential financial advisors and author of the bestseller Multiple Streams of Income, how to create financial stability and build true wealth through his proven M.O.N.E.Y.T.R.E.E. formula."/>
-		<video id="ven123" title="Recession-Proof Formula" shortdescription="Learn Robert Allen's Recession-Proof Formula" longdescription="Learn from Robert G. Allen, one of today's most influential financial advisors and author of the bestseller Multiple Streams of Income, how to create financial stability and build true wealth through his proven M.O.N.E.Y.T.R.E.E. formula."/>
+			<video>
+				<id>ven123</id> 
+				<title>Recession-Proof Formula</title>
+				<shortdescription>Learn Robert Allen's Recession-Proof Formula</shortdescription>
+				<longdescription>Learn from Robert G. Allen, one of today's most influential financial advisors and author of the bestseller Multiple Streams of Income, how to create financial stability and build true wealth through his proven M.O.N.E.Y.T.R.E.E. formula.</longdescription>
+			</video>		
+			<video>
+				<id>ven123</id> 
+				<title>Recession-Proof Formula</title>
+				<shortdescription>Learn Robert Allen's Recession-Proof Formula</shortdescription>
+				<longdescription>Learn from Robert G. Allen, one of today's most influential financial advisors and author of the bestseller Multiple Streams of Income, how to create financial stability and build true wealth through his proven M.O.N.E.Y.T.R.E.E. formula.</longdescription>
+			</video>		
+			<video>
+				<id>ven123</id> 
+				<title>Recession-Proof Formula</title>
+				<shortdescription>Learn Robert Allen's Recession-Proof Formula</shortdescription>
+				<longdescription>Learn from Robert G. Allen, one of today's most influential financial advisors and author of the bestseller Multiple Streams of Income, how to create financial stability and build true wealth through his proven M.O.N.E.Y.T.R.E.E. formula.</longdescription>
+			</video>		
+			<video>
+				<id>ven123</id> 
+				<title>Recession-Proof Formula</title>
+				<shortdescription>Learn Robert Allen's Recession-Proof Formula</shortdescription>
+				<longdescription>Learn from Robert G. Allen, one of today's most influential financial advisors and author of the bestseller Multiple Streams of Income, how to create financial stability and build true wealth through his proven M.O.N.E.Y.T.R.E.E. formula.</longdescription>
+			</video>	
 	</energy>
+	
+	<!-- ============= -->
+	<!-- = ATHELETES = -->
+	<!-- ============= -->
 	<atheletes>
-		<video id="ven123" title="Recession-Proof Formula" shortdescription="Learn Robert Allen's Recession-Proof Formula" longdescription="Learn from Robert G. Allen, one of today's most influential financial advisors and author of the bestseller Multiple Streams of Income, how to create financial stability and build true wealth through his proven M.O.N.E.Y.T.R.E.E. formula."/>
-		<video id="ven123" title="Recession-Proof Formula" shortdescription="Learn Robert Allen's Recession-Proof Formula" longdescription="Learn from Robert G. Allen, one of today's most influential financial advisors and author of the bestseller Multiple Streams of Income, how to create financial stability and build true wealth through his proven M.O.N.E.Y.T.R.E.E. formula."/>
-		<video id="ven123" title="Recession-Proof Formula" shortdescription="Learn Robert Allen's Recession-Proof Formula" longdescription="Learn from Robert G. Allen, one of today's most influential financial advisors and author of the bestseller Multiple Streams of Income, how to create financial stability and build true wealth through his proven M.O.N.E.Y.T.R.E.E. formula."/>
-		<video id="ven123" title="Recession-Proof Formula" shortdescription="Learn Robert Allen's Recession-Proof Formula" longdescription="Learn from Robert G. Allen, one of today's most influential financial advisors and author of the bestseller Multiple Streams of Income, how to create financial stability and build true wealth through his proven M.O.N.E.Y.T.R.E.E. formula."/>
+			<video>
+				<id>ven123</id> 
+				<title>Recession-Proof Formula</title>
+				<shortdescription>Learn Robert Allen's Recession-Proof Formula</shortdescription>
+				<longdescription>Learn from Robert G. Allen, one of today's most influential financial advisors and author of the bestseller Multiple Streams of Income, how to create financial stability and build true wealth through his proven M.O.N.E.Y.T.R.E.E. formula.</longdescription>
+			</video>		
+			<video>
+				<id>ven123</id> 
+				<title>Recession-Proof Formula</title>
+				<shortdescription>Learn Robert Allen's Recession-Proof Formula</shortdescription>
+				<longdescription>Learn from Robert G. Allen, one of today's most influential financial advisors and author of the bestseller Multiple Streams of Income, how to create financial stability and build true wealth through his proven M.O.N.E.Y.T.R.E.E. formula.</longdescription>
+			</video>		
+			<video>
+				<id>ven123</id> 
+				<title>Recession-Proof Formula</title>
+				<shortdescription>Learn Robert Allen's Recession-Proof Formula</shortdescription>
+				<longdescription>Learn from Robert G. Allen, one of today's most influential financial advisors and author of the bestseller Multiple Streams of Income, how to create financial stability and build true wealth through his proven M.O.N.E.Y.T.R.E.E. formula.</longdescription>
+			</video>		
+			<video>
+				<id>ven123</id> 
+				<title>Recession-Proof Formula</title>
+				<shortdescription>Learn Robert Allen's Recession-Proof Formula</shortdescription>
+				<longdescription>Learn from Robert G. Allen, one of today's most influential financial advisors and author of the bestseller Multiple Streams of Income, how to create financial stability and build true wealth through his proven M.O.N.E.Y.T.R.E.E. formula.</longdescription>
+			</video>	
 	</atheletes>
+	
+	<!-- ======================= -->
+	<!-- = HEALTH TESTIMONIALS = -->
+	<!-- ======================= -->
 	<healthtestimonials>
-		<video id="ven123" title="Recession-Proof Formula" shortdescription="Learn Robert Allen's Recession-Proof Formula" longdescription="Learn from Robert G. Allen, one of today's most influential financial advisors and author of the bestseller Multiple Streams of Income, how to create financial stability and build true wealth through his proven M.O.N.E.Y.T.R.E.E. formula."/>
-		<video id="ven123" title="Recession-Proof Formula" shortdescription="Learn Robert Allen's Recession-Proof Formula" longdescription="Learn from Robert G. Allen, one of today's most influential financial advisors and author of the bestseller Multiple Streams of Income, how to create financial stability and build true wealth through his proven M.O.N.E.Y.T.R.E.E. formula."/>
-		<video id="ven123" title="Recession-Proof Formula" shortdescription="Learn Robert Allen's Recession-Proof Formula" longdescription="Learn from Robert G. Allen, one of today's most influential financial advisors and author of the bestseller Multiple Streams of Income, how to create financial stability and build true wealth through his proven M.O.N.E.Y.T.R.E.E. formula."/>
-		<video id="ven123" title="Recession-Proof Formula" shortdescription="Learn Robert Allen's Recession-Proof Formula" longdescription="Learn from Robert G. Allen, one of today's most influential financial advisors and author of the bestseller Multiple Streams of Income, how to create financial stability and build true wealth through his proven M.O.N.E.Y.T.R.E.E. formula."/>
+			<video>
+				<id>ven123</id> 
+				<title>Recession-Proof Formula</title>
+				<shortdescription>Learn Robert Allen's Recession-Proof Formula</shortdescription>
+				<longdescription>Learn from Robert G. Allen, one of today's most influential financial advisors and author of the bestseller Multiple Streams of Income, how to create financial stability and build true wealth through his proven M.O.N.E.Y.T.R.E.E. formula.</longdescription>
+			</video>		
+			<video>
+				<id>ven123</id> 
+				<title>Recession-Proof Formula</title>
+				<shortdescription>Learn Robert Allen's Recession-Proof Formula</shortdescription>
+				<longdescription>Learn from Robert G. Allen, one of today's most influential financial advisors and author of the bestseller Multiple Streams of Income, how to create financial stability and build true wealth through his proven M.O.N.E.Y.T.R.E.E. formula.</longdescription>
+			</video>		
+			<video>
+				<id>ven123</id> 
+				<title>Recession-Proof Formula</title>
+				<shortdescription>Learn Robert Allen's Recession-Proof Formula</shortdescription>
+				<longdescription>Learn from Robert G. Allen, one of today's most influential financial advisors and author of the bestseller Multiple Streams of Income, how to create financial stability and build true wealth through his proven M.O.N.E.Y.T.R.E.E. formula.</longdescription>
+			</video>		
+			<video>
+				<id>ven123</id> 
+				<title>Recession-Proof Formula</title>
+				<shortdescription>Learn Robert Allen's Recession-Proof Formula</shortdescription>
+				<longdescription>Learn from Robert G. Allen, one of today's most influential financial advisors and author of the bestseller Multiple Streams of Income, how to create financial stability and build true wealth through his proven M.O.N.E.Y.T.R.E.E. formula.</longdescription>
+			</video>	
 	</healthtestimonials>
+	
+	<!-- ========================= -->
+	<!-- = USANA HEALTH SCIENCES = -->
+	<!-- ========================= -->
 	<usanahealthsciences>
-		<video id="ven123" title="Recession-Proof Formula" shortdescription="Learn Robert Allen's Recession-Proof Formula" longdescription="Learn from Robert G. Allen, one of today's most influential financial advisors and author of the bestseller Multiple Streams of Income, how to create financial stability and build true wealth through his proven M.O.N.E.Y.T.R.E.E. formula."/>
-		<video id="ven123" title="Recession-Proof Formula" shortdescription="Learn Robert Allen's Recession-Proof Formula" longdescription="Learn from Robert G. Allen, one of today's most influential financial advisors and author of the bestseller Multiple Streams of Income, how to create financial stability and build true wealth through his proven M.O.N.E.Y.T.R.E.E. formula."/>
-		<video id="ven123" title="Recession-Proof Formula" shortdescription="Learn Robert Allen's Recession-Proof Formula" longdescription="Learn from Robert G. Allen, one of today's most influential financial advisors and author of the bestseller Multiple Streams of Income, how to create financial stability and build true wealth through his proven M.O.N.E.Y.T.R.E.E. formula."/>
-		<video id="ven123" title="Recession-Proof Formula" shortdescription="Learn Robert Allen's Recession-Proof Formula" longdescription="Learn from Robert G. Allen, one of today's most influential financial advisors and author of the bestseller Multiple Streams of Income, how to create financial stability and build true wealth through his proven M.O.N.E.Y.T.R.E.E. formula."/>
-	</usanahealthsciences>
+			<video>
+				<id>ven123</id> 
+				<title>Recession-Proof Formula</title>
+				<shortdescription>Learn Robert Allen's Recession-Proof Formula</shortdescription>
+				<longdescription>Learn from Robert G. Allen, one of today's most influential financial advisors and author of the bestseller Multiple Streams of Income, how to create financial stability and build true wealth through his proven M.O.N.E.Y.T.R.E.E. formula.</longdescription>
+			</video>		
+			<video>
+				<id>ven123</id> 
+				<title>Recession-Proof Formula</title>
+				<shortdescription>Learn Robert Allen's Recession-Proof Formula</shortdescription>
+				<longdescription>Learn from Robert G. Allen, one of today's most influential financial advisors and author of the bestseller Multiple Streams of Income, how to create financial stability and build true wealth through his proven M.O.N.E.Y.T.R.E.E. formula.</longdescription>
+			</video>		
+			<video>
+				<id>ven123</id> 
+				<title>Recession-Proof Formula</title>
+				<shortdescription>Learn Robert Allen's Recession-Proof Formula</shortdescription>
+				<longdescription>Learn from Robert G. Allen, one of today's most influential financial advisors and author of the bestseller Multiple Streams of Income, how to create financial stability and build true wealth through his proven M.O.N.E.Y.T.R.E.E. formula.</longdescription>
+			</video>		
+			<video>
+				<id>ven123</id> 
+				<title>Recession-Proof Formula</title>
+				<shortdescription>Learn Robert Allen's Recession-Proof Formula</shortdescription>
+				<longdescription>Learn from Robert G. Allen, one of today's most influential financial advisors and author of the bestseller Multiple Streams of Income, how to create financial stability and build true wealth through his proven M.O.N.E.Y.T.R.E.E. formula.</longdescription>
+			</video>
+		</usanahealthsciences>
 </recommended>  
