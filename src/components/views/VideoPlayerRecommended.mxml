@@ -115,7 +115,7 @@
 		 	   borderStyle="none" horizontalGap="10" horizontalAlign="center" verticalAlign="middle" paddingTop="14" paddingLeft="15" 
 
 		       width="368" height="73" >
-		       <mx:Repeater id="rp_thumbnails" dataProvider="{parentDocument.video_list.video}" count="4">
+		       <mx:Repeater id="rp_thumbnails" dataProvider="{parentDocument.recommended_videos}">
 		      		<mx:Image  autoLoad="true" smoothBitmapContent="true" automationName="{rp_thumbnails.currentIndex}" height="45" width="77" source="http://www.usana.com/media/File/mediaCenter/thumbnails/{rp_thumbnails.currentItem.@id}.jpg" buttonMode="true" click="showRecommendedVideo(event);"/>
 		       </mx:Repeater>
 		   </mx:Tile>

@@ -17,8 +17,9 @@
 	
 	<fx:Style source="main.css"/>
 	
-	<!-- SEARCH RESULTS TEST DATA -->
 	<fx:Declarations>
+		
+		<mx:HTTPService url="assets/recommended.xml" id="recommendedXML_svc" resultFormat="e4x"/>
 		
 		<!-- Define the Basic Search HTTP service -->
 		<mx:HTTPService id="search_svc" url="{WEB_SERVICE_URL}" resultFormat="e4x" result="searchResultHandler()" fault="mx.controls.Alert.show(event.fault.message)" >

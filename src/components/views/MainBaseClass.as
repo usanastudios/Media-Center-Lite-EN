@@ -9,11 +9,9 @@ package components.views
 	
 	
 	import flash.events.MouseEvent;
-	import flash.net.URLRequest;
 	import flash.net.navigateToURL;
-	
+	import flash.net.URLRequest;
 	import modules.video_player.VideoPlayerInterface;
-	
 	import mx.collections.ArrayCollection;
 	import mx.collections.Sort;
 	import mx.collections.SortField;
@@ -28,10 +26,10 @@ package components.views
 	import mx.managers.PopUpManager;
 	import mx.rpc.http.mxml.HTTPService;
 	import mx.validators.Validator;
-	
 	import spark.components.Application;
 	import spark.components.Button;
 	import spark.components.TextInput;
+
 
 	public class MainBaseClass extends Application
 	{
@@ -53,6 +51,7 @@ package components.views
 		public var mostRecent_btn:Button;
 		public var mostViewed_btn:Button;
 		public var most_viewed_videos_svc:HTTPService;
+		public var recommendedXML_svc:HTTPService;
 		public var prospectMenu1_btn:Button;
 		public var prospectMenuData:XML;
 		public var recent_videos_svc:HTTPService;
@@ -85,6 +84,7 @@ package components.views
 		[Bindable] public var video_long_description:String;
 		[Bindable] public var video_short_description:String;
 		[Bindable] public var video_title:String;
+		[Bindable] public var recommended_videos:XMLList;
 
 		
 		/* =================================== */
@@ -106,7 +106,9 @@ package components.views
 		{
 		//	auto_complete_svc.send();
 		
+			recommendedXML_svc.send();
 			
+			recommended_videos = new XMLList();
 			
 			/*EVENT LISTENERS*/
 			prospectMenu1_btn.addEventListener(MouseEvent.CLICK,createAndShowProspectMenu1);
@@ -173,43 +175,52 @@ package components.views
 		{
 			if (event.label == "True Wealth")
 			{
-				recommendedSearch("wealth","True Wealth");
+				//recommendedSearch("wealth","True Wealth");
 			}
 			else if (event.label == "Skin Care")
 			{
 				recommendedSearch("skin","Skin Care");
+				recommended_videos = recommendedXML_svc.lastResult.skincare.video;
 			}
 			else if (event.label == "Nutrition")
 			{
 				recommendedSearch("nutrition","Nutrition");
+				recommended_videos = recommendedXML_svc.lastResult.nutrition.video;
 			}
 			else if (event.label == "Energy")
 			{
 				recommendedSearch("energy","Energy");
+				recommended_videos = recommendedXML_svc.lastResult.energy.video;
 			}
 			else if (event.label == "Atheletes")
 			{
 				recommendedSearch("atheletes","Atheletes");
+				recommended_videos = recommendedXML_svc.lastResult.atheletes.video;
 			}
 			else if (event.label == "USANA Health Sciences")
 			{
 				recommendedSearch("usana","USANA Health Sciences");
+				recommended_videos = recommendedXML_svc.lastResult.usanahealthsciences.video;
 			}
 			else if (event.label == "The Pay Plan")
 			{
 				recommendedSearch("comp plan","The Pay Plan");
+				recommended_videos = recommendedXML_svc.lastResult.thepayplan.video;
 			}
 			else if (event.label == "The Opportunity")
 			{
 				recommendedSearch("opportunity","The Opportunity");
+				recommended_videos = recommendedXML_svc.lastResult.opportunity.video;
 			}
 			else if (event.label == "Health Testimonials")
 			{
 				recommendedSearch("health","Health Testimonials");
+				recommended_videos = recommendedXML_svc.lastResult.healthtestimonials.video;
 			}
 			else if (event.label == "Wealth Testimonials")
 			{
 				recommendedSearch("wealth","Wealth Testimonials");
+				recommended_videos = recommendedXML_svc.lastResult.wealthskincare.video;
 			}			
 			else if (event.label == "I'm Not Sure")
 			{
@@ -339,8 +350,8 @@ package components.views
 			
 			/*SET THE VIDEO_LIST RESULTS SORTED BY MOST VIEWED*/
 			video_list = sort_by_most_viewed(recommended_search_svc.lastResult.video);
-		//	video_list = recommended_search_svc.lastResult.video as XML;
-		
+			
+			
 
 			if ((video_list) && (video_list.video.length() > 0))
 			{			
@@ -363,12 +374,12 @@ package components.views
 		            }
 				} 
 			}
-			else
-			{
-				mx.controls.Alert.show("No results found. Please try a different search term");
-				main_view_stack.selectedIndex = 0;
-			}
-			
+				else
+				{
+					mx.controls.Alert.show("No results found. Please try a different search term");
+					main_view_stack.selectedIndex = 0;
+				}
+				
 
 	
 			
