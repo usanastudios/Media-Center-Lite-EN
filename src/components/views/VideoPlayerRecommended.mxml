@@ -116,7 +116,7 @@
 
 		       width="368" height="73" >
 		       <mx:Repeater id="rp_thumbnails" dataProvider="{parentDocument.recommended_videos}">
-		      		<mx:Image  autoLoad="true" smoothBitmapContent="true" automationName="{rp_thumbnails.currentIndex}" height="45" width="77" source="http://www.usana.com/media/File/mediaCenter/thumbnails/{rp_thumbnails.currentItem.@id}.jpg" buttonMode="true" click="showRecommendedVideo(event);"/>
+		      		<mx:Image  autoLoad="true" smoothBitmapContent="true" automationName="{rp_thumbnails.currentIndex}" height="45" width="77" source="http://www.usana.com/media/File/mediaCenter/thumbnails/{rp_thumbnails.currentItem.@id}.jpg" buttonMode="true" click="parentDocument.showRecommendedVideo(event,this);"/>
 		       </mx:Repeater>
 		   </mx:Tile>
 		   

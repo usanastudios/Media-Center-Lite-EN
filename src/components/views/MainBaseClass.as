@@ -147,6 +147,7 @@ package components.views
         	</root>;
 
 
+
 		
 
     
@@ -179,8 +180,13 @@ package components.views
 			}
 			else if (event.label == "Skin Care")
 			{
-				recommendedSearch("skin","Skin Care");
-				recommended_videos = recommendedXML_svc.lastResult.skincare.video;
+				var recommendedPopUp:RecommendedPopUp = new components.views.RecommendedPopUp();
+		        PopUpManager.addPopUp(recommendedPopUp, this, true);
+				recommendedPopUp.y = 100;
+				recommendedPopUp.x = 100;
+				recommendedPopUp.weRecommend_txt.text ="We recommend these Skin Care videos";
+				//recommendedSearch("skin","Skin Care");
+				//recommended_videos = recommendedXML_svc.lastResult.skincare.video;
 			}
 			else if (event.label == "Nutrition")
 			{
@@ -1110,6 +1116,41 @@ public function akamaiResultHandler():void
 	
 }	
 
+
+
+	/* ========================================================== */
+	/* = FUNCTION TO SHOW SELECTED VIDEO FROM THE 5 RECOMMENDED = */
+	/* ========================================================== */
+	public function showRecommendedVideo(event:MouseEvent,videoPage:Object):void {
+		
+		//WE ARE USING THE 'automationName' PROPERTY ON THE RECOMMENDED THUMBNAIL TO GET THE INDEX NUMBER BACK - KIND OF A HACK :)
+		//mx.controls.Alert.show(event.currentTarget.automationName.toString());
+		var thumbNailIndex:int = event.currentTarget.automationName;
+		
+		//SET CURRENT VIDEO BASED ON CLICKED THUMBNAIL
+		
+	 //	current_video = parentDocument.video_list.video[thumbNailIndex];
+ 		// Cast the ModuleLoader's child to the interface.
+        // This child is an instance of the module.
+        // We can now call methods on that instance.
+        var vpchild:* = videoPage.video_player.child as VideoPlayerInterface;                
+         if (videoPage.video_player.child != null) {                    
+             // Call setters in the module to adjust its
+             // appearance when it loads.
+
+         vpchild.setVideo(video_list.video[thumbNailIndex].@id,true);
+		   videoPage.video_title_txt.text = video_list.video[thumbNailIndex].title;
+		   videoPage.video_short_description_txt.text =video_list.video[thumbNailIndex].shortdescription;
+		   videoPage.video_long_description_txt.htmlText = video_list.video[thumbNailIndex].longdescription;
+         } else {                
+             trace("Uh oh. The video_player.child property is null");                 
+         }
+
+		//			mx.controls.Alert.show(current_video.toString());
+					
+       
+
+	}
 
 
 
