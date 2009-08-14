@@ -388,17 +388,6 @@ package components.views
 				//current_video = video_list.video[0];
 				main_view_stack.selectedIndex = 3;
 			
-				/*SET NEW VIDEO */
-				if(video_player_recommended_view.video_player){
-					var vpchild:* = video_player_recommended_view.video_player.child as VideoPlayerInterface;                
-		            if (video_player_recommended_view.video_player.child != null) {                    
-		                // Call setters in the module to adjust its
-		                // appearance when it loads.
-		              vpchild.setVideo(current_video.@id,false);
-		            } else {                
-		                trace("Uh oh. The video_player.child property is null");                 
-		            }
-				} 
 			}
 				else
 				{
@@ -1048,8 +1037,11 @@ public function sort_by_most_viewed(serviceResult:XMLList):XML
 	for each (var newVideo:Object in videoArray)
 	{
 		var indexOfVideo:int  = parentDocument.getItemIndexByProperty(akamaiArray,"url",newVideo.@id);
+		if(indexOfVideo >= 0)
+		{
 		finalArray.addItem({"streamhits":akamaiArray[indexOfVideo].streamhits,"id":newVideo.@id,"title":newVideo.title,"shortdescription":newVideo.shortdescription,"longdescription":newVideo.longdescription});
-		
+		}
+
 	/*BELOW WE SORT THE RESULTS DESCENDING BASED ON STREAMHITS*/
 	var dataSortField:SortField = new SortField();
 	dataSortField.name = "streamhits";
