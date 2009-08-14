@@ -26,7 +26,7 @@
 			  	     <mx:Text id="timeDisplay" styleName="timer"  text="00:00/00:00"/>
 			  	     <mx:Spacer width="7" />
 			  	     <mx:Button id="bFullscreen" click="parentDocument.switchToFullScreen()" enabled="false" styleName="fsBtn" buttonMode="true" useHandCursor="true"/>
-			  	     <s:ToggleButton id="bClosedcaption" styleName="ccBtn" skinClass="components.skins.CCButtonSkin" click="parentDocument.onClickCC(event)" buttonMode="true" useHandCursor="true" enabled="false"/>
+			  	     <s:ToggleButton id="bClosedcaption" skinClass="components.skins.CCButtonSkin" click="parentDocument.onClickCC(event)" buttonMode="true" useHandCursor="true" enabled="false"/>
 			  	     <mx:Spacer width="3" />
 			  	     <mx:HSlider id="volumeSlider"
 			  	     	buttonMode="true" 

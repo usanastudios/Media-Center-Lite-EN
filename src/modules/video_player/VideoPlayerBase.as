@@ -73,6 +73,7 @@
 			   	var request:URLRequest = new URLRequest("http://www.usana.com/media/File/mediaCenter/closed_caption/"+FlexGlobals.topLevelApplication.current_video.@id+".xml");
 	            try {
 	                loader.load(request);
+	
 	            	} 
 				catch (error:HTTPStatusEvent) {
 	                mx.controls.Alert.show("Unable to load requested document.");

@@ -1,0 +1,24 @@
+<flex-config>
+	<benchmark>false</benchmark>
+	<compiler>
+		<incremental>true</incremental>
+		<optimize>true</optimize>
+		<keep-generated-actionscript>false</keep-generated-actionscript>
+		<warn-no-constructor>false</warn-no-constructor>
+		<warn-no-explicit-super-call-in-constructor>false</warn-no-explicit-super-call-in-constructor>
+		<debug>true</debug>
+		<include-libraries>
+			<library>../libs/preloader.swc</library>
+			<library>../libs/OVP_2_0_0.swc</library>
+			<library>../libs/AutoComplete.swc</library>
+		</include-libraries>
+
+		
+	</compiler>
+	<metadata>
+
+	
+	</metadata>
+	<raw-metadata></raw-metadata>
+	
+</flex-config>
