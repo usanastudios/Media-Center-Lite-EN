@@ -82,11 +82,14 @@
 				if(playNow == true)
 				{
 					parentDocument.play_overlay_btn.visible=false;
+					parentDocument.large_thumbnail_overlay.visible=false;
 	            	startPlayback("on_demand");
 				}
 				else
 				{
 					parentDocument.play_overlay_btn.visible=true;
+					parentDocument.large_thumbnail_overlay.visible=true;
+					
 					startPlayback();
 				}
 				
@@ -174,6 +177,8 @@
 					//HIDE REPLAY BUTTON
 					parentDocument.replay_btn.visible=false;
 					parentDocument.play_overlay_btn.visible=false;
+					parentDocument.large_thumbnail_overlay.visible=false;
+					
 					
 					currentState = "";
 					write("Successfully connected to: " + _nc.netConnection.uri);
@@ -364,6 +369,8 @@
 				{
 					_bossMetafile.load(VIDEO_URL);
 					parentDocument.play_overlay_btn.visible=true;
+					parentDocument.large_thumbnail_overlay.visible=true;
+					
 				}
 				_isPaused = false;
 				

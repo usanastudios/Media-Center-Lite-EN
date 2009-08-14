@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<views:VideoPlayerBasicBaseClass xmlns:fx="http://ns.adobe.com/mxml/2009" backgroundColor="0x030303" xmlns:mx="library://ns.adobe.com/flex/halo" xmlns:views="components.views.*" show="onShow()" creationComplete="basic_video_init()" xmlns:s="library://ns.adobe.com/flex/spark" hide="pauseVideo()">
+<views:VideoPlayerBasicBaseClass xmlns:fx="http://ns.adobe.com/mxml/2009" backgroundColor="0x030303" xmlns:mx="library://ns.adobe.com/flex/halo" xmlns:views="components.views.*" show="onShow()" creationComplete="basic_video_init();" xmlns:s="library://ns.adobe.com/flex/spark" hide="pauseVideo()">
 
 	<fx:Declarations>
 		
@@ -98,6 +98,10 @@
 <!-- ================= -->
 <s:Button id="replay_btn" skinClass="components.skins.ReplayButtonSkin" x="220" y="150" buttonMode="true" visible="false"/>
 
+<!-- =========================== -->
+<!-- = LARGE THUMBNAIL OVERLAY = -->
+<!-- =========================== -->
+<mx:Image id="large_thumbnail_overlay" autoLoad="true" x="20" source="http://www.usana.com/media/File/mediaCenter/display_frame/{parentDocument.current_video.@id}.jpg" />
 
 <!-- ====================== -->
 <!-- = PLAY BUTTON OVERLAY= -->

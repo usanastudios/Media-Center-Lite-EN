@@ -10,6 +10,7 @@ package components.views
 	import mx.collections.Sort;
 	import mx.collections.SortField;
 	import mx.containers.Canvas;
+	import mx.controls.Alert;
 	import mx.controls.Menu;
 	import mx.controls.Text;
 	import mx.controls.TileList;
@@ -73,7 +74,7 @@ package components.views
 			sort_menu_btn.addEventListener(MouseEvent.CLICK,createAndShowSortMenu);
 			replay_btn.addEventListener(MouseEvent.CLICK,replayVideo);
 			play_overlay_btn.addEventListener(MouseEvent.CLICK,replayVideo);
-			
+		    
 			
 		
 			/*SET UP PAGINATION*/
@@ -90,6 +91,8 @@ package components.views
 			
 			
 		}
+		
+	
 		 
 		
 		/* ============================================= */
@@ -98,10 +101,21 @@ package components.views
 		public function onShow():void
 		{
 			parentDocument.pagination_setup(this);
-			//parentDocument.showVideo2(parentDocument.current_video.@id,this);
-			results_for_txt.text = "Results For \"" + parentDocument.recommended_searchTitle +"\"";
-		
+				if(parentDocument.search_type == "rec_video")
+				{
+					showRecommendedVideo(parentDocument.current_video.@id,null);
+				}
+				else
+				{
+					parentDocument.showVideo2(parentDocument.current_video.@id,this);
+				}
+				results_for_txt.text = parentDocument.current_search_term;
 		}
+		
+		
+		
+	
+		
 		
 		
 		 /* =========================== */
@@ -126,13 +140,13 @@ package components.views
 	 	/* ========================================================== */
 		/* = FUNCTION TO SHOW SELECTED VIDEO FROM THE 5 RECOMMENDED = */
 		/* ========================================================== */
-		public function showRecommendedVideo(event:MouseEvent=null):void {
+		public function showRecommendedVideo(video_id:String,event:MouseEvent=null):void {
 			
 			//pauseVideo();
 			
 			//WE ARE USING THE 'automationName' PROPERTY ON THE RECOMMENDED THUMBNAIL TO GET THE INDEX NUMBER BACK - KIND OF A HACK :)
-			//mx.controls.Alert.show(event.currentTarget.automationName.toString());
-			var thumbNailIndex:int = event.currentTarget.automationName;
+		
+			
 			
 			//SET CURRENT VIDEO BASED ON CLICKED THUMBNAIL
 			
@@ -145,11 +159,22 @@ package components.views
                  // Call setters in the module to adjust its
                  // appearance when it loads.
 
+			if (event)
+			{
+				var thumbNailIndex:int = event.currentTarget.automationName;
               vpchild.setVideo(parentDocument.video_list.video[thumbNailIndex].@id,true);
  			   video_title_txt.text = parentDocument.video_list.video[thumbNailIndex].title;
  			   video_short_description_txt.text = parentDocument.video_list.video[thumbNailIndex].shortdescription;
  			   video_long_description_txt.htmlText = parentDocument.video_list.video[thumbNailIndex].longdescription;
-             } else {                
+			}
+			else
+			{
+			  vpchild.setVideo(parentDocument.current_video.@id,true);
+ 			   video_title_txt.text = parentDocument.current_video.title;
+ 			   video_short_description_txt.text = parentDocument.current_video.shortdescription;
+ 			   video_long_description_txt.htmlText = parentDocument.current_video.longdescription;
+			}
+			 } else {                
                  trace("Uh oh. The video_player.child property is null");                 
              }
 
@@ -366,18 +391,11 @@ package components.views
 			   //video_short_description_txt.text = evt.currentTarget.selectedItem.shortdescription;
 			   //video_long_description_txt.htmlText = evt.currentTarget.selectedItem.longdescription;
             } else {                
-                mx.controls.Alert.show("Uh oh. The video_player.child property is null");                 
+                trace("Uh oh. The video_player.child property is null");                 
             }
 }
 
 
-public function test():void
-{
-	mx.controls.Alert.show("test");
-	
-	replayVideo();
-	
-}
 
 
 	}
