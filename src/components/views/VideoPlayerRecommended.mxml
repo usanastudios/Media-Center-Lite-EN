@@ -42,7 +42,7 @@
 
 <s:VGroup gap="0">
 	<s:HGroup>
-		<mx:ModuleLoader id="video_player" url="modules/video_player/VideoPlayer.swf?video_id={current_video.@id}" paddingLeft="25" paddingTop="17" paddingBottom="25"  />
+		<mx:ModuleLoader id="video_player" url="modules/video_player/VideoPlayer.swf?video_id={parentDocument.current_video.@id}" paddingLeft="25" paddingTop="17" paddingBottom="25"  />
 		<s:VGroup>
 			<mx:Text id="video_title_txt" width="375" paddingLeft="20" paddingTop="17" paddingRight="20"  text="{parentDocument.video_title}" styleName="videoTitle"/>
 			<mx:Text id="video_short_description_txt" width="375" paddingLeft="20" text="{parentDocument.video_short_description}" styleName="videoSubTitle"/>
@@ -51,9 +51,7 @@
 				</mx:Box>
 			<mx:Text id="video_long_description_txt" width="380" paddingTop="8" paddingLeft="20" text="{parentDocument.video_long_description}" styleName="videoLongDesc"/>
 		
-		
-		
-   
+	   
    </s:VGroup>
 	</s:HGroup> 
 	
@@ -133,7 +131,7 @@
 <!-- ====================== -->
 <!-- = PLAY BUTTON OVERLAY= -->
 <!-- ====================== -->
-<s:Button id="play_overlay_btn"  x="0" y="0" buttonMode="true" visible="true" skinClass="components.skins.PlayOverlayButtonSkin"/>
+<s:Button id="play_overlay_btn"  x="0" y="0" buttonMode="true" visible="true" skinClass="components.skins.PlayOverlayButtonSkin" />
 
 
 </views:VideoPlayerRecommendedBaseClass>

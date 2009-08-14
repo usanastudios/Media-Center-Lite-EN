@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+
+<views:RecommendedPopUpBaseClass titleBackgroundSkin="@Embed('../../assets/skins/send_email_title_skin.png')"  creationComplete="init()" close="PopUpManager.removePopUp(this)" width="800" height="500"  titleStyleName="emailTitleSkin" showCloseButton="true" backgroundColor="#0a0a0a" horizontalScrollPolicy="off" contentBackgroundColor="#0a0a0a" 
+	xmlns:views="components.views.*" 
+	xmlns:fx="http://ns.adobe.com/mxml/2009"  
+	xmlns:mx="library://ns.adobe.com/flex/halo"
+	xmlns:s="library://ns.adobe.com/flex/spark" verticalAlign="middle"
+	 horizontalAlign="center">
+
+	
+
+	<fx:Script>
+		<![CDATA[ 
+		import mx.managers.PopUpManager;
+		
+	 ]]>
+	</fx:Script>
+	
+	<mx:Text id="weRecommend_txt" styleName="videoTitle"/>
+	<mx:Tile direction="vertical" backgroundColor="0x000000" cornerRadius="15" backgroundAlpha=".3"
+	 	verticalScrollPolicy="off" 
+	 	horizontalScrollPolicy="off"
+	 	   borderStyle="none" horizontalGap="10" horizontalAlign="center" verticalAlign="middle" paddingTop="14" paddingLeft="15" 
+	       width="100%" height="200" >
+	       <mx:Repeater id="rp_thumbnails" dataProvider="{parentDocument.recommended_videos}">
+				<mx:VBox horizontalAlign="center">
+	      			<mx:Image  autoLoad="true" smoothBitmapContent="true" automationName="{rp_thumbnails.currentIndex}" source="http://www.usana.com/media/File/mediaCenter/thumbnails/{rp_thumbnails.currentItem.@id}.jpg" buttonMode="true" click="parentDocument.recommendedSearch(event,'playVideo');PopUpManager.removePopUp(this);"/>
+	       			<mx:Text  text="{rp_thumbnails.currentItem.title}" styleName="videoSubTitle" y="124" horizontalCenter="0"/>
+				</mx:VBox>
+			</mx:Repeater>
+	   </mx:Tile>
+	
+	
+	<s:Button skinClass="components.skins.SkipButtonSkin" buttonMode="true" click="parentDocument.recommendedSearch(event,'getAll');PopUpManager.removePopUp(this);"/>
+</views:RecommendedPopUpBaseClass>
