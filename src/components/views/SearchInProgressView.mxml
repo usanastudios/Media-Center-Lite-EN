@@ -12,8 +12,8 @@
 		]]>
 	</fx:Script>
 	<mx:VBox horizontalCenter="0" verticalCenter="0">
-	<mx:Image id="circlePreloader" source="@Embed(source='../../assets/swf/circlePreloader.swf')" autoLoad="true" />
 	<mx:Text id="searching_for_txt" text="" styleName="searchingFor"/>
 	</mx:VBox>
+	<mx:SWFLoader width="300" height="300" source="assets/swf/circlePreloader.swf"/>
 	
 </views:LandingPageBaseClass>

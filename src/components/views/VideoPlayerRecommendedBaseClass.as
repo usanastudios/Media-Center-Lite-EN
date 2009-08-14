@@ -146,8 +146,6 @@ package components.views
 			
 			//WE ARE USING THE 'automationName' PROPERTY ON THE RECOMMENDED THUMBNAIL TO GET THE INDEX NUMBER BACK - KIND OF A HACK :)
 		
-			
-			
 			//SET CURRENT VIDEO BASED ON CLICKED THUMBNAIL
 			
 		 //	current_video = parentDocument.video_list.video[thumbNailIndex];
@@ -177,6 +175,10 @@ package components.views
 			 } else {                
                  trace("Uh oh. The video_player.child property is null");                 
              }
+
+
+			//PREVENT VOLUME FROM RESETTING
+			vpchild.changeVolume();
 
 		}
 		
