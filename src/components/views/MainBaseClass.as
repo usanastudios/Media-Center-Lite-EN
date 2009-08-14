@@ -63,7 +63,9 @@ package components.views
 		public var video_player_basic_view:VideoPlayerBasic;
 		public var video_player_recommended_view:VideoPlayerRecommended;
 		public var wall_video_svc:HTTPService;
-
+		public var recommended_searchTitle:String;
+		public var recommended_searchTerm:String;
+		public var playNow:Boolean;
 		
 		public static const LANGUAGE:String = "en";
 		
@@ -108,7 +110,6 @@ package components.views
 		
 			recommendedXML_svc.send();
 			
-			recommended_videos = new XMLList();
 			
 			/*EVENT LISTENERS*/
 			prospectMenu1_btn.addEventListener(MouseEvent.CLICK,createAndShowProspectMenu1);
@@ -180,53 +181,39 @@ package components.views
 			}
 			else if (event.label == "Skin Care")
 			{
-				var recommendedPopUp:RecommendedPopUp = new components.views.RecommendedPopUp();
-		        PopUpManager.addPopUp(recommendedPopUp, this, true);
-				recommendedPopUp.y = 100;
-				recommendedPopUp.x = 100;
-				recommendedPopUp.weRecommend_txt.text ="We recommend these Skin Care videos";
-				//recommendedSearch("skin","Skin Care");
-				//recommended_videos = recommendedXML_svc.lastResult.skincare.video;
+				recommendedPopUp("skin","Skin Care",recommendedXML_svc.lastResult.skincare.video);
 			}
 			else if (event.label == "Nutrition")
 			{
-				recommendedSearch("nutrition","Nutrition");
-				recommended_videos = recommendedXML_svc.lastResult.nutrition.video;
+				recommendedPopUp("nutrition","Nutrition",recommendedXML_svc.lastResult.nutrition.video);
 			}
 			else if (event.label == "Energy")
 			{
-				recommendedSearch("energy","Energy");
-				recommended_videos = recommendedXML_svc.lastResult.energy.video;
+				recommendedPopUp("energy","Energy",recommendedXML_svc.lastResult.energy.video);
 			}
 			else if (event.label == "Atheletes")
 			{
-				recommendedSearch("atheletes","Atheletes");
-				recommended_videos = recommendedXML_svc.lastResult.atheletes.video;
+				recommendedPopUp("atheletes","Atheletes",recommendedXML_svc.lastResult.atheletes.video);
 			}
 			else if (event.label == "USANA Health Sciences")
 			{
-				recommendedSearch("usana","USANA Health Sciences");
-				recommended_videos = recommendedXML_svc.lastResult.usanahealthsciences.video;
+				recommendedPopUp("usana","USANA Health Sciences",recommendedXML_svc.lastResult.usanahealthsciences.video);
 			}
 			else if (event.label == "The Pay Plan")
 			{
-				recommendedSearch("comp plan","The Pay Plan");
-				recommended_videos = recommendedXML_svc.lastResult.thepayplan.video;
+				recommendedPopUp("comp plan","The Pay Plan",recommendedXML_svc.lastResult.thepayplan.video);
 			}
 			else if (event.label == "The Opportunity")
 			{
-				recommendedSearch("opportunity","The Opportunity");
-				recommended_videos = recommendedXML_svc.lastResult.opportunity.video;
+				recommendedPopUp("opportunity","The Opportunity",recommendedXML_svc.lastResult.opportunity.video);
 			}
 			else if (event.label == "Health Testimonials")
 			{
-				recommendedSearch("health","Health Testimonials");
-				recommended_videos = recommendedXML_svc.lastResult.healthtestimonials.video;
+				recommendedPopUp("health","Health Testimonials",recommendedXML_svc.lastResult.healthtestimonials.video);
 			}
 			else if (event.label == "Wealth Testimonials")
 			{
-				recommendedSearch("wealth","Wealth Testimonials");
-				recommended_videos = recommendedXML_svc.lastResult.wealthskincare.video;
+				recommendedPopUp("wealth","Wealth Testimonials",recommendedXML_svc.lastResult.wealthskincare.video);
 			}			
 			else if (event.label == "I'm Not Sure")
 			{
@@ -236,6 +223,21 @@ package components.views
 			
 		} 
 		
+		
+		/* ========================================= */
+		/* = FUNCTION TO POP UP RECOMMENDED VIDEOS = */
+		/* ========================================= */
+		public function recommendedPopUp(searchTerm:String,searchTitle:String,serviceResult:XMLList):void
+		{
+			var recommendedPopUp:RecommendedPopUp = new components.views.RecommendedPopUp();
+	        PopUpManager.addPopUp(recommendedPopUp, this, true);
+			recommendedPopUp.y = 100;
+			recommendedPopUp.x = 100;
+			recommendedPopUp.weRecommend_txt.text ="We recommend these '"+searchTitle+"' videos";
+			recommended_videos = serviceResult;
+			recommended_searchTerm = searchTerm;
+			recommended_searchTitle = searchTitle;
+		}
 		     
 		/* ============================================== */
 		/* = FUNCTION TO NAVIGATE TO AUDIO LINK		    = */
@@ -327,21 +329,36 @@ package components.views
 		/* ============================================== */
 		/* = FUNCTION TO DO RECOMMENDED SEARCH FOR VIDEOS = */
 		/* ============================================== */
-		public function recommendedSearch(search_term:String, searchTitle:String):void
+		public function recommendedSearch(event:MouseEvent,mode:String):void
 		{	
             
+			/*SEARCHING MESSAGE*/
+			if (mode == "playVideo")
+			{
+				current_search_message = "Getting Selected Video"
+				playNow = true;
+			}
+			else
+			{
+				current_search_message = "Getting videos for '" +recommended_searchTitle+ "'";
+				playNow = false;
+			}
+			
 				/*SET CURRENT SEARCH TERM (FOR DISPLAY ON VIDEO PLAYER PAGE)*/
-				current_search_term = search_term;
+				//current_search_term = recommended_searchTerm;
 				
-				/*SEARCHING MESSAGE*/
-				current_search_message = "Getting videos for '" +searchTitle+ "'";
-				
+		
 				/*POP UP SEARCHING VIEW*/
 				main_view_stack.selectedIndex = 2;
 				
+				var thumbNailIndex:int = event.currentTarget.automationName;
+				
+				current_video = recommended_videos[thumbNailIndex];
 				
 				/*CALL THE WEB SERVICE*/
 				recommended_search_svc.send();
+				
+				
 				
 			} 
 					
@@ -365,7 +382,7 @@ package components.views
 				//REMOVE 3DWALL DUE TO BUG
 				landing_page_view.wall.unloadAndStop();
 							
-				current_video = video_list.video[0];
+				//current_video = video_list.video[0];
 				main_view_stack.selectedIndex = 3;
 			
 				/*SET NEW VIDEO */
@@ -386,8 +403,6 @@ package components.views
 					main_view_stack.selectedIndex = 0;
 				}
 				
-
-	
 			
 			
 		}
@@ -1118,39 +1133,7 @@ public function akamaiResultHandler():void
 
 
 
-	/* ========================================================== */
-	/* = FUNCTION TO SHOW SELECTED VIDEO FROM THE 5 RECOMMENDED = */
-	/* ========================================================== */
-	public function showRecommendedVideo(event:MouseEvent,videoPage:Object):void {
-		
-		//WE ARE USING THE 'automationName' PROPERTY ON THE RECOMMENDED THUMBNAIL TO GET THE INDEX NUMBER BACK - KIND OF A HACK :)
-		//mx.controls.Alert.show(event.currentTarget.automationName.toString());
-		var thumbNailIndex:int = event.currentTarget.automationName;
-		
-		//SET CURRENT VIDEO BASED ON CLICKED THUMBNAIL
-		
-	 //	current_video = parentDocument.video_list.video[thumbNailIndex];
- 		// Cast the ModuleLoader's child to the interface.
-        // This child is an instance of the module.
-        // We can now call methods on that instance.
-        var vpchild:* = videoPage.video_player.child as VideoPlayerInterface;                
-         if (videoPage.video_player.child != null) {                    
-             // Call setters in the module to adjust its
-             // appearance when it loads.
 
-         vpchild.setVideo(video_list.video[thumbNailIndex].@id,true);
-		   videoPage.video_title_txt.text = video_list.video[thumbNailIndex].title;
-		   videoPage.video_short_description_txt.text =video_list.video[thumbNailIndex].shortdescription;
-		   videoPage.video_long_description_txt.htmlText = video_list.video[thumbNailIndex].longdescription;
-         } else {                
-             trace("Uh oh. The video_player.child property is null");                 
-         }
-
-		//			mx.controls.Alert.show(current_video.toString());
-					
-       
-
-	}
 
 
 

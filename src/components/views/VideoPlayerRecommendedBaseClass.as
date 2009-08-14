@@ -3,7 +3,9 @@ package components.views
 	
 	
 	import flash.events.MouseEvent;
+	
 	import modules.video_player.VideoPlayerInterface;
+	
 	import mx.collections.ArrayCollection;
 	import mx.collections.Sort;
 	import mx.collections.SortField;
@@ -11,11 +13,13 @@ package components.views
 	import mx.controls.Menu;
 	import mx.controls.Text;
 	import mx.controls.TileList;
+	import mx.events.FlexEvent;
 	import mx.events.MenuEvent;
 	import mx.modules.ModuleLoader;
 	import mx.rpc.http.mxml.HTTPService;
-	import spark.components.Button;
 	
+	import spark.components.Button;
+
 	public class VideoPlayerRecommendedBaseClass extends Canvas
 	{
 		
@@ -70,6 +74,8 @@ package components.views
 			replay_btn.addEventListener(MouseEvent.CLICK,replayVideo);
 			play_overlay_btn.addEventListener(MouseEvent.CLICK,replayVideo);
 			
+			
+		
 			/*SET UP PAGINATION*/
 			parentDocument.pagination_setup(this);
 			
@@ -82,13 +88,7 @@ package components.views
 				
 			}
 			
-				//SET UP FIRST VIDEO THAT WILL PLAY
-				video_title_txt.text = parentDocument.current_video.title;
-				video_short_description_txt.text = parentDocument.current_video.shortdescription;
-				video_long_description_txt.htmlText = parentDocument.current_video.longdescription;
-				results_for_txt.text = "Results For \"" + parentDocument.current_search_term +"\"";
-				video_player.url="modules/video_player/VideoPlayer.swf?video_id={parentDocument.current_video.@id}";
-			    
+			
 		}
 		 
 		
@@ -98,7 +98,8 @@ package components.views
 		public function onShow():void
 		{
 			parentDocument.pagination_setup(this);
-			parentDocument.showVideo2(parentDocument.current_video.@id,this);
+			//parentDocument.showVideo2(parentDocument.current_video.@id,this);
+			results_for_txt.text = "Results For \"" + parentDocument.recommended_searchTitle +"\"";
 		
 		}
 		
@@ -121,17 +122,11 @@ package components.views
 		
 		
 	
-	
-	
-		
-		
-		
-	
 			
 	 	/* ========================================================== */
 		/* = FUNCTION TO SHOW SELECTED VIDEO FROM THE 5 RECOMMENDED = */
 		/* ========================================================== */
-		public function showRecommendedVideo(event:MouseEvent):void {
+		public function showRecommendedVideo(event:MouseEvent=null):void {
 			
 			//pauseVideo();
 			
@@ -150,7 +145,7 @@ package components.views
                  // Call setters in the module to adjust its
                  // appearance when it loads.
 
-             vpchild.setVideo(parentDocument.video_list.video[thumbNailIndex].@id,true);
+              vpchild.setVideo(parentDocument.video_list.video[thumbNailIndex].@id,true);
  			   video_title_txt.text = parentDocument.video_list.video[thumbNailIndex].title;
  			   video_short_description_txt.text = parentDocument.video_list.video[thumbNailIndex].shortdescription;
  			   video_long_description_txt.htmlText = parentDocument.video_list.video[thumbNailIndex].longdescription;
@@ -158,10 +153,6 @@ package components.views
                  trace("Uh oh. The video_player.child property is null");                 
              }
 
-			//			mx.controls.Alert.show(current_video.toString());
-						
-           
-	
 		}
 		
 		
@@ -355,11 +346,12 @@ package components.views
 		}
 
 
-			/* ============================ */
-			/* = FUNCTION TO REPLAY VIDEO = */
-			/* ============================ */
 
-	public function replayVideo(evt:MouseEvent):void {
+
+	/* ============================ */
+	/* = FUNCTION TO REPLAY VIDEO = */
+	/* ============================ */
+	public function replayVideo(evt:MouseEvent=null):void {
 
 		// Cast the ModuleLoader's child to the interface.
           // This child is an instance of the module.
@@ -368,14 +360,25 @@ package components.views
             if (video_player.child != null) {                    
                 // Call setters in the module to adjust its
                 // appearance when it loads.
+			  
               vpchild.setVideo(parentDocument.current_video.@id,true);
 			   //video_title_txt.text = evt.currentTarget.selectedItem.title;
 			   //video_short_description_txt.text = evt.currentTarget.selectedItem.shortdescription;
 			   //video_long_description_txt.htmlText = evt.currentTarget.selectedItem.longdescription;
             } else {                
-                trace("Uh oh. The video_player.child property is null");                 
+                mx.controls.Alert.show("Uh oh. The video_player.child property is null");                 
             }
 }
+
+
+public function test():void
+{
+	mx.controls.Alert.show("test");
+	
+	replayVideo();
+	
+}
+
 
 	}
 }
