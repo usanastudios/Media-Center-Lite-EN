@@ -90,7 +90,7 @@ package components.views
 			parentDocument.pagination_setup(this);
 			if(parentDocument.search_type == "wall_video")
 			{
-				parentDocument.showWallVideo(parentDocument.current_video.@id);
+				showWallVideo(parentDocument.current_video.@id);
 			}
 			else
 			{
@@ -99,6 +99,32 @@ package components.views
 			results_for_txt.text = parentDocument.current_search_term;
 			
 		} 
+		
+		
+		/* =================================== */
+		/* = FUNCTION TO SHOW SELECTED WALL VIDEO = */
+		/* =================================== */
+		public function showWallVideo(video_id:String):void {
+
+			//SET CURRENT VIDEO BASED ON CLICKED THUMBNAIL
+			//parentDocument.current_video = evt.currentTarget.selectedItem;
+			// Cast the ModuleLoader's child to the interface.
+		    // This child is an instance of the module.
+		    // We can now call methods on that instance.
+		    var vpchild:* = video_player.child as VideoPlayerInterface;                
+		      if (video_player.child != null) {                    
+		          // Call setters in the module to adjust its
+		          // appearance when it loads.
+		        vpchild.setVideo(video_id,true);
+			   video_title_txt.text = parentDocument.current_video.title;
+			   video_short_description_txt.text = parentDocument.current_video.shortdescription;
+			   video_long_description_txt.htmlText = parentDocument.current_video.longdescription;
+		      } else {                
+		          trace("Uh oh. The video_player.child property is null");                 
+		      }
+
+
+		}
 		
 		
 		/* ========================== */
