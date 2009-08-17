@@ -18,7 +18,8 @@ package components.views
 	import mx.events.MenuEvent;
 	import mx.modules.ModuleLoader;
 	import mx.rpc.http.mxml.HTTPService;
-	
+	import flash.utils.Timer;
+	import flash.events.TimerEvent;
 	import spark.components.Button;
 
 	public class VideoPlayerRecommendedBaseClass extends Canvas
@@ -101,9 +102,12 @@ package components.views
 		public function onShow():void
 		{
 			parentDocument.pagination_setup(this);
-				if(parentDocument.search_type == "rec_video")
+				if(parentDocument.playNow == true)
 				{
-					showRecommendedVideo(parentDocument.current_video.@id,null);
+						var myTimer:Timer = new Timer(1000, 2);
+				         myTimer.addEventListener("timer", 	showRecommendedVideo);
+				         myTimer.start();
+				
 				}
 				else
 				{
@@ -111,11 +115,8 @@ package components.views
 				}
 				results_for_txt.text = parentDocument.current_search_term;
 		}
-		
-		
-		
-	
-		
+       
+ 	
 		
 		
 		 /* =========================== */
@@ -140,48 +141,39 @@ package components.views
 	 	/* ========================================================== */
 		/* = FUNCTION TO SHOW SELECTED VIDEO FROM THE 5 RECOMMENDED = */
 		/* ========================================================== */
-		public function showRecommendedVideo(video_id:String,event:MouseEvent=null):void {
-			
-			//pauseVideo();
-			
-			//WE ARE USING THE 'automationName' PROPERTY ON THE RECOMMENDED THUMBNAIL TO GET THE INDEX NUMBER BACK - KIND OF A HACK :)
-		
-			//SET CURRENT VIDEO BASED ON CLICKED THUMBNAIL
-			
-		 //	current_video = parentDocument.video_list.video[thumbNailIndex];
-	 		// Cast the ModuleLoader's child to the interface.
-            // This child is an instance of the module.
-            // We can now call methods on that instance.
-            var vpchild:* = video_player.child as VideoPlayerInterface;                
-             if (video_player.child != null) {                    
-                 // Call setters in the module to adjust its
-                 // appearance when it loads.
+		public function showRecommendedVideo(evt:TimerEvent = null):void {
+			   
+			 var vpchild:* = video_player.child as VideoPlayerInterface;    
 
-			if (event)
-			{
-				var thumbNailIndex:int = event.currentTarget.automationName;
-              vpchild.setVideo(parentDocument.video_list.video[thumbNailIndex].@id,true);
- 			   video_title_txt.text = parentDocument.video_list.video[thumbNailIndex].title;
- 			   video_short_description_txt.text = parentDocument.video_list.video[thumbNailIndex].shortdescription;
- 			   video_long_description_txt.htmlText = parentDocument.video_list.video[thumbNailIndex].longdescription;
-			}
-			else
-			{
-			  vpchild.setVideo(parentDocument.current_video.@id,true);
- 			   video_title_txt.text = parentDocument.current_video.title;
- 			   video_short_description_txt.text = parentDocument.current_video.shortdescription;
- 			   video_long_description_txt.htmlText = parentDocument.current_video.longdescription;
-			}
+			 if (video_player.child != null) {                    
+			             
+			  // Call setters in the module to adjust its
+			               // appearance when it loads.
+		
+				  		vpchild.setVideo(parentDocument.current_video.@id,true);
+					   video_title_txt.text = parentDocument.current_video.title;
+					   video_short_description_txt.text = parentDocument.current_video.shortdescription;
+					   video_long_description_txt.htmlText = parentDocument.current_video.longdescription;
+			
+
 			 } else {                
-                 trace("Uh oh. The video_player.child property is null");                 
+                 mx.controls.Alert.show("Uh oh. The video_player.child property is null");                 
              }
 
 
-			//PREVENT VOLUME FROM RESETTING
-			vpchild.changeVolume();
+						//PREVENT VOLUME FROM RESETTING
+						if(vpchild)
+						{
+							vpchild.changeVolume();
+						}    
+	          
 
 		}
-		
+
+public function test(event:FlexEvent):void
+{		
+        
+}		
 		
 	
  

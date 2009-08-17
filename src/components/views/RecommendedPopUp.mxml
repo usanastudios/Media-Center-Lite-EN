@@ -8,8 +8,6 @@
 	xmlns:s="library://ns.adobe.com/flex/spark" verticalAlign="middle"
 	 horizontalAlign="center">
 
-	
-
 	<fx:Script>
 		<![CDATA[ 
 		import mx.managers.PopUpManager;
