@@ -336,6 +336,7 @@ package components.views
 			if (mode == "playVideo")
 			{
 				current_search_message = "Getting Selected Video"
+				current_video = event.currentTarget as XML;
 				playNow = true;
 			}
 			else
