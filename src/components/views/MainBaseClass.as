@@ -650,13 +650,15 @@ package components.views
 		public function getNextPage(videoPage:Object):void{
 		    var start:int=PERPAGE*currentPage;
 		    var end:int=0;
+		
 			
 			var lastPageNum:int = ((currentPage - videoPage.rp.startingIndex)-1);
 			var selectedPageNum:int = currentPage - videoPage.rp.startingIndex;
 			
 			if(lastPageNum > -1)
 			{
-			videoPage.pageNumber_lbl[lastPageNum].setStyle('textDecoration','none');
+				
+				videoPage.pageNumber_lbl[lastPageNum].setStyle('textDecoration','none');
 			}
 		
 			if(videoPage.pageNumber_lbl[selectedPageNum])
@@ -683,7 +685,12 @@ package components.views
 			{
 		        pagedDataProvider.addItem(search_results_dp.getItemAt(i));
 		    }
-		    videoPage.previous_btn.enabled=true;
+			
+			if(currentPage == pageCount -1)
+			{
+				videoPage.next_btn.enabled = false;
+				videoPage.lastTen_btn.enabled = false;
+			}
 			
 		    if(currentPage == 6 ||currentPage == 12 ||currentPage == 18 ||currentPage == 24 ||currentPage == 30 ||currentPage == 36 ||currentPage == 42 ||currentPage == 48 ||currentPage == 54 ||currentPage == 60) {
 				//GET NEXT TEN PAGES
@@ -694,7 +701,8 @@ package components.views
 				currentPage++; //INCREMENT PAGE
 			    
 			}
-			
+			videoPage.previous_btn.enabled=true;
+		    
 				
 			
 	
@@ -744,6 +752,8 @@ package components.views
 			{
 			 	videoPage.previous_btn.enabled=false;
 			 	videoPage.firstTen_btn.enabled=false;
+				videoPage.lastTen_btn.enabled = true;
+				videoPage.next_btn.enabled = true;
 	    	}
 		    var start:int=PERPAGE*(currentPage -1);
 		    var end:int=start+PERPAGE;
@@ -767,7 +777,15 @@ package components.views
 			    var start:int=PERPAGE*(pageNumber -1);
 			    var end:int=0;
 			
-				videoPage.previous_btn.enabled=true;
+				if(currentPage > 1)
+				{
+					videoPage.previous_btn.enabled=true;
+				}
+				else
+				{
+					videoPage.previous_btn.enabled = false;
+				}
+				
 				
 				//REMOVE UNDERLINE FROM SELECTED LAST PAGE
 			 	if(lastPageSelectedButton)
@@ -827,6 +845,7 @@ package components.views
 				}
 				if(currentPage == 7 ||currentPage == 13 ||currentPage == 19 ||currentPage == 25 ||currentPage == 31 ||currentPage == 37 ||currentPage == 43 ||currentPage == 49 ||currentPage == 55 ||currentPage == 61)
 				{
+					
 					videoPage.pageNumber_lbl[5].setStyle('textDecoration','underline');
 				}
 			
@@ -855,7 +874,7 @@ package components.views
 		videoPage.rp.startingIndex = currentPage - 7;
 		getSelectedPage((currentPage).toString(),videoPage);
 		currentPage--; //DECREMENT PAGE
-		
+		videoPage.next_btn.enabled=true;
 		
 	}
 	
@@ -868,6 +887,8 @@ package components.views
 		currentPage = videoPage.rp.startingIndex;
 		getSelectedPage(videoPage.rp.startingIndex,videoPage);
 		underlineFirstRecord(videoPage);
+		videoPage.next_btn.enabled=true;
+		videoPage.lastTen_btn.enabled = true;
 	}	
 	
 	/* =================================================== */
@@ -879,6 +900,7 @@ package components.views
 		currentPage = videoPage.rp.startingIndex;
 		getSelectedPage(videoPage.rp.startingIndex,videoPage);
 		underlineFirstRecord(videoPage);
+		videoPage.lastTen_btn.enabled = false;
 	}
 	
 	/* =============================================================== */
