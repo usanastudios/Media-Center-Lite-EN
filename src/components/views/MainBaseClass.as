@@ -702,7 +702,8 @@ package components.views
 			    
 			}
 			videoPage.previous_btn.enabled=true;
-		    
+		    videoPage.firstTen_btn.enabled = true;
+		
 				
 			
 	
@@ -777,14 +778,6 @@ package components.views
 			    var start:int=PERPAGE*(pageNumber -1);
 			    var end:int=0;
 			
-				if(currentPage > 1)
-				{
-					videoPage.previous_btn.enabled=true;
-				}
-				else
-				{
-					videoPage.previous_btn.enabled = false;
-				}
 				
 				
 				//REMOVE UNDERLINE FROM SELECTED LAST PAGE
@@ -823,14 +816,22 @@ package components.views
  			    }
 				currentPage = pageNumber;
 				
-
+				
+				//DISABLE NEXT AND PREV BUTTONS DEPENDING ON CURRENT PAGE
  		   		if(currentPage <= 1)
 				{
 				 	videoPage.previous_btn.enabled=false;
 					videoPage.firstTen_btn.enabled=false;
 		    	}
+				else
+				{
+					videoPage.previous_btn.enabled=true;
+					videoPage.firstTen_btn.enabled=true;
+				}
+				
  			    if(currentPage==pageCount){
  			     videoPage.next_btn.enabled=false;
+				 videoPage.lastTen_btn.enabled=false;
  			    }
 
 				//UNDERLINE CURRENT PAGE 
@@ -901,6 +902,8 @@ package components.views
 		getSelectedPage(videoPage.rp.startingIndex,videoPage);
 		underlineFirstRecord(videoPage);
 		videoPage.lastTen_btn.enabled = false;
+		videoPage.previous_btn.enabled=true;
+	    videoPage.firstTen_btn.enabled = true;
 	}
 	
 	/* =============================================================== */
