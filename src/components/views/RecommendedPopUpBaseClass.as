@@ -4,6 +4,8 @@ package components.views
 import mx.containers.TitleWindow;
 import mx.managers.PopUpManager;
 import mx.core.mx_internal;
+import mx.core.UIComponent;
+
 
 public class RecommendedPopUpBaseClass extends TitleWindow
 {
