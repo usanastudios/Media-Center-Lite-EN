@@ -53,6 +53,7 @@ public class SendEmailPageBaseClass extends TitleWindow
 		cancel_btn.addEventListener(MouseEvent.CLICK, cancelEmail);
 		send_btn.addEventListener(MouseEvent.CLICK,send_email);
 		
+		/*ADJUST CLOSE BUTTON*/
 		this.mx_internal::closeButton.x = 778;
 		this.mx_internal::closeButton.y = -6;
 		this.mx_internal::closeButton.width = 29;
