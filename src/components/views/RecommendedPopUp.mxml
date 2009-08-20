@@ -16,7 +16,7 @@
 	</fx:Script>
 	
 	<mx:Text id="weRecommend_txt" styleName="videoTitle"/>
-	<mx:Tile direction="vertical" backgroundColor="0x000000" cornerRadius="15" backgroundAlpha=".3"
+	<mx:Tile direction="vertical" backgroundColor="#0a0a0a" cornerRadius="15" backgroundAlpha=".3"
 	 	verticalScrollPolicy="off" 
 	 	horizontalScrollPolicy="off"
 	 	   borderStyle="none" horizontalGap="10" horizontalAlign="center" verticalAlign="middle" paddingTop="14" paddingLeft="15" 

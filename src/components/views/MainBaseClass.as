@@ -775,7 +775,7 @@ package components.views
 			/* ======================================= */
 				public function getSelectedPage(pageNum:String,videoPage:Object,event_target:LinkButton = null):void{
 				var pageNumber:int = parseInt(pageNum);
-			    var start:int=PERPAGE*(pageNumber -1);
+			    var start:int=PERPAGE*pageNumber;
 			    var end:int=0;
 			
 				
