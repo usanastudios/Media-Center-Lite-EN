@@ -35,7 +35,7 @@
         
 <s:VGroup gap="0">
 	<s:HGroup>
-		<mx:ModuleLoader id="video_player" url="modules/video_player/VideoPlayer.swf?video_id={parentDocument.current_video.@id}" paddingLeft="25" paddingTop="17" paddingBottom="25"  />
+		<mx:ModuleLoader id="video_player" url="http://www.usana.com/media/File/mediaCenter/Media-Center-Lite/EN/modules/video_player/VideoPlayer.swf?video_id={parentDocument.current_video.@id}" paddingLeft="25" paddingTop="17" paddingBottom="25"  />
 		
 		<s:VGroup>
 			<mx:Text id="video_title_txt" width="375" paddingLeft="20" paddingTop="17" paddingRight="20"  text="{parentDocument.video_title}" styleName="videoTitle"/>
