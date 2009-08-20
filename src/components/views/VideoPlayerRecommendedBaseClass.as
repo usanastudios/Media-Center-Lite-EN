@@ -201,7 +201,7 @@ public function test(event:FlexEvent):void
 	        sortMenu.styleName="prospectMenu1";
 	        sortMenu.width = 160;
 	        sortMenu.rowHeight = 27;
-	        sortMenu.show(sort_menu_btn.x + 5, 460);  
+	        sortMenu.show(sort_menu_btn.x + 5, 500);  
 			sortMenu.addEventListener(MenuEvent.ITEM_CLICK,sortSearchResults);
           }
        
