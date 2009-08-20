@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<views:SendEmailPageBaseClass titleBackgroundSkin="@Embed('../../assets/skins/send_email_title_skin.png')"  creationComplete="init()" close="PopUpManager.removePopUp(this)" width="800" height="500" title="Send To A Friend" titleStyleName="emailTitleSkin" showCloseButton="true" backgroundColor="#0a0a0a" horizontalScrollPolicy="off" contentBackgroundColor="#0a0a0a" 
+<views:SendEmailPageBaseClass titleBackgroundSkin="@Embed('../../assets/skins/send_email_title_skin.png')"  creationComplete="init()" close="PopUpManager.removePopUp(this)" width="800" height="500" title="Send '{parentDocument.current_video.title}' To A Friend" titleStyleName="emailTitleSkin" showCloseButton="true" backgroundColor="#0a0a0a" horizontalScrollPolicy="off" contentBackgroundColor="#0a0a0a" 
 	xmlns:views="components.views.*" 
 	xmlns:fx="http://ns.adobe.com/mxml/2009"  
 	xmlns:mx="library://ns.adobe.com/flex/halo"
