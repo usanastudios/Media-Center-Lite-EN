@@ -26,8 +26,8 @@
 		
 		<!-- SHOW CC -->
 				
-		<mx:TextArea wordWrap="true" id="captionLabel" styleName="captionStyle" color="0xFFFFFF"
-		width="544" borderStyle="none" horizontalScrollPolicy="off" verticalScrollPolicy="off" visible="false"/>
+		<mx:TextArea wordWrap="true" id="captionLabel" styleName="captionStyle" color="#FFFFFF" 
+		width="544" borderStyle="none" horizontalScrollPolicy="off" verticalScrollPolicy="off" visible="false" contentBackgroundColor="#000000"/>
 		
 
 
