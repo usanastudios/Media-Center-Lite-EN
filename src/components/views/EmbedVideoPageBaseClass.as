@@ -20,12 +20,6 @@ public class EmbedVideoPageBaseClass extends TitleWindow
 	public function init():void
 	{
 	
-			this.mx_internal::closeButton.x = 778;
-			this.mx_internal::closeButton.y = -6;
-			this.mx_internal::closeButton.width = 29;
-			this.mx_internal::closeButton.height = 29;
-			this.mx_internal::closeButton.buttonMode = true;
-			this.mx_internal::closeButton.useHandCursor = true;
 		
 			var clearspring:ClearspringAPI = new ClearspringAPI();
 			var csWrapper:UIComponent = new UIComponent();
@@ -33,6 +27,21 @@ public class EmbedVideoPageBaseClass extends TitleWindow
 			this.addElement(csWrapper);
 			
 			
+	}
+	
+	
+	/* =================================== */
+	/* = ADJUST POSITION OF CLOSE BUTTON = */
+	/* =================================== */
+	public function setCloseButton():void
+	{
+		
+				this.mx_internal::closeButton.x = 778;
+				this.mx_internal::closeButton.y = -6;
+				this.mx_internal::closeButton.width = 29;
+				this.mx_internal::closeButton.height = 29;
+				this.mx_internal::closeButton.buttonMode = true;
+				this.mx_internal::closeButton.useHandCursor = true;
 	}
 	
    
