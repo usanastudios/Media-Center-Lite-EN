@@ -23,7 +23,7 @@
 		<!-- END VIDEO PLAYER-->
 		
 		</mx:Canvas>
-		
+		 
 		<!-- SHOW CC -->
 				
 		<mx:TextArea wordWrap="true" id="captionLabel" styleName="captionStyle" color="#FFFFFF" 

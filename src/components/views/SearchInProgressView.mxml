@@ -14,6 +14,6 @@
 	<mx:VBox horizontalCenter="0" verticalCenter="0">
 	<mx:Text id="searching_for_txt" text="" styleName="searchingFor"/>
 	</mx:VBox>
-	<mx:SWFLoader width="300" height="300" source="assets/swf/circlePreloader.swf"/>
+	<mx:SWFLoader width="300" height="300" source="circlePreloader.swf"/>
 	
 </views:LandingPageBaseClass>

@@ -23,7 +23,7 @@ public class LandingPageBaseClass extends Canvas
 	
 	public function initLandingPage():void
 	{
-	
+		
 	}
 	
 	

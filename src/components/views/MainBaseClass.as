@@ -67,6 +67,7 @@ package components.views
 		public var recommended_searchTerm:String;
 		public var playNow:Boolean;
 		
+		
 		public static const LANGUAGE:String = "en";
 		
 		/* ====================== */
@@ -110,6 +111,7 @@ package components.views
 		
 			recommendedXML_svc.send();
 			
+		
 			
 			/*EVENT LISTENERS*/
 			prospectMenu1_btn.addEventListener(MouseEvent.CLICK,createAndShowProspectMenu1);
@@ -154,6 +156,7 @@ package components.views
     
 		}
 		
+	
 		
 	  	/* ======================================== */
         /* = CREATE AND DISPLAY THE PROSPECT MENU1 CONTROL. = */
@@ -958,6 +961,9 @@ public function showVideo(video:XML,videoPage:Object):void {
 		
 		//PREVENT VOLUME FROM RESETTING
 		vpchild.changeVolume();
+		
+		//CLEAR VIDEO THUMBNAIL OVERLAY (VIDEO PLAYS INSTANTLY)
+		videoPage.large_thumbnail_overlay.source = "";
 }
 
 
