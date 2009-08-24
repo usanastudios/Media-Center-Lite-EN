@@ -7,13 +7,15 @@
 			{
 				searching_for_txt.text = parentDocument.current_search_message;
 			//	mx.controls.Alert.show(searching_for_txt.y.toString());
-				
+			
+
 			}
 		]]>
 	</fx:Script>
 	<mx:VBox horizontalCenter="0" verticalCenter="0">
 	<mx:Text id="searching_for_txt" text="" styleName="searchingFor"/>
+
 	</mx:VBox>
-	<mx:SWFLoader width="300" height="300" source="circlePreloader.swf"/>
+	<mx:SWFLoader id="preloaderCircle" width="125" height="108" source="circlePreloader.swf" autoLoad="true" x="508" y="258"/>
 	
 </views:LandingPageBaseClass>

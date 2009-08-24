@@ -29,7 +29,7 @@ package components.views
 	import spark.components.Application;
 	import spark.components.Button;
 	import spark.components.TextInput;
-
+	
 
 	public class MainBaseClass extends Application
 	{
@@ -66,7 +66,6 @@ package components.views
 		public var recommended_searchTitle:String;
 		public var recommended_searchTerm:String;
 		public var playNow:Boolean;
-		
 		
 		public static const LANGUAGE:String = "en";
 		
