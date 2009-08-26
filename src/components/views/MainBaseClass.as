@@ -108,7 +108,7 @@ package components.views
 		{
 		//	auto_complete_svc.send();
 		
-			recommendedXML_svc.send();
+		recommendedXML_svc.send();
 			
 		
 			
@@ -782,16 +782,13 @@ package components.views
 			
 				
 				
-				//REMOVE UNDERLINE FROM SELECTED LAST PAGE
-			 	if(lastPageSelectedButton)
-				{
-					lastPageSelectedButton.setStyle('textDecoration','none');
-				}
-				
-				else
-				{
-					videoPage.pageNumber_lbl[0].setStyle('textDecoration','none');
-				}
+				//REMOVE UNDERLINE FROM ALL PAGE NUMBERS
+				if(videoPage.pageNumber_lbl[0]) { videoPage.pageNumber_lbl[0].setStyle('textDecoration','none'); }
+				if(videoPage.pageNumber_lbl[1]) { videoPage.pageNumber_lbl[1].setStyle('textDecoration','none'); }
+				if(videoPage.pageNumber_lbl[2]) { videoPage.pageNumber_lbl[2].setStyle('textDecoration','none'); }
+				if(videoPage.pageNumber_lbl[3]) { videoPage.pageNumber_lbl[3].setStyle('textDecoration','none'); }
+				if(videoPage.pageNumber_lbl[4]) { videoPage.pageNumber_lbl[4].setStyle('textDecoration','none'); }
+				if(videoPage.pageNumber_lbl[5]) { videoPage.pageNumber_lbl[5].setStyle('textDecoration','none'); }
 			
 		
 				
@@ -842,16 +839,17 @@ package components.views
 					event_target.setStyle('textDecoration','underline');
 				}
 
-				if(currentPage == 6 ||currentPage == 12 ||currentPage == 18 ||currentPage == 24 ||currentPage == 30 ||currentPage == 36 ||currentPage == 42 ||currentPage == 48 ||currentPage == 54 ||currentPage == 60)
-				{
-					videoPage.pageNumber_lbl[0].setStyle('textDecoration','underline');
-				}
-				if(currentPage == 7 ||currentPage == 13 ||currentPage == 19 ||currentPage == 25 ||currentPage == 31 ||currentPage == 37 ||currentPage == 43 ||currentPage == 49 ||currentPage == 55 ||currentPage == 61)
-				{
-					
-					videoPage.pageNumber_lbl[5].setStyle('textDecoration','underline');
-				}
-			
+
+				/*if(currentPage == 6 ||currentPage == 12 ||currentPage == 18 ||currentPage == 24 ||currentPage == 30 ||currentPage == 36 ||currentPage == 42 ||currentPage == 48 ||currentPage == 54 ||currentPage == 60)
+							{
+								videoPage.pageNumber_lbl[0].setStyle('textDecoration','underline');
+							}
+							if(currentPage == 13 ||currentPage == 19 ||currentPage == 25 ||currentPage == 31 ||currentPage == 37 ||currentPage == 43 ||currentPage == 49 ||currentPage == 55 ||currentPage == 61)
+							{
+								
+								videoPage.pageNumber_lbl[5].setStyle('textDecoration','underline');
+							}
+				*/		
 				
 				//SET LAST PAGE BUTTON
 				lastPageSelectedButton = event_target;
@@ -866,19 +864,22 @@ package components.views
 		videoPage.rp.startingIndex = currentPage;
 		getSelectedPage((currentPage).toString(),videoPage);
 		currentPage++; //INCREMENT PAGE
+		//UNDERLINE FIRST PAGE NUMBER 
+		videoPage.pageNumber_lbl[0].setStyle('textDecoration','underline');
 	}
 	
 			
-	/* =================================================== */
-	/* = FUNCTION TO GET THE NEXT 10 PAGES OF THUMBNAILS = */
-	/* =================================================== */
+	/* ======================================================= */
+	/* = FUNCTION TO GET THE PREVIOUS 10 PAGES OF THUMBNAILS = */
+	/* ======================================================= */
 	public function getPreviousTen(videoPage:Object):void
 	{
 		videoPage.rp.startingIndex = currentPage - 7;
 		getSelectedPage((currentPage).toString(),videoPage);
 		currentPage--; //DECREMENT PAGE
 		videoPage.next_btn.enabled=true;
-		
+		//UNDERLINE LAST PAGE NUMBER
+		videoPage.pageNumber_lbl[5].setStyle('textDecoration','underline');
 	}
 	
 	/* =================================================== */
