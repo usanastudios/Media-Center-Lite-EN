@@ -188,7 +188,7 @@ public function test(event:FlexEvent):void
 	        shareMenu.styleName="prospectMenu1";
 	        shareMenu.width = 180;
 	        shareMenu.rowHeight = 27;
-	        shareMenu.show(600, share_menu_btn.y + 175);
+	        shareMenu.show(600, share_menu_btn.y + 165);
 			shareMenu.addEventListener(MenuEvent.ITEM_CLICK,shareMenuHandler);
           }
 
@@ -253,7 +253,7 @@ public function test(event:FlexEvent):void
 					xmlstr += "<video id=\"ven"+finalVideo.id+"\">\n";
 					xmlstr += "<title>"+finalVideo.title+"</title>\n"; 
 					xmlstr += "<shortdescription>"+finalVideo.shortdescription+"</shortdescription>\n"; 
-					//xmlstr += "<longdescription>"+finalVideo.longdescription+"</longdescription>\n"; 
+					xmlstr += "<longdescription>"+finalVideo.longdescription+"</longdescription>\n"; 
 					xmlstr += "</video>";
 				}
 				xmlstr += "</mediacenter>";
@@ -330,7 +330,7 @@ public function test(event:FlexEvent):void
 					xmlstr += "<video id=\""+finalVideo.id+"\">\n";
 					xmlstr += "<title>"+finalVideo.title+"</title>\n"; 
 					xmlstr += "<shortdescription>"+finalVideo.shortdescription+"</shortdescription>\n"; 
-				//	xmlstr += "<longdescription>"+finalVideo.longdescription+"</longdescription>\n"; 
+					xmlstr += "<longdescription>"+finalVideo.longdescription+"</longdescription>\n"; 
 					xmlstr += "<streamhits>"+finalVideo.streamhits+"</streamhits>\n"; 
 					xmlstr += "</video>";
 				}

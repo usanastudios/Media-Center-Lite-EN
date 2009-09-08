@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <s:Button xmlns:s="library://ns.adobe.com/flex/spark" xmlns:mx="http://www.adobe.com/2006/mxml" skinClass="components.skins.DeleteEmailButtonSkin">
 
-	<!-- Copyright 2009 __MyCompanyName__. -->
 	
 	<mx:Script>
 	    <![CDATA[

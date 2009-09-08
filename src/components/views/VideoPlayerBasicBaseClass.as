@@ -2,20 +2,23 @@ package components.views
 {
 	
 	import flash.events.MouseEvent;
+	
 	import modules.video_player.VideoPlayerInterface;
+	
 	import mx.collections.ArrayCollection;
 	import mx.collections.Sort;
 	import mx.collections.SortField;
 	import mx.containers.Canvas;
+	import mx.controls.Image;
 	import mx.controls.Menu;
 	import mx.controls.Text;
 	import mx.controls.TileList;
 	import mx.events.MenuEvent;
 	import mx.modules.ModuleLoader;
 	import mx.rpc.http.mxml.HTTPService;
+	
 	import spark.components.Button;
 	import spark.components.List;
-	import mx.controls.Label;
 
  
 	
@@ -27,7 +30,7 @@ package components.views
 		/* ====================== */
 		[Bindable] private var selectedItems:ArrayCollection;
 		[Bindable] public var currentModuleName:String;
-		
+
 		
 		/* ==================== */
 		/* = PUBLIC VARIABLES = */
@@ -182,7 +185,7 @@ package components.views
 	        shareMenu.styleName="prospectMenu1";
 	        shareMenu.width = 180;
 	        shareMenu.rowHeight = 27;
-	        shareMenu.show(600, share_menu_btn.y + 190);
+	        shareMenu.show(600, share_menu_btn.y + 165);
 			shareMenu.addEventListener(MenuEvent.ITEM_CLICK,shareMenuHandler);
           }
 
@@ -248,7 +251,7 @@ package components.views
 					xmlstr += "<video id=\"ven"+finalVideo.id+"\">\n";
 					xmlstr += "<title>"+finalVideo.title+"</title>\n"; 
 					xmlstr += "<shortdescription>"+finalVideo.shortdescription+"</shortdescription>\n"; 
-					//xmlstr += "<longdescription>"+finalVideo.longdescription+"</longdescription>\n"; 
+					xmlstr += "<longdescription>"+finalVideo.longdescription+"</longdescription>\n"; 
 					xmlstr += "</video>";
 				}
 				xmlstr += "</mediacenter>";
@@ -325,7 +328,7 @@ package components.views
 					xmlstr += "<video id=\""+finalVideo.id+"\">\n";
 					xmlstr += "<title>"+finalVideo.title+"</title>\n"; 
 					xmlstr += "<shortdescription>"+finalVideo.shortdescription+"</shortdescription>\n"; 
-					//xmlstr += "<longdescription>"+finalVideo.longdescription+"</longdescription>\n"; 
+					xmlstr += "<longdescription>"+finalVideo.longdescription+"</longdescription>\n"; 
 					xmlstr += "<streamhits>"+finalVideo.streamhits+"</streamhits>\n"; 
 					xmlstr += "</video>";
 				}

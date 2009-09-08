@@ -77,7 +77,7 @@
 	<!-- ======================== -->
 	<mx:Canvas>
 	<mx:VBox horizontalCenter="0" verticalCenter="0">
-	<mx:Image id="circlePreloader1" source="@Embed(source='../../assets/swf/circlePreloader.swf')" autoLoad="true" />
+	<mx:Image id="circlePreloader1" source="@Embed(source='../../assets/swf/loading_animation.swf')" autoLoad="true" />
 	<mx:Text id="sending_email_txt" text="Sending Emails" styleName="searchingFor"/>
 	</mx:VBox>
 	</mx:Canvas>	
@@ -87,7 +87,7 @@
 	<!-- ======================== -->
 	<mx:Canvas>
 	<mx:VBox horizontalCenter="0" verticalCenter="0" horizontalAlign="center">
-	<mx:Image id="circlePreloader2" source="@Embed(source='../../assets/swf/circlePreloader.swf')" autoLoad="true" />
+	<mx:Image id="circlePreloader2" source="@Embed(source='../../assets/swf/loading_animation.swf')" autoLoad="true" />
 	<mx:Text id="email_sent_txt" text="Your Emails Have Been Sent" styleName="searchingFor"/>
 	<s:Button id="close_btn" skinClass="components.skins.CloseButtonSkin" click="close_email_window()" />
 	</mx:VBox>

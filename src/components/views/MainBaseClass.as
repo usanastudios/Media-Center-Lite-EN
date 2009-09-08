@@ -9,15 +9,18 @@ package components.views
 	
 	
 	import flash.events.MouseEvent;
-	import flash.net.navigateToURL;
 	import flash.net.URLRequest;
+	import flash.net.navigateToURL;
+	
 	import modules.video_player.VideoPlayerInterface;
+	
 	import mx.collections.ArrayCollection;
 	import mx.collections.Sort;
 	import mx.collections.SortField;
 	import mx.collections.XMLListCollection;
 	import mx.containers.ViewStack;
 	import mx.controls.Alert;
+	import mx.controls.Image;
 	import mx.controls.LinkButton;
 	import mx.controls.Menu;
 	import mx.core.FlexGlobals;
@@ -26,10 +29,10 @@ package components.views
 	import mx.managers.PopUpManager;
 	import mx.rpc.http.mxml.HTTPService;
 	import mx.validators.Validator;
+	
 	import spark.components.Application;
 	import spark.components.Button;
 	import spark.components.TextInput;
-	
 
 	public class MainBaseClass extends Application
 	{
@@ -67,6 +70,7 @@ package components.views
 		public var recommended_searchTerm:String;
 		public var playNow:Boolean;
 		
+		
 		public static const LANGUAGE:String = "en";
 		
 		/* ====================== */
@@ -87,6 +91,9 @@ package components.views
 		[Bindable] public var video_short_description:String;
 		[Bindable] public var video_title:String;
 		[Bindable] public var recommended_videos:XMLList;
+		
+
+		
 
 		
 		/* =================================== */
@@ -235,7 +242,7 @@ package components.views
 	        PopUpManager.addPopUp(recommendedPopUp, this, true);
 			recommendedPopUp.y = 100;
 			recommendedPopUp.x = 100;
-			recommendedPopUp.weRecommend_txt.text ="We recommend these '"+searchTitle+"' videos";
+			recommendedPopUp.weRecommend_txt.text ='We recommend these videos for "'+searchTitle+'"';
 			recommended_videos = serviceResult;
 			recommended_searchTerm = searchTerm;
 			recommended_searchTitle = searchTitle;
@@ -263,7 +270,7 @@ package components.views
 			current_search_term = search_txt.text;
 
 			/*SEARCHING MESSAGE*/
-			current_search_message = "Searching videos for '" +search_txt.text+ "'";
+			current_search_message = 'Searching videos for "' +search_txt.text+ '"';
 			
 			if(current_search_term.length == 0)
 			{
@@ -316,7 +323,8 @@ package components.views
 				landing_page_view.wall.unloadAndStop();
 				
 				search_type = null;
-				current_search_term = "Results for '"+search_txt.text+"'";
+				current_search_term = 'Results for "'+search_txt.text+'"';
+				//current_search_term = 'Search Results';
 		 		
 				main_view_stack.selectedIndex = 1;
 			}
@@ -343,7 +351,7 @@ package components.views
 			}
 			else
 			{
-				current_search_message = "Getting videos for '" +recommended_searchTitle+ "'";
+				current_search_message = 'Getting videos for "' +recommended_searchTitle+ '"';
 				playNow = false;
 			}
 			
@@ -351,7 +359,7 @@ package components.views
 			search_type="rec_video"
 			
 				/*SET CURRENT SEARCH TERM (FOR DISPLAY ON VIDEO PLAYER PAGE)*/
-				//current_search_term = recommended_searchTerm;
+				current_search_term = recommended_searchTitle + " videos";
 				
 		
 				/*POP UP SEARCHING VIEW*/
@@ -487,7 +495,7 @@ package components.views
 		landing_page_view.wall.unloadAndStop();
 		
 		//search_type = "most_recent";
- 		current_search_term = "Showing Most Recent";
+ 		current_search_term = "Showing Most Viewed";
 		
 	    main_view_stack.selectedIndex = 1;
 	}
@@ -600,8 +608,8 @@ package components.views
 			video_title = current_video.title;
 			video_short_description = current_video.shortdescription;
 			video_long_description = current_video.longdescription;
-			results_for = "Results For \"" + current_search_term +"\"";
-			
+			results_for = "Results For \"" + search_txt.text +"\"";
+			//large_thumbnail_overlay.source = "http://www.usana.com/media/File/mediaCenter/display_frame/" + current_video.id + ".jpg"
 			videoPage.previous_btn.enabled=false;
 		 	
 			 

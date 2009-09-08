@@ -42,9 +42,10 @@
 
 <s:VGroup gap="0">
 	<s:HGroup>
-		<mx:ModuleLoader id="video_player" url="http://www.usana.com/media/File/mediaCenter/Media-Center-Lite/EN/modules/video_player/VideoPlayer.swf?video_id={parentDocument.current_video.@id}" paddingLeft="25" paddingTop="17" paddingBottom="25" />
+		<!--<mx:ModuleLoader id="video_player" url="http://www.usana.com/media/File/mediaCenter/Media-Center-Lite/EN/modules/video_player/VideoPlayer.swf?video_id={parentDocument.current_video.@id}" paddingLeft="25" paddingTop="17" paddingBottom="25" />-->
+		<mx:ModuleLoader id="video_player" url="modules/video_player/VideoPlayer.swf?video_id={parentDocument.current_video.@id}" paddingLeft="25" paddingTop="17" paddingBottom="25" />
 		<s:VGroup>
-			<mx:Text id="video_title_txt" width="375" paddingLeft="20" paddingTop="17" paddingRight="20"  text="{parentDocument.video_title}" styleName="videoTitle"/>
+			<mx:Text id="video_title_txt" width="375" paddingLeft="20" paddingTop="17" paddingRight="20" paddingBottom="-10" text="{parentDocument.video_title}" styleName="videoTitle"/>
 			<mx:Text id="video_short_description_txt" width="375" paddingLeft="20" text="{parentDocument.video_short_description}" styleName="videoSubTitle"/>
 				<mx:Box paddingLeft="17">
 					<s:Button id="share_menu_btn" skinClass="components.skins.ShareMenuSkin" buttonMode="true" />
@@ -92,7 +93,7 @@
 	<!-- ======================================= -->
      <s:List id="list" dataProvider="{parentDocument.pagedDataProvider}" 
       	height="480" skinClass="components.skins.ThumbnailListBasicSkin"
-        itemRenderer="components.renderers.Thumbnail" 
+        itemRenderer="components.renderers.Thumbnail"
         width="1000" 
         >
           
@@ -114,8 +115,8 @@
 
 		       width="368" height="73" >
 		       <mx:Repeater id="rp_thumbnails" dataProvider="{parentDocument.recommended_videos}">
-		      		<mx:Image  autoLoad="true" smoothBitmapContent="true" automationName="{rp_thumbnails.currentIndex}" height="45" width="77" source="http://www.usana.com/media/File/mediaCenter/thumbnails/{rp_thumbnails.currentItem.@id}.jpg" buttonMode="true" click="showRecommendedVideo()"/>
-		       </mx:Repeater>
+		      		<mx:Image autoLoad="true" id="recImage" smoothBitmapContent="true" automationName="{rp_thumbnails.currentIndex}" height="45" width="77" source="http://www.usana.com/media/File/mediaCenter/thumbnails/{rp_thumbnails.currentItem.@id}.jpg" buttonMode="true" click="showRecommendedVideo()"/>
+		       		</mx:Repeater>
 		   </mx:Tile>
 		   
 		   </mx:VBox>
@@ -130,7 +131,7 @@
 <!-- =========================== -->
 <!-- = LARGE THUMBNAIL OVERLAY = -->
 <!-- =========================== -->
-<mx:Image id="large_thumbnail_overlay" autoLoad="true" x="20" source="http://www.usana.com/media/File/mediaCenter/display_frame/{parentDocument.current_video.@id}.jpg" />
+<mx:Image id="large_thumbnail_overlay" autoLoad="true" x="25" y="17" source="http://www.usana.com/media/File/mediaCenter/display_frame/{parentDocument.current_video.@id}.jpg" />
 
 
 

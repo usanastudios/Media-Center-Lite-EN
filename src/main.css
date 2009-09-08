@@ -63,6 +63,12 @@ mx|Text.videoTitle
 mx|Text.videoSubTitle
 {
 	color: #7FB1D1;
+	fontSize: 12;
+}
+
+mx|Text.thumbnailText
+{
+	color: #CCCCCC;
 	fontSize: 11;
 }
 
@@ -79,13 +85,13 @@ mx|HBox.pageBar {
 
 mx|Text.resultsFor{
 	fontFamily: HelveticaEmbed;
-	font-size:20;
+	font-size:17;
 	color:#FFFFFF;
 }
 
 mx|Text.searchingFor{
 	fontFamily: HelveticaEmbed;
-	font-size:24;
+	font-size:20;
 	color:#FFFFFF;
 }
 
