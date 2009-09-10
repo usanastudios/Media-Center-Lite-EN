@@ -5,7 +5,6 @@
      
    
 	<mx:Style source="modules/video_player/css/videoPlayer.css" />
-	<mx:Style source="modules/video_player/css/SampleCaptioning.css" />
 
 	<mx:Script source="VideoPlayerBase.as" />	
 		
@@ -26,8 +25,13 @@
 		 
 		<!-- SHOW CC -->
 				
-		<mx:TextArea wordWrap="true" id="captionLabel" styleName="captionStyle" color="#FFFFFF" 
-		width="544" borderStyle="none" horizontalScrollPolicy="off" verticalScrollPolicy="off" visible="false" contentBackgroundColor="#000000"/>
+		<mx:TextArea wordWrap="true" id="captionLabel" 
+			color="#000000" 
+			width="544" 
+			textAlign="center" 
+			horizontalScrollPolicy="off" 
+			verticalScrollPolicy="off" 
+			visible="false"/>
 		
 
 
