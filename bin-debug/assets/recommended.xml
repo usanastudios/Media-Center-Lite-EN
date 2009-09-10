@@ -31,7 +31,7 @@
 	<!-- =================== -->
 	<!-- = THE OPPORTUNITY = -->
 	<!-- =================== -->
-	<theopportunity>
+	<opportunity>
 			<video id="ven030">
 				 
 				<title>USANA's True Wealth</title>
@@ -56,12 +56,12 @@
 				<shortdescription>Learn Robert Allen's Recession-Proof Formula</shortdescription>
 				<longdescription>Learn from Robert G. Allen, one of today's most influential financial advisors and author of the bestseller Multiple Streams of Income, how to create financial stability and build true wealth through his proven M.O.N.E.Y.T.R.E.E. formula.</longdescription>
 			</video>	
-	</theopportunity>
+	</opportunity>
 	
 	<!-- ======================= -->
 	<!-- = WEALTH TESTIMONIALS = -->
 	<!-- ======================= -->
-	<wealthtestimonials>
+	<wealth>
 			<video id="ven123">
 				 
 				<title>Recession-Proof Formula</title>
@@ -86,7 +86,7 @@
 				<shortdescription>Learn Robert Allen's Recession-Proof Formula</shortdescription>
 				<longdescription>Learn from Robert G. Allen, one of today's most influential financial advisors and author of the bestseller Multiple Streams of Income, how to create financial stability and build true wealth through his proven M.O.N.E.Y.T.R.E.E. formula.</longdescription>
 			</video>	
-	</wealthtestimonials>
+	</wealth>
 	
 	<!-- ============= -->
 	<!-- = SKIN CARE = -->

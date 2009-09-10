@@ -104,18 +104,20 @@
 		<!-- ====================== -->
 		<!-- = RECOMMENDED VIDEOS = -->
 		<!-- ====================== -->
-		<mx:VBox paddingLeft="20" y="275" x="578">
+		<mx:VBox paddingLeft="20" y="285" x="578">
 			
-		<mx:Label text="Recommended Videos" styleName="recommendedLabelSkin"/>
+		<mx:Label text="RECOMMENDED VIDEOS" styleName="recommendedLabelSkin"/>
 		
-		 <mx:Tile direction="vertical" backgroundColor="0x000000" cornerRadius="15" backgroundAlpha=".3"
+		 <mx:Tile direction="vertical" cornerRadius="15" backgroundAlpha=".3"
 		 	verticalScrollPolicy="off" 
 		 	horizontalScrollPolicy="off"
-		 	   borderStyle="none" horizontalGap="10" horizontalAlign="center" verticalAlign="middle" paddingTop="14" paddingLeft="15" 
+		 	   borderStyle="none" horizontalGap="10" horizontalAlign="center" verticalAlign="middle" paddingTop="4" paddingLeft="4" 
 
 		       width="368" height="73" >
 		       <mx:Repeater id="rp_thumbnails" dataProvider="{parentDocument.recommended_videos}">
-		      		<mx:Image autoLoad="true" id="recImage" smoothBitmapContent="true" automationName="{rp_thumbnails.currentIndex}" height="45" width="77" source="http://www.usana.com/media/File/mediaCenter/thumbnails/{rp_thumbnails.currentItem.@id}.jpg" buttonMode="true" click="showRecommendedVideo()"/>
+		      		<mx:Box backgroundColor="0xffffff" paddingBottom="3" paddingLeft="3" paddingRight="3" paddingTop="3">
+		      		<mx:Image autoLoad="true" id="recImage" smoothBitmapContent="true" automationName="{rp_thumbnails.currentIndex}" height="45" width="77" source="http://www.usana.com/media/File/mediaCenter/thumbnails/{rp_thumbnails.currentItem.@id}.jpg" buttonMode="true" toolTip="{rp_thumbnails.currentItem.title}" click="showRecommendedVideo(event)"/>
+		       		</mx:Box>
 		       		</mx:Repeater>
 		   </mx:Tile>
 		   

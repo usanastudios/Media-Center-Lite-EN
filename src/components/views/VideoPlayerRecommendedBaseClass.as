@@ -3,6 +3,7 @@ package components.views
 	
 	
 	import flash.events.MouseEvent;
+	import flash.utils.Timer;
 	
 	import modules.video_player.VideoPlayerInterface;
 	
@@ -18,8 +19,7 @@ package components.views
 	import mx.events.MenuEvent;
 	import mx.modules.ModuleLoader;
 	import mx.rpc.http.mxml.HTTPService;
-	import flash.utils.Timer;
-	import flash.events.TimerEvent;
+	
 	import spark.components.Button;
 
 	public class VideoPlayerRecommendedBaseClass extends Canvas
@@ -141,7 +141,7 @@ package components.views
 	 	/* ========================================================== */
 		/* = FUNCTION TO SHOW SELECTED VIDEO FROM THE 5 RECOMMENDED = */
 		/* ========================================================== */
-		public function showRecommendedVideo(evt:TimerEvent = null):void {
+		public function showRecommendedVideo(event:MouseEvent):void {
 			   
 			 var vpchild:* = video_player.child as VideoPlayerInterface;    
 
@@ -149,8 +149,10 @@ package components.views
 			             
 			  // Call setters in the module to adjust its
 			               // appearance when it loads.
+			               
+			               parentDocument.current_video = parentDocument.recommended_videos[event.currentTarget.automationName];
 		
-				  		vpchild.setVideo(parentDocument.current_video.@id,true);
+				  	   vpchild.setVideo(parentDocument.current_video.@id,true);
 					   video_title_txt.text = parentDocument.current_video.title;
 					   video_short_description_txt.text = parentDocument.current_video.shortdescription;
 					   video_long_description_txt.htmlText = parentDocument.current_video.longdescription;

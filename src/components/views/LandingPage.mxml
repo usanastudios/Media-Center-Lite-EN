@@ -4,7 +4,7 @@
 		<!-- ================= -->
 		<!-- = PROSPECT MENU = -->
 		<!-- ================= -->
-		<mx:Image x="123" y="33" source="assets/images/middle.png"/>
+		<mx:Image x="123" y="33" completeEffect="Fade" source="assets/images/middle.png"/>
 		<s:Button x="427" y="96" label="Button" id="prospectMenu2_btn" skinClass="components.skins.ProspectMenu2Skin" buttonMode="true" click="createAndShowProspectMenu2()"/>
 	
 		

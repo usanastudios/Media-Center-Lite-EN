@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <mx:Module xmlns:mx="http://www.adobe.com/2006/mxml" xmlns:s="library://ns.adobe.com/flex/spark" layout="absolute" creationComplete="init()" clipContent="false" implements="modules.video_player.VideoPlayerInterface" xmlns:controls="components.controls.*">
+	
 
 	 <!-- SEARCH RESULTS TEST DATA -->
      
@@ -25,8 +26,12 @@
 		 
 		<!-- SHOW CC -->
 				
-		<mx:TextArea wordWrap="true" id="captionLabel" 
-			color="#000000" 
+		<mx:TextArea id="captionLabel" 
+			contentBackgroundColor="#000000" 
+			editable="false" 
+			wordWrap="true" 
+			selectable="false" 
+			color="#ffffff" 
 			width="544" 
 			textAlign="center" 
 			horizontalScrollPolicy="off" 

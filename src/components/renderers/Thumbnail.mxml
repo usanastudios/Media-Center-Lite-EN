@@ -1,6 +1,23 @@
 <?xml version="1.0" encoding="utf-8"?>
-<mx:Canvas xmlns:mx="http://www.adobe.com/2006/mxml" backgroundColor="0x101010" width="200">
-		<mx:Image id="thumbpic" autoLoad="true" source="http://www.usana.com/media/File/mediaCenter/thumbnails/{data.@id}.jpg" buttonMode="true" mouseOver="{play_button_overlay.visible=true;}" horizontalCenter="0" verticalCenter="0"  toolTip="{data.shortdescription}"/>
+<mx:Canvas xmlns:mx="http://www.adobe.com/2006/mxml" creationComplete="canvas1_creationCompleteHandler(event)" backgroundColor="0x101010" width="200">
+<mx:Script>
+	<![CDATA[
+		import mx.events.FlexEvent;
+		 import mx.managers.ToolTipManager;
+		
+		
+
+		protected function canvas1_creationCompleteHandler(event:FlexEvent):void
+		{
+			ToolTipManager.showDelay = 0;
+            ToolTipManager.showEffect = fadeIn;
+
+		}
+
+	]]>
+</mx:Script>
+<mx:Fade id="fadeIn" alphaFrom="0" alphaTo="1" duration="250"/>
+		<mx:Image id="thumbpic" autoLoad="true" completeEffect="Fade" source="http://www.usana.com/media/File/mediaCenter/thumbnails/{data.@id}.jpg" buttonMode="true" mouseOver="{play_button_overlay.visible=true;}" horizontalCenter="0" verticalCenter="0"  toolTip="{data.shortdescription}"/>
 		<mx:Image source="assets/images/thumb_overlay.png"  buttonMode="true" id="play_button_overlay" visible="false" mouseOut="{play_button_overlay.visible=false}" horizontalCenter="0" verticalCenter="0" toolTip="{data.shortdescription}" click="parentApplication.showVideo(data,parentDocument.parentDocument)"/>
 		<mx:Text width="100%" text="{data.title}" styleName="thumbnailText" y="128" x="15"/>
 </mx:Canvas>

@@ -1,7 +1,6 @@
 /* videoPlayer CSS file */
 
 
-
 .controlBarBackground {
 	backgroundImage: Embed(source="modules/video_player/skins/VideoPlayer/vControlBack.png");
 	cornerRadius: 0px;

@@ -139,11 +139,7 @@ mx|TileList
 mx|ToolTip { 
   fontFamily: HelveticaEmbed; 
   fontSize: 12; 
-  backgroundAlpha: 1;
-  cornerRadius: 5;
   color: #FFFFFF; 
-  backgroundColor: #000000;
-   paddingLeft: 5; paddingRight: 5; paddingTop: 3; paddingBottom: 3;
-  
+  backgroundColor: #101010;
 }
 

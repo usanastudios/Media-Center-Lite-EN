@@ -510,6 +510,8 @@
 			captionLabel.validateNow();	
 		
 			// Formatting within the caption string			
+			
+			/*
 			for (var i:uint = 0; i < ccObj.captionFormatCount(); i++) {
 				var ccFormatObj:CaptionFormat = ccObj.getCaptionFormatAt(i);
 				var txtRange:TextRange = new TextRange(captionLabel, false, ccFormatObj.startIndex, ccFormatObj.endIndex);
@@ -528,7 +530,9 @@
 					}
 				}
 			}
-				
+			
+			*/
+			
 			captionLabel.visible = true;
 			
 			if (ccObj.endTime > 0) {
