@@ -242,7 +242,7 @@ package components.views
 	        PopUpManager.addPopUp(recommendedPopUp, this, true);
 			recommendedPopUp.y = 100;
 			recommendedPopUp.x = 100;
-			recommendedPopUp.weRecommend_txt.text ='We recommend these videos for "'+searchTitle+'"';
+			recommendedPopUp.weRecommend_txt.text ='USANA recommends these videos for "'+searchTitle+'"';
 			recommended_videos = serviceResult;
 			recommended_searchTerm = searchTerm;
 			recommended_searchTitle = searchTitle;

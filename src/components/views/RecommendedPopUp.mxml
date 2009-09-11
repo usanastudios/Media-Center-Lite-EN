@@ -15,7 +15,7 @@
 	 ]]>
 	</fx:Script>
 	
-	<mx:Text id="weRecommend_txt" styleName="videoTitle"/>
+	<mx:Text id="weRecommend_txt" styleName="recommendTitle"/>
 	<mx:Tile direction="vertical" backgroundColor="#0a0a0a" cornerRadius="15" backgroundAlpha=".3"
 	 	verticalScrollPolicy="off" 
 	 	horizontalScrollPolicy="off"

@@ -46,35 +46,35 @@
 		
 		
 		<!-- Define the AutoComplete HTTP service -->
-		<mx:HTTPService id="auto_complete_svc" url="{WEB_SERVICE_URL}" resultFormat="e4x" result="setUpAutoComplete()" fault="mx.controls.Alert.show(event.fault.message)" showBusyCursor="true">
+		<mx:HTTPService id="auto_complete_svc" url="{WEB_SERVICE_URL}" resultFormat="e4x" result="setUpAutoComplete()" fault="mx.controls.Alert.show('ERROR: ' + event.fault.faultDetail + '  \n \nTo fix this problem, try refreshing your browser.  If the problem persists, please contact USANA Support')" showBusyCursor="true">
 			<mx:request>
 				<l>{LANGUAGE}</l> 
 			</mx:request>
 		</mx:HTTPService>    	
 		
 		<!-- Define the All Videos HTTP service -->
-		<mx:HTTPService id="wall_video_svc" url="{WEB_SERVICE_URL}" resultFormat="e4x" requestTimeout="10" result="wallVideoResultHandler()" fault="mx.controls.Alert.show(event.fault.message)" >
+		<mx:HTTPService id="wall_video_svc" url="{WEB_SERVICE_URL}" resultFormat="e4x" requestTimeout="15" result="wallVideoResultHandler()" fault="mx.controls.Alert.show('ERROR: ' + event.fault.faultDetail + '  \n \nTo fix this problem, try refreshing your browser.  If the problem persists, please contact USANA Support')" >
 			<mx:request>
 				<l>{LANGUAGE}</l>
 			</mx:request>
 		</mx:HTTPService>    
 		
 		<!-- Define the All Videos HTTP service -->
-		<mx:HTTPService id="recent_videos_svc" url="{WEB_SERVICE_URL}" resultFormat="e4x" requestTimeout="10" result="recentVideosResultHandler()" fault="mx.controls.Alert.show(event.fault.message)" >
+		<mx:HTTPService id="recent_videos_svc" url="{WEB_SERVICE_URL}" resultFormat="e4x" requestTimeout="15" result="recentVideosResultHandler()" fault="mx.controls.Alert.show('ERROR: ' + event.fault.faultDetail + '  \n \nTo fix this problem, try refreshing your browser.  If the problem persists, please contact USANA Support')" >
 			<mx:request>
 				<l>{LANGUAGE}</l>
 			</mx:request>
 		</mx:HTTPService>    	
 		
 		<!-- Define the All Videos HTTP service -->
-		<mx:HTTPService id="most_viewed_videos_svc" url="{WEB_SERVICE_URL}" resultFormat="e4x" requestTimeout="10" result="mostViewedVideosResultHandler()" fault="mx.controls.Alert.show(event.fault.message)" >
+		<mx:HTTPService id="most_viewed_videos_svc" url="{WEB_SERVICE_URL}" resultFormat="e4x" requestTimeout="15" result="mostViewedVideosResultHandler()" fault="mx.controls.Alert.show('ERROR: ' + event.fault.faultDetail + '  \n \nTo fix this problem, try refreshing your browser.  If the problem persists, please contact USANA Support')" >
 			<mx:request>
 				<l>{LANGUAGE}</l>
 			</mx:request>
 		</mx:HTTPService>    
 		
 		<!-- Define the Akamai HTTP service -->
-		<mx:HTTPService id="akamai_svc" url="https://secure.streamos.com/qos/qos-xml.php" resultFormat="e4x" requestTimeout="10" result="akamaiResultHandler()" fault="mx.controls.Alert.show(event.fault.message)" showBusyCursor="true">
+		<mx:HTTPService id="akamai_svc" url="https://secure.streamos.com/qos/qos-xml.php" resultFormat="e4x" requestTimeout="15" result="akamaiResultHandler()" fault="mx.controls.Alert.show('ERROR: ' + event.fault.faultDetail + '  \n \nTo fix this problem, try refreshing your browser.  If the problem persists, please contact USANA Support')" showBusyCursor="true">
 			<mx:request>
 				<USERNAME>usana</USERNAME>
 				<PASSWORD>vision99</PASSWORD>
