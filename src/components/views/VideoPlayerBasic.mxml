@@ -62,14 +62,14 @@
 		
 		<mx:ControlBar id="pagination" horizontalAlign="right" width="100%">
 			
-			<s:Button id="firstTen_btn" skinClass="components.skins.PreviousPageButtonSkin" buttonMode="true" label="....."  click="parentDocument.getFirstTen(this);"/>
+			<s:Button id="firstTen_btn" skinClass="components.skins.PreviousPageButtonSkin" buttonMode="true" label="....."  click="parentDocument.getFirstTen(this);" />
 			<s:Button id="previous_btn" click="parentDocument.getPreviousPage(this)" skinClass="components.skins.PreviousButtonSkin" buttonMode="true"/>
 			<mx:HBox id="rp_hbox">             
-				<mx:Repeater id="rp" dataProvider="{parentDocument.pageCountDummyArray}" count="6" startingIndex="0">
+				<mx:Repeater id="rp" dataProvider="{parentDocument.pageCountDummyArray}" count="6" startingIndex="0" toolTip="">
 			       <mx:LinkButton id="pageNumber_lbl" cornerRadius="4" buttonMode="true" label="{rp.currentIndex + 1}"  click="parentDocument.getSelectedPage(event.target.label,this,event.target)" />
 			    </mx:Repeater>
 			</mx:HBox> 
-			<s:Button id="next_btn"  skinClass="components.skins.NextButtonSkin" buttonMode="true" enabled="false" click="parentDocument.getNextPage(this)"/>
+			<s:Button id="next_btn"  skinClass="components.skins.NextButtonSkin" buttonMode="true" enabled="false" click="parentDocument.getNextPage(this)" />
 			<s:Button id="lastTen_btn" skinClass="components.skins.NextPageButtonSkin" buttonMode="true" label="....." visible="false" click="parentDocument.getLastTen(this);"/>
 			
 		</mx:ControlBar>

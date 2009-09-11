@@ -74,7 +74,7 @@
 			<s:Button id="previous_btn" click="parentDocument.getPreviousPage(this)" skinClass="components.skins.PreviousButtonSkin" buttonMode="true"/>
 			<mx:HBox id="rp_hbox">             
 				<mx:Repeater id="rp" dataProvider="{parentDocument.pageCountDummyArray}" count="6" startingIndex="0">
-			       <mx:LinkButton id="pageNumber_lbl" cornerRadius="4" buttonMode="true" label="{rp.currentIndex + 1}"  click="parentDocument.getSelectedPage(event.target.label,this,event.target)" />
+			       <mx:LinkButton id="pageNumber_lbl" cornerRadius="4" buttonMode="true" label="{rp.currentIndex + 1}" toolTip="" click="parentDocument.getSelectedPage(event.target.label,this,event.target)" />
 			    </mx:Repeater>
 			</mx:HBox> 
 			<s:Button id="next_btn"  skinClass="components.skins.NextButtonSkin" buttonMode="true" enabled="false" click="parentDocument.getNextPage(this)"/>
