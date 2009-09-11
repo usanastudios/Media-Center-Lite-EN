@@ -96,7 +96,7 @@
 <!-- ================= -->
 <!-- = REPLAY BUTTON = -->
 <!-- ================= -->
-<s:Button id="replay_btn" skinClass="components.skins.ReplayButtonSkin" x="220" y="150" buttonMode="true" visible="false"/>
+<s:Button id="replay_btn" useHandCursor="true" skinClass="components.skins.ReplayButtonSkin" x="220" y="150" buttonMode="true" visible="false"/>
 
 <!-- =========================== -->
 <!-- = LARGE THUMBNAIL OVERLAY = -->

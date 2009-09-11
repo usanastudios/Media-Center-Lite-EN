@@ -60,6 +60,13 @@ mx|Text.videoTitle
 	color: #F9FBFC;
 }
 
+mx|Text.recommendTitle
+{
+	fontFamily: HelveticaEmbed;
+	fontSize: 20;
+	color: #F9FBFC;
+}
+
 mx|Text.videoSubTitle
 {
 	color: #7FB1D1;
@@ -140,6 +147,6 @@ mx|ToolTip {
   fontFamily: HelveticaEmbed; 
   fontSize: 12; 
   color: #FFFFFF; 
-  backgroundColor: #101010;
+  backgroundColor: #000000;
 }
 

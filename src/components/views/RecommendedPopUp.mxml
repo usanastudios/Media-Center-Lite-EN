@@ -19,11 +19,14 @@
 	<mx:Tile direction="vertical" backgroundColor="#0a0a0a" cornerRadius="15" backgroundAlpha=".3"
 	 	verticalScrollPolicy="off" 
 	 	horizontalScrollPolicy="off"
-	 	   borderStyle="none" horizontalGap="10" horizontalAlign="center" verticalAlign="middle" paddingTop="14" paddingLeft="15" 
+	 	   borderStyle="none" horizontalGap="13" horizontalAlign="center" verticalAlign="middle" paddingTop="14" paddingLeft="16" 
 	       width="100%" height="200" >
 	       <mx:Repeater id="rp_thumbnails" dataProvider="{parentDocument.recommended_videos}">
 				<mx:VBox horizontalAlign="center">
-	      			<mx:Image  autoLoad="true" smoothBitmapContent="true" automationName="{rp_thumbnails.currentIndex}" source="http://www.usana.com/media/File/mediaCenter/thumbnails/{rp_thumbnails.currentItem.@id}.jpg" buttonMode="true" click="parentDocument.recommendedSearch(event,'playVideo');PopUpManager.removePopUp(this);"/>
+				<mx:Box backgroundColor="0xffffff" paddingBottom="5" paddingLeft="5" paddingRight="5" paddingTop="5">
+					
+	      			<mx:Image  autoLoad="true" smoothBitmapContent="true" automationName="{rp_thumbnails.currentIndex}" toolTip="{rp_thumbnails.currentItem.shortdescription}" source="http://www.usana.com/media/File/mediaCenter/thumbnails/{rp_thumbnails.currentItem.@id}.jpg" buttonMode="true" click="parentDocument.recommendedSearch(event,'playVideo');PopUpManager.removePopUp(this);"/>
+	       			</mx:Box>
 	       			<mx:Text  text="{rp_thumbnails.currentItem.title}" styleName="thumbnailText" y="128" x="15"/>
 				</mx:VBox>
 			</mx:Repeater>

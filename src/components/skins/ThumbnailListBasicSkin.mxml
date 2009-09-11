@@ -44,7 +44,7 @@
             	    columnWidth="170"
                     horizontalGap="-25"
                     verticalGap="-25" 
-					requestedRowCount="3"/>
+					requestedRowCount="3" requestedColumnCount="5"/>
         </s:layout>
         </s:DataGroup>
     </s:Scroller>

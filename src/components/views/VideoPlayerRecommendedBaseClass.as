@@ -11,10 +11,14 @@ package components.views
 	import mx.collections.Sort;
 	import mx.collections.SortField;
 	import mx.containers.Canvas;
+	import mx.containers.Tile;
+	import mx.containers.VBox;
 	import mx.controls.Alert;
+	import mx.controls.Image;
 	import mx.controls.Menu;
 	import mx.controls.Text;
 	import mx.controls.TileList;
+	import mx.core.Repeater;
 	import mx.events.FlexEvent;
 	import mx.events.MenuEvent;
 	import mx.modules.ModuleLoader;
@@ -49,6 +53,10 @@ package components.views
 		public var video_title_txt:Text;
 		public var replay_btn:Button;
 		public var play_overlay_btn:Button;
+		public var rp_thumbnails:Repeater;
+		public var recTile:Tile;
+		public var recVBox:VBox;
+		public var thumbOver:Image;
 		
 		
 
@@ -392,6 +400,24 @@ public function test(event:FlexEvent):void
 }
 
 
+/*
+	public function recommendedMouseOver(evt:MouseEvent):void {
+	var thumbOver:Image = new Image();
+	thumbOver.source = "assets/images/thumb_overlay.png";
+	thumbOver.x = evt.currentTarget.x;
+	thumbOver.y = evt.currentTarget.y;
+	thumbOver.width = evt.currentTarget.width;
+	thumbOver.height = evt.currentTarget.height;
+	recVBox.addChild(thumbOver);
+
+
+	}
+	
+	public function recommendedMouseOut(evt:MouseEvent):void {
+		removeChild(thumbOver);
+	}
+
+*/
 
 
 	}

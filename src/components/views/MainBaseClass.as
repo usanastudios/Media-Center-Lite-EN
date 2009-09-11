@@ -148,7 +148,7 @@ package components.views
 	                <menuitem label="Skin Care"/>
 	                <menuitem label="Nutrition"/> 
 	                <menuitem label="Energy"/>
-	                <menuitem label="Atheletes"/>
+	                <menuitem label="Athletes"/>
 	                <menuitem label="Health Testimonials"/>
 	            </menuitem>
 	            <menuitem label="USANA Health Sciences"/> 
@@ -184,11 +184,8 @@ package components.views
 		/* =========================================================== */
 		public function prospectMenu1ClickHandler(event:MenuEvent):void
 		{
-			if (event.label == "True Wealth")
-			{
-				//recommendedSearch("wealth","True Wealth");
-			}
-			else if (event.label == "Skin Care")
+
+			if (event.label == "Skin Care")
 			{
 				recommendedPopUp("skin","Skin Care",recommendedXML_svc.lastResult.skincare.video);
 			}
@@ -200,9 +197,9 @@ package components.views
 			{
 				recommendedPopUp("energy","Energy",recommendedXML_svc.lastResult.energy.video);
 			}
-			else if (event.label == "Atheletes")
+			else if (event.label == "Athletes")
 			{
-				recommendedPopUp("atheletes","Atheletes",recommendedXML_svc.lastResult.atheletes.video);
+				recommendedPopUp("athletes","Athletes",recommendedXML_svc.lastResult.athletes.video);
 			}
 			else if (event.label == "USANA Health Sciences")
 			{
@@ -222,7 +219,7 @@ package components.views
 			}
 			else if (event.label == "Wealth Testimonials")
 			{
-				recommendedPopUp("wealth","Wealth Testimonials",recommendedXML_svc.lastResult.wealthskincare.video);
+				recommendedPopUp("wealth","Wealth Testimonials",recommendedXML_svc.lastResult.wealth.video);
 			}			
 			else if (event.label == "I'm Not Sure")
 			{
