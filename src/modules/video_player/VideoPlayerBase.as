@@ -127,7 +127,7 @@
 				_bandwidthMeasured = false;
 				addVideoToStage();
 				//
-				_ccOn = true;
+				//_ccOn = true;
 				_ccPositioned = false;
 				_captionTimer = new Timer(10000);
 				_captionTimer.addEventListener(TimerEvent.TIMER, onCaptionTimer);
