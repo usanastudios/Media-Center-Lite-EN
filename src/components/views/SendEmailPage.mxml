@@ -35,7 +35,7 @@
 		<s:Button skinClass="components.skins.CopyButtonSkin" buttonMode="true" useHandCursor="true" click="copyLinkToClipboard()"/>
 	</mx:FormItem>
 	<mx:Text id="codeCopiedText"/>
-	<mx:FormItem label="Send Me A Copy" direction="horizontal" paddingTop="25">
+	<mx:FormItem label="Send Me A Copy" direction="horizontal" paddingTop="5">
 		<s:CheckBox id="send_to_self_chk"/>
 	</mx:FormItem>
 	</mx:VBox>   

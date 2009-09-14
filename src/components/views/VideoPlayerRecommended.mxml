@@ -123,7 +123,7 @@
 		      			source="http://www.usana.com/media/File/mediaCenter/thumbnails/{rp_thumbnails.currentItem.@id}.jpg" 
 		      			buttonMode="true" 
 		      			toolTip="{rp_thumbnails.currentItem.title}" 
-		      			click="showRecommendedVideo(event)"/>
+		      			click="showRecommendedBoxVideo(event)"/>
 		       		</mx:Box>
 		       		</mx:Repeater>
 		   </mx:Tile>
