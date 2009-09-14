@@ -10,7 +10,7 @@
 	<fx:Declarations>
 
     <!-- Define the Basic Search HTTP service -->
-    <mx:HTTPService id="email_svc" method="POST" url=" http://www.usana.com/Main/mediaCenter/sendEmail" result="emailResultHandler()" fault="mx.controls.Alert.show(event.fault.message)" showBusyCursor="true"/>
+    <mx:HTTPService id="email_svc" method="POST" url="http://www.usana.com/Main/mediaCenter/sendEmail" result="emailResultHandler()" fault="mx.controls.Alert.show(event.fault.message)" showBusyCursor="true"/>
  
 	</fx:Declarations>
 	

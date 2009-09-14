@@ -606,7 +606,6 @@ package components.views
 			video_short_description = current_video.shortdescription;
 			video_long_description = current_video.longdescription;
 			results_for = "Results For \"" + search_txt.text +"\"";
-			//large_thumbnail_overlay.source = "http://www.usana.com/media/File/mediaCenter/display_frame/" + current_video.id + ".jpg"
 			videoPage.previous_btn.enabled=false;
 		 	
 			 

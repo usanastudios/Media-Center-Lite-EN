@@ -51,6 +51,7 @@ package components.views
 		public var results_for_txt:Text;
 		public var replay_btn:Button;
 		public var play_overlay_btn:Button;
+		public var large_thumbnail_overlay:Image;
 			
 					
 		/* ======================================== */
@@ -100,6 +101,9 @@ package components.views
 				parentDocument.showVideo2(parentDocument.current_video.@id,this);
 			}
 			results_for_txt.text = parentDocument.current_search_term;
+			
+			// This forces the large thumbnail to change based on new searches etc...
+			large_thumbnail_overlay.source = "http://www.usana.com/media/File/mediaCenter/display_frame/" + parentDocument.current_video.@id+ ".jpg";
 			
 		} 
 		
