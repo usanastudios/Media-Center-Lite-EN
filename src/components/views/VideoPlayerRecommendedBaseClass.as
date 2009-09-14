@@ -39,7 +39,6 @@ package components.views
 		/* = PUBLIC VARIABLES = */
 		/* ==================== */
 		public var akamai_svc:HTTPService;
-		[Bindable] public var current_video:XML;
 		public var next_btn:Button;
 		public var previous_btn:Button;
 		public var results_for_txt:Text;
@@ -67,7 +66,7 @@ package components.views
 		/* = BINDABLE VARIABLES = */
 		/* ====================== */
 		[Bindable] public var currentModuleName:String;
-		
+		[Bindable] public var current_video:XML;
 
 	
 
