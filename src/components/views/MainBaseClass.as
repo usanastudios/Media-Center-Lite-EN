@@ -600,7 +600,7 @@ package components.views
 		public function pagination_setup(videoPage:Object):void
 		{
 			
-			
+			videoPage.rp.startingIndex = 0;
 			//SET UP FIRST VIDEO THAT WILL PLAY
 			video_title = current_video.title;
 			video_short_description = current_video.shortdescription;
@@ -623,6 +623,11 @@ package components.views
    			     videoPage.next_btn.enabled=true;
 					pageCountDummyArray = new Array(pageCount);
    			    }
+				else
+				{			   
+				 	videoPage.next_btn.enabled=false;
+					pageCountDummyArray = new Array(pageCount);
+				}
 			    if(search_results_dp.length >= PERPAGE){
 			        for(var i:int=0;i<PERPAGE;i++){
 			            pagedDataProvider.addItem(search_results_dp.getItemAt(i));
@@ -642,8 +647,8 @@ package components.views
 					videoPage.lastTen_btn.visible=false;
 				}
 				
-				
-			underlineFirstRecord(videoPage);
+				underlineFirstRecord(videoPage);
+			
 			
 				
 			
@@ -929,14 +934,17 @@ package components.views
 	<!-- ================================================= -->		
 	public function underlineFirstRecord(videoPage:Object):void
 	{
-		   if (videoPage.pageNumber_lbl[0])
-		   {
-			   //UNDERLINE FIRST PAGE NUMBER
-		   		if(videoPage.pageNumber_lbl[0])
-				{
-					videoPage.pageNumber_lbl[0].setStyle('textDecoration','underline');
-				}
-		   }
+		if(videoPage.pageNumber_lbl)
+		{
+		 if (videoPage.pageNumber_lbl[0])
+ 		   {
+ 			   //UNDERLINE FIRST PAGE NUMBER
+ 		   		if(videoPage.pageNumber_lbl[0])
+ 				{
+ 					videoPage.pageNumber_lbl[0].setStyle('textDecoration','underline');
+ 				}
+ 		   }
+		}
 		   
 		
 	}
