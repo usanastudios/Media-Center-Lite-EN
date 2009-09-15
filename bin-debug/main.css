@@ -30,7 +30,7 @@ s|TextInput.searchTextField
 	fontFamily: HelveticaEmbed;
 	paddingLeft: 15;
 	paddingTop: 8;
-	focusAlpha: .25;
+	focusAlpha: .05;
 	fontSize: 12;
 	color: #FBFCFC;
 }
@@ -52,10 +52,10 @@ mx|Menu.prospectMenu1
 
 }
 
-s|Label.videoTitleTxt
+mx|Label.videoTitleTxt
 {
 	fontFamily: HelveticaEmbed;
-	fontSize: 24;
+	fontSize: 22;
 	color: #F9FBFC;
 }
 
@@ -63,7 +63,7 @@ s|Label.videoTitleTxt
 mx|Text.videoTitle
 {
 	fontFamily: HelveticaEmbed;
-	fontSize: 24;
+	fontSize: 22;
 	color: #F9FBFC;
 }
 

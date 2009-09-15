@@ -30,7 +30,7 @@ s|TextInput.searchTextField
 	fontFamily: HelveticaEmbed;
 	paddingLeft: 15;
 	paddingTop: 8;
-	focusAlpha: .25;
+	focusAlpha: .05;
 	fontSize: 12;
 	color: #FBFCFC;
 }

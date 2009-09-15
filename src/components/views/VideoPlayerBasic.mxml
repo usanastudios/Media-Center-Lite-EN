@@ -106,7 +106,7 @@
 <!-- ====================== -->
 <!-- = PLAY BUTTON OVERLAY= -->
 <!-- ====================== -->
-<s:Button id="play_overlay_btn"  x="0" y="0" buttonMode="true" visible="true" skinClass="components.skins.PlayOverlayButtonSkin"/>
+<s:Button id="play_overlay_btn"  x="25" y="17" buttonMode="true" visible="true" skinClass="components.skins.PlayOverlayButtonSkin"/>
 
 
 </views:VideoPlayerBasicBaseClass>
