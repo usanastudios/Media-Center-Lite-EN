@@ -52,11 +52,18 @@ mx|Menu.prospectMenu1
 
 }
 
+mx|Label.videoTitleTxt
+{
+	fontFamily: HelveticaEmbed;
+	fontSize: 22;
+	color: #F9FBFC;
+}
+
 
 mx|Text.videoTitle
 {
 	fontFamily: HelveticaEmbed;
-	fontSize: 24;
+	fontSize: 22;
 	color: #F9FBFC;
 }
 

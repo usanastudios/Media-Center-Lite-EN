@@ -12,6 +12,7 @@ package components.views
 	import mx.controls.Image;
 	import mx.controls.Menu;
 	import mx.controls.Text;
+	import mx.controls.Label;
 	import mx.controls.TileList;
 	import mx.events.MenuEvent;
 	import mx.modules.ModuleLoader;
@@ -45,7 +46,7 @@ package components.views
 		public var video_player:ModuleLoader;
 		public var video_short_description_txt:Text;
 		public var video_tile_list:TileList;
-		public var video_title_txt:Text;
+		public var video_title_txt:Label;
 		public var next_btn:Button;
 		public var previous_btn:Button;
 		public var results_for_txt:Text;
