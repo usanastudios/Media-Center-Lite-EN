@@ -946,6 +946,10 @@ package components.views
 /* = FUNCTION TO SHOW SELECTED VIDEO = */
 /* =================================== */
 public function showVideo(video:XML,videoPage:Object):void {
+	
+	//CLEAR VIDEO THUMBNAIL OVERLAY (VIDEO PLAYS INSTANTLY)
+		videoPage.large_thumbnail_overlay.source = "";
+		
 	//SET CURRENT VIDEO BASED ON CLICKED THUMBNAIL
 	current_video = video;
 	// Cast the ModuleLoader's child to the interface.
@@ -966,8 +970,7 @@ public function showVideo(video:XML,videoPage:Object):void {
 		//PREVENT VOLUME FROM RESETTING
 		vpchild.changeVolume();
 		
-		//CLEAR VIDEO THUMBNAIL OVERLAY (VIDEO PLAYS INSTANTLY)
-		videoPage.large_thumbnail_overlay.source = "";
+		
 }
 
 

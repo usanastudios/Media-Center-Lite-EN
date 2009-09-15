@@ -90,7 +90,7 @@ mx|HBox.pageBar {
 	background-color: #0a0a0a;
 }
 
-mx|Text.resultsFor{
+mx|Label.resultsFor{
 	fontFamily: HelveticaEmbed;
 	font-size:17;
 	color:#FFFFFF;
