@@ -1,7 +1,7 @@
 /* CSS file */
 @namespace s "library://ns.adobe.com/flex/spark";
 @namespace mx "library://ns.adobe.com/flex/halo";
-@namespace hc "com.hillelcoren.components.*";
+
 
 @font-face
 {
@@ -34,6 +34,9 @@ s|TextInput.searchTextField
 	fontSize: 12;
 	color: #FBFCFC;
 }
+
+
+
 mx|Menu.prospectMenu1
 {
 	

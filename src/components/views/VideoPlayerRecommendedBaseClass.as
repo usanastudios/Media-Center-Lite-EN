@@ -54,7 +54,6 @@ package components.views
 		public var video_title_txt:Label;
 		public var replay_btn:Button;
 		public var play_overlay_btn:Button;
-		public var rp_thumbnails:Repeater;
 		public var recTile:Tile;
 		public var recVBox:VBox;
 		public var thumbOver:Image;
@@ -68,6 +67,7 @@ package components.views
 		/* ====================== */
 		[Bindable] public var currentModuleName:String;
 		[Bindable] public var current_video:XML;
+		[Bindable] public var rp_thumbnails:Repeater;
 
 	
 

@@ -20,7 +20,6 @@ package components.views
 	import mx.collections.XMLListCollection;
 	import mx.containers.ViewStack;
 	import mx.controls.Alert;
-	import mx.controls.Image;
 	import mx.controls.LinkButton;
 	import mx.controls.Menu;
 	import mx.core.FlexGlobals;
@@ -33,6 +32,7 @@ package components.views
 	import spark.components.Application;
 	import spark.components.Button;
 	import spark.components.TextInput;
+	
 
 	public class MainBaseClass extends Application
 	{
@@ -85,6 +85,7 @@ package components.views
 		[Bindable] public var results_for:String;
 		[Bindable] public var search_btn:Button;
 		[Bindable] public var search_results_dp:ArrayCollection = new ArrayCollection();
+		//[Bindable] public var search_txt:AutoComplete;
 		[Bindable] public var search_txt:TextInput;
 		[Bindable] public var search_type:String;
 		[Bindable] public var video_long_description:String;
@@ -113,9 +114,11 @@ package components.views
 		/* =================================== */
 		public function initMainApp():void
 		{
-		//	auto_complete_svc.send();
+			
+			// Inititates the autocomplete
+			 //auto_complete_svc.send();
 		
-		recommendedXML_svc.send();
+			recommendedXML_svc.send();
 			
 		
 			

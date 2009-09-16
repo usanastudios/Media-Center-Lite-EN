@@ -3,6 +3,7 @@
 			import com.akamai.rss.AkamaiBOSSParser;
 			
 			import components.controls.VideoControls;
+			import components.skins.ClosedCaptionBackground;
 			
 			import flash.display.StageDisplayState;
 			import flash.events.FullScreenEvent;
@@ -19,10 +20,6 @@
 			import org.openvideoplayer.cc.*;
 			import org.openvideoplayer.events.*;
 			import org.openvideoplayer.net.*;
-
-;
-
-;
 
 					
 			/*Define private variables*/
@@ -127,7 +124,7 @@
 				_bandwidthMeasured = false;
 				addVideoToStage();
 				//
-				//_ccOn = true;
+				_ccOn = false;
 				_ccPositioned = false;
 				_captionTimer = new Timer(10000);
 				_captionTimer.addEventListener(TimerEvent.TIMER, onCaptionTimer);
@@ -466,7 +463,7 @@
 					addChild(_videoHolder);
 
 					/*
-					placing the video in a popup seems to work weel, the only problem is getting the controls in there
+					placing the video in a popup seems to work well, the only problem is getting the controls in there
 				   	PopUpManager.addPopUp(_videoHolder,parentApplication as DisplayObject,true);
 					PopUpManager.centerPopUp(_videoHolder);
 					*/
@@ -533,7 +530,8 @@
 			
 			*/
 			
-			captionLabel.visible = true;
+			if (_ccOn == true) {
+			captionLabel.visible = true; }
 			
 			if (ccObj.endTime > 0) {
 				_captionTimer.delay = (ccObj.endTime - ccObj.startTime)*1000;

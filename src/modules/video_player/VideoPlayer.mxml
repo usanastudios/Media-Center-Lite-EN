@@ -26,13 +26,11 @@
 		 
 		<!-- SHOW CC -->
 				
-		<mx:TextArea id="captionLabel" 
-			contentBackgroundColor="#000000" 
+		<mx:TextArea id="captionLabel" borderSkin="components.skins.ClosedCaptionBackground" paddingTop="10"
 			editable="false" 
-			wordWrap="true" 
+			wordWrap="true" fontSize="13" 
 			selectable="false" 
-			color="#ffffff" 
-			width="544" 
+			width="544" contentBackgroundColor="#000000" color="#ffffff"
 			textAlign="center" 
 			horizontalScrollPolicy="off" 
 			verticalScrollPolicy="off" 
