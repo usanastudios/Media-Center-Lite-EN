@@ -190,6 +190,8 @@ package components.views
 	        shareMenu.styleName="prospectMenu1";
 	        shareMenu.width = 180;
 	        shareMenu.rowHeight = 27;
+	        shareMenu.useHandCursor = true;
+	        shareMenu.buttonMode = true;
 	        shareMenu.show(600, share_menu_btn.y + 165);
 			shareMenu.addEventListener(MenuEvent.ITEM_CLICK,shareMenuHandler);
           }
@@ -202,6 +204,8 @@ package components.views
 	        sortMenu.labelField="@label";
 	        sortMenu.styleName="prospectMenu1";
 	        sortMenu.width = 160;
+	        sortMenu.useHandCursor = true;
+	        sortMenu.buttonMode = true;
 	        sortMenu.rowHeight = 27;
 	        sortMenu.show(sort_menu_btn.x + 5, 500);  
 			sortMenu.addEventListener(MenuEvent.ITEM_CLICK,sortSearchResults);

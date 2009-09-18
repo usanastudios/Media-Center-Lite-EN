@@ -564,7 +564,7 @@ package components.views
 	        PopUpManager.addPopUp(embedWindow, this, true);
 			embedWindow.title = "Embed \""+title+"\"";
 			embedWindow.y = 100;
-			embedWindow.x = 100;
+			embedWindow.x = 228;
 		}
 		
 		/* ======================================== */
@@ -958,8 +958,14 @@ package components.views
 /* =================================== */
 public function showVideo(video:XML,videoPage:Object):void {
 	
-	//CLEAR VIDEO THUMBNAIL OVERLAY (VIDEO PLAYS INSTANTLY)
+	    //CLEAR VIDEO THUMBNAIL OVERLAY (VIDEO PLAYS INSTANTLY)
 		videoPage.large_thumbnail_overlay.source = "";
+		
+		//CLEAR PLAY BUTTON OVERLAY
+		videoPage.play_overlay_btn.visible = false;
+		
+		// PLACE THE LOADING IMAGE OVER THE TOP WHILE VIDEO LOADS
+		videoPage.loading_overlay.visible = true;
 		
 	//SET CURRENT VIDEO BASED ON CLICKED THUMBNAIL
 	current_video = video;

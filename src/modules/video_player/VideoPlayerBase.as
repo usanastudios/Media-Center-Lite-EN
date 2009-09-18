@@ -2,16 +2,13 @@
 			import com.akamai.net.*;
 			import com.akamai.rss.AkamaiBOSSParser;
 			
-			import components.controls.VideoControls;
-			import components.skins.ClosedCaptionBackground;
-			
 			import flash.display.StageDisplayState;
 			import flash.events.FullScreenEvent;
 			import flash.events.HTTPStatusEvent;
+			import flash.events.TimerEvent;
 			import flash.geom.*;
 			
 			import mx.controls.Alert;
-			import mx.controls.textClasses.TextRange;
 			import mx.core.FlexGlobals;
 			import mx.core.UIComponent;
 			import mx.events.SliderEvent;
@@ -20,6 +17,8 @@
 			import org.openvideoplayer.cc.*;
 			import org.openvideoplayer.events.*;
 			import org.openvideoplayer.net.*;
+
+;
 
 					
 			/*Define private variables*/
@@ -39,7 +38,7 @@
 			private var _captionTimer:Timer;
 			private var _ccOn:Boolean;
 			private var _ccPositioned:Boolean;
-
+			private var loadingOverlayTimer:Timer;
 
             
             
@@ -310,10 +309,24 @@
    			// Plays the stream 
    			private function playVideo(name:String):void {
    				_ns.play(name);
+   				
+   				// Removes the loading image after 1 second (to be safe)
+   				loadingOverlayTimer = new Timer(1000);
+				loadingOverlayTimer.addEventListener(TimerEvent.TIMER, onLoadingOverlayTimer);
+				loadingOverlayTimer.start();
+   				//parentDocument.loading_overlay.visible = false;
+
    				videoControls.bPlayPause.styleName = "vpPauseBtn";  
  				changeVolume();
 				
    			}
+   			
+   			private function onLoadingOverlayTimer(event:TimerEvent):void {
+   				parentDocument.loading_overlay.visible = false;
+   				loadingOverlayTimer.reset();
+   				loadingOverlayTimer.stop();
+   			}
+   			
    			// Updates the time display and slider
    			private function update(e:OvpEvent):void {
    				videoControls.timeDisplay.text =  _ns.timeAsTimeCode + "|"+ _nc.streamLengthAsTimeCode(_streamLength);

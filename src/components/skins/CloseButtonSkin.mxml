@@ -14,7 +14,7 @@
 	<fx:Metadata>[HostComponent("spark.components.Button")]</fx:Metadata>
 	<s:BitmapImage 
 			source.up="@Embed('/assets/skins/close_btn_skin.png')" 
-		   source.over="@Embed('/assets/skins/close_btn_over_skin.png')"
+		   source.over="@Embed('/assets/skins/close_btn_skin.png')"
 		   source.down="@Embed('/assets/skins/close_btn_skin.png')"
 		   source.disabled="@Embed('/assets/skins/close_btn_skin.png')"
 		 resizeMode="scale"/>

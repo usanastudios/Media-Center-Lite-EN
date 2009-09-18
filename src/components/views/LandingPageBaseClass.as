@@ -58,6 +58,8 @@ public class LandingPageBaseClass extends Canvas
          prospectMenu2.labelField="@label";
          prospectMenu2.styleName="prospectMenu1";
 		prospectMenu2.setStyle("border-thickness",0);
+		 prospectMenu2.useHandCursor = true;
+		 prospectMenu2.buttonMode = true;
          prospectMenu2.width = 250;
          prospectMenu2.rowHeight = 27;
          prospectMenu2.show(prospectMenu2_btn.x + 12,prospectMenu2_btn.y + 95);

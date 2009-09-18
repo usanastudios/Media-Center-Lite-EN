@@ -130,7 +130,11 @@
 		   
 		   </mx:VBox>
 		   
-		   
+<!-- =================== -->
+<!-- = LOADING OVERLAY = -->
+<!-- =================== -->
+<mx:Image id="loading_overlay" autoLoad="true" x="25" y="17" source="assets/images/LoadingVideo.swf" visible="false"/>
+	   
 
 <!-- ================= -->
 <!-- = REPLAY BUTTON = -->

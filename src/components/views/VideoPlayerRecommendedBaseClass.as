@@ -16,9 +16,9 @@ package components.views
 	import mx.containers.VBox;
 	import mx.controls.Alert;
 	import mx.controls.Image;
+	import mx.controls.Label;
 	import mx.controls.Menu;
 	import mx.controls.Text;
-	import mx.controls.Label;
 	import mx.controls.TileList;
 	import mx.core.Repeater;
 	import mx.events.FlexEvent;
@@ -58,7 +58,7 @@ package components.views
 		public var recVBox:VBox;
 		public var thumbOver:Image;
 		public var large_thumbnail_overlay:Image;
-		
+		public var loading_overlay:Image;
 		
 
 
@@ -154,6 +154,9 @@ package components.views
 		/* = FUNCTION TO SHOW SELECTED VIDEO FROM THE 5 RECOMMENDED ON PAGE = */
 		/* ================================================================== */
 		public function showRecommendedBoxVideo(event:MouseEvent):void {
+			
+			// PLACE THE LOADING IMAGE OVER THE TOP WHILE VIDEO LOADS
+			loading_overlay.visible = true;
 			   
 			 var vpchild:* = video_player.child as VideoPlayerInterface;    
 
@@ -236,6 +239,8 @@ public function test(event:FlexEvent):void
 	        shareMenu.styleName="prospectMenu1";
 	        shareMenu.width = 180;
 	        shareMenu.rowHeight = 27;
+	        shareMenu.useHandCursor = true;
+	        shareMenu.buttonMode = true;
 	        shareMenu.show(600, share_menu_btn.y + 165);
 			shareMenu.addEventListener(MenuEvent.ITEM_CLICK,shareMenuHandler);
           }
@@ -248,6 +253,8 @@ public function test(event:FlexEvent):void
 	        sortMenu.labelField="@label";
 	        sortMenu.styleName="prospectMenu1";
 	        sortMenu.width = 160;
+	        sortMenu.useHandCursor = true;
+	        sortMenu.buttonMode = true;
 	        sortMenu.rowHeight = 27;
 	        sortMenu.show(sort_menu_btn.x + 5, 500);  
 			sortMenu.addEventListener(MenuEvent.ITEM_CLICK,sortSearchResults);

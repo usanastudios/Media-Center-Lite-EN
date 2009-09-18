@@ -36,7 +36,7 @@ public class EmbedVideoPageBaseClass extends TitleWindow
 	public function setCloseButton():void
 	{
 		
-				this.mx_internal::closeButton.x = 778;
+				this.mx_internal::closeButton.x = 522;
 				this.mx_internal::closeButton.y = -6;
 				this.mx_internal::closeButton.width = 29;
 				this.mx_internal::closeButton.height = 29;
