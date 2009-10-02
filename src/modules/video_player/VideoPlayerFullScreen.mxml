@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<mx:Module xmlns:mx="http://www.adobe.com/2006/mxml" xmlns:s="library://ns.adobe.com/flex/spark" width="800" height="600" backgroundColor="#ffffff" layout="absolute" clipContent="false" xmlns:controls="components.controls.*">
+	
+
+
+<controls:VideoControls id="videoControls"/>
+		
+
+
+
+
+</mx:Module>

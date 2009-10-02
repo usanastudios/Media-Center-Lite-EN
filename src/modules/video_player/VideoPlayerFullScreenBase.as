@@ -13,6 +13,7 @@
 			import mx.core.FlexGlobals;
 			import mx.core.UIComponent;
 			import mx.events.SliderEvent;
+			import mx.managers.PopUpManager;
 			import mx.utils.*;
 			
 			import org.openvideoplayer.cc.*;
@@ -47,7 +48,6 @@
             [Bindable]
             private var video_id:String;
 			[BINDABLE]
-			public var _DOWNLOADURL:String = "http://www.usanamedia.com/downloads/zip/" +FlexGlobals.topLevelApplication.current_video.@id+".zip";
 			public var VIDEO_URL:String = "http://usana.edgeboss.net/flash/usana/h.264/"+FlexGlobals.topLevelApplication.current_video.@id+".mp4?xmlvers=1";
 			public var _CAPTION_URL_:String = "http://www.usana.com/media/File/mediaCenter/closed_caption/"+FlexGlobals.topLevelApplication.current_video.@id+".xml";
 	
@@ -62,30 +62,21 @@
 			}
 	           VIDEO_URL = "http://usana.edgeboss.net/flash/usana/h.264/"+id+".mp4?xmlvers=1";
 	           _CAPTION_URL_ = "http://www.usana.com/media/File/mediaCenter/closed_caption/"+FlexGlobals.topLevelApplication.current_video.@id+".xml";
- 			   _DOWNLOADURL = "http://www.usanamedia.com/downloads/zip/" +FlexGlobals.topLevelApplication.current_video.@id+".zip";
-				
 
-				//CHECK FOR CLOSE CAPTIONED & DOWNLOADABLE FILES
-				var loader:URLLoader = new URLLoader();
-				var DLloader:URLLoader = new URLLoader();
 				
+				
+				//CHECK FOR CLOSE CAPTIONED FILE
+				var loader:URLLoader = new URLLoader();
 				loader.addEventListener(IOErrorEvent.IO_ERROR,ccNotFound);
 				loader.addEventListener(Event.COMPLETE,ccFound);
-				DLloader.addEventListener(IOErrorEvent.IO_ERROR,DLNotFound);
-				DLloader.addEventListener(Event.COMPLETE,DLFound);
-				
 			   	var request:URLRequest = new URLRequest("http://www.usana.com/media/File/mediaCenter/closed_caption/"+FlexGlobals.topLevelApplication.current_video.@id+".xml");
-	            var DLrequest:URLRequest = new URLRequest("http://www.usanamedia.com/downloads/zip/" +FlexGlobals.topLevelApplication.current_video.@id+".zip");
-	            
 	            try {
 	                loader.load(request);
-					DLloader.load(DLrequest);
+	
 	            	} 
 				catch (error:HTTPStatusEvent) {
-	                mx.controls.Alert.show("Unable to load File.");
+	                mx.controls.Alert.show("Unable to load requested document.");
 	            	}
-	            	
-	            	
 
 	       			
 				if(playNow == true)
@@ -480,16 +471,16 @@
 				    _videoSettings.y = _videoHolder.y;
 				  
 				  	// Creates a rectangle around the video and makes it go fullscreen - need to find a better way to do this
-				    stage["fullScreenSourceRect"] = new Rectangle(25, 75, 544, 306);
-				    stage["displayState"] = StageDisplayState.FULL_SCREEN;
+				    //stage["fullScreenSourceRect"] = new Rectangle(25, 75, 544, 306);
+				    //stage["displayState"] = StageDisplayState.FULL_SCREEN;
 				    
-				    //var popup:VideoPlayerFullScreen = new VideoPlayerFullScreen();
-				    //PopUpManager.addPopUp(popup, this, true);
-				    //PopUpManager.centerPopUp(popup);
+				    var popup:VideoPlayerFullScreen = new VideoPlayerFullScreen();
+				    PopUpManager.addPopUp(popup, this, true);
+				    PopUpManager.centerPopUp(popup);
 				    
 				    
-				    videoWindow.removeChild(_videoHolder);
-				    addChild(_videoHolder);
+				    //videoWindow.removeChild(_videoHolder);
+				    //addChild(_videoHolder);
 
 
 
@@ -620,7 +611,6 @@
 		private function ccFound(event:Event):void
 		{
 			videoControls.bClosedcaption.enabled = true;
-			 //mx.controls.Alert.show("CC Found.");
 		}
 		
 		
@@ -630,24 +620,6 @@
 		private function ccNotFound(event:IOErrorEvent):void
 		{
 			videoControls.bClosedcaption.enabled = false;
-			 //mx.controls.Alert.show("Unable to load CC File.");
-		}
-		
-		/* ========================================== */
-		/* = FUNCTION CALLED  IF DOWNLOAD FILE EXISTS = */
-		/* ========================================== */
-		private function DLFound(event:Event):void
-		{
-			// Alert.show("Downloadable File Found.");
-		}
-		
-		
-		/* =============================================== */
-		/* = FUNCTIONC CALLED IF DOWNLOAD FILE DOES NOT EXISTS = */
-		/* =============================================== */
-		private function DLNotFound(event:IOErrorEvent):void
-		{
-			// Alert.show("Downloadable File Not Found.");
 		}
 		
 	
