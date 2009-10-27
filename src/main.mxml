@@ -74,7 +74,7 @@
 		</mx:HTTPService>    
 		
 		<!-- Define the Akamai HTTP service -->
-		<mx:HTTPService id="akamai_svc" url="https://secure.streamos.com/qos/qos-xml.php" resultFormat="e4x" requestTimeout="20" result="akamaiResultHandler()" fault="mx.controls.Alert.show('AKAMAI CONNECTION ERROR: ' + event.fault.faultDetail + '  \n \nTo fix this problem, try refreshing your browser.  If the problem persists, please contact USANA Support')" showBusyCursor="true">
+		<mx:HTTPService id="akamai_svc" url="https://secure.streamos.com/qos/qos-xml.php" resultFormat="e4x" requestTimeout="60" result="akamaiResultHandler()" fault="mx.controls.Alert.show('AKAMAI CONNECTION ERROR: ' + event.fault.faultDetail + '  \n \nTo fix this problem, try refreshing your browser.  If the problem persists, please contact USANA Support')" showBusyCursor="true">
 			<mx:request>
 				<USERNAME>usana</USERNAME>
 				<PASSWORD>vision99</PASSWORD>

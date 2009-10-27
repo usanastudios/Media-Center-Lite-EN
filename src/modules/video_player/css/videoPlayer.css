@@ -2,7 +2,8 @@
 
 
 .controlBarBackground {
-	backgroundImage: Embed(source="modules/video_player/skins/VideoPlayer/vControlBack.png");
+	backgroundImage: Embed(
+	source="modules/video_player/skins/VideoPlayer/vControlBack.png");
 	cornerRadius: 0px;
 	horizontalGap: 0px;
 	borderStyle:none;

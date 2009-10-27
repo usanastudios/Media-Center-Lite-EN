@@ -8,7 +8,8 @@
 	fontFamily: HelveticaEmbed;
 	fontWeight: normal;
 	fontStyle: normal;
-	src: url("assets/fonts/Helvetica.dfont");
+	src: url("assets/fonts/Helvetica.dfont"); 
+	embedAsCFF: false; 
 }
 
 global

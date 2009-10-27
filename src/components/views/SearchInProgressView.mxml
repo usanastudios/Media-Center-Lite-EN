@@ -5,6 +5,7 @@
 			
 			public function init():void
 			{
+				//searching_for_txt.text = parentDocument.current_search_message;
 				searching_for_txt.text = parentDocument.current_search_message;
 			//	mx.controls.Alert.show(searching_for_txt.y.toString());
 

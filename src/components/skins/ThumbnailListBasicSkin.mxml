@@ -32,8 +32,7 @@
             horizontalScrollPolicy="off"
             left="1" top="1" right="1" bottom="1">
        
-        <s:DataGroup id="dataGroup"
-                itemRenderer="spark.skins.default.DefaultItemRenderer">
+        <s:DataGroup id="dataGroup" itemRenderer="spark.skins.spark.DefaultItemRenderer">
             <s:layout>
             <s:TileLayout 
             	    rowHeight="140"
