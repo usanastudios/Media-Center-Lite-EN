@@ -27,14 +27,14 @@
         <root>
            <menuitem label="Email"/>
            <menuitem label="Embed"/>
-           <menuitem label="Download"/>
+
         </root> 
     </mx:XML>
 
 	 <!-- Define the sort menu data. -->
     <mx:XML format="e4x" id="sortMenuData">
         <root>
-           <menuitem label="Most Viewed"/>
+
            <menuitem label="Most Recent"/>
         </root> 
     </mx:XML>

@@ -74,7 +74,7 @@
 		</mx:HTTPService>    
 		
 		<!-- Define the Akamai HTTP service -->
-		<mx:HTTPService id="akamai_svc" url="https://secure.streamos.com/qos/qos-xml.php" resultFormat="e4x" requestTimeout="60" result="akamaiResultHandler()" fault="mx.controls.Alert.show('AKAMAI CONNECTION ERROR: ' + event.fault.faultDetail + '  \n \nTo fix this problem, try refreshing your browser.  If the problem persists, please contact USANA Support')" showBusyCursor="true">
+		<!--<mx:HTTPService id="akamai_svc" url="https://secure.streamos.com/qos/qos-xml.php" resultFormat="e4x" requestTimeout="60" result="akamaiResultHandler()" fault="mx.controls.Alert.show('AKAMAI CONNECTION ERROR: ' + event.fault.faultDetail + '  \n \nTo fix this problem, try refreshing your browser.  If the problem persists, please contact USANA Support')" showBusyCursor="true">
 			<mx:request>
 				<USERNAME>usana</USERNAME>
 				<PASSWORD>vision99</PASSWORD>
@@ -82,7 +82,7 @@
 				<STARTDATE>{akamai_start_date}</STARTDATE>
 				<ENDDATE>{akamai_stop_date}</ENDDATE>
 			</mx:request>
-		</mx:HTTPService>
+		</mx:HTTPService>-->
 		
 		<mx:DateFormatter id="dateFormatter" formatString="YYYY-MM-DD"/>
 		
@@ -94,8 +94,8 @@
 	<!-- = HEADER SECTION = -->
 	<!-- ================== -->
 	<mx:Image x="-2" y="-2" source="assets/images/header.png"/> 
-	<s:Button x="240" y="0" skinClass="components.skins.ProspectMenu1Skin" buttonMode="true" id="prospectMenu1_btn"/>
-	<s:Button x="465" y="0" label="Button" id="mostViewed_btn" skinClass="components.skins.MostViewedSkin" buttonMode="true"/>
+	<s:Button x="361" y="0" skinClass="components.skins.ProspectMenu1Skin" buttonMode="true" id="prospectMenu1_btn"/>
+	<!--<s:Button x="465" y="0" label="Button" id="mostViewed_btn" skinClass="components.skins.MostViewedSkin" buttonMode="true"/>-->
 	<s:Button x="585" y="-1" label="Button" id="mostRecent_btn" skinClass="components.skins.MostRecentSkin" buttonMode="true"/>
 	<s:Button x="705" y="-1" label="Button" id="audio_btn" skinClass="components.skins.AudioSkin" buttonMode="true"/>
 	

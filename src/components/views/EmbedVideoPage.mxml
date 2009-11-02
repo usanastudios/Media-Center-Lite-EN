@@ -7,5 +7,5 @@
 		import mx.managers.PopUpManager;
 	 ]]></mx:Script>
 
-<mx:HSlider/>
+<!--<mx:HSlider/>-->
 </views:EmbedVideoPageBaseClass>

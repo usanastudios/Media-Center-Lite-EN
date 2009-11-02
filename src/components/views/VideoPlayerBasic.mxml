@@ -19,14 +19,14 @@
         <root>
            <menuitem label="Email"/>
            <menuitem label="Embed"/>
-           <menuitem label="Download"/>
+  
         </root> 
     </fx:XML>
 
 	 <!-- Define the sort menu data. -->
     <fx:XML format="e4x" id="sortMenuData">
         <root>
-           <menuitem label="Most Viewed"/>
+
            <menuitem label="Most Recent"/>
         </root> 
     </fx:XML>

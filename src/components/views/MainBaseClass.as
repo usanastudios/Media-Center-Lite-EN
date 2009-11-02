@@ -52,8 +52,8 @@ package components.views
 		public var last_selected_page:Number;
 		public var main_view_stack:ViewStack;
 		public var mostRecent_btn:Button;
-		public var mostViewed_btn:Button;
-		public var most_viewed_videos_svc:HTTPService;
+		//public var mostViewed_btn:Button;
+		//public var most_viewed_videos_svc:HTTPService;
 		public var recommendedXML_svc:HTTPService;
 		public var prospectMenu1_btn:Button;
 		public var prospectMenuData:XML;
@@ -125,20 +125,20 @@ package components.views
 			/*EVENT LISTENERS*/
 			prospectMenu1_btn.addEventListener(MouseEvent.CLICK,createAndShowProspectMenu1);
 			search_btn.addEventListener(MouseEvent.CLICK,search);
-			mostViewed_btn.addEventListener(MouseEvent.CLICK,get_most_viewed);
+			//mostViewed_btn.addEventListener(MouseEvent.CLICK,get_most_viewed);
 			mostRecent_btn.addEventListener(MouseEvent.CLICK,get_most_recent);
 			audio_btn.addEventListener(MouseEvent.CLICK, navigateToAudio);
 			
 			
 			//DISABLE MOST VIEWED BUTTON UNTIL WE GET AKAMI RESULTS BACK
-			mostViewed_btn.enabled = false;
+			//mostViewed_btn.enabled = false;
 			
 			/*DEFINE AKAMAI START AND STOP DATES*/
 			akamai_start_date = "2009-01-01";
 			akamai_stop_date = dateFormatter.format(new Date());
 			
 			//CALL THE AKAMAI SERVICE AND GET ALL VIDEO INFO
-			akamai_svc.send();
+			//akamai_svc.send();
 			
 			/*DEFINE DATA FOR THE PROSPECT MENU*/
 			prospectMenuData = <root>
@@ -155,7 +155,7 @@ package components.views
 	                <menuitem label="Health Testimonials"/>
 	            </menuitem>
 	            <menuitem label="USANA Health Sciences"/> 
-	            <menuitem label="I'm Not Sure"/>
+
         	</root>;
 
 
@@ -176,7 +176,7 @@ package components.views
             prospectMenu1.styleName="prospectMenu1";
             prospectMenu1.width = 226;
             prospectMenu1.rowHeight = 27;
-            prospectMenu1.show(240, 60);
+            prospectMenu1.show(361, 60);
 			prospectMenu1.addEventListener(MenuEvent.ITEM_CLICK, prospectMenu1ClickHandler);
           }
           
@@ -227,7 +227,7 @@ package components.views
 			else if (event.label == "I'm Not Sure")
 			{
 				//IF NOT SURE, GET MOST VIEWED
-				get_most_viewed();
+				//get_most_viewed();
 			}
 			
 		} 
@@ -462,7 +462,7 @@ package components.views
 		/*POP UP SEARCHING VIEW*/
 		main_view_stack.selectedIndex = 2;
 		
-		most_viewed_videos_svc.send();
+		//most_viewed_videos_svc.send();
 		
 		/*SET CURRENT SEARCH TERM (FOR DISPLAY ON VIDEO PLAYER PAGE)*/
 		current_search_term = "Most Viewed";
@@ -487,7 +487,7 @@ package components.views
 	{
 		
 		//SET VIDEO LIST TO MOST_VIEWED_VIDEOS
-		video_list = sort_by_most_viewed(most_viewed_videos_svc.lastResult.video)
+		//video_list = sort_by_most_viewed(most_viewed_videos_svc.lastResult.video)
 		
 		current_video = video_list.children()[0];
 			
@@ -1147,7 +1147,7 @@ public function akamaiResultHandler():void
       
 	
 	//RE-ENABLE MOST VIEWED BUTTON
-	mostViewed_btn.enabled = true;
+	//mostViewed_btn.enabled = true;
 	
 		/*IF VIDEO_ID PASSED IN URL, GO DIRECTLY TO VIDEO PLAYER PAGE*/
 		/*WE RE-USE THE WALL VIDEO CLICK FUNCTIONS FOR THIS */
