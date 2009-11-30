@@ -4,8 +4,7 @@
 					 xmlns:s="library://ns.adobe.com/flex/spark" 
 					 xmlns:fc="http://www.adobe.com/2006/fc"
 					 xmlns:mx="library://ns.adobe.com/flex/halo" xmlns:views="components.views.*"
-					 xmlns:local="*"
-	>
+					 xmlns:local="*">
 	
 	
 <fx:Script>
@@ -101,9 +100,28 @@
 	
 	
 
-	<s:TextInput x="788" y="17" id="search_txt" styleName="searchTextField" skinClass="components.skins.SearchFieldSkin"/>
+	<!-- This is the spark skin that stopped working in BETA 2.  Changed to MX component. -->
+	<!--<s:TextInput x="788" y="17" id="search_txt" styleName="searchTextField" skinClass="components.skins.SearchFieldSkin"/>-->
+
+	<mx:TextInput id="search_txt" 
+				  contentBackgroundAlpha="0"
+				  focusRoundedCorners="tl tr bl br" 
+				  cornerRadius="13"
+				  borderAlpha="0" 
+				  borderStyle="none" 
+				  paddingLeft="8"
+				  x="811" y="20" 
+				  height="20" 
+				  width="140" 
+				  focusColor="0x476a84" 
+				  focusThickness="2"
+				  />
+
+	<!--<s:TextInput x="788" y="17" id="search_txt" styleName="searchTextField" skinClass="components.skins.SearchFieldSkin"/>-->
+	<!--<s:TextInput x="788" y="17" id="search_txt" styleName="searchTextField" skinClass="components.skins.SearchFieldSkin"/>-->
 
 	
+
 	
 	<!--
 	<fc:AutoComplete width="171" id="search_txt" 
@@ -116,7 +134,7 @@
 		-->
 	
 	
-	<s:Button x="938" y="19" label="Button" id="search_btn" skinClass="components.skins.SearchButtonSkin" buttonMode="true" height="27"/>
+	<s:Button x="938" y="17" label="Button" id="search_btn" skinClass="components.skins.SearchButtonSkin" buttonMode="true" height="27"/>
 	
 	
 	<mx:ViewStack verticalScrollPolicy="off"  horizontalScrollPolicy="off" id="main_view_stack" resizeToContent="true" historyManagementEnabled="true" width="1000"  y="62" x="0">

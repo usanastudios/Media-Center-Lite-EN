@@ -33,10 +33,18 @@ s|TextInput.searchTextField
 	paddingTop: 8;
 	focusAlpha: .05;
 	fontSize: 12;
-	color: #FBFCFC;
+	color: #000000;
+	backgroundAlpha: 0;
 }
 
-
+mx|TextInput.emailForm {
+	fontFamily: HelveticaEmbed;
+	padding-left: 10px;
+	padding-right: 10px;
+	padding-top: 10px;
+	padding-bottom: 10px;
+	color: #1b1b1b;
+}
 
 mx|Menu.prospectMenu1
 {
@@ -124,7 +132,7 @@ mx|Text.resultsFor{
 
 mx|Text.searchingFor{
 	fontFamily: HelveticaEmbed;
-	font-size:20;
+	font-size:17;
 	color:#FFFFFF;
 }
 
@@ -150,6 +158,23 @@ mx|Text.recommendedLabelSkin {
 	
 }
 
+mx|Alert{
+	color : #ffffff;
+	background-color: #1b1b1b;
+	header-colors : #243322, #243322;
+	header-height:19;
+	drop-shadow-enabled: true;
+	drop-shadow-color :#243322;
+	corner-radius :6;
+	border-style :solid;
+	border-thickness: 1;
+	border-color : #243322;
+	footer-colors : #243322, #ffffff;
+	title-style-name : "title";
+}
+
+
+
 
 /*mx|TextInput
 {
@@ -174,5 +199,54 @@ mx|ToolTip {
   fontSize: 12; 
   color: #FFFFFF; 
   backgroundColor: #000000;
+}
+
+mx|DataGrid.emailListGrid {
+	
+color: #000000;
+backgroundColor: #c2c2c2;
+backgroundAlpha: .75;
+border-style:none;
+alternating-item-colors: #F4FBFF, #FFFFFF;
+horizontal-grid-line-color:#a3a3a3; 
+vertical-grid-lines: false;
+horizontal-grid-lines: true;
+}
+
+mx|Text.emailPageHeader {
+	
+	fontFamily: HelveticaEmbed;
+	fontSize: 30;
+	color:#ffffff;
+	padding-left: 70px;
+	padding-right: 20px;
+	padding-top: 40px;
+	padding-bottom: 10px;
+}
+
+mx|Text.emailPageSubheader {
+	
+	fontFamily: HelveticaEmbed;
+	fontSize: 14;
+	padding-left: 70px;
+	padding-right: 10px;
+
+}
+
+mx|FormItem.checkUnselected {
+	backgroundColor: #171717;
+}
+
+mx|FormItem.checkSelected {
+	backgroundColor: #263239;
+}
+
+
+mx|Text.codeCopied {
+	fontFamily: HelveticaEmbed;
+	fontSize: 10;
+	color:#ffffff;
+	
+
 }
 

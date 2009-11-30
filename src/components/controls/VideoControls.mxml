@@ -4,10 +4,18 @@
 <s:Group xmlns:fx="http://ns.adobe.com/mxml/2009" xmlns:s="library://ns.adobe.com/flex/spark" xmlns:mx="library://ns.adobe.com/flex/halo">
 
 		
-		<mx:HBox width="{parentDocument.videoWindow.width}" id="controls_hb" y="306" x="{parentDocument.videoContainer.x}" verticalAlign="middle" styleName="controlBarBackground" horizontalScrollPolicy="off" verticalScrollPolicy="off">
+
+		<mx:ApplicationControlBar id="controls_hb" 
+				 y="306" x="{parentDocument.videoContainer.x}" 
+				 width="{parentDocument.videoWindow.width}" 
+				 verticalAlign="middle" 
+				 styleName="controlBarBackground" 
+				 borderVisible="false" height="50" 
+				 backgroundAttachment="fixed" >
+			
 	
 			  	     <mx:Button id="bPlayPause" click="parentDocument.doPlayPause()" styleName="vpPlayBtn" buttonMode="true" useHandCursor="true"/>
-			  	     <mx:Spacer width="5" />
+			  	     <mx:Spacer width="4" />
 			  	     <mx:HSlider id="slider"
 			  	     	allowTrackClick="false"
 			  	     	buttonMode="true" 
@@ -23,11 +31,11 @@
 			  	     	thumbRelease="parentDocument.toggleDragging(false)" 
 			  	     	dataTipStyleName="dataTipStyle"/>
 			  	     <mx:Spacer width="3" />
-			  	     <mx:Text id="timeDisplay" styleName="timer"  text="00:00/00:00"/>
+			  	     <mx:Text id="timeDisplay" styleName="timer" text="00:00/00:00"/>
 			  	     <mx:Spacer width="7" />
 			  	     <mx:Button id="bFullscreen" click="parentDocument.switchToFullScreen()" enabled="false" styleName="fsBtn" buttonMode="true" useHandCursor="true"/>
 			  	     <s:ToggleButton id="bClosedcaption" skinClass="components.skins.CCButtonSkin" click="parentDocument.onClickCC(event)" buttonMode="true" useHandCursor="true" enabled="false"/>
-			  	     <mx:Spacer width="3" />
+			  	     <mx:Spacer width="6" />
 			  	     <mx:HSlider id="volumeSlider"
 			  	     	buttonMode="true" 
 			  	     	useHandCursor="true" 
@@ -43,7 +51,9 @@
 			  	     	allowTrackClick="false" 
 			  	     	liveDragging="true"
 			  	     	dataTipStyleName="dataTipStyle"/>
+	
 			  	     	
-			  	</mx:HBox>
+			  	</mx:ApplicationControlBar>
+
 
 </s:Group>

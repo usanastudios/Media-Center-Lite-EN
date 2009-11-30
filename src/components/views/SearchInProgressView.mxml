@@ -12,10 +12,11 @@
 			}
 		]]>
 	</fx:Script>
-	<mx:VBox horizontalCenter="0" verticalCenter="0">
+	<mx:HBox x="350" y="150" verticalAlign="middle">
+	<mx:SWFLoader id="preloaderCircle" width="40" height="40" source="assets/swf/circlePreloader.swf" autoLoad="true"/>
 	<mx:Text id="searching_for_txt" text="" styleName="searchingFor"/>
 
-	</mx:VBox>
-	<mx:SWFLoader id="preloaderCircle" width="300" height="75" source="assets/swf/loading_animation.swf" autoLoad="true" x="350" y="100"/>
+	</mx:HBox>
+	
 	
 </views:LandingPageBaseClass>

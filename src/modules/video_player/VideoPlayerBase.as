@@ -341,7 +341,7 @@
    			
    			// Updates the time display and slider
    			private function update(e:OvpEvent):void {
-   				videoControls.timeDisplay.text =  _ns.timeAsTimeCode + "|"+ _nc.streamLengthAsTimeCode(_streamLength);
+   				videoControls.timeDisplay.text =  _ns.timeAsTimeCode + "/"+ _nc.streamLengthAsTimeCode(_streamLength);
 
    					if (!_sliderDragging && !_waitForSeek) {
    						videoControls.slider.value = _ns.time;

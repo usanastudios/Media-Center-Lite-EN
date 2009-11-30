@@ -1,18 +1,44 @@
 /* videoPlayer CSS file */
+@namespace mx "library://ns.adobe.com/flex/halo";
 
+@font-face
+{
+	fontFamily: HelveticaEmbed;
+	fontWeight: normal;
+	fontStyle: normal;
+	src: url("assets/fonts/Helvetica.dfont"); 
+	embedAsCFF: false; 
+}
+
+
+.timer {
+	fontFamily: HelveticaEmbed;
+	fontSize: 10px;
+	color: #ffffff;	
+}
 
 .controlBarBackground {
+	
 	backgroundImage: Embed(
 	source="modules/video_player/skins/VideoPlayer/vControlBack.png");
 	cornerRadius: 0px;
 	horizontalGap: 0px;
-	borderStyle:none;
 
+	padding-left: 0px;
+	padding-top: 3px;
+	dropShadowEnabled:false;
 }
 
 .timer {
+	
 fontSize: 10px;
+
 color: #ffffff;	
+
+
+	borderStyle:none;
+	
+
 }
 
 .vpPlayBtn {
@@ -21,7 +47,7 @@ color: #ffffff;
       source="modules/video_player/skins/VideoPlayer/playBtn.png");
       
       disabledSkin: Embed(
-      source="modules/video_player//skins/VideoPlayer/playBtn_disabled.png");
+      source="modules/video_player/skins/VideoPlayer/playBtn_disabled.png");
       
       downSkin: Embed(
       source="modules/video_player/skins/VideoPlayer/playBtn.png");
@@ -103,5 +129,6 @@ color: #ffffff;
 }
 .dataTipStyle
 {
+	fontFamily: HelveticaEmbed;
 	background-color:#000000;
 }

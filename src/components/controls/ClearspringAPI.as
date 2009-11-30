@@ -4,15 +4,16 @@ package components.controls {
 	import flash.net.*;
 	import flash.system.*;
 	import flash.utils.*;
+	import mx.controls.Alert;
 	
 	import mx.core.FlexGlobals;
 
 	public class ClearspringAPI extends MovieClip
 	{
-		private const kernelUrl:String = "http://widgets.clearspring.com/o/4a804e796cd38579/4a804e796cd38579/-/-TRK/1/lib.v3.as3.swf";
-		private var kernel:Object;
-		private var kernelLoader:Loader;
-		private var isOpen:Boolean = false;
+		public const kernelUrl:String = "http://widgets.clearspring.com/o/4a804e796cd38579/4a804e796cd38579/-/-TRK/1/lib.v3.as3.swf";
+		public var kernel:Object;
+		public var kernelLoader:Loader;
+		public var isOpen:Boolean = false;
 
 		public function ClearspringAPI()
 		{

@@ -160,6 +160,8 @@ package components.views
 		/* ============================ */
 		
 		public function replayVideo(evt:MouseEvent):void {
+			
+			replay_btn.visible=false;
 
  		// Cast the ModuleLoader's child to the interface.
            // This child is an instance of the module.

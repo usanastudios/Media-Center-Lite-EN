@@ -9,6 +9,7 @@ import mx.core.mx_internal;
 
 
 
+
 public class EmbedVideoPageBaseClass extends TitleWindow
 {
 	  
@@ -25,6 +26,7 @@ public class EmbedVideoPageBaseClass extends TitleWindow
 			var csWrapper:UIComponent = new UIComponent();
 			csWrapper.addChild(clearspring);
 			this.addElement(csWrapper);
+
 			
 			
 	}
