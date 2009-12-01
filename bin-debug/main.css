@@ -137,7 +137,18 @@ mx|Text.searchingFor{
 }
 
 mx|TitleWindow{
-	headerHeight:50px;
+	color : #ffffff;
+	background-color: #1b1b1b;
+	header-colors : #1b1b1b, #1b1b1b;
+	header-height:15;
+	drop-shadow-enabled: true;
+	drop-shadow-color :#243322;
+	corner-radius :6;
+	border-style :solid;
+	border-thickness: 1;
+	border-color : #243322;
+	footer-colors : #243322, #ffffff;
+	
 	closeButtonSkin: Embed(source='assets/skins/close_button_skin.png'); 
 	fontFamily: HelveticaEmbed;
 

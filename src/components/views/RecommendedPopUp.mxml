@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 
-<views:RecommendedPopUpBaseClass titleBackgroundSkin="@Embed('../../assets/skins/send_email_title_skin.png')" creationComplete="recommendedpopupbaseclass1_creationCompleteHandler(event)" updateComplete="init()" close="PopUpManager.removePopUp(this)" width="800" height="500"  titleStyleName="emailTitleSkin" showCloseButton="true" backgroundColor="#0a0a0a" horizontalScrollPolicy="off" contentBackgroundColor="#0a0a0a" 
+<views:RecommendedPopUpBaseClass creationComplete="recommendedpopupbaseclass1_creationCompleteHandler(event)" updateComplete="init()" close="PopUpManager.removePopUp(this)" width="800" height="500"  titleStyleName="emailTitleSkin" showCloseButton="true" backgroundColor="#0a0a0a" horizontalScrollPolicy="off" contentBackgroundColor="#0a0a0a" 
 	xmlns:views="components.views.*" 
 	xmlns:fx="http://ns.adobe.com/mxml/2009"  
 	xmlns:mx="library://ns.adobe.com/flex/halo"

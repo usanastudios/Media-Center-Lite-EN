@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<views:EmbedVideoPageBaseClass xmlns:mx="http://www.adobe.com/2006/mxml" xmlns:views="components.views.*" titleBackgroundSkin="@Embed('../../assets/skins/send_email_title_skin.png')"  close="PopUpManager.removePopUp(this)" width="544" height="240" title="Send To A Friend" showCloseButton="true" backgroundColor="#0a0a0a" titleStyleName="emailTitleSkin" contentBackgroundColor="#0a0a0a" xmlns:s="library://ns.adobe.com/flex/spark" creationComplete="init()" updateComplete="setCloseButton()">
+<views:EmbedVideoPageBaseClass xmlns:mx="http://www.adobe.com/2006/mxml" xmlns:views="components.views.*"  close="PopUpManager.removePopUp(this)" width="544" height="240"  showCloseButton="true" backgroundColor="#0a0a0a" titleStyleName="emailTitleSkin" contentBackgroundColor="#0a0a0a" xmlns:s="library://ns.adobe.com/flex/spark" creationComplete="init()" updateComplete="setCloseButton()">
 
 	<mx:Script><![CDATA[ 
 		import mx.managers.PopUpManager;

@@ -19,8 +19,7 @@ package components.controls
 			{
 				Security.allowDomain("bin.clearspring.com");
 				Security.allowDomain("widgets.clearspring.com");
-				var kernelUrl:String = 'http://widgets.clearspring.com/o/'+wid+
-					'/-/-TRK/1/lib.as3.swf';
+				var kernelUrl:String = 'http://widgets.clearspring.com/o/'+wid+'/-/-TRK/1/lib.as3.swf';
 				var url:URLRequest = new URLRequest(kernelUrl);
 				
 				var api:Loader = new Loader();

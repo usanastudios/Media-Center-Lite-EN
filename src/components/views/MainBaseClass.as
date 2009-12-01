@@ -125,6 +125,8 @@ package components.views
 		
 			recommendedXML_svc.send();
 			
+			
+			
 		
 			
 			
@@ -570,7 +572,7 @@ package components.views
 		{
 			var embedWindow:EmbedVideoPage = new components.views.EmbedVideoPage();
 	        PopUpManager.addPopUp(embedWindow, this, true);
-			embedWindow.title = "Embed \""+title+"\"";
+			//embedWindow.title = "Embed \""+title+"\"";
 			embedWindow.y = 100;
 			embedWindow.x = 228;
 		}
