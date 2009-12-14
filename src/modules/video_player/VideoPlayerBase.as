@@ -144,6 +144,8 @@
 				// This inititates the video playback
 				startPlayback();
 				
+	
+				
 			}	
 			// Handles the notification that the BOSS feed was successfully loaded.
 			private function bossLoadHandler(e:OvpEvent):void {

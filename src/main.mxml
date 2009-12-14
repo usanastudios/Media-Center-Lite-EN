@@ -92,7 +92,7 @@
 	<!-- ================== -->
 	<!-- = HEADER SECTION = -->
 	<!-- ================== -->
-	<mx:Image x="-2" y="-2" source="assets/images/header.png"/> 
+	<mx:Image id="logo_png" x="-2" y="-2" useHandCursor="true" buttonMode="true" source="assets/images/header.png"/> 
 	<s:Button x="361" y="0" skinClass="components.skins.ProspectMenu1Skin" buttonMode="true" id="prospectMenu1_btn"/>
 	<!--<s:Button x="465" y="0" label="Button" id="mostViewed_btn" skinClass="components.skins.MostViewedSkin" buttonMode="true"/>-->
 	<s:Button x="585" y="-1" label="Button" id="mostRecent_btn" skinClass="components.skins.MostRecentSkin" buttonMode="true"/>
@@ -143,7 +143,7 @@
 		<!-- ================ -->
 		<!-- = LANDING PAGE = -->
 		<!-- ================ -->
-		<views:LandingPage id="landing_page_view"  width="1000" height="100%" left="0" right="0" />
+		<views:LandingPage id="landing_page_view" width="1000" height="100%" left="0" right="0" />
 		<!-- =========================== -->
 		<!-- = VIDEO PLAYER BASIC PAGE = -->
 		<!-- =========================== -->

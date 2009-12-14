@@ -20,15 +20,16 @@ package components.views
 	import mx.collections.XMLListCollection;
 	import mx.containers.ViewStack;
 	import mx.controls.Alert;
+	import mx.controls.Image;
 	import mx.controls.LinkButton;
 	import mx.controls.Menu;
-	import mx.core.FlexGlobals;
+	import mx.controls.TextInput;
 	import mx.events.MenuEvent;
 	import mx.formatters.DateFormatter;
 	import mx.managers.PopUpManager;
 	import mx.rpc.http.mxml.HTTPService;
 	import mx.validators.Validator;
-	import mx.controls.TextInput;
+	import flash.display.Loader;
 	
 	import spark.components.Application;
 	import spark.components.Button;
@@ -97,6 +98,7 @@ package components.views
 		[Bindable] public var video_short_description:String;
 		[Bindable] public var video_title:String;
 		[Bindable] public var recommended_videos:XMLList;
+		[Bindable] public var logo_png:Image;
 		
 
 		
@@ -136,6 +138,7 @@ package components.views
 			//mostViewed_btn.addEventListener(MouseEvent.CLICK,get_most_viewed);
 			mostRecent_btn.addEventListener(MouseEvent.CLICK,get_most_recent);
 			audio_btn.addEventListener(MouseEvent.CLICK, navigateToAudio);
+			logo_png.addEventListener(MouseEvent.CLICK,returnToHome);
 			
 			
 			//DISABLE MOST VIEWED BUTTON UNTIL WE GET AKAMI RESULTS BACK
@@ -171,6 +174,15 @@ package components.views
 
 	            
 
+
+		}
+		
+		/* ======================================== */
+		/* = CREATE AND DISPLAY THE PROSPECT MENU1 CONTROL. = */
+		/* ======================================== */
+		public function returnToHome(event:MouseEvent):void {
+			main_view_stack.selectedIndex = 0;
+			landing_page_view.wall.load("assets/swf/3dwall.swf");
 
 		}
 		

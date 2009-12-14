@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
-<mx:Canvas xmlns:mx="http://www.adobe.com/2006/mxml" creationComplete="canvas1_creationCompleteHandler(event)" backgroundColor="0x101010" width="200">
-<mx:Script>
+<mx:Canvas xmlns:fx="http://ns.adobe.com/mxml/2009" xmlns:s="library://ns.adobe.com/flex/spark" xmlns:mx="library://ns.adobe.com/flex/halo" creationComplete="canvas1_creationCompleteHandler(event)" backgroundColor="0x101010" width="200">
+<fx:Script>
 	<![CDATA[
 		import mx.events.FlexEvent;
 		 import mx.managers.ToolTipManager;
@@ -12,39 +12,71 @@
 		{
 			ToolTipManager.showDelay = 0;
             ToolTipManager.showEffect = fadeIn;
-			descText.x=20;
+			descText.x=12;
 			descText.y=128;
 			descText.text = data.title;
 		}
 		
 		protected function mouseOver():void {
 			//play_button_overlay.visible=true;
-			//thumbpic.width=180;
-			//thumbpic.height=106;
-			expand.end(); 
-			expand.play();
-			//thumbpic.visible=true;
+			//expand.end(); 
+			//expand.play();
+			glowImage.play()
+			//rotate3Din.play();
 		}
 		
 		protected function mouseOut():void {
 			//play_button_overlay.visible=false;
-			//thumbpic.width=170;
-			//thumbpic.height=100;
-			contract.end(); 
-			contract.play();
-			//thumbpic.visible=false;
+			//contract.end(); 
+			//contract.play();
+			//rotate3Dout.play();
+			unglowImage.play();
 		}
 		
 
 	]]>
-</mx:Script>
-	<mx:Resize id="expand" target="{thumbpic}" widthTo="180" heightTo="106" duration="150"/>
-	<mx:Resize id="contract" target="{thumbpic}" widthTo="170" heightTo="100" duration="150"/>
-
-	<mx:Fade id="fadeIn" alphaFrom="0" alphaTo="1" duration="250"/>
+</fx:Script>
 	
-	<mx:Fade id="fadeThumbIn" alphaFrom=".5" alphaTo="1" duration="150"/>
-	<mx:Fade id="fadeThumbOut" alphaFrom="1" alphaTo=".5" duration="150"/>
+	<fx:Declarations>
+		<!--<s:Rotate3D id="rotate3Din"
+					target="{thumbpic}"
+					angleYFrom="0" 
+					angleYTo="25"
+					duration="150"
+					autoCenterTransform="true" />
+		
+		<s:Rotate3D id="rotate3Dout"
+					target="{thumbpic}"
+					angleYFrom="25" 
+					angleYTo="0"
+					duration="150"
+					autoCenterTransform="true" />-->
+	
+		
+		
+		<!--Img Glow Effects-->
+		<mx:Glow id="glowImage" duration="150"
+				 alphaFrom="0" alphaTo="1"
+				 blurXFrom="0.0" blurXTo="15.0" 
+				 blurYFrom="0.0" blurYTo="15.0"  strength="2"
+				 color="0xffffff" target="{thumbpic}"/>
+		
+		<mx:Glow id="unglowImage" duration="200"  
+				 alphaFrom="1" alphaTo="0"
+				 blurXFrom="15.0" blurXTo="0.0"
+				 blurYFrom="15.0" blurYTo="0.0"  strength="2"
+				 color="0xffffff" target="{thumbpic}"/>
+
+
+		
+		<mx:Resize id="expand" target="{thumbpic}" widthTo="180" heightTo="106" duration="150"/>
+		<mx:Resize id="contract" target="{thumbpic}" widthTo="170" heightTo="100" duration="150"/>
+		
+		<mx:Fade id="fadeIn" alphaFrom="0" alphaTo="1" duration="250"/>
+	</fx:Declarations>
+
+	
+	
 	
 	
 	<mx:Image id="thumbpic" autoLoad="true"
