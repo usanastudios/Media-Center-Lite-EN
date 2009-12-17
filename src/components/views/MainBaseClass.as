@@ -77,7 +77,7 @@ package components.views
 		public var playNow:Boolean;
 		
 		
-		public static const LANGUAGE:String = "zh";
+		public static const LANGUAGE:String = "en";
 		
 		/* ====================== */
 		/* = BINDABLE VARIABLES = */
@@ -467,7 +467,7 @@ package components.views
 		
 		current_video = video_list.children()[0];
 		
-		Alert.show(video_list);
+		//Alert.show(video_list);
 			
 		//REMOVE 3DWALL DUE TO BUG
 		landing_page_view.wall.unloadAndStop();
