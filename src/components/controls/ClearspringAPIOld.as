@@ -5,16 +5,15 @@ package components.controls{
 	import flash.utils.*;
 	import flash.net.*;
 	
-	public class ClearSpringAPI extends MovieClip
+	public class ClearspringAPI extends MovieClip
 	{
 		private const kernelUrl:String = "http://widgets.clearspring.com/o/4a804e796cd38579/4a804e796cd38579/-/-TRK/1/lib.v3.as3.swf";
 		private var kernel:Object;
 		private var kernelLoader:Loader;
 		private var isOpen:Boolean = false;
 		
-		public function ClearSpringAPI():void
+		public function ClearspringAPI()
 		{
-				
 			Security.allowDomain("bin.clearspring.com");
 			Security.allowDomain("widgets.clearspring.com");
 			kernelLoader = new Loader();
@@ -56,12 +55,9 @@ package components.controls{
 			// @see http://www.clearspring.com/docs/tech/apis/in-widget/menu
 			kernel.menu.addEventListener(kernel.menu.event.OPEN, onMenuEvent);
 			kernel.menu.addEventListener(kernel.menu.event.CLOSE, onMenuEvent);
-				trace('test');
-				kernel.menu.show();
 			stage.addEventListener(MouseEvent.CLICK, function (e:MouseEvent):void {
-				
 				if (!isOpen && e.target == stage) {
-				
+					kernel.menu.show();
 				}
 			});
 			
