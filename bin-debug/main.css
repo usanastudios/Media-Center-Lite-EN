@@ -56,6 +56,21 @@ mx|Menu.prospectMenu1
 
 }
 
+mx|Alert {
+	color : #ffffff;
+	background-color: #1b1b1b;
+	header-colors : #243322, #243322;
+	header-height:19;
+	drop-shadow-enabled: true;
+	drop-shadow-color :#243322;
+	corner-radius :6;
+	border-style :solid;
+	border-thickness: 1;
+	border-color : #243322;
+	footer-colors : #243322, #ffffff;
+	
+}
+
 mx|Label.videoTitleTxt
 {
 	fontFamily: HelveticaEmbed;
