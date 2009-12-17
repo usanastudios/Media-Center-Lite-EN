@@ -6,7 +6,7 @@
 
 package components.views
 {
-	
+
 	
 	import flash.events.MouseEvent;
 	import flash.net.URLRequest;
@@ -20,18 +20,20 @@ package components.views
 	import mx.collections.XMLListCollection;
 	import mx.containers.ViewStack;
 	import mx.controls.Alert;
+	import mx.controls.Image;
 	import mx.controls.LinkButton;
 	import mx.controls.Menu;
-	import mx.core.FlexGlobals;
+	import mx.controls.TextInput;
 	import mx.events.MenuEvent;
 	import mx.formatters.DateFormatter;
 	import mx.managers.PopUpManager;
 	import mx.rpc.http.mxml.HTTPService;
 	import mx.validators.Validator;
+	import flash.display.Loader;
 	
 	import spark.components.Application;
 	import spark.components.Button;
-	import spark.components.TextInput;
+
 	
 
 	public class MainBaseClass extends Application
@@ -41,7 +43,7 @@ package components.views
 		/* = PUBLIC VARIABLES = */
 		/* ==================== */
 		public var akamaiArray:ArrayCollection = new ArrayCollection();
-		public var akamai_svc:HTTPService;
+		//public var akamai_svc:HTTPService;
 		public var all_videos_svc:HTTPService;
 		public var auto_complete_svc:HTTPService;
 		public var clipentArray:ArrayCollection = new ArrayCollection();
@@ -53,7 +55,11 @@ package components.views
 		public var main_view_stack:ViewStack;
 		public var mostRecent_btn:Button;
 		//public var mostViewed_btn:Button;
+
 		//public var most_viewed_videos_svc:HTTPService;
+
+		public var most_viewed_videos_svc:HTTPService;
+
 		public var recommendedXML_svc:HTTPService;
 		public var prospectMenu1_btn:Button;
 		public var prospectMenuData:XML;
@@ -92,6 +98,7 @@ package components.views
 		[Bindable] public var video_short_description:String;
 		[Bindable] public var video_title:String;
 		[Bindable] public var recommended_videos:XMLList;
+		[Bindable] public var logo_png:Image;
 		
 
 		
@@ -120,7 +127,10 @@ package components.views
 		
 			recommendedXML_svc.send();
 			
+			
+			
 		
+			
 			
 			/*EVENT LISTENERS*/
 			prospectMenu1_btn.addEventListener(MouseEvent.CLICK,createAndShowProspectMenu1);
@@ -128,6 +138,7 @@ package components.views
 			//mostViewed_btn.addEventListener(MouseEvent.CLICK,get_most_viewed);
 			mostRecent_btn.addEventListener(MouseEvent.CLICK,get_most_recent);
 			audio_btn.addEventListener(MouseEvent.CLICK, navigateToAudio);
+			logo_png.addEventListener(MouseEvent.CLICK,returnToHome);
 			
 			
 			//DISABLE MOST VIEWED BUTTON UNTIL WE GET AKAMI RESULTS BACK
@@ -156,13 +167,23 @@ package components.views
 	            </menuitem>
 	            <menuitem label="USANA Health Sciences"/> 
 
+
         	</root>;
 
-
-
-		
-
     
+
+	            
+
+
+		}
+		
+		/* ======================================== */
+		/* = CREATE AND DISPLAY THE PROSPECT MENU1 CONTROL. = */
+		/* ======================================== */
+		public function returnToHome(event:MouseEvent):void {
+			main_view_stack.selectedIndex = 0;
+			landing_page_view.wall.load("assets/swf/3dwall.swf");
+
 		}
 		
 	
@@ -264,7 +285,6 @@ package components.views
 		/* ============================================== */
 		public function search(event:MouseEvent):void
 		{	
-
 			
 			/*SET CURRENT SEARCH TERM (FOR DISPLAY ON VIDEO PLAYER PAGE)*/
 			current_search_term = search_txt.text;
@@ -369,6 +389,8 @@ package components.views
 				
 				current_video = recommended_videos[thumbNailIndex];
 				
+				
+				
 				/*CALL THE WEB SERVICE*/
 				recommended_search_svc.send();
 				
@@ -384,9 +406,9 @@ package components.views
 		/* ============================================================== */
 		public function recommendedSearchResultHandler():void
 		{
-			
+
 			/*SET THE VIDEO_LIST RESULTS SORTED BY MOST VIEWED*/
-			video_list = sort_by_most_viewed(recommended_search_svc.lastResult.video);
+			video_list = sort_by_most_recent(recommended_search_svc.lastResult.video);
 			
 			
 
@@ -550,7 +572,7 @@ package components.views
 		{
 			var emailWindow:SendEmailPage = new components.views.SendEmailPage();
 	        PopUpManager.addPopUp(emailWindow, this, true);
-			emailWindow.title = "Send \""+title+"\" to a Friend";
+			//emailWindow.title = "Send \""+title+"\" to a Friend";
 			emailWindow.y = 100;
 			emailWindow.x = 100;
 		}
@@ -562,7 +584,7 @@ package components.views
 		{
 			var embedWindow:EmbedVideoPage = new components.views.EmbedVideoPage();
 	        PopUpManager.addPopUp(embedWindow, this, true);
-			embedWindow.title = "Embed \""+title+"\"";
+			//embedWindow.title = "Embed \""+title+"\"";
 			embedWindow.y = 100;
 			embedWindow.x = 228;
 		}
@@ -1136,7 +1158,7 @@ public function sort_by_most_viewed(serviceResult:XMLList):XML
 /* ====================================== */
 /* = AKAMAI (MOST RECENT)RESULT HANDLER = */
 /* ====================================== */
-public function akamaiResultHandler():void
+/*public function akamaiResultHandler():void
 {
 	
 	  // Convert XML to ArrayCollection
@@ -1149,8 +1171,8 @@ public function akamaiResultHandler():void
 	//RE-ENABLE MOST VIEWED BUTTON
 	//mostViewed_btn.enabled = true;
 	
-		/*IF VIDEO_ID PASSED IN URL, GO DIRECTLY TO VIDEO PLAYER PAGE*/
-		/*WE RE-USE THE WALL VIDEO CLICK FUNCTIONS FOR THIS */
+		//IF VIDEO_ID PASSED IN URL, GO DIRECTLY TO VIDEO PLAYER PAGE
+		//WE RE-USE THE WALL VIDEO CLICK FUNCTIONS FOR THIS 
 		if (FlexGlobals.topLevelApplication.parameters.video_id != "null")
 		{
 			selectedWallVideoID = FlexGlobals.topLevelApplication.parameters.video_id;
@@ -1158,7 +1180,7 @@ public function akamaiResultHandler():void
 		}
 
 	
-}	
+}	*/
 
 
 

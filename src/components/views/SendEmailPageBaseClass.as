@@ -1,25 +1,32 @@
 package components.views
 {
 
+import components.data.MochiBot;
+
 import flash.events.MouseEvent;
+import flash.events.TimerEvent;
+import flash.system.System;
+import flash.utils.Timer;
+
 import mx.collections.ArrayCollection;
+import mx.containers.FormItem;
 import mx.containers.TitleWindow;
+import mx.containers.ViewStack;
 import mx.controls.DataGrid;
+import mx.controls.Text;
+import mx.core.mx_internal;
+import mx.events.FlexEvent;
 import mx.events.ListEvent;
 import mx.events.ValidationResultEvent;
+import mx.managers.CursorManager;
 import mx.managers.PopUpManager;
-import mx.validators.EmailValidator;
-import spark.components.Button;
-import spark.components.TextInput;
-import spark.components.TextArea;
 import mx.rpc.http.mxml.HTTPService;
-import mx.containers.ViewStack;
-import spark.components.CheckBox;
-import mx.core.UIComponent;
-import mx.core.mx_internal;
-import flash.system.System;
+import mx.validators.EmailValidator;
 
-import components.data.MochiBot;
+import spark.components.Button;
+import spark.components.CheckBox;
+import spark.components.TextArea;
+import spark.components.TextInput;
 
 public class SendEmailPageBaseClass extends TitleWindow
 {
@@ -30,7 +37,7 @@ public class SendEmailPageBaseClass extends TitleWindow
 	public var target_email:TextInput;
 	public var email_dg:DataGrid;
 	public var emailValidator:EmailValidator;
-
+	public var copyTimer:Timer;
 
 
 	 
@@ -43,6 +50,9 @@ public class SendEmailPageBaseClass extends TitleWindow
 	[Bindable] public var email_view_stack:ViewStack;
 	[Bindable] public var send_to_self_chk:CheckBox;
 	[Bindable] public var direct_link:TextInput;
+	[Bindable] public var headertext:Text;
+	[Bindable] public var send_to_self_chk_fi:FormItem;
+	[Bindable] public var codeCopiedText:FormItem;
  
 
   /* ================================ */
@@ -50,8 +60,20 @@ public class SendEmailPageBaseClass extends TitleWindow
   /* ================================ */
 	public function init():void
 	{
+		
+		var formattedHeader:String = "Send <font color='#4d6d84'>" + parentDocument.current_video.title + "</font> to a prospect";
+		headertext.htmlText = formattedHeader;
 		cancel_btn.addEventListener(MouseEvent.CLICK, cancelEmail);
 		send_btn.addEventListener(MouseEvent.CLICK,send_email);
+	
+		copyTimer = new Timer(1000, 3);
+
+		addEventListener(FlexEvent.UPDATE_COMPLETE, moveCloseButton);
+		
+	}
+	
+	public function moveCloseButton(e:FlexEvent):void {
+
 		
 		/*ADJUST CLOSE BUTTON*/
 		this.mx_internal::closeButton.x = 778;
@@ -60,9 +82,7 @@ public class SendEmailPageBaseClass extends TitleWindow
 		this.mx_internal::closeButton.height = 29;
 		this.mx_internal::closeButton.buttonMode = true;
 		this.mx_internal::closeButton.useHandCursor = true;
-		
 	}
-	
 	
 	
 	/* ================================ */
@@ -106,7 +126,7 @@ public class SendEmailPageBaseClass extends TitleWindow
 
        private function emailValidator_invalid(evt:ValidationResultEvent):void {
 		
-           mx.controls.Alert.show("You entered an invalid email address:",null,0,email_dg);
+           mx.controls.Alert.show("Please enter a valid email address",null,0,email_dg);
       
        }
 
@@ -122,7 +142,11 @@ public class SendEmailPageBaseClass extends TitleWindow
 		{
 
 			//PUT UP THE "SENDING EMAILS" SCREEN
-			email_view_stack.selectedIndex = 1;
+			//email_view_stack.selectedIndex = 1;
+			
+			// SET BUSY CURSOR
+			CursorManager.setBusyCursor();
+
 			
 			//FOR EACH EMAIL ADDRESS, SEND EMAIL
 			for each (var email:Object in emailArrayColl)
@@ -175,7 +199,19 @@ public class SendEmailPageBaseClass extends TitleWindow
 	public function emailResultHandler():void
 	{
 		//PUT UP "EMAILS SENT" SCREEN
-		email_view_stack.selectedIndex = 2;
+		email_view_stack.selectedIndex = 1;
+		
+		// REMOVE BUSY CURSOR
+		CursorManager.removeBusyCursor();
+		
+		/*ADJUST CLOSE BUTTON*/
+		this.mx_internal::closeButton.x = 778;
+		this.mx_internal::closeButton.y = -6;
+		this.mx_internal::closeButton.width = 29;
+		this.mx_internal::closeButton.height = 29;
+		this.mx_internal::closeButton.buttonMode = true;
+		this.mx_internal::closeButton.useHandCursor = true;
+
 	}
 	
 	
@@ -195,7 +231,31 @@ public class SendEmailPageBaseClass extends TitleWindow
 	{
 		System.setClipboard(direct_link.text);
 		
+		copyTimer.reset();
+		codeCopiedText.visible=true;
+		copyTimer.addEventListener(TimerEvent.TIMER_COMPLETE, deleteTimer);
+		copyTimer.start();
+		
 	}
+	
+	public function deleteTimer(evt:TimerEvent):void
+	{
+
+		codeCopiedText.visible=false;
+		
+	}
+	
+	public function send_to_self_chk_clickHandler(event:MouseEvent):void
+	{
+		
+		if (send_to_self_chk.selected == true ) {
+			send_to_self_chk_fi.styleName="checkSelected";
+		} else {
+			send_to_self_chk_fi.styleName="checkUnselected";
+		}
+		
+	}
+	
 }
 
 }

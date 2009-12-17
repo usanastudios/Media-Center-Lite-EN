@@ -102,6 +102,8 @@ BrowserHistory = (function() {
     // Get the Flash player object for performing ExternalInterface callbacks.
     // Updated for changes to SWFObject2.
     function getPlayer(id) {
+        var i;
+
 		if (id && document.getElementById(id)) {
 			var r = document.getElementById(id);
 			if (typeof r.SetVariable != "undefined") {
@@ -110,40 +112,53 @@ BrowserHistory = (function() {
 			else {
 				var o = r.getElementsByTagName("object");
 				var e = r.getElementsByTagName("embed");
-				if (o.length > 0 && typeof o[0].SetVariable != "undefined") {
-					return o[0];
-				}
-				else if (e.length > 0 && typeof e[0].SetVariable != "undefined") {
-					return e[0];
-				}
+                for (i = 0; i < o.length; i++) {
+                    if (typeof o[i].browserURLChange != "undefined")
+                        return o[i];
+                }
+                for (i = 0; i < e.length; i++) {
+                    if (typeof e[i].browserURLChange != "undefined")
+                        return e[i];
+                }
 			}
 		}
 		else {
 			var o = document.getElementsByTagName("object");
 			var e = document.getElementsByTagName("embed");
-			if (e.length > 0 && typeof e[0].SetVariable != "undefined") {
-				return e[0];
-			}
-			else if (o.length > 0 && typeof o[0].SetVariable != "undefined") {
-				return o[0];
-			}
-			else if (o.length > 1 && typeof o[1].SetVariable != "undefined") {
-				return o[1];
-			}
+            for (i = 0; i < e.length; i++) {
+                if (typeof e[i].browserURLChange != "undefined")
+                {
+                    return e[i];
+                }
+            }
+            for (i = 0; i < o.length; i++) {
+                if (typeof o[i].browserURLChange != "undefined")
+                {
+                    return o[i];
+                }
+            }
 		}
 		return undefined;
 	}
     
     function getPlayers() {
+        var i;
         var players = [];
         if (players.length == 0) {
             var tmp = document.getElementsByTagName('object');
-            players = tmp;
+            for (i = 0; i < tmp.length; i++)
+            {
+                if (typeof tmp[i].browserURLChange != "undefined")
+                    players.push(tmp[i]);
+            }
         }
-        
         if (players.length == 0 || players[0].object == null) {
             var tmp = document.getElementsByTagName('embed');
-            players = tmp;
+            for (i = 0; i < tmp.length; i++)
+            {
+                if (typeof tmp[i].browserURLChange != "undefined")
+                    players.push(tmp[i]);
+            }
         }
         return players;
     }
@@ -426,7 +441,8 @@ BrowserHistory = (function() {
             var iframe = document.createElement("iframe");
             iframe.id = 'ie_historyFrame';
             iframe.name = 'ie_historyFrame';
-            //iframe.src = historyFrameSourcePrefix;
+            iframe.src = 'javascript:false;'; 
+
             try {
                 document.body.appendChild(iframe);
             } catch(e) {

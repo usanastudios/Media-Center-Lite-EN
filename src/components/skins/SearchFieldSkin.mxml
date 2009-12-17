@@ -6,5 +6,10 @@
 	</s:states>
 	<fx:Metadata>[HostComponent("spark.components.TextInput")]</fx:Metadata>
 	<s:BitmapImage source="@Embed('/assets/skins/search_txt.png')" resizeMode="scale" d:userLabel="Shape 46"/>
+<<<<<<< HEAD
 	<s:RichEditableText id="textView" multiline="false" x="5" y="2" width="149" maxChars="0" heightInLines="1" />
+
+=======
+	<s:RichEditableText id="textView" multiline="false" x="5" y="2" width="149" maxChars="0" height="25" />
+>>>>>>> fbc2f20c83b6a2067a5bd7905a5cb22958442580
 </s:Skin>

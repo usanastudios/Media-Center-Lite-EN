@@ -12,5 +12,10 @@
 		<s:State name="disabled"/>
 	</s:states>
 	<fx:Metadata>[HostComponent("spark.components.Button")]</fx:Metadata>
-	<s:BitmapImage source="@Embed('/assets/skins/cancel_btn_skin.png')" resizeMode="scale"/>
+	
+	<s:BitmapImage source.up="@Embed('/assets/skins/cancel_btn_skin.png')" 
+				   source.over="@Embed('/assets/skins/cancel_btn_skin_over.png')"
+				   source.down="@Embed('/assets/skins/cancel_btn_skin_over.png')"
+				   source.disabled="@Embed('/assets/skins/cancel_btn_skin.png')"
+				   resizeMode="scale"/>
 </s:Skin>

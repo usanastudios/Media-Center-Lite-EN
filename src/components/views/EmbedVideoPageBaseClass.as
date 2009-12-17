@@ -9,6 +9,7 @@ import mx.core.mx_internal;
 
 
 
+
 public class EmbedVideoPageBaseClass extends TitleWindow
 {
 	  
@@ -20,12 +21,7 @@ public class EmbedVideoPageBaseClass extends TitleWindow
 	public function init():void
 	{
 	
-		
-			/*var clearspring:ClearspringAPI = new ClearspringAPI();
-			var csWrapper:UIComponent = new UIComponent();
-			csWrapper.addChild(clearspring);
-			this.addElement(csWrapper);
-			*/
+	
 			
 					var clearspring:ClearSpringAPI = new ClearSpringAPI();
 					var csWrapper:UIComponent = new UIComponent();
