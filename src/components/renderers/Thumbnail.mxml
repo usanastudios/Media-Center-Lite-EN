@@ -15,6 +15,7 @@
 			descText.x=12;
 			descText.y=128;
 			descText.text = data.title;
+
 		}
 		
 		protected function mouseOver():void {

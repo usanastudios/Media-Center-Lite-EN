@@ -466,6 +466,8 @@ package components.views
 		video_list = sort_by_most_recent(recent_videos_svc.lastResult.video);
 		
 		current_video = video_list.children()[0];
+		
+		//Alert.show(video_list);
 			
 		//REMOVE 3DWALL DUE TO BUG
 		landing_page_view.wall.unloadAndStop();
