@@ -21,13 +21,10 @@ public class EmbedVideoPageBaseClass extends TitleWindow
 	public function init():void
 	{
 	
-	
-			
 					var clearspring:ClearSpringAPI = new ClearSpringAPI();
 					var csWrapper:UIComponent = new UIComponent();
 					csWrapper.addChild(clearspring);
 					this.addElement(csWrapper);
-			
 	}
 	
 	
