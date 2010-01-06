@@ -467,7 +467,7 @@ package components.views
 		
 		current_video = video_list.children()[0];
 		
-		//Alert.show(video_list);
+		//Alert.show(video_list.children().@id);
 			
 		//REMOVE 3DWALL DUE TO BUG
 		landing_page_view.wall.unloadAndStop();
@@ -1077,7 +1077,7 @@ public function sort_by_most_recent(serviceResult:XMLList):XML
 		for each (var finalVideo:Object in videoArray)
 		{
 			
-			xmlstr += "<video id=\"ven"+finalVideo.id+"\">\n";
+			xmlstr += "<video id=\"v"+LANGUAGE+finalVideo.id+"\">\n";
 			xmlstr += "<title>"+finalVideo.title+"</title>\n"; 
 			xmlstr += "<shortdescription>"+finalVideo.shortdescription+"</shortdescription>\n"; 
 			xmlstr += "<longdescription>"+finalVideo.longdescription+"</longdescription>\n"; 
