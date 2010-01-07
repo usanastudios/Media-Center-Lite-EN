@@ -1,9 +1,11 @@
 package components.controls{
 	import flash.display.*;
 	import flash.events.*;
+	import flash.net.*;
 	import flash.system.*;
 	import flash.utils.*;
-	import flash.net.*;
+	
+	import mx.core.FlexGlobals;
 	
 	public class ClearSpringAPI extends MovieClip
 	{
@@ -23,16 +25,15 @@ package components.controls{
 			addChild(kernelLoader);
 			
 			// Load Clearspring kernel
-			kernelLoader.load(new URLRequest(kernelUrl),
-				new LoaderContext(false, ApplicationDomain.currentDomain, SecurityDomain.currentDomain));
+				kernelLoader.load(new URLRequest(kernelUrl),
+				new LoaderContext(false, ApplicationDomain.currentDomain, null));
 		}
 		
 		private function onApiLoad(e:Event):void
 		{
 			// Grab reference to actual kernel
+				
 			kernel = Object(kernelLoader.content).kernel;
-			
-			
 			// Send a custom event
 			// @see http://www.clearspring.com/docs/tech/apis/in-widget/track
 			kernel.track.event('Kernel loaded');
@@ -56,14 +57,18 @@ package components.controls{
 			// @see http://www.clearspring.com/docs/tech/apis/in-widget/menu
 			kernel.menu.addEventListener(kernel.menu.event.OPEN, onMenuEvent);
 			kernel.menu.addEventListener(kernel.menu.event.CLOSE, onMenuEvent);
-				trace('test');
-				kernel.menu.show();
-			stage.addEventListener(MouseEvent.CLICK, function (e:MouseEvent):void {
+		//		trace('test');
+				stage.addEventListener(MouseEvent.CLICK, function (e:MouseEvent):void {
 				
 				if (!isOpen && e.target == stage) {
-				
+					kernel.menu.show();
 				}
 			});
+				
+				kernel.menu.setOptions({widgetId: "4a804e796cd38579"});
+				kernel.menu.configure({video_id:FlexGlobals.topLevelApplication.current_video.@id });
+				kernel.menu.show();
+
 			
 			
 			
