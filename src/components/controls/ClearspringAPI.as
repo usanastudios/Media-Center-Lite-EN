@@ -26,7 +26,7 @@ package components.controls{
 			
 			// Load Clearspring kernel
 				kernelLoader.load(new URLRequest(kernelUrl),
-				new LoaderContext(false, ApplicationDomain.currentDomain, null));
+				new LoaderContext(false,  new ApplicationDomain(ApplicationDomain.currentDomain),SecurityDomain.currentDomain));
 		}
 		
 		private function onApiLoad(e:Event):void
