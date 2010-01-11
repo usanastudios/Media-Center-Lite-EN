@@ -378,8 +378,8 @@ package components.views
 			
 			search_type="rec_video"
 			
-				/*SET CURRENT SEARCH TERM (FOR DISPLAY ON VIDEO PLAYER PAGE)*/
-				current_search_term = recommended_searchTitle + " videos";
+				/*SET CURRENT SEARCH TERM*/
+				current_search_term = recommended_searchTitle;
 				
 		
 				/*POP UP SEARCHING VIEW*/
@@ -407,7 +407,7 @@ package components.views
 		public function recommendedSearchResultHandler():void
 		{
 
-			/*SET THE VIDEO_LIST RESULTS SORTED BY MOST VIEWED*/
+			/*SET THE VIDEO_LIST RESULTS SORTED BY MOST RECENT*/
 			video_list = sort_by_most_recent(recommended_search_svc.lastResult.video);
 			
 			
@@ -424,8 +424,20 @@ package components.views
 			}
 				else
 				{
-					mx.controls.Alert.show("No results found. Please try a different search term");
-					main_view_stack.selectedIndex = 0;
+					
+					//REMOVE 3DWALL DUE TO BUG
+					landing_page_view.wall.unloadAndStop();
+					
+					//current_video = video_list.video[0];
+					main_view_stack.selectedIndex = 3;
+					
+					
+					// THIS DID NOT ALLOW USERS TO SEE THE PAGE IF NO RESULTS WERE RETURNED SO I CHANGED IT
+					//mx.controls.Alert.show("No results found. Please try a different search term");
+					//main_view_stack.selectedIndex = 0;
+					
+					video_list = sort_by_most_recent(recommended_search_svc.lastResult.video);
+					
 				}
 				
 			

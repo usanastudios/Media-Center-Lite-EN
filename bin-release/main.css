@@ -1,0 +1,263 @@
+/* CSS file */
+@namespace s "library://ns.adobe.com/flex/spark";
+@namespace mx "library://ns.adobe.com/flex/halo";
+
+
+@font-face
+{
+	fontFamily: HelveticaEmbed;
+	fontWeight: normal;
+	fontStyle: normal;
+	src: url("assets/fonts/Helvetica.dfont"); 
+	embedAsCFF: false; 
+}
+
+global
+{
+	baseColor: #5C5B5B;
+	contentBackgroundColor: #FEF9F9;
+	color: #FCFBFB;
+	symbolColor: #F5EDED;
+	modalTransparencyBlur: 0;
+    modalTransparency: 0.9;
+    modalTransparencyColor: #000000;
+    modalTransparencyDuration: 500;
+}
+
+
+
+s|TextInput.searchTextField
+{
+	fontFamily: HelveticaEmbed;
+	paddingLeft: 15;
+	paddingTop: 8;
+	focusAlpha: .05;
+	fontSize: 12;
+	color: #000000;
+	backgroundAlpha: 0;
+}
+
+mx|TextInput.emailForm {
+	fontFamily: HelveticaEmbed;
+	padding-left: 10px;
+	padding-right: 10px;
+	padding-top: 10px;
+	padding-bottom: 10px;
+	color: #1b1b1b;
+}
+
+mx|Menu.prospectMenu1
+{
+	
+	content-background-color: #4A4A4A;
+	rollOverColor: #4D6D84;
+	textRollOverColor: #FFFFFF;
+	selectionColor: #4D6D84;
+	color: #FAFBFB;
+	fontFamily: HelveticaEmbed;
+	fontSize: 12;
+	border-thickness: 0;    
+	borderStyle: "none";
+	borderColor:#FFFFFF;
+	openDuration: 0;
+	verticalScrollBarStyleName: menuVerticalScrollBar;
+
+}
+
+mx|Alert {
+	color : #ffffff;
+	background-color: #1b1b1b;
+	header-colors : #243322, #243322;
+	header-height:19;
+	drop-shadow-enabled: true;
+	drop-shadow-color :#243322;
+	corner-radius :6;
+	border-style :solid;
+	border-thickness: 1;
+	border-color : #243322;
+	footer-colors : #243322, #ffffff;
+	
+}
+
+mx|Label.videoTitleTxt
+{
+	fontFamily: HelveticaEmbed;
+	fontSize: 22;
+	color: #F9FBFC;
+}
+
+
+mx|Text.videoTitle
+{
+	fontFamily: HelveticaEmbed;
+	fontSize: 22;
+	color: #F9FBFC;
+}
+
+mx|Text.recommendTitle
+{
+	fontFamily: HelveticaEmbed;
+	fontSize: 20;
+	color: #F9FBFC;
+}
+
+mx|Text.videoSubTitle
+{
+	color: #7FB1D1;
+	fontSize: 12;
+}
+
+mx|Text.thumbnailText
+{
+	color: #CCCCCC;
+	fontSize: 11;
+}
+
+mx|Text.videoLongDesc
+{
+	color: #acacac;
+	fontSize: 12;
+	leading: 5;
+}
+
+mx|HBox.pageBar {
+	background-color: #0a0a0a;
+}
+
+mx|Text.resultsFor{
+	fontFamily: HelveticaEmbed;
+	font-size:17;
+	color:#FFFFFF;
+}
+
+mx|Text.searchingFor{
+	fontFamily: HelveticaEmbed;
+	font-size:17;
+	color:#FFFFFF;
+}
+
+mx|TitleWindow{
+	color : #ffffff;
+	background-color: #1b1b1b;
+	header-colors : #1b1b1b, #1b1b1b;
+	header-height:15;
+	drop-shadow-enabled: true;
+	drop-shadow-color :#243322;
+	corner-radius :6;
+	border-style :solid;
+	border-thickness: 1;
+	border-color : #243322;
+	footer-colors : #243322, #ffffff;
+	
+	closeButtonSkin: Embed(source='assets/skins/close_button_skin.png'); 
+	fontFamily: HelveticaEmbed;
+
+	/* Set values from defaults.css to null. */ 
+	closeButtonDisabledSkin: ClassReference(null); 
+	closeButtonDownSkin: ClassReference(null); 
+	closeButtonOverSkin: ClassReference(null); 
+	closeButtonUpSkin: ClassReference(null);
+}
+
+mx|Text.emailTitleSkin {
+	fontFamily: HelveticaEmbed;
+	
+}
+
+mx|Text.recommendedLabelSkin {
+	fontFamily: HelveticaEmbed;
+	
+}
+
+mx|Alert{
+	color : #ffffff;
+	background-color: #1b1b1b;
+	header-colors : #243322, #243322;
+	header-height:19;
+	drop-shadow-enabled: true;
+	drop-shadow-color :#243322;
+	corner-radius :6;
+	border-style :solid;
+	border-thickness: 1;
+	border-color : #243322;
+	footer-colors : #243322, #ffffff;
+	title-style-name : "title";
+}
+
+
+
+
+/*mx|TextInput
+{
+
+	borderSkin: Embed(source="assets/skins/search_txt.png");
+	fontFamily: HelveticaEmbed;
+	paddingTop: 8;
+	focusAlpha: .25;
+	fontSize: 10;
+	color: #FBFCFC;
+}*/
+
+mx|TileList
+{
+    roll-over-color: transparent;
+    selection-color: transparent;
+}
+
+
+mx|ToolTip { 
+  fontFamily: HelveticaEmbed; 
+  fontSize: 12; 
+  color: #FFFFFF; 
+  backgroundColor: #000000;
+}
+
+mx|DataGrid.emailListGrid {
+	
+color: #000000;
+backgroundColor: #c2c2c2;
+backgroundAlpha: .75;
+border-style:none;
+alternating-item-colors: #F4FBFF, #FFFFFF;
+horizontal-grid-line-color:#a3a3a3; 
+vertical-grid-lines: false;
+horizontal-grid-lines: true;
+}
+
+mx|Text.emailPageHeader {
+	
+	fontFamily: HelveticaEmbed;
+	fontSize: 30;
+	color:#ffffff;
+	padding-left: 70px;
+	padding-right: 20px;
+	padding-top: 40px;
+	padding-bottom: 10px;
+}
+
+mx|Text.emailPageSubheader {
+	
+	fontFamily: HelveticaEmbed;
+	fontSize: 14;
+	padding-left: 70px;
+	padding-right: 10px;
+
+}
+
+mx|FormItem.checkUnselected {
+	backgroundColor: #171717;
+}
+
+mx|FormItem.checkSelected {
+	backgroundColor: #263239;
+}
+
+
+mx|Text.codeCopied {
+	fontFamily: HelveticaEmbed;
+	fontSize: 10;
+	color:#ffffff;
+	
+
+}
+
