@@ -11,7 +11,7 @@ package components.views
 	import flash.events.MouseEvent;
 	import flash.net.URLRequest;
 	import flash.net.navigateToURL;
-	
+	import mx.core.FlexGlobals;
 	import modules.video_player.VideoPlayerInterface;
 	
 	import mx.collections.ArrayCollection;
@@ -77,7 +77,7 @@ package components.views
 		public var playNow:Boolean;
 		
 		
-		public static const LANGUAGE:String = "en";
+		
 		
 		/* ====================== */
 		/* = BINDABLE VARIABLES = */
@@ -99,7 +99,8 @@ package components.views
 		[Bindable] public var video_title:String;
 		[Bindable] public var recommended_videos:XMLList;
 		[Bindable] public var logo_png:Image;
-		
+		[Bindable] public var LANGUAGE:String;
+		[Bindable] public var LOCALE:String;
 
 		
 
@@ -121,6 +122,14 @@ package components.views
 		/* =================================== */
 		public function initMainApp():void
 		{
+			
+			if (FlexGlobals.topLevelApplication.parameters.locale != null) {
+			LOCALE = FlexGlobals.topLevelApplication.parameters.locale;
+			LANGUAGE = LOCALE.slice(0,2);
+			} else {
+				LOCALE = "en";
+				LANGUAGE ="en";
+			}
 			
 			// Inititates the autocomplete
 			 //auto_complete_svc.send();

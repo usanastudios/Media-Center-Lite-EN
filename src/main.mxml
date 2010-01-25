@@ -24,7 +24,7 @@
 		<mx:HTTPService id="search_svc" url="{WEB_SERVICE_URL}" resultFormat="e4x" result="searchResultHandler()" fault="mx.controls.Alert.show(event.fault.message)" >
 			<mx:request>
 				<q>{search_txt.text}</q>
-				<l>{LANGUAGE}</l>
+				<l>{LOCALE}</l>
 			</mx:request> 
 		</mx:HTTPService>
 		
@@ -32,7 +32,7 @@
 		<mx:HTTPService id="recommended_search_svc" url="{WEB_SERVICE_URL}" resultFormat="e4x" result="recommendedSearchResultHandler()" fault="mx.controls.Alert.show(event.fault.message)" >
 			<mx:request>
 				<q>{current_search_term}</q>
-				<l>{LANGUAGE}</l>
+				<l>{LOCALE}</l>
 			</mx:request>
 		</mx:HTTPService>       
 		
@@ -47,28 +47,28 @@
 		<!-- Define the AutoComplete HTTP service -->
 		<mx:HTTPService id="auto_complete_svc" url="{WEB_SERVICE_URL}" resultFormat="e4x" result="setUpAutoComplete()" fault="mx.controls.Alert.show('DATABASE CONNECTION ERROR: ' + event.fault.faultDetail + '  \n \nTo fix this problem, try refreshing your browser.  If the problem persists, please contact USANA Support')" showBusyCursor="true">
 			<mx:request>
-				<l>{LANGUAGE}</l> 
+				<l>{LOCALE}</l> 
 			</mx:request>
 		</mx:HTTPService>    	
 		
 		<!-- Define the All Videos HTTP service -->
 		<mx:HTTPService id="wall_video_svc" url="{WEB_SERVICE_URL}" resultFormat="e4x" requestTimeout="15" result="wallVideoResultHandler()" fault="mx.controls.Alert.show('DATABASE CONNECTION ERROR: ' + event.fault.faultDetail + '  \n \nTo fix this problem, try refreshing your browser.  If the problem persists, please contact USANA Support')" >
 			<mx:request>
-				<l>{LANGUAGE}</l>
+				<l>{LOCALE}</l>
 			</mx:request>
 		</mx:HTTPService>    
 		
 		<!-- Define the All Videos HTTP service -->
 		<mx:HTTPService id="recent_videos_svc" url="{WEB_SERVICE_URL}" resultFormat="e4x" requestTimeout="15" result="recentVideosResultHandler()" fault="mx.controls.Alert.show('DATABASE CONNECTION ERROR: ' + event.fault.faultDetail + '  \n \nTo fix this problem, try refreshing your browser.  If the problem persists, please contact USANA Support')" >
 			<mx:request>
-				<l>{LANGUAGE}</l>
+				<l>{LOCALE}</l>
 			</mx:request>
 		</mx:HTTPService>    	
 		
 		<!-- Define the All Videos HTTP service -->
 		<mx:HTTPService id="most_viewed_videos_svc" url="{WEB_SERVICE_URL}" resultFormat="e4x" requestTimeout="15" result="mostViewedVideosResultHandler()" fault="mx.controls.Alert.show('DATABASE CONNECTION ERROR: ' + event.fault.faultDetail + '  \n \nTo fix this problem, try refreshing your browser.  If the problem persists, please contact USANA Support')" >
 			<mx:request>
-				<l>{LANGUAGE}</l>
+				<l>{LOCALE}</l>
 			</mx:request>
 		</mx:HTTPService>    
 		
