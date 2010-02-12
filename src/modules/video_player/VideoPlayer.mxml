@@ -7,7 +7,7 @@
    
 	<mx:Style source="modules/video_player/css/videoPlayer.css" />
 
-	<mx:Script source="VideoPlayerBase.as" />	
+	<mx:Script source="VideoPlayerBaseTemp.as" />	
 		
 
 	    

@@ -132,7 +132,7 @@
 		borderThickness="0" color="#000000" 
 		paddingLeft="15"/>
 		-->
-	
+	<!--<mx:TextArea width="361" height="63" id="output" color="0x1b1b1b"/>-->
 	
 	<s:Button x="938" y="17" label="Button" id="search_btn" skinClass="components.skins.SearchButtonSkin" buttonMode="true" height="27"/>
 	

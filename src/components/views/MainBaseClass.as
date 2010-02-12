@@ -24,6 +24,7 @@ package components.views
 	import mx.controls.LinkButton;
 	import mx.controls.Menu;
 	import mx.controls.TextInput;
+	import mx.controls.TextArea;
 	import mx.events.MenuEvent;
 	import mx.formatters.DateFormatter;
 	import mx.managers.PopUpManager;
@@ -59,7 +60,7 @@ package components.views
 		//public var most_viewed_videos_svc:HTTPService;
 
 		public var most_viewed_videos_svc:HTTPService;
-
+		public var output:TextArea;
 		public var recommendedXML_svc:HTTPService;
 		public var prospectMenu1_btn:Button;
 		public var prospectMenuData:XML;
@@ -76,6 +77,7 @@ package components.views
 		public var recommended_searchTerm:String;
 		public var playNow:Boolean;
 		
+		public var _hostname:String = "cp23245.edgefcs.net/ondemand/";
 		
 		
 		
@@ -1078,7 +1080,7 @@ public function sort_by_most_recent(serviceResult:XMLList):XML
 	for each (var video:XML in serviceResult)
 	{
 		
-		videoArray.addItem({"id":video.@id.substring(3),"title":video.title,"shortdescription":video.shortdescription,"longdescription":video.longdescription});
+		videoArray.addItem({"id":video.@id.substring(3),"videoUrl":video.@videoUrl,"title":video.title,"shortdescription":video.shortdescription,"longdescription":video.longdescription});
 	}
 	
 	/*BELOW WE SORT THE RESULTS DESCENDING BASED ON STREAMHITS*/
@@ -1098,7 +1100,7 @@ public function sort_by_most_recent(serviceResult:XMLList):XML
 		for each (var finalVideo:Object in videoArray)
 		{
 			
-			xmlstr += "<video id=\"v"+LANGUAGE+finalVideo.id+"\">\n";
+			xmlstr += "<video id=\"v"+LANGUAGE+finalVideo.id+"\" videoUrl=\""+finalVideo.videoUrl.split("rtmp://" + _hostname).join("")+"\">\n";
 			xmlstr += "<title>"+finalVideo.title+"</title>\n"; 
 			xmlstr += "<shortdescription>"+finalVideo.shortdescription+"</shortdescription>\n"; 
 			xmlstr += "<longdescription>"+finalVideo.longdescription+"</longdescription>\n"; 
