@@ -9,11 +9,13 @@ package components.views
 	import mx.collections.Sort;
 	import mx.collections.SortField;
 	import mx.containers.Canvas;
+	import mx.controls.Alert;
 	import mx.controls.Image;
+	import mx.controls.Label;
 	import mx.controls.Menu;
 	import mx.controls.Text;
-	import mx.controls.Label;
 	import mx.controls.TileList;
+	import mx.events.FlexEvent;
 	import mx.events.MenuEvent;
 	import mx.modules.ModuleLoader;
 	import mx.rpc.http.mxml.HTTPService;
@@ -60,13 +62,14 @@ package components.views
 		/* ======================================== */
 		public function basic_video_init():void
 		{
-			
 			/*EVENT LISTENERS*/
 			share_menu_btn.addEventListener(MouseEvent.CLICK,createAndShowShareMenu);
 			sort_menu_btn.addEventListener(MouseEvent.CLICK,createAndShowSortMenu);
 			replay_btn.addEventListener(MouseEvent.CLICK,replayVideo);
 			play_overlay_btn.addEventListener(MouseEvent.CLICK,replayVideo);
-
+			
+		
+			
 			
 			/*SET UP PAGINATION*/
 			parentDocument.pagination_setup(this);
@@ -92,10 +95,12 @@ package components.views
 		/* ============================================= */
 		public function onShow():void
 		{
+			trace('here');
 			parentDocument.pagination_setup(this);
 			if(parentDocument.search_type == "wall_video")
 			{
 				showWallVideo(parentDocument.current_video.@id);
+				
 			}
 			else
 			{
@@ -105,6 +110,7 @@ package components.views
 			
 			// This forces the large thumbnail to change based on new searches etc...
 			large_thumbnail_overlay.source = "http://www.usana.com/media/File/mediaCenter/display_frame/" + parentDocument.current_video.@id+ ".jpg";
+		
 			
 		} 
 		
@@ -123,7 +129,7 @@ package components.views
 		      if (video_player.child != null) {                    
 		          // Call setters in the module to adjust its
 		          // appearance when it loads.
-		        vpchild.setVideo(video_id,true);
+		       vpchild.setVideo(video_id,true);
 			   video_title_txt.text = parentDocument.current_video.title;
 			   video_short_description_txt.text = parentDocument.current_video.shortdescription;
 			   video_long_description_txt.htmlText = parentDocument.current_video.longdescription;

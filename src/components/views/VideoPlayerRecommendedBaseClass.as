@@ -126,6 +126,7 @@ package components.views
 				results_for_txt.text = parentDocument.current_search_term;
 				// This forces the large thumbnail to change based on new searches etc...
 			large_thumbnail_overlay.source = "http://www.usana.com/media/File/mediaCenter/display_frame/" + parentDocument.current_video.@id+ ".jpg";
+			
 		}
        
  	

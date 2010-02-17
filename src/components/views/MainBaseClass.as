@@ -489,9 +489,7 @@ package components.views
 		video_list = sort_by_most_recent(recent_videos_svc.lastResult.video);
 		
 		current_video = video_list.children()[0];
-		
-		//Alert.show(video_list.children().@id);
-			
+		trace(current_video);
 		//REMOVE 3DWALL DUE TO BUG
 		landing_page_view.wall.unloadAndStop();
 		
@@ -575,10 +573,24 @@ package components.views
 		
 		//RETURN VIDEO LIST SORTED BY MOST RECENT
 		video_list = sort_by_most_recent(all_videos);
-
 		//SET CURRENT VIDEO
-		current_video = wall_video[0];
+		//current_video = wall_video[0];
 		
+		/*REBUILD THE XML*/
+		var videoURL:String = wall_video[0].@videoUrl;
+		var begin:int = videoURL.search("mp4");
+		var end:int = videoURL.length; 
+		var newURL:String = videoURL.slice(begin,end);
+		var xmlstr:String = ""; 
+			xmlstr += "<video id=\""+wall_video[0].@id+"\" videoUrl=\""+newURL+"\">\n";
+						xmlstr += "<title>"+wall_video[0].title+"</title>\n"; 
+						xmlstr += "<shortdescription>"+wall_video[0].shortdescription+"</shortdescription>\n"; 
+						xmlstr += "<longdescription>"+wall_video[0].longdescription+"</longdescription>\n"; 
+						xmlstr += "</video>";
+		current_video = new XML(xmlstr);
+	
+					
+						
 		/*SET CURRENT SEARCH TERM (FOR DISPLAY ON VIDEO PLAYER PAGE)*/
 		current_search_term = "All Videos";
 		

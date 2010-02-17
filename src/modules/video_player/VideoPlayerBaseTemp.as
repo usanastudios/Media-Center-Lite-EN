@@ -40,6 +40,7 @@ private var _ccOn:Boolean;
 private var _ccPositioned:Boolean;
 private var loadingOverlayTimer:Timer;
 public var _controls:VideoControls;
+public var mode:String;
 
 
 [Bindable]
@@ -107,8 +108,12 @@ public function setVideo(id:String,playNow:Boolean):void {
 
 public function setIsPausedVar(isPaused:Boolean):void{
 	_isPaused = isPaused;
+	trace('testing');
 	doPlayPause();
+	
 }
+
+
 
 
 // Define functions
@@ -180,7 +185,7 @@ private function connectedHandler():void {
 	
 	// start the asynchronous process of estimating bandwidth if it hasn't already been esimated
 	if (_bandwidthMeasured) {
-		playVideo(VIDEO_URL); 
+		//playVideo(VIDEO_URL); 
 	} else {
 	write("Measuring bandwidth ... ");
 		_nc.detectBandwidth();
@@ -207,7 +212,21 @@ private function bandwidthHandler(e:OvpEvent):void {
 	// At this stage you would use the bandwidth result in order to choose
 	// the appropriate file for the user.
 
-	playVideo(VIDEO_URL);
+	//IF CLICKING VIDEO OR PLAY BUTTON, PLAY VIDEO (OTHERWISE DO NOT AUTO PLAY)
+	/*if(mode == "on_demand")
+	{
+		//write("Thumbnail");
+		playVideo(VIDEO_URL);
+	}*/
+
+		//playVideo(VIDEO_URL);
+	/*IF COMING FROM A WALL VIDEO, PLAY VIDEO NOW*/
+	if(FlexGlobals.topLevelApplication.search_type == "wall_video")
+	{
+		playVideo(VIDEO_URL);
+		//parentDocument.play_overlay_btn.visible=true;
+		//parentDocument.large_thumbnail_overlay.visible=true;
+	}
 }
 // Receives all status events dispatched by the active NetConnection
 private function netStatusHandler(e:NetStatusEvent):void {
@@ -302,6 +321,7 @@ private function addVideoToStage():void {
 // Plays the stream 
 private function playVideo(name:String):void {
 	write(name);
+	//trace("calling"+_ns);
 	_ns.play(name);
 	
 	// Removes the loading image after 1 second (to be safe)
@@ -363,27 +383,10 @@ private function startPlayback(mode:String = null):void {
 		_nc.close();
 	}
 	
+	
 	_nc.connect(currentState == "progressive" ? null:HOST_NAME);
-	
-	
-	//IF CLICKING VIDEO OR PLAY BUTTON, PLAY VIDEO (OTHERWISE DO NOT AUTO PLAY)
-	if(mode == "on_demand")
-	{
-		write("Thumbnail");
-		playVideo(VIDEO_URL);
-	}
-	
-	/*IF COMING FROM A WALL VIDEO, PLAY VIDEO NOW*/
-	if(FlexGlobals.topLevelApplication.search_type == "wall_video")
-	{
-		write("Wall Video");
-		playVideo(VIDEO_URL);
-		parentDocument.play_overlay_btn.visible=true;
-		parentDocument.large_thumbnail_overlay.visible=true;
-		
-	}
 	_isPaused = false;
-	
+	mode = mode;
 	
 }
 
