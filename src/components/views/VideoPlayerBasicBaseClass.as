@@ -2,6 +2,8 @@ package components.views
 {
 	
 	import flash.events.MouseEvent;
+	import flash.events.TimerEvent;
+	import flash.utils.Timer;
 	
 	import modules.video_player.VideoPlayerInterface;
 	
@@ -9,13 +11,11 @@ package components.views
 	import mx.collections.Sort;
 	import mx.collections.SortField;
 	import mx.containers.Canvas;
-	import mx.controls.Alert;
 	import mx.controls.Image;
 	import mx.controls.Label;
 	import mx.controls.Menu;
 	import mx.controls.Text;
 	import mx.controls.TileList;
-	import mx.events.FlexEvent;
 	import mx.events.MenuEvent;
 	import mx.modules.ModuleLoader;
 	import mx.rpc.http.mxml.HTTPService;
@@ -55,7 +55,7 @@ package components.views
 		public var replay_btn:Button;
 		public var play_overlay_btn:Button;
 		public var large_thumbnail_overlay:Image;
-			
+		public var myTimer:Timer = new Timer(5000);
 					
 		/* ======================================== */
 		/* = INITIALIZE BASIC VIDEO PLAYER SCREEN = */
@@ -95,16 +95,26 @@ package components.views
 		/* ============================================= */
 		public function onShow():void
 		{
-			trace('here');
+			trace(parentDocument.search_type);
+			//trace('here');
 			parentDocument.pagination_setup(this);
 			if(parentDocument.search_type == "wall_video")
 			{
-				showWallVideo(parentDocument.current_video.@id);
+				
+	            myTimer.addEventListener("timer", function
+				(e:TimerEvent) : void {
+				                  showWallVideo(e,parentDocument.current_video.@id);
+				            });
+	            myTimer.start();
+				//showWallVideo(parentDocument.current_video.@id);
 				
 			}
 			else
 			{
-				parentDocument.showVideo2(parentDocument.current_video.@id,this);
+				
+				large_thumbnail_overlay.visible = true;	
+				play_overlay_btn.visible = true;
+				//parentDocument.showVideo2(parentDocument.current_video.@id,this);
 			}
 			results_for_txt.text = parentDocument.current_search_term;
 			
@@ -118,13 +128,14 @@ package components.views
 		/* =================================== */
 		/* = FUNCTION TO SHOW SELECTED WALL VIDEO = */
 		/* =================================== */
-		public function showWallVideo(video_id:String):void {
+		public function showWallVideo(e:TimerEvent,video_id:String):void {
 
 			//SET CURRENT VIDEO BASED ON CLICKED THUMBNAIL
 			//parentDocument.current_video = evt.currentTarget.selectedItem;
 			// Cast the ModuleLoader's child to the interface.
 		    // This child is an instance of the module.
 		    // We can now call methods on that instance.
+			trace('should play'+video_id);
 		    var vpchild:* = video_player.child as VideoPlayerInterface;                
 		      if (video_player.child != null) {                    
 		          // Call setters in the module to adjust its
@@ -136,8 +147,9 @@ package components.views
 		      } else {                
 		          trace("Uh oh. The video_player.child property is null");                 
 		      }
+			
 
-
+				myTimer.stop()
 		}
 		
 		

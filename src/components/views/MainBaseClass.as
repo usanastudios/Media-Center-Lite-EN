@@ -31,6 +31,8 @@ package components.views
 	import mx.rpc.http.mxml.HTTPService;
 	import mx.validators.Validator;
 	import flash.display.Loader;
+	import flash.events.TimerEvent;
+	import flash.utils.Timer;
 	
 	import spark.components.Application;
 	import spark.components.Button;
@@ -489,7 +491,7 @@ package components.views
 		video_list = sort_by_most_recent(recent_videos_svc.lastResult.video);
 		
 		current_video = video_list.children()[0];
-		trace(current_video);
+		//trace(current_video);
 		//REMOVE 3DWALL DUE TO BUG
 		landing_page_view.wall.unloadAndStop();
 		
@@ -1058,7 +1060,6 @@ public function showVideo(video:XML,videoPage:Object):void {
 public function showVideo2(video_id:String,videoPage:Object):void {
 	
 	//SET CURRENT VIDEO BASED ON CLICKED THUMBNAIL
-	//current_video = evt.currentTarget.selectedItem;
 		// Cast the ModuleLoader's child to the interface.
        // This child is an instance of the module.
        // We can now call methods on that instance.
@@ -1071,10 +1072,10 @@ public function showVideo2(video_id:String,videoPage:Object):void {
 	  videoPage.video_short_description_txt.text = parentDocument.current_video.shortdescription;
 	  videoPage.video_long_description_txt.htmlText = parentDocument.current_video.longdescription;
          } else {                
-             trace("Uh oh. The video_player.child property is null");                 
+             trace("Uh oh. The video_player.child property is null2");                 
          }
                                                    
-
+			
 }
 
 
