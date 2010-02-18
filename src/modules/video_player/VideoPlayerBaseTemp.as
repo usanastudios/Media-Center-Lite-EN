@@ -305,9 +305,11 @@ private function addVideoToStage():void {
 }
 // Plays the stream 
 private function playVideo(name:String):void {
-	write(name);
+	//write(name);
 	//trace("calling"+_ns);
+	if(_ns){
       _ns.play(name);
+	}
 	
 	// Removes the loading image after 1 second (to be safe)
 	loadingOverlayTimer = new Timer(1000);
