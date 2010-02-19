@@ -14,6 +14,7 @@ package components.views
 	import mx.controls.Image;
 	import mx.controls.Label;
 	import mx.controls.Menu;
+	import mx.controls.SWFLoader;
 	import mx.controls.Text;
 	import mx.controls.TileList;
 	import mx.events.MenuEvent;
@@ -56,6 +57,7 @@ package components.views
 		public var play_overlay_btn:Button;
 		public var large_thumbnail_overlay:Image;
 		public var myTimer:Timer = new Timer(5000);
+		public var loading_overlay:Image;
 					
 		/* ======================================== */
 		/* = INITIALIZE BASIC VIDEO PLAYER SCREEN = */
@@ -96,11 +98,13 @@ package components.views
 		public function onShow():void
 		{
 			trace(parentDocument.search_type);
-			//trace('here');
+	
 			parentDocument.pagination_setup(this);
 			if(parentDocument.search_type == "wall_video")
 			{
-				
+				large_thumbnail_overlay.visible = false;
+				play_overlay_btn.visible = false;
+				loading_overlay.visible = true;
 	            myTimer.addEventListener("timer", function
 				(e:TimerEvent) : void {
 				                  showWallVideo(e,parentDocument.current_video.@id);

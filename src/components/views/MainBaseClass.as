@@ -379,7 +379,7 @@ package components.views
 			if (mode == "playVideo")
 			{
 				current_search_message = "Getting Selected Video"
-				current_video = event.currentTarget as XML;
+				//current_video = event.currentTarget as XML;
 				playNow = true;
 			}
 			else
@@ -423,7 +423,6 @@ package components.views
 			/*SET THE VIDEO_LIST RESULTS SORTED BY MOST RECENT*/
 			video_list = sort_by_most_recent(recommended_search_svc.lastResult.video);
 			
-			
 
 			if ((video_list) && (video_list.video.length() > 0))
 			{			
@@ -431,9 +430,10 @@ package components.views
 				//REMOVE 3DWALL DUE TO BUG
 				landing_page_view.wall.unloadAndStop();
 							
-				//current_video = video_list.video[0];
+				current_video = video_list.video[0];
+				//trace(video_list);
 				main_view_stack.selectedIndex = 3;
-			
+			    
 			}
 				else
 				{
@@ -1112,8 +1112,11 @@ public function sort_by_most_recent(serviceResult:XMLList):XML
 	var xmlstr:String = "<mediacenter>"; 
 		for each (var finalVideo:Object in videoArray)
 		{
-			
-			xmlstr += "<video id=\"v"+LANGUAGE+finalVideo.id+"\" videoUrl=\""+finalVideo.videoUrl.split("rtmp://" + _hostname).join("")+"\">\n";
+			var videoURL:String = finalVideo.videoUrl;
+			var begin:int = videoURL.search("mp4");
+			var end:int = videoURL.length; 
+			var newURL:String = videoURL.slice(begin,end);
+			xmlstr += "<video id=\"v"+LANGUAGE+finalVideo.id+"\" videoUrl=\""+newURL+"\">\n";
 			xmlstr += "<title>"+finalVideo.title+"</title>\n"; 
 			xmlstr += "<shortdescription>"+finalVideo.shortdescription+"</shortdescription>\n"; 
 			xmlstr += "<longdescription>"+finalVideo.longdescription+"</longdescription>\n"; 
@@ -1124,6 +1127,7 @@ public function sort_by_most_recent(serviceResult:XMLList):XML
 		
 			xmlstr += "</mediacenter>";
 			 
+			
 		
 			/*SET THE VIDEO_LIST RESULTS*/
 			video_list = new XML(xmlstr);
@@ -1175,7 +1179,6 @@ public function sort_by_most_viewed(serviceResult:XMLList):XML
 	var xmlstr:String = "<mediacenter>";
 	for each (var finalVideo:Object in finalArray)
 	{
-		trace('test');
 		xmlstr += "<video id=\""+finalVideo.id+"\">\n";
 		xmlstr += "<title>"+finalVideo.title+"</title>\n"; 
 		xmlstr += "<shortdescription>"+finalVideo.shortdescription+"</shortdescription>\n"; 
