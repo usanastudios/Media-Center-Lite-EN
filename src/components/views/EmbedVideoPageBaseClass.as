@@ -2,7 +2,7 @@ package components.views
 {
 
 import mx.containers.TitleWindow;
-import components.controls.ClearSpringAPI;
+import components.controls.ClearspringAPI;
 import mx.core.UIComponent;
 import mx.controls.Alert;
 import mx.core.mx_internal;
@@ -21,7 +21,7 @@ public class EmbedVideoPageBaseClass extends TitleWindow
 	public function init():void
 	{
 	
-					var clearspring:ClearSpringAPI = new ClearSpringAPI();
+					var clearspring:ClearspringAPI = new ClearspringAPI();
 					var csWrapper:UIComponent = new UIComponent();
 					csWrapper.addChild(clearspring);
 					this.addElement(csWrapper);

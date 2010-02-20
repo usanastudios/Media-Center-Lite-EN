@@ -4,22 +4,22 @@
 	<!-- = THE PAY PLAN = -->
 	<!-- ================ --> 
 	<thepayplan>
-			<video id="ven003">
+			<video id="ven003" videoUrl="rtmp://cp23245.edgefcs.net/ondemand/mp4:23245/mm/flvmedia/2851/h/2/6/h264mediacenterenen_USCompensationPlanen_USCompensationPlanen_US-294434.mp4?cid=2851&aid=294434&afid=419912">
 				<title>USANA's Compensation Plan</title>
 				<shortdescription>An exciting way to learning the Compensation Plan.</shortdescription>
 				<longdescription>Learn all of the exciting details about the Binary Compensation Plan from USANA Associate Jeremy Stansfield. Have all of your questions answered with this step-by-step instructional video. Find out how your USANA business can reach its highest potential.</longdescription>
 			</video>		
-			<video id="ven098">
+			<video id="ven098" videoUrl="rtmp://cp23245.edgefcs.net/ondemand/mp4:23245/mm/flvmedia/2851/h/2/6/h264mediacenterenen_USMatchingBonusCountownen_USMatchingBonusCountownen_US-294462.mp4?cid=2851&aid=294462&afid=419940">
 				<title>Matching Bonus Countdown</title>
 				<shortdescription>The Matching Bonus Countdown Has Begun</shortdescription>
 				<longdescription>Hit the ground running and achieve success even faster. You only have six weeks, or 42 days, from signing your USANA Associate agreement to take advantage of the PaceSetter and Platinum PaceSetter program. Set the pace now for a successful USANA business</longdescription>
 			</video>		
-			<video id="ven123">
+			<video id="ven123" videoUrl="rtmp://cp23245.edgefcs.net/ondemand/mp4:23245/mm/flvmedia/2851/h/2/6/h264mediacenterenen_USRobertAllenRecessionProofen_USRobertAllenRecessionProofen_US-294493.mp4?cid=2851&aid=294493&afid=419972">
 				<title>Recession-Proof Formula</title>
 				<shortdescription>Learn Robert Allen's Recession-Proof Formula</shortdescription>
 				<longdescription>Learn from Robert G. Allen, one of today's most influential financial advisors and author of the bestseller Multiple Streams of Income, how to create financial stability and build true wealth through his proven M.O.N.E.Y.T.R.E.E. formula.</longdescription>
 			</video>		
-			<video id="ven056">
+			<video id="ven056" videoUrl="rtmp://cp23245.edgefcs.net/ondemand/mp4:23245/mm/flvmedia/2851/h/2/6/h264mediacenterenen_USCompPlanBenefitsAllen_USCompPlanBenefitsAllen_US-294433.mp4?cid=2851&aid=294433&afid=419911">
 				<title>USANA Comp Plan Benefits</title>
 				<shortdescription>10 Benefits of the USANA Compensation Plan</shortdescription>
 				<longdescription>USANA's unique binary compensation plan has helped people all over the world achieve financial success. Learn how this award-winning business model can help you succeed with a powerful combination of features to maximize your business.</longdescription>
@@ -30,22 +30,23 @@
 	<!-- = THE OPPORTUNITY = -->
 	<!-- =================== -->
 	<opportunity>
-			<video id="ven030"> 
+			<video id="ven030" videoUrl="rtmp://cp23245.edgefcs.net/ondemand/mp4:23245/mm/flvmedia/2851/h/2/6/h264mediacenterenen_USTrueWealthen_USTrueWealthen_US-294503.mp4?cid=2851&aid=294503&afid=419982"> 
 				<title>USANA's True Wealth</title>
 				<shortdescription>Take control of your future with USANA</shortdescription>
 				<longdescription>Learn how you can earn the money you deserve and have the freedom to enjoy it. Hear directly from just a few of the thousands of people who have experienced success with USANA's world-class products and innovative compensation plan.</longdescription>
 			</video>		
-			<video id="ven018">
+			<video id="ven018" videoUrl="rtmp://cp23245.edgefcs.net/ondemand/mp4:23245/mm/flvmedia/2851/h/2/6/h264mediacenterenen_USWhatsyourDreamen_USWhatsyourDreamen_US-294507.mp4?cid=2851&aid=294507&afid=419986">
 				<title>What's Your Dream?</title>
 				<shortdescription>What's your dream? Let USANA help you achieve it.</shortdescription>
 				<longdescription>Do you dream of spending more time with your children? A second home on the coast? A long and healthy life? It’s possible with USANA Health Sciences. Let USANA help you achieve your dreams. </longdescription>
 			</video>		
-			<video id="ven022">
-				<title>USANA Associates Speak Out 1</title>
-				<shortdescription>Hear the truth about USANA.</shortdescription>
-				<longdescription>Before you make a decision about your future, let these USANA Associates tell you the truth about their experience with one of the leading health and wellness companies in the world.</longdescription>
+			<video id="ven097" videoUrl="rtmp://cp23245.edgefcs.net/ondemand/mp4:23245/mm/flvmedia/2851/h/2/6/h264mediacenterenen_USTheUSANADifferenceen_USTheUSANADifferenceen_US-294499.mp4?cid=2851&aid=294499&afid=419978">
+				 
+				<title>The USANA Difference</title>
+				<shortdescription>Choose a different path with the USANA Difference.</shortdescription>
+				<longdescription>Hear from real USANA Associates about what sets the USANA opportunity apart from all the rest. Whether it’s time freedom, better health, or a fabulous opportunity you are searching for, you’ll see—and want to be a part of—the USANA Difference.</longdescription>
 			</video>		
-			<video id="ven095">
+			<video id="ven095" videoUrl="rtmp://cp23245.edgefcs.net/ondemand/mp4:23245/mm/flvmedia/2851/h/2/6/h264mediacenterenen_USMatchingBonusMomentumStansfielden_USMatchingBonusMomentumStansfielden_US-294464.mp4?cid=2851&aid=294464&afid=419942">
 				<title>Building Momentum</title>
 				<shortdescription>Matching Bonus: Building Momentum</shortdescription>
 				<longdescription>With the excitement that the new Matching Bonus program creates you can build the momentum needed for a successful USANA business. Matching Bonus gives you the tools you need to reach even greater levels of success.</longdescription>
@@ -56,25 +57,25 @@
 	<!-- = WEALTH TESTIMONIALS = -->
 	<!-- ======================= -->
 	<wealth>
-			<video id="ven002">
+			<video id="ven002" videoUrl="rtmp://cp23245.edgefcs.net/ondemand/mp4:23245/mm/flvmedia/2851/h/2/6/h264mediacenterenen_USSucceedwithUSANAen_USSucceedwithUSANAen_US-294498.mp4?cid=2851&aid=294498&afid=419977">
 				 
 				<title>Succeed with USANA</title>
 				<shortdescription>Experience the success you can achieve with USANA.</shortdescription>
 				<longdescription>Hear from real USANA Associates about how they successfully built their USANA business. They’ll tell you that while USANA takes effort and dedication, the rewards you receive for your efforts can help you achieve your dreams.</longdescription>
 			</video>		
-			<video id="ven082">
+			<video id="ven082" videoUrl="rtmp://cp23245.edgefcs.net/ondemand/mp4:23245/mm/flvmedia/2851/h/2/6/h264mediacenterenen_USPenrodMatchingBonusen_USPenrodMatchingBonusen_US-294478.mp4?cid=2851&aid=294478&afid=419957">
 				 
 				<title>Love Matching Bonus</title>
 				<shortdescription>USANA's top leaders love Matching Bonus</shortdescription>
 				<longdescription>Straight from the Leadership Summit trip in Ireland, Bryan and Monica Penrod, 4-Star Diamond Directors, explain why they can’t wait to start capitalizing on the USANA Matching Bonus program.</longdescription>
 			</video>		
-			<video id="ven071">
+			<video id="ven071" videoUrl="rtmp://cp23245.edgefcs.net/ondemand/mp4:23245/mm/flvmedia/2851/h/2/6/h264mediacenterenen_USChangingLivesJohnsonen_USChangingLivesJohnsonen_US-294406.mp4?cid=2851&aid=294406&afid=419884">
 				 
 				<title>Changing Lives - Larsen/Ross</title>
 				<shortdescription>Changing Lives with Collette Larsen and Zachary Ross</shortdescription>
 				<longdescription>Zachary Ross and Collette Larsen, 10-Star Diamond Directors, are thrilled with what they have achieved through their USANA business. As they continue to create priceless memories with their growing family, they never stop working hard and dreaming big.</longdescription>
 			</video>		
-			<video id="ven070">
+			<video id="ven070" videoUrl="rtmp://cp23245.edgefcs.net/ondemand/mp4:23245/mm/flvmedia/2851/h/2/6/h264mediacenterenen_USChangingLivesHuntersen_USChangingLivesHuntersen_US-294405.mp4?cid=2851&aid=294405&afid=419883">
 				 
 				<title>Changing Lives - Johnson</title>
 				<shortdescription>Changing Lives with Lynn Allen-Johnson</shortdescription>
@@ -86,13 +87,13 @@
 	<!-- = SKIN CARE = -->
 	<!-- ============= -->
 	<skincare>
-		<video id="ven007">
+		<video id="ven007" videoUrl="rtmp://cp23245.edgefcs.net/ondemand/mp4:23245/mm/flvmedia/2851/h/2/6/h264mediacenterenen_USSensewithReginaHamlinen_USSensewithReginaHamlinen_US-294496.mp4?cid=2851&aid=294496&afid=419975">
 			 
 			<title>Sensé with Dr. Regina Hamlin</title>
 			<shortdescription>Learn the science behind the Sensé skin care line.</shortdescription>
 			<longdescription>Regina Hamlin, M.D., chief of dermatology at four major California hospitals, explains the aging process of your skin and how Sensé can work for you.</longdescription>
 		</video>		
-		<video id="ven104">
+		<video id="ven104" videoUrl="rtmp://cp23245.edgefcs.net/ondemand/mp4:23245/mm/flvmedia/2851/h/2/6/h264mediacenterenen_USNARSenseen_USNARSenseen_US-294473.mp4?cid=2851&aid=294473&afid=419952">
 			 
 			<title>The Science of Skin Care</title>
 			<shortdescription>National Agricultural Report - Sense</shortdescription>
@@ -105,59 +106,60 @@
 	<!-- = NUTRITION = -->
 	<!-- ============= -->	
 	<nutrition>
-			<video id="ven033">
+			<video id="ven033" videoUrl="rtmp://cp23245.edgefcs.net/ondemand/mp4:23245/mm/flvmedia/2851/h/2/6/h264mediacenterenen_USNutritionalsYouCanTrusten_USNutritionalsYouCanTrusten_US-294476.mp4?cid=2851&aid=294476&afid=419955">
 				 
 				<title>Nutritionals You Can Trust</title>
 				<shortdescription>Safety.  Efficacy.  Quality: Nutritionals You Can Trust.</shortdescription>
 				<longdescription>With an emphasis on safety, efficacy, and quality, USANA's products are endorsed by professional athletes and medical professionals alike.  With exclusive patents, award-winning products, and numerous third-party accolades, USANA means Nutritionals You Can Trust.</longdescription>
-			</video>		
-			<video id="ven055">
+			</video>	
+            <video id="ven134" videoUrl="rtmp://cp23245.edgefcs.net/ondemand/mp4:23245/mm/flvmedia/2851/h/2/6/h264mediacenterenen_USEssentialsen_USEssentialsen_US-294447.mp4?cid=2851&aid=294447&afid=419925">
+				 
+				<title>USANA's Essentials</title>
+				<shortdescription>Highest Rated Nutritional Supplement In The World</shortdescription>
+				<longdescription>Far more than a multivitamin, the Essentials deliver all 13 Vitamins, 12 minerals, trace minerals, and over 20 different antioxidants.  The Essentials provides the most complete, advanced, and effective foundation of nutrition your cells need. </longdescription>
+			</video>	
+			<video id="ven055" videoUrl="rtmp://cp23245.edgefcs.net/ondemand/mp4:23245/mm/flvmedia/2851/h/2/6/h264mediacenterenen_USGetSettoRESETen_USGetSettoRESETen_US-294452.mp4?cid=2851&aid=294452&afid=419930">
 				 
 				<title>Get Set to RESET!</title>
 				<shortdescription>Get the most out of the RESET Program.</shortdescription>
 				<longdescription>Find out how proper nutrition can help you look and feel great with leading nutrition expert Dr. Ray Strand. Learn how easy and convenient RESET can be and how to position yourself for continued success in meeting your goals.</longdescription>
 			</video>		
-			<video id="ven061">
+			<video id="ven061" videoUrl="rtmp://cp23245.edgefcs.net/ondemand/mp4:23245/mm/flvmedia/2851/h/2/6/h264mediacenterenen_USCustomizeYourHealthen_USCustomizeYourHealthen_US-294438.mp4?cid=2851&aid=294438&afid=419916">
 				 
 				<title>Customize Your Health</title>
 				<shortdescription>Customize your health with USANA's MyHealthPak</shortdescription>
 				<longdescription>You customize your coffee, you customize your car, and you even customize your pizza. Why not customize what’s most important—your health? Introducing USANA’s MyHealthPak. The supplements you want, customized for your body’s needs.</longdescription>
 			</video>		
-			<video id="ven097">
-				 
-				<title>The USANA Difference</title>
-				<shortdescription>Choose a different path with the USANA Difference.</shortdescription>
-				<longdescription>Hear from real USANA Associates about what sets the USANA opportunity apart from all the rest. Whether it’s time freedom, better health, or a fabulous opportunity you are searching for, you’ll see—and want to be a part of—the USANA Difference.</longdescription>
-			</video>	
+				
 	</nutrition>
 	
 	<!-- ========== -->
 	<!-- = ENERGY = -->
 	<!-- ========== -->
 	<energy>
-			<video id="ven068">
+			<video id="ven068" videoUrl="rtmp://cp23245.edgefcs.net/ondemand/mp4:23245/mm/flvmedia/2851/h/2/6/h264mediacenterenen_USRev3Launchen_USRev3Launchen_US-294492.mp4?cid=2851&aid=294492&afid=419971">
 				 
 				<title>Rev Up Your Energy Level</title>
 				<shortdescription>Revolutionizing the world of energy drinks</shortdescription>
 				<longdescription>USANA, the trusted name in nutrition, has revolutionized the world of energy drinks with its new Rev3 Energy. With a cleaner, smarter, and stronger formula, Rev3 provides you with a healthier alternative to crash-and-burn energy drinks.</longdescription>
 			</video>		
-			<video id="ven069">
+			<video id="ven069" videoUrl="rtmp://cp23245.edgefcs.net/ondemand/mp4:23245/mm/flvmedia/2851/h/2/6/h264mediacenterenen_USRev3Commercialen_USRev3Commercialen_US-294491.mp4?cid=2851&aid=294491&afid=419970">
 				 
 				<title>Join the Revolution!</title>
 				<shortdescription>Get ready to join the Rev3 Revolution!</shortdescription>
 				<longdescription>We are in the midst of an energy crisis! Until now, most energy drinks available were filled with artificial flavors, sweeteners, and chemicals! USANA saw the problem and developed something cleaner, smarter, and stronger. Rev3, Join the Revolution!</longdescription>
 			</video>		
-			<video id="ven015">
+			<video id="ven015" videoUrl="rtmp://cp23245.edgefcs.net/ondemand/mp4:23245/mm/flvmedia/2851/h/2/6/h264mediacenterenen_USRayneedsEnergyen_USRayneedsEnergyen_US-294486.mp4?cid=2851&aid=294486&afid=419965">
 				 
 				<title>Ray Needs Energy</title>
 				<shortdescription>USANA can give Ray the energy he needs!</shortdescription>
 				<longdescription>Keepmestableex? Zippygogolean? Ray is always looking for that modern medical magic in a pill. USANA Health Sciences can help you find the energy you need to live a healthy lifestyle, without the crazy side affects.</longdescription>
 			</video>		
-			<video id="ven013">
+			<video id="ven131" videoUrl="rtmp://cp23245.edgefcs.net/ondemand/mp4:23245/mm/flvmedia/2851/h/2/6/h264mediacenterenen_USDaveWentzRev3SkiVideoen_USDaveWentzRev3SkiVideoen_US-294441.mp4?cid=2851&aid=294441&afid=419919">
 				 
-				<title>USANA's Mega-Girl</title>
-				<shortdescription>USANA's Mega-Girl Fights Free Radicals</shortdescription>
-				<longdescription>Do your children hate to take their vitamins? Are they feeding their vitamins to the dog? Well, learn how normal, everyday Megan, transforms herself into Mega-Girl—all because of USANA Usanimals™. Usanimals, super nutrition for super kids.</longdescription>
+				<title>Rev3 Extreme Adventure</title>
+				<shortdescription>Join USANA CEO Dave Wentz on a Rev3 Adventure</shortdescription>
+				<longdescription>Being the CEO of an international company can be very stressful, so when Dave Wentz gets the chance to play, he likes to play real hard. See how Rev3 helps Dave take his adventures to the next extreme level.</longdescription>
 			</video>	
 	</energy>
 	
@@ -165,19 +167,19 @@
 	<!-- = ATHLETES = -->
 	<!-- ============= -->
 	<athletes>
-			<video id="ven004">
+			<video id="ven004" videoUrl="rtmp://cp23245.edgefcs.net/ondemand/mp4:23245/mm/flvmedia/2851/h/2/6/h264mediacenterenen_USAthleteApproveden_USAthleteApproveden_US-294400.mp4?cid=2851&aid=294400&afid=419878">
 				 
 				<title>Athlete Approved</title>
 				<shortdescription>Athletes trust their health to USANA.</shortdescription>
 				<longdescription>Today more than ever, elite athletes including former WNBA star Jennifer Azzi and Olympic Speedskater Derek Parra are being drawn to USANA’s unrivaled nutritional supplements. </longdescription>
 			</video>		
-			<video id="ven075">
+			<video id="ven075" videoUrl="rtmp://cp23245.edgefcs.net/ondemand/mp4:23245/mm/flvmedia/2851/h/2/6/h264mediacenterenen_USUSSpeedskatingandUSANAen_USUSSpeedskatingandUSANAen_US-294506.mp4?cid=2851&aid=294506&afid=419985">
 				 
 				<title>U.S. Speedskating and USANA</title>
 				<shortdescription>Great Athletes Require Great Support From USANA</shortdescription>
 				<longdescription>With the support USANA has provided, the U.S. Speedskating Olympic team and the US Short Track Speedskating Olympic team are realizing their dreams and reaching new heights as one of the premier speedskating organizations in the world.</longdescription>
 			</video>		
-			<video id="ven076">
+			<video id="ven076" videoUrl="rtmp://cp23245.edgefcs.net/ondemand/mp4:23245/mm/flvmedia/2851/h/2/6/h264mediacenterenen_USUSANAAthletesen_USUSANAAthletesen_US-294504.mp4?cid=2851&aid=294504&afid=419983">
 				 
 				<title>USANA Athletes</title>
 				<shortdescription>These Athletes Trust Their Health to USANA</shortdescription>
@@ -190,13 +192,19 @@
 	<!-- = HEALTH TESTIMONIALS = -->
 	<!-- ======================= -->
 	<healthtestimonials>
-			<video id="ven020">
+                <video id="ven023" videoUrl="rtmp://cp23245.edgefcs.net/ondemand/mp4:23245/mm/flvmedia/2851/h/2/6/h264mediacenterenen_USAssociatesSpeakOut2en_USAssociatesSpeakOut2en_US-294390.mp4?cid=2851&aid=294390&afid=419867">
+				 
+				<title>USANA Associates Speak Out 2</title>
+				<shortdescription>Jennifer Azzi tells the truth about USANA</shortdescription>
+				<longdescription>Let Jennifer Azzi tell you the truth about her experience as a professional athlete who became involved with USANA, one of the leading health and wellness companies in the world.</longdescription>
+			</video>
+			<video id="ven020" videoUrl="rtmp://cp23245.edgefcs.net/ondemand/mp4:23245/mm/flvmedia/2851/h/2/6/h264mediacenterenen_USRESETTestimonialsen_USRESETTestimonialsen_US-294482.mp4?cid=2851&aid=294482&afid=419961">
 				 
 				<title>RESET with USANA</title>
 				<shortdescription>See how USANA can help you RESET your life!</shortdescription>
 				<longdescription>Don’t you wish your life had a RESET button? See how USANA’s 5-Day RESET, Transform, and Maintain programs have helped Associates make the lifestyle changes they needed to live a healthier and more active life. </longdescription>
 			</video>		
-			<video id="ven103">
+			<video id="ven103" videoUrl="rtmp://cp23245.edgefcs.net/ondemand/mp4:23245/mm/flvmedia/2851/h/2/6/h264mediacenterenen_USNARNutritionalLineen_USNARNutritionalLineen_US-294471.mp4?cid=2851&aid=294471&afid=419950">
 				 
 				<title>Standard of Quality</title>
 				<shortdescription>National Agricultural Report-Potency Guarantee</shortdescription>
@@ -209,29 +217,29 @@
 	<!-- = USANA HEALTH SCIENCES = -->
 	<!-- ========================= -->
 	<usanahealthsciences>
-			<video id="ven001">
+			<video id="ven001" videoUrl="rtmp://cp23245.edgefcs.net/ondemand/mp4:23245/mm/flvmedia/2851/h/2/6/h264mediacenterenen_USACompanyofDistinctionen_USACompanyofDistinctionen_US-294386.mp4?cid=2851&aid=294386&afid=419862">
 				 
 				<title>A Company of Distinction</title>
 				<shortdescription>Discover a company you can be proud to represent.</shortdescription>
 				<longdescription>USANA Health Sciences is proud to lead the network marketing industry in both quality and integrity. USANA’s commitment to creating Nutritionals You Can Trust make it a company you can be proud to represent.</longdescription>
 			</video>		
-			<video id="ven031">
+			<video id="ven031" videoUrl="rtmp://cp23245.edgefcs.net/ondemand/mp4:23245/mm/flvmedia/2851/h/2/6/h264mediacenterenen_US15YearswithUSANAen_US15YearswithUSANAen_US-294384.mp4?cid=2851&aid=294384&afid=419860">
 				 
 				<title>15 Years With USANA</title>
 				<shortdescription>Sharing 15 Years of Milestones with USANA</shortdescription>
 				<longdescription>Share the vision of USANA by celebrating the company’s many achievements over the past 15 years. From the opening of its first international market to its patented products, celebrate the USANA family’s many milestones and incredible growth. </longdescription>
 			</video>		
-			<video id="ven054">
+			<video id="ven054" videoUrl="rtmp://cp23245.edgefcs.net/ondemand/mp4:23245/mm/flvmedia/2851/h/2/6/h264mediacenterenen_USTourUSANAFacilitiesen_USTourUSANAFacilitiesen_US-294502.mp4?cid=2851&aid=294502&afid=419981">
 				 
 				<title>Take A Tour Of USANA</title>
 				<shortdescription>Tour USANA's Home Office with Dr. Tim Wood</shortdescription>
 				<longdescription>Dr. Tim Wood, Executive Vice President of Research and Development, invites you on a tour of the USANA Health Sciences home office. From product development, to manufacturing, to order fulfillment, see how USANA reaches for new heights in excellence.</longdescription>
 			</video>		
-			<video id="ven106">
+			<video id="ven106" videoUrl="rtmp://cp23245.edgefcs.net/ondemand/mp4:23245/mm/flvmedia/2851/h/2/6/h264mediacenterenen_USNARCorporateResonsibiityen_USNARCorporateResonsibiityen_US-294469.mp4?cid=2851&aid=294469&afid=419948">
 				 
 				<title>Corporate Responsibility</title>
 				<shortdescription>National Agricultural Report-Responsibility</shortdescription>
 				<longdescription>A segment from The National Agricultural Report's educational documentary featuring USANA Health Sciences: Through its many charitable organizations, environmental programs, and employee benefits, USANA is making a positive impact on the world.</longdescription>
 			</video>
 		</usanahealthsciences>
-</recommended>  
+</recommended>

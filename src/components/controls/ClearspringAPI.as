@@ -7,7 +7,7 @@ package components.controls{
 	
 	import mx.core.FlexGlobals;
 	
-	public class ClearSpringAPI extends MovieClip
+	public class ClearspringAPI extends MovieClip
 	{
 		private const kernelUrl:String = "http://widgets.clearspring.com/o/4a804e796cd38579/4a804e796cd38579/-/-TRK/1/lib.v3.as3.swf";
 		private var kernel:Object;
@@ -28,7 +28,7 @@ package components.controls{
 				kernelLoader.load(new URLRequest(kernelUrl),
 				new LoaderContext(false,  new ApplicationDomain(ApplicationDomain.currentDomain),SecurityDomain.currentDomain));
 		}
-		
+		  
 		private function onApiLoad(e:Event):void
 		{
 			// Grab reference to actual kernel

@@ -389,7 +389,6 @@ package components.views
 			}
 			
 			
-			search_type="rec_video"
 			
 				/*SET CURRENT SEARCH TERM*/
 				current_search_term = recommended_searchTitle;
@@ -419,10 +418,10 @@ package components.views
 		/* ============================================================== */
 		public function recommendedSearchResultHandler():void
 		{
-
+			search_type = "recommended_video";
+			
 			/*SET THE VIDEO_LIST RESULTS SORTED BY MOST RECENT*/
 			video_list = sort_by_most_recent(recommended_search_svc.lastResult.video);
-			
 
 			if ((video_list) && (video_list.video.length() > 0))
 			{			
@@ -431,6 +430,7 @@ package components.views
 				landing_page_view.wall.unloadAndStop();
 							
 				current_video = video_list.video[0];
+				
 				//trace(video_list);
 				main_view_stack.selectedIndex = 3;
 			    
@@ -487,7 +487,7 @@ package components.views
 	/* =============================================== */
 	public function recentVideosResultHandler():void
 	{
-		
+		search_type = "recent_video";
 		video_list = sort_by_most_recent(recent_videos_svc.lastResult.video);
 		
 		current_video = video_list.children()[0];
@@ -1093,7 +1093,15 @@ public function sort_by_most_recent(serviceResult:XMLList):XML
 	for each (var video:XML in serviceResult)
 	{
 		
-		videoArray.addItem({"id":video.@id.substring(3),"videoUrl":video.@videoUrl,"title":video.title,"shortdescription":video.shortdescription,"longdescription":video.longdescription});
+		if(search_type == 'recommended_video')
+		{
+			trace(video.@videourl)
+			videoArray.addItem({"id":video.@id.substring(3),"videoUrl":video.@videourl,"title":video.title,"shortdescription":video.shortdescription,"longdescription":video.longdescription});
+		}
+		else
+		{
+			videoArray.addItem({"id":video.@id.substring(3),"videoUrl":video.@videoUrl,"title":video.title,"shortdescription":video.shortdescription,"longdescription":video.longdescription});
+		}
 	}
 	
 	/*BELOW WE SORT THE RESULTS DESCENDING BASED ON STREAMHITS*/
@@ -1116,6 +1124,7 @@ public function sort_by_most_recent(serviceResult:XMLList):XML
 			var begin:int = videoURL.search("mp4");
 			var end:int = videoURL.length; 
 			var newURL:String = videoURL.slice(begin,end);
+			
 			xmlstr += "<video id=\"v"+LANGUAGE+finalVideo.id+"\" videoUrl=\""+newURL+"\">\n";
 			xmlstr += "<title>"+finalVideo.title+"</title>\n"; 
 			xmlstr += "<shortdescription>"+finalVideo.shortdescription+"</shortdescription>\n"; 

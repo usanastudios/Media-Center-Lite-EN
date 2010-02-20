@@ -376,7 +376,7 @@ private function startPlayback(mode:String = null):void {
 	//IF CLICKING VIDEO OR PLAY BUTTON, PLAY VIDEO (OTHERWISE DO NOT AUTO PLAY)
 	if(mode == "on_demand")
 	{
-		write("Thumbnail");
+	//	write("Thumbnail");
 		playVideo(VIDEO_URL);
 		
 	}
@@ -419,25 +419,25 @@ public function doPlayPause():void {
 				_ns.resume();
 				_isPaused=false;
 			}
-			break;
+			break ; 
 	}
-}
+} 
 // Formats the slider dataTip 
-public function showVolume(val:String):String {
+public function showVolume(val:String):String { 
 	return ("Volume: "+Math.round(Number(val)*100)+"%");
 }
 // Converts time to timecode
 public function showScrubTime(val:String):String {
 	var sec:Number = Number(val); 
 	var h:Number = Math.floor(sec/3600);
-	var m:Number = Math.floor((sec%3600)/60);
+	var m:Number = Math.floor((sec%3600)/60); 
 	var s:Number = Math.floor((sec%3600)%60);
 	return (h == 0 ? "":(h<10 ? "0"+h.toString()+":" : h.toString()+":"))+(m<10 ? "0"+m.toString() : m.toString())+":"+(s<10 ? "0"+s.toString() : s.toString());
 }
 // Changes the stream volume
 public function changeVolume(event:SliderEvent=null):void {
 	
-	
+	 
 	//if (_ns is AkamaiConnection) 
 	if(event)
 	{
