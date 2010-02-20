@@ -343,15 +343,29 @@ package components.views
 		/* ================================================== */
 		public function searchResultHandler():void
 		{
-			
+		
 			
 			/*SET THE VIDEO_LIST RESULTS*/
 			video_list = search_svc.lastResult as XML;
-				
+			
 			if ((video_list) && (video_list.video.length() > 0))
 			{	
-				current_video = video_list.video[0];
+		
+				/*REBUILD THE XML FOR CURRENT VIDEO*/
+				var videoURL:String = video_list.video[0].@videourl;
 				
+				var begin:int = videoURL.search("mp4");
+				var end:int = videoURL.length; 
+				var newURL:String = videoURL.slice(begin,end);
+				var xmlstr:String = ""; 
+				xmlstr += "<video id=\""+video_list.video[0].@id+"\" videoUrl=\""+newURL+"\">\n";
+				xmlstr += "<title>"+video_list.video[0].title+"</title>\n"; 
+				xmlstr += "<shortdescription>"+video_list.video[0].shortdescription+"</shortdescription>\n"; 
+				xmlstr += "<longdescription>"+video_list.video[0].longdescription+"</longdescription>\n"; 
+				xmlstr += "</video>";
+							
+				current_video = new XML(xmlstr);
+				//current_video = video_list.video[0];
 				//REMOVE 3DWALL DUE TO BUG
 				landing_page_view.wall.unloadAndStop();
 				
@@ -1019,6 +1033,8 @@ package components.views
 /* =================================== */
 public function showVideo(video:XML,videoPage:Object):void {
 	
+	
+
 	    //CLEAR VIDEO THUMBNAIL OVERLAY (VIDEO PLAYS INSTANTLY)
 		videoPage.large_thumbnail_overlay.source = "";
 		
@@ -1029,7 +1045,29 @@ public function showVideo(video:XML,videoPage:Object):void {
 		videoPage.loading_overlay.visible = true;
 		
 	//SET CURRENT VIDEO BASED ON CLICKED THUMBNAIL
-	current_video = video;
+	
+		var videoURL:String = video.@videourl;
+		
+		if(videoURL.search("mp4") >= 0)
+		{	
+			
+			var begin:int = videoURL.search("mp4");
+			var end:int = videoURL.length; 
+			var newURL:String = videoURL.slice(begin,end);
+			var xmlstr:String = ""; 
+			xmlstr += "<video id=\""+video[0].@id+"\" videoUrl=\""+newURL+"\">\n";
+			xmlstr += "<title>"+video[0].title+"</title>\n"; 
+			xmlstr += "<shortdescription>"+video[0].shortdescription+"</shortdescription>\n"; 
+			xmlstr += "<longdescription>"+video[0].longdescription+"</longdescription>\n"; 
+			xmlstr += "</video>";
+			current_video = new XML(xmlstr);
+		}
+		else
+		{
+			current_video = video;
+		}
+				trace(current_video);	
+	
 	// Cast the ModuleLoader's child to the interface.
 	// This child is an instance of the module.
 	// We can now call methods on that instance.
