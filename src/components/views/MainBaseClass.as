@@ -1093,6 +1093,9 @@ public function sort_by_most_recent(serviceResult:XMLList):XML
 	for each (var video:XML in serviceResult)
 	{
 		
+		/* ================================================================================================================ */
+		/* = BELOW IS A TEMPORARY IF STATEMENT UNTIL IT CAN CHANGE THE FIELD FOR RECOMMENDED SEARCH RESULTS TO "videoUrl" = */
+		/* ================================================================================================================ */
 		if(search_type == 'recommended_video')
 		{
 			trace(video.@videourl)
